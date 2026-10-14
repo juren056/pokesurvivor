@@ -1,0 +1,96 @@
+{
+  "routes": {
+    "/how-to-play/": {
+      "title": "How to play Pok\u00e9Survivor",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/mobile/": {
+      "title": "Play Pok\u00e9Survivor on mobile",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/builds/": {
+      "title": "Starter builds: plan a move evolution",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/download/": {
+      "title": "Where to play or download Pok\u00e9Survivor",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/co-op/": {
+      "title": "Pok\u00e9Survivor co-op and account help",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/survivor-vs-burst/": {
+      "title": "Pok\u00e9Survivor vs Pok\u00e9mon Survivor Burst",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/about/": {
+      "title": "About this Wiki & editorial method",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/privacy/": {
+      "title": "Privacy & local tools",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/pokedex/": {
+      "title": "Pok\u00e9Survivor Pok\u00e9dex: stats & unlock routes",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/moves/": {
+      "title": "Pok\u00e9Survivor moves: damage, patterns & evolutions",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/move-evolutions/": {
+      "title": "Pok\u00e9Survivor move evolutions & requirement checker",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/starters/": {
+      "title": "Best Pok\u00e9Survivor starters: all 29 starting options",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/tier-list/": {
+      "title": "Pok\u00e9Survivor tier list: starter stat rankings",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/types/": {
+      "title": "Pok\u00e9Survivor type chart & damage calculator",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/legendaries/": {
+      "title": "Pok\u00e9Survivor legendaries: rifts & roster",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/updates/": {
+      "title": "Pok\u00e9Survivor updates & source snapshot",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/": {
+      "title": "Pok\u00e9mon Survivor Wiki | Pok\u00e9Survivor Guides & Pok\u00e9dex",
+      "index": true,
+      "modified": "2026-10-15"
+    },
+    "/search/": {
+      "title": "Search the Pok\u00e9Survivor Wiki",
+      "index": false,
+      "modified": "2026-10-15"
+    }
+  },
+  "sitemap": "<?xml version='1.0' encoding='utf-8'?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>https://pokemonsurvivorwiki.com/how-to-play/</loc><lastmod>2026-10-15</lastmod></url><url><loc>https://pokemonsurvivorwiki.com/mobile/</loc><lastmod>2026-10-15</lastmod></url><url><loc>https://pokemonsurvivorwiki.com/builds/</loc><lastmod>2026-10-15</lastmod></url><url><loc>https://pokemonsurvivorwiki.com/download/</loc><lastmod>2026-10-15</lastmod></url><url><loc>https://pokemonsurvivorwiki.com/co-op/</loc><lastmod>2026-10-15</lastmod></url><url><loc>https://pokemonsurvivorwiki.com/survivor-vs-burst/</loc><lastmod>2026-10-15</lastmod></url><url><loc>https://pokemonsurvivorwiki.com/about/</loc><lastmod>2026-10-15</lastmod></url><url><loc>https://pokemonsurvivorwiki.com/privacy/</loc><lastmod>2026-10-15</lastmod></url><url><loc>https://pokemonsurvivorwiki.com/pokedex/</loc><lastmod>2026-10-15</lastmod></url><url><loc>https://pokemonsurvivorwiki.com/moves/</loc><lastmod>2026-10-15</lastmod></url><url><loc>https://pokemonsurvivorwiki.com/move-evolutions/</loc><lastmod>2026-10-15</lastmod></url><url><loc>https://pokemonsurvivorwiki.com/starters/</loc><lastmod>2026-10-15</lastmod></url><url><loc>https://pokemonsurvivorwiki.com/tier-list/</loc><lastmod>2026-10-15</lastmod></url><url><loc>https://pokemonsurvivorwiki.com/types/</loc><lastmod>2026-10-15</lastmod></url><url><loc>https://pokemonsurvivorwiki.com/legendaries/</loc><lastmod>2026-10-15</lastmod></url><url><loc>https://pokemonsurvivorwiki.com/updates/</loc><lastmod>2026-10-15</lastmod></url><url><loc>https://pokemonsurvivorwiki.com/</loc><lastmod>2026-10-15</lastmod></url></urlset>",
+  "data_sha256": "c81b93dd67746876cbcf8da229f57e6baf22173539260b05c446c02bea8a97e7"
+}

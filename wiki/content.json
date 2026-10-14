@@ -1,0 +1,451 @@
+{
+  "reviewed": "2026-10-15",
+  "pages": [
+    {
+      "slug": "how-to-play",
+      "title": "How to play PokéSurvivor",
+      "description": "Start your first PokéSurvivor run: controls, move switching, upgrade cards, healing and saving your progress.",
+      "group": "Guides",
+      "intro": "Move your partner, collect experience and choose upgrades. Attacks fire automatically; positioning and the move you keep active are your main decisions.",
+      "sections": [
+        {
+          "heading": "Start a first run",
+          "steps": [
+            "Open the developer’s browser game. Sign in for cloud progress or choose the guest option to try it locally.",
+            "Complete the personality questions, then accept the suggested partner or choose another starter. The quiz is a recommendation, not a permanent restriction on your choice.",
+            "Enter a run and move into open space. Your active move attacks automatically. Collect dropped experience while keeping an escape route.",
+            "When you level up, choose a new move, improve an existing move, or take a run stat upgrade. Read the effect before filling all your slots."
+          ]
+        },
+        {
+          "heading": "Learn these controls first",
+          "table": {
+            "headers": [
+              "Action",
+              "Desktop",
+              "Phone / tablet"
+            ],
+            "rows": [
+              [
+                "Move",
+                "WASD or arrow keys",
+                "Drag on the play area"
+              ],
+              [
+                "Choose active move",
+                "1–4",
+                "Tap a move at the bottom"
+              ],
+              [
+                "Cycle moves",
+                "Q / E",
+                "Tap the move you need"
+              ],
+              [
+                "Pause",
+                "Esc / P",
+                "Tap the pause control"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Choose upgrades with a destination",
+          "paragraphs": [
+            "A wider move collection is not automatically a stronger run: normally one selected move fires at a time. Improve an attack you can use reliably, then take a complementary move for a different range or matchup.",
+            "A move evolution needs its maximum level and a specific stat card taken in the same run. The golden evolution card is a separate choice. Use the evolution table before spending several levels on a plan.",
+            "Buff moves do not deal direct damage. Keep an actual damaging option available rather than making every slot a buff."
+          ]
+        },
+        {
+          "heading": "Recover and keep your progress",
+          "paragraphs": [
+            "Use healing springs and read the terrain. Water slows movement and lava hurts; walls and trees can obstruct enemy projectiles. A chest with a lock needs you to remain beside it briefly.",
+            "Guest progress lives in this game origin’s browser storage. Clearing site data can remove it. A cloud account is the route for continuing on another device; this Wiki does not store or recover game saves.",
+            "A failed run is a useful checkpoint: compare whether you ran out of space, healing, or damage, and change that part of the next attempt."
+          ]
+        }
+      ],
+      "related": [
+        "starters",
+        "move-evolutions",
+        "mobile"
+      ],
+      "sources": [
+        "README.md",
+        "js/systems/levelup.js",
+        "js/data/moves.js"
+      ]
+    },
+    {
+      "slug": "mobile",
+      "title": "Play PokéSurvivor on mobile",
+      "description": "Browser controls, home-screen installation, performance settings and save precautions for PokéSurvivor on Android and iPhone.",
+      "group": "Guides",
+      "intro": "The source project supports phone and tablet play in the browser. Start there; an APK is not required for the browser version.",
+      "sections": [
+        {
+          "heading": "Set up touch controls",
+          "steps": [
+            "Open pokesurvivor.com in a current browser and rotate the device to landscape.",
+            "Choose a guest session or your game account. Start a run and drag on the play area to move; the joystick appears at the touch position.",
+            "Tap the move bar to change the active attack. Use the on-screen pause control before adjusting settings.",
+            "Try a short run before relying on a long session. Screen size, browser support and device performance can differ."
+          ]
+        },
+        {
+          "heading": "Add the game to your home screen",
+          "paragraphs": [
+            "On Android, look in your browser’s menu for an install or Add to Home screen option. On iPhone or iPad, look in Safari’s Share menu for Add to Home Screen. Wording and availability vary by browser and OS.",
+            "This adds the browser app, not a separate native App Store release. The project includes an offline cache, but a fresh install still needs resources to load, and online account or co-op functions need a connection. This guide has not certified offline behavior on every device."
+          ]
+        },
+        {
+          "heading": "If the run feels slow",
+          "steps": [
+            "Pause and lower the graphics quality in Settings, or try automatic quality.",
+            "Reduce damage-number effects and screen shake if they distract you or add load.",
+            "Close other demanding tabs, then test another short run. Do not clear the game’s site data as a routine performance fix."
+          ]
+        },
+        {
+          "heading": "If your collection looks missing",
+          "paragraphs": [
+            "Check that you opened the same game address, browser profile and account as before. A different domain or private-browsing session has separate browser storage.",
+            "If you used a cloud account, sign back into that account. If you played as a guest and erased its storage, installing a home-screen shortcut does not reconstruct the missing save."
+          ]
+        }
+      ],
+      "related": [
+        "how-to-play",
+        "download",
+        "co-op"
+      ],
+      "sources": [
+        "README.md",
+        "sw.js",
+        "js/core/settings.js"
+      ]
+    },
+    {
+      "slug": "builds",
+      "title": "Starter builds: plan a move evolution",
+      "description": "Source-based starter build routes for Ember, Bubble, Razor Leaf and Confusion, with evolution prerequisites and practical tradeoffs.",
+      "group": "Guides",
+      "intro": "Start a build with a move you can evolve, then keep a second damage option for its weak matchups. These are source-based build routes, not measured survival-time records.",
+      "sections": [
+        {
+          "heading": "Four routes to start with",
+          "table": {
+            "headers": [
+              "Starting move",
+              "Example partner",
+              "Required stat",
+              "How to use the route"
+            ],
+            "rows": [
+              [
+                "Ember",
+                "Charmander",
+                "Power (atk)",
+                "Improve the projectile and take its attack stat prerequisite; watch Fire-resistant enemies."
+              ],
+              [
+                "Bubble",
+                "Piplup",
+                "Sprint (spd)",
+                "Use the movement upgrade as both a prerequisite and a positioning aid."
+              ],
+              [
+                "Razor Leaf",
+                "Treecko",
+                "Reflexes (cd)",
+                "Work toward the cooldown prerequisite while improving the starting attack."
+              ],
+              [
+                "Confusion",
+                "Psyduck",
+                "Reflexes (cd)",
+                "Use a Psychic opening, then keep a damaging alternative for poor matchups."
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "A repeatable upgrade order",
+          "steps": [
+            "Check your starter’s actual starting move in the starter table. Two partners of the same type can start with different moves.",
+            "When offered, take the stat card required by that move’s evolution. The condition is taking it in the current run, not buying an unrelated permanent improvement.",
+            "Raise the move to its maximum level. Choose the golden evolution card when it is offered.",
+            "Add another damaging move from your partner’s type pool or the shared Normal pool. Select it when the matchup or attack pattern makes it more useful."
+          ]
+        },
+        {
+          "heading": "Tradeoffs that change your decisions",
+          "paragraphs": [
+            "An attack’s raw damage does not account for missed shots, travel, area coverage or enemy resistance. Do not compare a persistent aura and a projectile as if damage divided by cooldown measured identical things.",
+            "Melee moves require closer positioning. The snapshot includes a melee balance change in the move definitions, so older tables may disagree with this reference. Inspect both the current move and the risk of staying in range.",
+            "Stat upgrades, terrain and weather can change a run. Treat the routes above as starting plans and use the type calculator when your damage seems unexpectedly low."
+          ]
+        }
+      ],
+      "related": [
+        "starters",
+        "move-evolutions",
+        "types"
+      ],
+      "sources": [
+        "js/data/starters.js",
+        "js/data/moves.js",
+        "js/systems/levelup.js"
+      ]
+    },
+    {
+      "slug": "download",
+      "title": "Where to play or download PokéSurvivor",
+      "description": "Find the PokéSurvivor browser game, understand PWA installation and avoid confusing its downloads with Pokémon Survivor Burst.",
+      "group": "Guides",
+      "intro": "For this PokéSurvivor project, the verified starting point is the developer’s browser game at pokesurvivor.com. You can play without downloading an APK.",
+      "sections": [
+        {
+          "heading": "Choose the right way to play",
+          "table": {
+            "headers": [
+              "Option",
+              "What it means",
+              "Where to start"
+            ],
+            "rows": [
+              [
+                "Browser game",
+                "Play on desktop or mobile without a separate installer",
+                "pokesurvivor.com"
+              ],
+              [
+                "Home-screen app / PWA",
+                "A browser installation using the project’s manifest and cache",
+                "Your browser’s install or home-screen menu"
+              ],
+              [
+                "Local source copy",
+                "Developer files; a separate origin and setup from the live game",
+                "The upstream GitHub repository"
+              ],
+              [
+                "APK or native port",
+                "A separate package whose author, version and compatibility need checking",
+                "Follow a specific developer announcement; no package is hosted here"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Before opening a download",
+          "paragraphs": [
+            "Check the exact game name, publisher and platform. This Wiki does not mirror installers or claim that an unverified helper APK is an official release.",
+            "A search for Pokémon Survivor Burst can lead to a different downloadable game by ClessioTV. Its files and instructions do not install the browser game documented here.",
+            "For the original source project, use the upstream repository linked in our source notes. Keep a local copy separate from the live game and do not assume a browser save transfers between addresses."
+          ]
+        },
+        {
+          "heading": "Does an iOS or Android listing exist?",
+          "paragraphs": [
+            "This source snapshot documents browser/mobile and PWA support. It is not evidence of a native App Store or Google Play listing. Use the mobile guide for the supported browser route instead of treating every search result with the name as the same product."
+          ]
+        }
+      ],
+      "related": [
+        "mobile",
+        "survivor-vs-burst",
+        "how-to-play"
+      ],
+      "sources": [
+        "README.md",
+        "manifest.webmanifest",
+        "sw.js"
+      ]
+    },
+    {
+      "slug": "co-op",
+      "title": "PokéSurvivor co-op and account help",
+      "description": "Play with friends, check common co-op problems and understand account recovery in the PokéSurvivor source snapshot.",
+      "group": "Guides",
+      "intro": "The game supports online groups of up to four. Use a cloud game account and the Friends menu; this Wiki has no game login or access to your save.",
+      "sections": [
+        {
+          "heading": "Start with friends",
+          "steps": [
+            "Sign into the game’s cloud account on the developer’s site.",
+            "Open Friends and add your friend by their nickname.",
+            "Invite them to your room, check that everyone has joined, then start the group run.",
+            "Keep an internet connection available. Offline browser play does not provide online multiplayer."
+          ]
+        },
+        {
+          "heading": "Check the simple causes first",
+          "paragraphs": [
+            "If a friend appears offline or an invitation does not arrive, check the device clock and time zone. The October 14 source changelog includes a fix for clock-related presence problems.",
+            "The same changelog describes fixes for players waiting on each other’s choices and invisible enemies after a rift. If you are comparing an older guide or cached copy, check the game’s update prompt and the upstream release notes. Do not erase browser saves to force an update.",
+            "Connections can depend on the local network and browser. A failed connection is not proof that your collection or account is missing."
+          ]
+        },
+        {
+          "heading": "Password and account recovery",
+          "paragraphs": [
+            "The October 14 changelog adds linking an existing username/password account to Gmail. If you linked it, using Sign in with Google with that Gmail is intended to open the same account.",
+            "The game’s login notice says an unlinked account cannot be recovered through that Google route. Do not type passwords into this Wiki or an unofficial recovery form; we cannot restore the developer’s accounts."
+          ]
+        }
+      ],
+      "related": [
+        "mobile",
+        "updates",
+        "how-to-play"
+      ],
+      "sources": [
+        "README.md",
+        "js/data/changelog.js",
+        "dev.html"
+      ]
+    },
+    {
+      "slug": "survivor-vs-burst",
+      "title": "PokéSurvivor vs Pokémon Survivor Burst",
+      "description": "Identify which Pokémon survivor game you mean before following a tier list, download or mobile tutorial.",
+      "group": "Guides",
+      "intro": "PokéSurvivor and Pokémon Survivor Burst are different fan projects. A similar name does not make their rosters, download files or move systems interchangeable.",
+      "sections": [
+        {
+          "heading": "Which game is in front of you?",
+          "table": {
+            "headers": [
+              "Check",
+              "PokéSurvivor",
+              "Pokémon Survivor Burst"
+            ],
+            "rows": [
+              [
+                "Project",
+                "jpter78’s browser game",
+                "ClessioTV’s Pokémon Essentials project"
+              ],
+              [
+                "Starting point",
+                "pokesurvivor.com",
+                "The developer’s Pokémon Survivor Burst release post"
+              ],
+              [
+                "Recognizable systems",
+                "Personality quiz, partner collection, regional gacha and rifts",
+                "Classic, Rush, Tower and Burst skills in the developer’s introduction"
+              ],
+              [
+                "This Wiki",
+                "Guides and local source-snapshot databases",
+                "Identification only; no imported rankings or roster"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Why the distinction changes the answer",
+          "paragraphs": [
+            "An APK tutorial for one project does not establish mobile support for the other. A move evolution condition in our table describes the browser project’s code; it is not a Burst build guide.",
+            "If your game has the Burst modes described above, use ClessioTV’s release thread and its linked community. If you are choosing a partner in the browser game, our starter and move references apply to the recorded source snapshot."
+          ]
+        }
+      ],
+      "related": [
+        "download",
+        "how-to-play",
+        "about"
+      ],
+      "sources": [
+        "README.md"
+      ],
+      "externalSources": [
+        {
+          "label": "ClessioTV’s Pokémon Survivor Burst release thread",
+          "url": "https://www.pokecommunity.com/threads/pok%C3%A9mon-survivor-burst-multi-languages.543514/"
+        }
+      ]
+    },
+    {
+      "slug": "about",
+      "title": "About this Wiki & editorial method",
+      "description": "How Pokémon Survivor Wiki checks game mechanics, labels recommendations and separates source data from gameplay tests.",
+      "group": "About",
+      "intro": "Pokémon Survivor Wiki is an independent English reference for jpter78’s PokéSurvivor. We do not develop the game and are not an official Pokémon website.",
+      "sections": [
+        {
+          "heading": "Where the information comes from",
+          "paragraphs": [
+            "Database tables are generated from the local game repository. Every snapshot records its source commit and file checksums. The source notes below each guide point to the files used for that topic.",
+            "The snapshot review date means the files were reviewed for this build. It does not mean that the live game was retested that day, or that the Wiki synchronizes automatically with every new release."
+          ]
+        },
+        {
+          "heading": "How recommendations are labeled",
+          "paragraphs": [
+            "Starter score bands are a transparent comparison of starting stats, not a measured survival-time leaderboard. Build routes combine documented starting moves, evolution prerequisites and practical editorial advice.",
+            "We do not describe source inspection as firsthand playtesting. Recommendations should be revisited after balance changes; a numerical score cannot account for player skill, terrain, co-op or an entire run’s upgrades."
+          ]
+        },
+        {
+          "heading": "Credits and rights",
+          "paragraphs": [
+            "Game code and code-derived mechanics: JPTER78 / PokéSurvivor, under the repository’s MIT license. Pokémon data in the original project was obtained from PokéAPI. Pokémon names and trademarks belong to their respective owners, including Nintendo, Creatures, GAME FREAK and The Pokémon Company.",
+            "This Wiki build does not distribute the original SpriteCollab Pokémon sprites. Pixelify Sans is provided under the SIL Open Font License; the license accompanies the font files. We have no affiliation with the game developer or Pokémon rights holders.",
+            "This site has no game account system, paid downloads, token sales or cryptocurrency. For game bugs use the developer’s linked source repository. Source discrepancies can be checked against the file and snapshot references on the affected page."
+          ]
+        }
+      ],
+      "related": [
+        "privacy",
+        "survivor-vs-burst",
+        "updates"
+      ],
+      "sources": [
+        "LICENSE",
+        "CREDITS.md",
+        "README.md"
+      ]
+    },
+    {
+      "slug": "privacy",
+      "title": "Privacy & local tools",
+      "description": "What the Wiki’s local search, filters and calculators do, and how external game services differ from this reference site.",
+      "group": "About",
+      "intro": "Search, filters and calculators run in your browser. Optional Google Analytics measures page visits only after you choose Allow analytics. This Wiki has no game accounts or advertising scripts.",
+      "sections": [
+        {
+          "heading": "Search and calculators",
+          "paragraphs": [
+            "The site downloads its static search index and reference data from the same host. A search query appears in the page URL, so a hosting provider may receive it as part of a normal request. Do not enter passwords or other private information in search.",
+            "The evolution checker reads your selected move, level and prerequisite. It does not connect to the game, inspect your collection or modify a save."
+          ]
+        },
+        {
+          "heading": "Hosting and external sites",
+          "paragraphs": [
+            "Serving web pages can involve standard request logs such as IP address, requested path and browser information at the hosting provider. Exact retention depends on the configured provider; this page does not promise an unverified retention period.",
+            "The developer’s game, GitHub and other external destinations have their own data practices. The game’s cloud login and save services are separate from this Wiki."
+          ]
+        },
+        {
+          "heading": "Optional Google Analytics",
+          "paragraphs": [
+            "Google Analytics 4 (measurement ID G-GEQDCG9L1K) measures page visits and basic technical information after you allow analytics. Google receives the page path, browser/device information and network information needed to deliver its service. Search query strings and URL fragments are removed from the configured page location and referrer. Automatic search, form, outbound-click, video and download measurement are disabled. We do not send game saves, account information or search terms as custom events.",
+            "Before your choice, the Wiki does not load the Google tag. Your choice is stored locally under psw-analytics-consent-v1. When allowed, Google Analytics can set first-party _ga cookies to distinguish visits. Use Analytics preferences in the footer to change your choice; declining stops analytics storage and clears accessible Analytics cookies. Browsers signaling Global Privacy Control do not start analytics.",
+            "Google Analytics is provided by Google. See https://policies.google.com/privacy and https://tools.google.com/dlpage/gaoptout for Google privacy information and its browser opt-out tool. The host may still process ordinary delivery logs independently of this optional choice."
+          ]
+        }
+      ],
+      "related": [
+        "about",
+        "how-to-play"
+      ],
+      "sources": []
+    }
+  ]
+}

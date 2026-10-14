@@ -1,0 +1,5 @@
+; Requested additions/website routing only; not a full-zone replacement.
+; Cloudflare Pages custom domains are already attached.
+pokemonsurvivorwiki.com. 300 IN CNAME pokemonsurvivorwiki.pages.dev.
+www.pokemonsurvivorwiki.com. 300 IN CNAME pokemonsurvivorwiki.pages.dev.
+pokemonsurvivorwiki.com. 300 IN TXT "google-site-verification=Y7rH8qRgDoAApzDcpDkYH7V3gFdRKKoOpIyX2-GmTbc"
