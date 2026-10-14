@@ -1,6 +1,6 @@
 # Cloudflare live release — 2026-10-15
 
-This is the current production state, superseding earlier DNS/login blockers in the launch reports.
+The domain and redirect configuration below remains live. Deployment is now connected to GitHub main; see [AUTO-DEPLOY.md](AUTO-DEPLOY.md). The manual-upload record below is historical.
 
 ## Browser execution
 

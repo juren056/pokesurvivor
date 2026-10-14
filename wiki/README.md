@@ -23,7 +23,8 @@ The trainer handbook redesign is described in `wiki/UI-REDESIGN.md`. With the lo
 
 The dedicated Cloudflare Pages project is live at https://pokemonsurvivorwiki.com/. Apex and www are Active with SSL; www and Pages hostnames redirect to the canonical apex. See [CF-LIVE.md](CF-LIVE.md) for the current browser release. See [DEPLOYMENT.md](DEPLOYMENT.md) for verified release evidence and [DNS-RECORDS.md](DNS-RECORDS.md) for the remaining records.
 
-Deploy only `wiki/dist`. The scoped configuration is `wiki/wrangler.toml`; run subsequent Pages deployments from the `wiki` directory using the command in the deployment record. Do not deploy the repository root, enable SPA fallback, or reuse the game's Firebase/Worker configuration. The output includes `_headers`, `_redirects`, `CNAME`, `robots.txt`, sitemap and a real 404 document. Verify custom-domain HTTPS, www-to-apex routing and canonical URLs before submitting the sitemap.
+Automatic production deployments are connected to `juren056/pokesurvivor` on GitHub. Push reviewed changes to `main`; Cloudflare builds from root directory `wiki`, runs `python3 ci_build.py`, and publishes `dist`. See [AUTO-DEPLOY.md](AUTO-DEPLOY.md). Only the Wiki output is served. The original game's Firebase/Worker configuration is separate. DNS and hostname redirects remain in Cloudflare settings.
+
 
 ## Sources and content policy
 
