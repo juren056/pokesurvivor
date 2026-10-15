@@ -1,0 +1,772 @@
+[
+  {
+    "id": "rift-guardian",
+    "prompt": "Forest expedition with an original moss-green fox-like guardian, amber eyes, cream mane, golden compass, turquoise rift; hand-painted concept art, forest #142f28, cream #f5f5ed, gold #f2c66d, no text/HUD.",
+    "caption": "A compass-bearing forest guardian beside a turquoise rift. Original AI-assisted concept illustration.",
+    "alt": "A compass-bearing forest guardian beside a turquoise rift. Original AI-assisted concept illustration.",
+    "pages": [
+      ""
+    ],
+    "originalGeneratedFile": "exec-de8e22b7-81b1-45b1-bcc1-ea2e97e3a8f5.png",
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      480,
+      960,
+      1440
+    ],
+    "kind": "concept",
+    "rights": "Original AI-assisted concept art commissioned for this independent Wiki; no claim of official game artwork.",
+    "created": "2026-10-15"
+  },
+  {
+    "id": "fire-trail",
+    "prompt": "A winding volcanic trail, warm amber embers and basalt, distant red sunset, a compass medallion half buried in foreground; hand-painted field-guide illustration; forest green, cream, gold; no text/logos/HUD.",
+    "caption": "Original AI-assisted concept illustration: A winding volcanic trail, warm amber embers and basalt, distant red sunset, a compass medallion half buried in foreground.",
+    "alt": "Original AI-assisted concept illustration: A winding volcanic trail, warm amber embers and basalt, distant red sunset, a compass medallion half buried in foreground.",
+    "pages": [
+      "builds"
+    ],
+    "originalGeneratedFile": "exec-98cd0f84-4c45-4752-9d28-50693b71b461.png",
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      480,
+      960,
+      1440
+    ],
+    "kind": "concept",
+    "rights": "Original AI-assisted concept art commissioned for this independent Wiki; no claim of official game artwork.",
+    "created": "2026-10-15"
+  },
+  {
+    "id": "water-trail",
+    "prompt": "A turquoise river winding through mossy canyon, stepping stones, rain mist, a compass medallion beside a quiet pool; hand-painted field-guide illustration; forest green, cream, gold; no text/logos/HUD.",
+    "caption": "Original AI-assisted concept illustration: A turquoise river winding through mossy canyon, stepping stones, rain mist, a compass medallion beside a quiet pool.",
+    "alt": "Original AI-assisted concept illustration: A turquoise river winding through mossy canyon, stepping stones, rain mist, a compass medallion beside a quiet pool.",
+    "pages": [
+      "builds"
+    ],
+    "originalGeneratedFile": "exec-873d15dc-73d1-4418-a516-2bb734f2e8c7.png",
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      480,
+      960,
+      1440
+    ],
+    "kind": "concept",
+    "rights": "Original AI-assisted concept art commissioned for this independent Wiki; no claim of official game artwork.",
+    "created": "2026-10-15"
+  },
+  {
+    "id": "grass-trail",
+    "prompt": "A lush fern forest trail, giant leaves and sun shafts, tiny fireflies, a compass medallion hanging from a branch; hand-painted field-guide illustration; forest green, cream, gold; no text/logos/HUD.",
+    "caption": "Original AI-assisted concept illustration: A lush fern forest trail, giant leaves and sun shafts, tiny fireflies, a compass medallion hanging from a branch.",
+    "alt": "Original AI-assisted concept illustration: A lush fern forest trail, giant leaves and sun shafts, tiny fireflies, a compass medallion hanging from a branch.",
+    "pages": [
+      "builds"
+    ],
+    "originalGeneratedFile": "exec-b1a4bc84-f8bf-4bf6-b8c9-cf451ff152e5.png",
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      480,
+      960,
+      1440
+    ],
+    "kind": "concept",
+    "rights": "Original AI-assisted concept art commissioned for this independent Wiki; no claim of official game artwork.",
+    "created": "2026-10-15"
+  },
+  {
+    "id": "rift-atlas",
+    "prompt": "A colossal turquoise energy rift inside ancient overgrown stone ruins, a lone small explorer silhouette gives scale, mysterious and inviting; hand-painted field-guide illustration; forest green, cream, gold; no text/logos/HUD.",
+    "caption": "Original AI-assisted concept illustration: A colossal turquoise energy rift inside ancient overgrown stone ruins, a lone small explorer silhouette gives scale, mysterious and inviting.",
+    "alt": "Original AI-assisted concept illustration: A colossal turquoise energy rift inside ancient overgrown stone ruins, a lone small explorer silhouette gives scale, mysterious and inviting.",
+    "pages": [
+      "legendaries"
+    ],
+    "originalGeneratedFile": "exec-dd336edd-4eeb-4dd9-9522-0969b71832b5.png",
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      480,
+      960,
+      1440
+    ],
+    "kind": "concept",
+    "rights": "Original AI-assisted concept art commissioned for this independent Wiki; no claim of official game artwork.",
+    "created": "2026-10-15"
+  },
+  {
+    "id": "co-op-camp",
+    "prompt": "A cozy forest expedition camp with four distinct backpacks around a lantern, four paths converge, starry sky and distant turquoise rift; hand-painted field-guide illustration; forest green, cream, gold; no text/logos/HUD.",
+    "caption": "Original AI-assisted concept illustration: A cozy forest expedition camp with four distinct backpacks around a lantern, four paths converge, starry sky and distant turquoise rift.",
+    "alt": "Original AI-assisted concept illustration: A cozy forest expedition camp with four distinct backpacks around a lantern, four paths converge, starry sky and distant turquoise rift.",
+    "pages": [
+      "co-op"
+    ],
+    "originalGeneratedFile": "exec-25ea8d98-0592-4abe-b69d-2ef0e935eaf5.png",
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      480,
+      960,
+      1440
+    ],
+    "kind": "concept",
+    "rights": "Original AI-assisted concept art commissioned for this independent Wiki; no claim of official game artwork.",
+    "created": "2026-10-15"
+  },
+  {
+    "id": "evolution-notebook",
+    "prompt": "An open unmarked parchment field notebook beside three glowing amber crystals progressing in size, forest moss, compass, symbolic discovery; hand-painted field-guide illustration; forest green, cream, gold; no text/logos/HUD.",
+    "caption": "Original AI-assisted concept illustration: An open unmarked parchment field notebook beside three glowing amber crystals progressing in size, forest moss, compass, symbolic discovery.",
+    "alt": "Original AI-assisted concept illustration: An open unmarked parchment field notebook beside three glowing amber crystals progressing in size, forest moss, compass, symbolic discovery.",
+    "pages": [
+      "move-evolutions"
+    ],
+    "originalGeneratedFile": "exec-1362a049-a317-49b7-8e26-bcf60629cea2.png",
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      480,
+      960,
+      1440
+    ],
+    "kind": "concept",
+    "rights": "Original AI-assisted concept art commissioned for this independent Wiki; no claim of official game artwork.",
+    "created": "2026-10-15"
+  },
+  {
+    "id": "mobile-expedition",
+    "prompt": "A tiny forest expedition kit: compass, folded parchment map, compact blank dark-glass handheld device, glowing trail beyond, practical travel mood; hand-painted field-guide illustration; forest green, cream, gold; no text/logos/HUD.",
+    "caption": "Original AI-assisted concept illustration: A tiny forest expedition kit: compass, folded parchment map, compact blank dark-glass handheld device, glowing trail beyond, practical travel mood.",
+    "alt": "Original AI-assisted concept illustration: A tiny forest expedition kit: compass, folded parchment map, compact blank dark-glass handheld device, glowing trail beyond, practical travel mood.",
+    "pages": [
+      "mobile",
+      "download"
+    ],
+    "originalGeneratedFile": "exec-a0a1a4a9-a4cf-4a41-bc57-af9d3a8189e6.png",
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      480,
+      960,
+      1440
+    ],
+    "kind": "concept",
+    "rights": "Original AI-assisted concept art commissioned for this independent Wiki; no claim of official game artwork.",
+    "created": "2026-10-15"
+  },
+  {
+    "id": "guest-login",
+    "caption": "Choose Play as guest for a disposable local trial; sign in separately for cloud progress.",
+    "pages": [
+      "how-to-play",
+      "download"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "Choose Play as guest for a disposable local trial; sign in separately for cloud progress.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "personality-quiz",
+    "caption": "The personality quiz recommends a partner; it does not lock your choice.",
+    "pages": [
+      "how-to-play"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "The personality quiz recommends a partner; it does not lock your choice.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "quiz-result",
+    "caption": "Accept the recommended partner or choose another.",
+    "pages": [
+      "how-to-play"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "Accept the recommended partner or choose another.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "starter-roster",
+    "caption": "The starter selection screen in a fresh guest session.",
+    "pages": [
+      "starters",
+      "tier-list"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "The starter selection screen in a fresh guest session.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "starter-bulbasaur",
+    "caption": "Bulbasaur selected: read the starting move before confirming.",
+    "pages": [
+      "builds",
+      "starters"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "Bulbasaur selected: read the starting move before confirming.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "starter-squirtle",
+    "caption": "Squirtle selected: read the starting move before confirming.",
+    "pages": [
+      "builds",
+      "starters"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "Squirtle selected: read the starting move before confirming.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "starter-charmander",
+    "caption": "Charmander selected: read the starting move before confirming.",
+    "pages": [
+      "builds",
+      "starters"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "Charmander selected: read the starting move before confirming.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "partner-menu",
+    "caption": "A fresh Charmander guest profile before the first run.",
+    "pages": [
+      "",
+      "how-to-play"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "A fresh Charmander guest profile before the first run.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "collection",
+    "caption": "The in-game collection shows the selected partner and collection progress.",
+    "pages": [
+      "pokedex"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "The in-game collection shows the selected partner and collection progress.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "permanent-upgrades",
+    "caption": "Permanent upgrades are a separate menu from the cards chosen during a run.",
+    "pages": [
+      "builds",
+      "move-evolutions"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "Permanent upgrades are a separate menu from the cards chosen during a run.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "regional-gacha",
+    "caption": "The regional gacha menu is separate from rift encounters.",
+    "pages": [
+      "legendaries",
+      "pokedex"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "The regional gacha menu is separate from rift encounters.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "keyboard-controls",
+    "caption": "The game settings list its desktop controls.",
+    "pages": [
+      "how-to-play"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "The game settings list its desktop controls.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "graphics-settings",
+    "caption": "Graphics settings let you adjust presentation on this device.",
+    "pages": [
+      "mobile"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "Graphics settings let you adjust presentation on this device.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "guest-account",
+    "caption": "Guest account settings: a guest trial is not a cloud account.",
+    "pages": [
+      "co-op",
+      "mobile"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "Guest account settings: a guest trial is not a cloud account.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "first-run",
+    "caption": "The opening of a normal Charmander run: HP, timer and active move are visible.",
+    "pages": [
+      "",
+      "how-to-play"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "The opening of a normal Charmander run: HP, timer and active move are visible.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "level-2-cards",
+    "caption": "Actual level 2 upgrade choices in this guest run.",
+    "pages": [
+      "how-to-play",
+      "builds"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "Actual level 2 upgrade choices in this guest run.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "ember-combat",
+    "caption": "Ember attacks automatically while the partner moves.",
+    "pages": [
+      "",
+      "how-to-play",
+      "builds"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "Ember attacks automatically while the partner moves.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "experience-route",
+    "caption": "Move toward experience without closing your escape route.",
+    "pages": [
+      "",
+      "how-to-play",
+      "builds"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "Move toward experience without closing your escape route.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "run-summary",
+    "caption": "The end-of-run screen reports this trial, not a benchmark ranking.",
+    "pages": [
+      "builds"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "The end-of-run screen reports this trial, not a benchmark ranking.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "mobile-touch-settings",
+    "caption": "Touch settings in Chromium mobile emulation (844 \u00d7 390), not a physical-phone test.",
+    "pages": [
+      "mobile"
+    ],
+    "width": 844,
+    "height": 390,
+    "variants": [
+      480,
+      844
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "Touch settings in Chromium mobile emulation (844 \u00d7 390), not a physical-phone test.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Chromium touch emulation; not physical-device certification",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "mobile-landscape",
+    "caption": "Landscape game layout in touch-enabled Chromium emulation.",
+    "pages": [
+      "mobile"
+    ],
+    "width": 844,
+    "height": 390,
+    "variants": [
+      480,
+      844
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "Landscape game layout in touch-enabled Chromium emulation.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Chromium touch emulation; not physical-device certification",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "mobile-joystick",
+    "caption": "Dragging on the play area reveals the virtual joystick in this emulated session.",
+    "pages": [
+      "mobile"
+    ],
+    "width": 844,
+    "height": 390,
+    "variants": [
+      480,
+      844
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "Dragging on the play area reveals the virtual joystick in this emulated session.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Chromium touch emulation; not physical-device certification",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "mobile-paused",
+    "caption": "Paused solo run in the landscape emulation.",
+    "pages": [
+      "mobile"
+    ],
+    "width": 844,
+    "height": 390,
+    "variants": [
+      480,
+      844
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "Paused solo run in the landscape emulation.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Chromium touch emulation; not physical-device certification",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "mobile-rotate",
+    "caption": "The game asks a touch device in portrait orientation to rotate. Emulated browser capture.",
+    "pages": [
+      "mobile"
+    ],
+    "width": 390,
+    "height": 844,
+    "variants": [
+      390
+    ],
+    "kind": "capture",
+    "controlledFixture": false,
+    "alt": "The game asks a touch device in portrait orientation to rotate. Emulated browser capture.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Normal game UI and keyboard/touch inputs; no stat, card or save-state edits.",
+    "platform": "Chromium touch emulation; not physical-device certification",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "controlled-golden-card",
+    "caption": "Controlled mechanics demo: Ember level 5 and Power were preconfigured; the developer level-up trigger produces the golden Fire Blast offer.",
+    "pages": [
+      "move-evolutions"
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      480,
+      960,
+      1280
+    ],
+    "kind": "capture",
+    "controlledFixture": true,
+    "alt": "Controlled mechanics demo: Ember level 5 and Power were preconfigured; the developer level-up trigger produces the golden Fire Blast offer.",
+    "created": "2026-10-15",
+    "source": "Local untouched JPTER78 game source, fresh disposable guest session; automatic keyboard/touch inputs. Gameplay clips use the unbundled dev.html build.",
+    "build": "b29708900da26b34e70d2dc07ad1659a719f4a78",
+    "scope": "Preconfigured Ember level five and Power; exposed developer level-up trigger. Visible controlled-demo label. Not an unassisted run.",
+    "platform": "Windows Chromium, desktop keyboard",
+    "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
+    "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  }
+]

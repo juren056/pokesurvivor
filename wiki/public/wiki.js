@@ -1,4 +1,9 @@
 'use strict';
+document.querySelectorAll('.guide-video video').forEach(video=>{
+  const showError=()=>{const message=video.closest('.guide-video').querySelector('.video-error');if(message)message.hidden=false;};
+  video.addEventListener('error',showError);
+  video.querySelector('source')?.addEventListener('error',showError);
+});
 document.documentElement.classList.add('js');
 const menu=document.querySelector('.menu-toggle');
 const nav=document.querySelector('#site-nav');

@@ -1,0 +1,91 @@
+[
+  {
+    "id": "rift-guardian",
+    "source": "artifacts/media-originals/rift-guardian.png",
+    "prompt": "Forest expedition with an original moss-green fox-like guardian, amber eyes, cream mane, golden compass, turquoise rift; hand-painted concept art, forest #142f28, cream #f5f5ed, gold #f2c66d, no text/HUD.",
+    "caption": "A compass-bearing forest guardian beside a turquoise rift. Original AI-assisted concept illustration.",
+    "alt": "A compass-bearing forest guardian beside a turquoise rift. Original AI-assisted concept illustration.",
+    "pages": [
+      ""
+    ],
+    "originalGeneratedFile": "exec-de8e22b7-81b1-45b1-bcc1-ea2e97e3a8f5.png"
+  },
+  {
+    "id": "fire-trail",
+    "source": "artifacts/media-originals/fire-trail.png",
+    "prompt": "A winding volcanic trail, warm amber embers and basalt, distant red sunset, a compass medallion half buried in foreground; hand-painted field-guide illustration; forest green, cream, gold; no text/logos/HUD.",
+    "caption": "Original AI-assisted concept illustration: A winding volcanic trail, warm amber embers and basalt, distant red sunset, a compass medallion half buried in foreground.",
+    "alt": "Original AI-assisted concept illustration: A winding volcanic trail, warm amber embers and basalt, distant red sunset, a compass medallion half buried in foreground.",
+    "pages": [
+      "builds"
+    ],
+    "originalGeneratedFile": "exec-98cd0f84-4c45-4752-9d28-50693b71b461.png"
+  },
+  {
+    "id": "water-trail",
+    "source": "artifacts/media-originals/water-trail.png",
+    "prompt": "A turquoise river winding through mossy canyon, stepping stones, rain mist, a compass medallion beside a quiet pool; hand-painted field-guide illustration; forest green, cream, gold; no text/logos/HUD.",
+    "caption": "Original AI-assisted concept illustration: A turquoise river winding through mossy canyon, stepping stones, rain mist, a compass medallion beside a quiet pool.",
+    "alt": "Original AI-assisted concept illustration: A turquoise river winding through mossy canyon, stepping stones, rain mist, a compass medallion beside a quiet pool.",
+    "pages": [
+      "builds"
+    ],
+    "originalGeneratedFile": "exec-873d15dc-73d1-4418-a516-2bb734f2e8c7.png"
+  },
+  {
+    "id": "grass-trail",
+    "source": "artifacts/media-originals/grass-trail.png",
+    "prompt": "A lush fern forest trail, giant leaves and sun shafts, tiny fireflies, a compass medallion hanging from a branch; hand-painted field-guide illustration; forest green, cream, gold; no text/logos/HUD.",
+    "caption": "Original AI-assisted concept illustration: A lush fern forest trail, giant leaves and sun shafts, tiny fireflies, a compass medallion hanging from a branch.",
+    "alt": "Original AI-assisted concept illustration: A lush fern forest trail, giant leaves and sun shafts, tiny fireflies, a compass medallion hanging from a branch.",
+    "pages": [
+      "builds"
+    ],
+    "originalGeneratedFile": "exec-b1a4bc84-f8bf-4bf6-b8c9-cf451ff152e5.png"
+  },
+  {
+    "id": "rift-atlas",
+    "source": "artifacts/media-originals/rift-atlas.png",
+    "prompt": "A colossal turquoise energy rift inside ancient overgrown stone ruins, a lone small explorer silhouette gives scale, mysterious and inviting; hand-painted field-guide illustration; forest green, cream, gold; no text/logos/HUD.",
+    "caption": "Original AI-assisted concept illustration: A colossal turquoise energy rift inside ancient overgrown stone ruins, a lone small explorer silhouette gives scale, mysterious and inviting.",
+    "alt": "Original AI-assisted concept illustration: A colossal turquoise energy rift inside ancient overgrown stone ruins, a lone small explorer silhouette gives scale, mysterious and inviting.",
+    "pages": [
+      "legendaries"
+    ],
+    "originalGeneratedFile": "exec-dd336edd-4eeb-4dd9-9522-0969b71832b5.png"
+  },
+  {
+    "id": "co-op-camp",
+    "source": "artifacts/media-originals/co-op-camp.png",
+    "prompt": "A cozy forest expedition camp with four distinct backpacks around a lantern, four paths converge, starry sky and distant turquoise rift; hand-painted field-guide illustration; forest green, cream, gold; no text/logos/HUD.",
+    "caption": "Original AI-assisted concept illustration: A cozy forest expedition camp with four distinct backpacks around a lantern, four paths converge, starry sky and distant turquoise rift.",
+    "alt": "Original AI-assisted concept illustration: A cozy forest expedition camp with four distinct backpacks around a lantern, four paths converge, starry sky and distant turquoise rift.",
+    "pages": [
+      "co-op"
+    ],
+    "originalGeneratedFile": "exec-25ea8d98-0592-4abe-b69d-2ef0e935eaf5.png"
+  },
+  {
+    "id": "evolution-notebook",
+    "source": "artifacts/media-originals/evolution-notebook.png",
+    "prompt": "An open unmarked parchment field notebook beside three glowing amber crystals progressing in size, forest moss, compass, symbolic discovery; hand-painted field-guide illustration; forest green, cream, gold; no text/logos/HUD.",
+    "caption": "Original AI-assisted concept illustration: An open unmarked parchment field notebook beside three glowing amber crystals progressing in size, forest moss, compass, symbolic discovery.",
+    "alt": "Original AI-assisted concept illustration: An open unmarked parchment field notebook beside three glowing amber crystals progressing in size, forest moss, compass, symbolic discovery.",
+    "pages": [
+      "move-evolutions"
+    ],
+    "originalGeneratedFile": "exec-1362a049-a317-49b7-8e26-bcf60629cea2.png"
+  },
+  {
+    "id": "mobile-expedition",
+    "source": "artifacts/media-originals/mobile-expedition.png",
+    "prompt": "A tiny forest expedition kit: compass, folded parchment map, compact blank dark-glass handheld device, glowing trail beyond, practical travel mood; hand-painted field-guide illustration; forest green, cream, gold; no text/logos/HUD.",
+    "caption": "Original AI-assisted concept illustration: A tiny forest expedition kit: compass, folded parchment map, compact blank dark-glass handheld device, glowing trail beyond, practical travel mood.",
+    "alt": "Original AI-assisted concept illustration: A tiny forest expedition kit: compass, folded parchment map, compact blank dark-glass handheld device, glowing trail beyond, practical travel mood.",
+    "pages": [
+      "mobile",
+      "download"
+    ],
+    "originalGeneratedFile": "exec-a0a1a4a9-a4cf-4a41-bc57-af9d3a8189e6.png"
+  }
+]

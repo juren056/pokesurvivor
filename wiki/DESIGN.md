@@ -174,6 +174,12 @@ The original Rift Guardian mark combines an angular companion, broken coral orbi
 
 ## Do's and Don'ts
 
+### Guide media
+
+The field-guide world now includes eight original AI-assisted landscape illustrations with forest, parchment, amber and turquoise colors. They are concept art, visibly distinguished from game captures. The opening pairs an actual battlefield capture with the guardian illustration and keeps the source-backed starter lab. Reading pages retain the paper surface, step headings, tools and tables.
+
+Use `guide-media` for a dimensioned responsive image with a full-size link and concise caption/source link. `media-pair` supports two parallel illustrations or screenshots and stacks at phone widths. Actual process diagrams have sequence numbers; parallel controls and type factors use neutral markers. `guide-video` reserves the actual aspect ratio, uses native controls, a poster, `preload=none`, English captions, a transcript disclosure and explicit load-failure recovery. Media captions are 12px (11px on phones); dark opening captions use forest-muted and gold links. No autoplay or repeated entrance effects are added.
+
 ### Do:
 
 - Do preserve the forest-night frame, gold opening actions and calm paper reading surfaces.

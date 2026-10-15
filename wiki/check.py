@@ -23,7 +23,8 @@ class Document(HTMLParser):
         if tag=='h1':self.h1+=1
         if 'id' in a:self.ids.append(a['id'])
         if tag in ('a','link') and 'href' in a:self.links.append(a['href'])
-        if tag in ('script','img') and 'src' in a:self.links.append(a['src'])
+        if tag in ('script','img','source','track') and 'src' in a:self.links.append(a['src'])
+        if tag=='video' and 'poster' in a:self.links.append(a['poster'])
         if tag=='link' and a.get('rel')=='canonical':self.canonical.append(a.get('href'))
         if tag=='meta' and a.get('name')=='description':self.description.append(a.get('content'))
         if tag=='meta' and a.get('name')=='robots':self.robots=a.get('content','')

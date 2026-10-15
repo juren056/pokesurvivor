@@ -5,6 +5,7 @@ import html
 import json
 import shutil
 import xml.etree.ElementTree as ET
+import media
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -174,12 +175,23 @@ def home():
 
 
 def render(slug,p):
+    p={**p, 'body':media.enhance(slug,p['body'])}
     home_page=slug==''
     title=p['title']
     canonical=SITE+URL(slug)
+    media_ids=media.USED.get(slug,[])
+    social=''
+    if media_ids:
+        cover=media.BY_ID[media_ids[0]]
+        image_path='/assets/media/'+cover['id']+('.svg' if cover['kind']=='diagram' else '-'+str(max(cover['variants']))+'.webp')
+        if cover['kind']!='diagram':
+            social=f'<meta property="og:image" content="{SITE+image_path}"><meta property="og:image:alt" content="{E(cover["alt"])}">'
     graph=[{'@type':'WebPage' if home_page else 'CollectionPage' if p['group']=='Database' else 'Article','@id':canonical+'#page','url':canonical,'name':title,'description':p['description'],'inLanguage':'en','dateModified':REVIEWED,'isPartOf':{'@id':SITE+'/#website'}}]
     if home_page: graph.append({'@type':'WebSite','@id':SITE+'/#website','url':SITE+'/','name':'Pokémon Survivor Wiki','alternateName':'PokéSurvivor Wiki','inLanguage':'en'})
     else: graph.append({'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Home','item':SITE+'/'},{'@type':'ListItem','position':2,'name':title,'item':canonical}]})
+    for ident in media.USED_VIDEOS.get(slug,[]):
+        v=media.VIDEO_BY_ID[ident];poster=media.BY_ID[v['poster']]
+        graph.append({'@type':'VideoObject','@id':canonical+'#video-'+ident,'name':v['title'],'description':v['description'],'thumbnailUrl':SITE+'/assets/media/'+v['poster']+'-'+str(max(poster['variants']))+'.webp','uploadDate':v['created'],'duration':f'PT{v["duration"]}S','contentUrl':SITE+'/assets/media/'+ident+'.webm','inLanguage':'en','isPartOf':{'@id':canonical+'#page'}})
     nav=''.join(f'<a {"aria-current=\"page\"" if slug==s else ""} href="{URL(s)}">{label}</a>' for s,label in [('how-to-play','Start here'),('tier-list','Tier list'),('pokedex','Pokédex'),('moves','Moves'),('move-evolutions','Evolutions'),('types','Types')])
     related=''
     if p['related']: related='<section class="related"><h2>Keep your run moving</h2><ul>'+''.join(f'<li>{link(s,PAGES[s]["title"])}</li>' for s in p['related'])+'</ul></section>'
@@ -194,7 +206,7 @@ def render(slug,p):
     content=p['body'] if home_page else f'<div class="breadcrumbs">{link("","Home")}<span>/</span>{E(p["group"])}</div><div class="article-heading"><h1>{E(title)}</h1><p class="date">Reference reviewed <time datetime="{REVIEWED}">{REVIEWED}</time></p></div><div class="article-layout"><article>{p["body"]}{related}{sources}</article><aside class="article-aside">{toc}<div class="aside-note"><strong>This game, this snapshot.</strong><p>These guides cover jpter78’s browser PokéSurvivor.</p>{link("survivor-vs-burst","Playing Burst instead?")}</div></aside></div>'
     dock = '<nav class="mobile-dock" aria-label="Quick navigation">' + ''.join(f'<a href="{URL(dest)}" {"aria-current=\"page\"" if slug==dest else ""}>{icon(glyph,21)}<span>{label}</span></a>' for dest,glyph,label in [('how-to-play','book','Guide'),('pokedex','dex','Pokédex'),('move-evolutions','evolve','Evolve'),('search','search','Search')]) + '</nav>'
     return f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)}</title><meta name="description" content="{E(p['description'])}"><meta name="robots" content="{'index,follow,max-image-preview:large' if p['index'] else 'noindex,follow'}"><link rel="canonical" href="{canonical}"><meta name="theme-color" content="#f6f6ee"><meta property="og:type" content="website"><meta property="og:site_name" content="Pokémon Survivor Wiki"><meta property="og:url" content="{canonical}"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(p['description'])}"><meta name="twitter:card" content="summary"><link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48"><link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96"><link rel="icon" href="/assets/mark.svg" type="image/svg+xml" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><link rel="manifest" href="/site.webmanifest"><link rel="stylesheet" href="/assets/wiki.css"><script defer src="/assets/wiki.js"></script><script defer src="/assets/analytics.js"></script><script type="application/ld+json">{json.dumps({'@context':'https://schema.org','@graph':graph},ensure_ascii=False).replace('<','\\u003c')}</script></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)}</title><meta name="description" content="{E(p['description'])}"><meta name="robots" content="{'index,follow,max-image-preview:large' if p['index'] else 'noindex,follow'}"><link rel="canonical" href="{canonical}"><meta name="theme-color" content="#f6f6ee"><meta property="og:type" content="website"><meta property="og:site_name" content="Pokémon Survivor Wiki"><meta property="og:url" content="{canonical}"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(p['description'])}">{social}<meta name="twitter:card" content="{'summary_large_image' if social else 'summary'}"><link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48"><link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96"><link rel="icon" href="/assets/mark.svg" type="image/svg+xml" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><link rel="manifest" href="/site.webmanifest"><link rel="stylesheet" href="/assets/wiki.css"><script defer src="/assets/wiki.js"></script><script defer src="/assets/analytics.js"></script><script type="application/ld+json">{json.dumps({'@context':'https://schema.org','@graph':graph},ensure_ascii=False).replace('<','\\u003c')}</script></head>
 <body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="/" aria-label="Pokémon Survivor Wiki home"><img class="brand-mark" src="/assets/mark.svg" width="36" height="36" alt=""><span>Pokémon Survivor<span class="brand-sub">WIKI & GAME GUIDES</span></span></a><button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button><nav id="site-nav" aria-label="Main navigation">{nav}</nav><a class="play-link" href="https://pokesurvivor.com/">Play game {icon("arrow",16)}</a><a class="search-link" href="/search/" aria-label="Search the Wiki"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></a></header><main id="main" class="{'home' if home_page else 'document'}">{content}</main>{dock}
 <footer class="site-footer"><div><a class="footer-brand" href="/">Pokémon Survivor Wiki</a><p>An independent reference for your next run.</p></div><nav aria-label="Footer">{link('about','About & sources')}{link('privacy','Privacy')}<button type="button" class="analytics-settings" data-analytics-settings>Analytics preferences</button>{link('download','Where to play')}{link('co-op','Co-op & account help')}{link('updates','Updates')}<a href="https://pokesurvivor.com/">Developer’s game</a></nav><p class="legal">Unofficial fan reference. Not affiliated with JPTER78, Nintendo, Creatures, GAME FREAK or The Pokémon Company. Pokémon belongs to its respective owners. Game data: JPTER78 / PokéSurvivor. <a href="/assets/LICENSE-game.txt">Code license</a> · <a href="/assets/OFL.txt">Font license</a>.</p></footer></body></html>'''
 
@@ -214,6 +226,7 @@ def build():
     for f in (HERE/'public').iterdir():
         if f.is_file(): shutil.copyfile(f,assets/f.name)
         elif f.is_dir(): shutil.copytree(f,assets/f.name,dirs_exist_ok=True)
+    media.export_manifest(assets/'media')
     for source, target in [("favicon.ico","favicon.ico"),("icon-96.png","favicon-96.png"),("apple-touch-icon.png","apple-touch-icon.png")]:
         shutil.copyfile(HERE/"public/icons"/source,OUT/target)
     shutil.copyfile(HERE/"public/site.webmanifest",OUT/"site.webmanifest")
@@ -227,10 +240,16 @@ def build():
     (assets/'search.json').write_text(json.dumps(search,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
     ns='http://www.sitemaps.org/schemas/sitemap/0.9'
     ET.register_namespace('',ns)
+    image_ns='http://www.google.com/schemas/sitemap-image/1.1'
+    ET.register_namespace('image',image_ns)
     tree=ET.Element('{'+ns+'}urlset')
     for slug,p in PAGES.items():
         if p['index']:
             el=ET.SubElement(tree,'{'+ns+'}url'); ET.SubElement(el,'{'+ns+'}loc').text=SITE+URL(slug); ET.SubElement(el,'{'+ns+'}lastmod').text=REVIEWED
+            for ident in media.USED.get(slug,[]):
+                m=media.BY_ID[ident]
+                path='/assets/media/'+ident+('.svg' if m['kind']=='diagram' else '-'+str(max(m['variants']))+'.webp')
+                img=ET.SubElement(el,'{'+image_ns+'}image');ET.SubElement(img,'{'+image_ns+'}loc').text=SITE+path
     ET.indent(tree, space='  ')
     ET.ElementTree(tree).write(OUT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
     (OUT/'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n',encoding='utf-8')

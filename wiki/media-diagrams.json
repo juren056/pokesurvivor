@@ -1,0 +1,117 @@
+[
+  {
+    "id": "first-run-flow",
+    "kind": "diagram",
+    "caption": "Your first run. A guest trial and a cloud account are separate.",
+    "alt": "Choose guest or sign in; Quiz suggests a partner; Accept or choose another; Move, collect XP, upgrade",
+    "pages": [
+      "how-to-play"
+    ],
+    "width": 960,
+    "height": 580,
+    "created": "2026-10-15",
+    "source": "Pinned game source b297089; js/data/moves.js, js/data/types.js, js/core/input.js, js/core/touch.js, js/systems/levelup.js",
+    "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
+  },
+  {
+    "id": "controls-map",
+    "kind": "diagram",
+    "caption": "Desktop controls. The selected attack fires automatically.",
+    "alt": "W A S D / arrows: move; 1\u20134: choose active slot; Q / E: cycle active slots; Esc / P: pause solo play",
+    "pages": [
+      "how-to-play"
+    ],
+    "width": 960,
+    "height": 580,
+    "created": "2026-10-15",
+    "source": "Pinned game source b297089; js/data/moves.js, js/data/types.js, js/core/input.js, js/core/touch.js, js/systems/levelup.js",
+    "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
+  },
+  {
+    "id": "evolution-conditions",
+    "kind": "diagram",
+    "caption": "Three evolution checkpoints. Eligibility is not automatic evolution.",
+    "alt": "Max the selected move; Take its required stat card; Keep leveling for the offer; Choose the golden card",
+    "pages": [
+      "move-evolutions"
+    ],
+    "width": 960,
+    "height": 580,
+    "created": "2026-10-15",
+    "source": "Pinned game source b297089; js/data/moves.js, js/data/types.js, js/core/input.js, js/core/touch.js, js/systems/levelup.js",
+    "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
+  },
+  {
+    "id": "ember-evolution",
+    "kind": "diagram",
+    "caption": "Ember \u2192 Fire Blast. Power is the attack-stat prerequisite.",
+    "alt": "Start with Ember; Reach move level 5; Take Power in this run; Choose Fire Blast when offered",
+    "pages": [
+      "move-evolutions",
+      "builds"
+    ],
+    "width": 960,
+    "height": 580,
+    "created": "2026-10-15",
+    "source": "Pinned game source b297089; js/data/moves.js, js/data/types.js, js/core/input.js, js/core/touch.js, js/systems/levelup.js",
+    "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
+  },
+  {
+    "id": "bubble-evolution",
+    "kind": "diagram",
+    "caption": "Bubble \u2192 Surf. Bubble and Water Gun have different prerequisites.",
+    "alt": "Start with Bubble; Reach move level 5; Take Sprint in this run; Choose the golden evolution",
+    "pages": [
+      "move-evolutions",
+      "builds"
+    ],
+    "width": 960,
+    "height": 580,
+    "created": "2026-10-15",
+    "source": "Pinned game source b297089; js/data/moves.js, js/data/types.js, js/core/input.js, js/core/touch.js, js/systems/levelup.js",
+    "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
+  },
+  {
+    "id": "build-route",
+    "kind": "diagram",
+    "caption": "Plan the opening, then adapt. A stat tier is not a survival-time benchmark.",
+    "alt": "Choose a move pattern; Find the evolution stat; Improve that move in-run; Keep a matchup alternative",
+    "pages": [
+      "builds",
+      "tier-list"
+    ],
+    "width": 960,
+    "height": 580,
+    "created": "2026-10-15",
+    "source": "Pinned game source b297089; js/data/moves.js, js/data/types.js, js/core/input.js, js/core/touch.js, js/systems/levelup.js",
+    "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
+  },
+  {
+    "id": "touch-map",
+    "kind": "diagram",
+    "caption": "Touch controls in landscape. Browser emulation does not certify a physical device.",
+    "alt": "Rotate to landscape; Drag play area to move; Tap the active move slot; Pause before changing settings",
+    "pages": [
+      "mobile"
+    ],
+    "width": 960,
+    "height": 580,
+    "created": "2026-10-15",
+    "source": "Pinned game source b297089; js/data/moves.js, js/data/types.js, js/core/input.js, js/core/touch.js, js/systems/levelup.js",
+    "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
+  },
+  {
+    "id": "type-products",
+    "kind": "diagram",
+    "caption": "Read this game\u2019s type factors. Water \u2192 Fire/Rock: min(1.6 \u00d7 1.6, 2.4) = 2.4\u00d7",
+    "alt": "Weakness: 1.6\u00d7; Resistance: 0.6\u00d7; Softened immunity: 0.3\u00d7; Dual-type product: 0.3\u20132.4\u00d7",
+    "pages": [
+      "types"
+    ],
+    "width": 960,
+    "height": 580,
+    "created": "2026-10-15",
+    "source": "Pinned game source b297089; js/data/moves.js, js/data/types.js, js/core/input.js, js/core/touch.js, js/systems/levelup.js",
+    "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
+  }
+]

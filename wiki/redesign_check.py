@@ -2,6 +2,7 @@
 from pathlib import Path
 import hashlib
 import json
+import xml.etree.ElementTree as ET
 from playwright.sync_api import sync_playwright
 
 HERE=Path(__file__).resolve().parent
@@ -15,7 +16,11 @@ def main():
     manifest=json.loads((HERE/'dist/build-manifest.json').read_text(encoding='utf-8'))
     after={k:{x:v[x] for x in ['title','index','modified']} for k,v in manifest.items()}
     assert before['routes']==after,'Protected route fields changed'
-    assert before['sitemap']==(HERE/'dist/sitemap.xml').read_text(encoding='utf-8'),'Sitemap changed'
+    # Media expansion adds image discovery entries; canonical URLs and dates stay protected.
+    def sitemap_pages(text):
+        ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
+        return [(e.findtext('s:loc',namespaces=ns),e.findtext('s:lastmod',namespaces=ns)) for e in ET.fromstring(text)]
+    assert sitemap_pages(before['sitemap'])==sitemap_pages((HERE/'dist/sitemap.xml').read_text(encoding='utf-8')),'Sitemap page inventory changed'
     assert before['data_sha256']==hashlib.sha256((HERE/'data/game.json').read_bytes()).hexdigest(),'Game data changed'
     report={'seo':'18 routes, titles, index flags, dates, sitemap and data preserved','layouts':[],'tasks':[]}
     data=json.loads((HERE/'data/game.json').read_text(encoding='utf-8'))

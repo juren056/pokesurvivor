@@ -28,10 +28,14 @@ Automatic production deployments are connected to `juren056/pokesurvivor` on Git
 
 ## Sources and content policy
 
-Core source: https://github.com/JPTER78/pokesurvivor. The Wiki ships data and attributed code-derived mechanics; it does not distribute SpriteCollab artwork. Pixelify Sans is shipped with its OFL license. Keep repository MIT notices. Pokémon trademarks remain with their owners. This build does not certify commercial rights to other Pokémon media.
+Core source: https://github.com/JPTER78/pokesurvivor. The Wiki ships data, attributed code-derived mechanics, original diagrams and concept illustrations. The media expansion also includes noncommercial game captures with embedded SpriteCollab artwork, CC BY-NC 4.0; source, individual artist credits and capture limitations are linked beside each image/video and in `/about/#media-credits`. These captures do not grant commercial media rights. Pixelify Sans is shipped with its OFL license. Keep repository MIT notices. Pokémon trademarks remain with their owners.
 
 No CAPTCHA, account collection or ads are added. Owner-requested optional GA4 is now published with opt-in controls; see wiki/MEASUREMENT.md. Configure actual legal/contact details before introducing those services. Search and filters are local, and search results use `noindex`. English only at launch; do not generate empty translations or species pages. Content modification dates are editorial fields, not the build clock.
 
 ## Scope ledger
 
 See `wiki/LAUNCH.md` for CSV coverage, evidence limitations and deployment checklist.
+
+## Media expansion
+
+See [MEDIA.md](MEDIA.md) for the image/video inventory, generation prompts, capture scope, acceptance results and known evidence gaps. Published responsive files live in `public/media`; `media.py` adds them beside relevant article sections and exports the actual placements to the image sitemap and public manifest. The final assets are committed, so the production build needs no image/video tooling or paid API. `python wiki/media_check.py` tests image loading, video playback/seek/end/captions, mobile bounds, failed-video recovery and Range transfer against the local preview. The preview serves WebM ranges for realistic seeking checks.
