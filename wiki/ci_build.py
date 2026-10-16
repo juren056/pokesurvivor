@@ -21,4 +21,5 @@ if shallow == 'true':
 run('node', 'wiki/export-data.cjs')
 run(sys.executable, 'wiki/build.py')
 run(sys.executable, 'wiki/check.py')
+run(sys.executable, 'wiki/agent_check.py')
 run('node', 'wiki/analytics_check.cjs')

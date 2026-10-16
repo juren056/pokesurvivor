@@ -10,6 +10,7 @@ Requires Node 18+ and Python 3.12+. No npm dependencies for the build. Browser c
 node wiki/export-data.cjs
 python wiki/build.py
 python wiki/check.py
+python wiki/agent_check.py
 python wiki/serve.py --port 4173
 ```
 
@@ -18,6 +19,10 @@ Open http://localhost:4173. The preview server returns a real 404 for unknown pa
 The original Rift Guardian favicon family is stored under `wiki/public/icons`. It builds without extra dependencies. For icon regeneration and file details see `wiki/branding/README.md`; optional icon checks use `python wiki/check_icons.py` (Pillow). See `wiki/GSC-LAUNCH.md` for the current production/GSC handoff.
 
 The trainer handbook redesign is described in `wiki/UI-REDESIGN.md`. With the local preview running, `python wiki/browser_check.py` checks the existing routes and tools; `python wiki/redesign_check.py` checks starter previews, numeric sorting, type deep links, intermediate widths and the included SEO/data baseline. Both browser suites require Python Playwright and its Chromium runtime. Test screenshots and reports are written into ignored `wiki/artifacts/`.
+
+## Machine-readable editions
+
+The build derives `/llms.txt` and nine selected Markdown reading editions from the final rendered HTML. `wiki/agent_resources.py` is the generator; do not hand-edit files in `wiki/dist`. The reading editions retain prerequisites, tables, limitations, source notes and media captions while directing readers to the canonical HTML for interactive tools and video. Cloudflare response rules serve Markdown as `text/markdown` with an HTML canonical and `X-Robots-Tag: noindex, follow`; these editions are intentionally excluded from the XML sitemap. `python wiki/agent_check.py` verifies the inventory, hashes, discovery links, content safeguards and header policy.
 
 ## Hosting
 

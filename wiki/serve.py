@@ -2,14 +2,51 @@
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import argparse
+import fnmatch
 import re
+from urllib.parse import urlsplit
 
 DIST = Path(__file__).resolve().parent / 'dist'
+
+
+def header_rules():
+    rules=[]
+    current=None
+    source=DIST/'_headers'
+    if not source.is_file():
+        return rules
+    for raw in source.read_text(encoding='utf-8').splitlines():
+        if not raw.strip():
+            continue
+        if not raw.startswith((' ', '\t')):
+            current=[raw.strip(), []]
+            rules.append(current)
+        elif current and ':' in raw:
+            name,value=raw.strip().split(':',1)
+            current[1].append((name.strip(),value.strip()))
+    return rules
 
 
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(DIST), **kwargs)
+
+    def guess_type(self, path):
+        if path.endswith('.md'):
+            return 'text/markdown; charset=utf-8'
+        if path.endswith('.txt'):
+            return 'text/plain; charset=utf-8'
+        return super().guess_type(path)
+
+    def end_headers(self):
+        route=urlsplit(self.path).path
+        existing=b''.join(getattr(self,'_headers_buffer',[])).lower()
+        for pattern, headers in header_rules():
+            if fnmatch.fnmatch(route,pattern):
+                for name,value in headers:
+                    if (name.lower()+':').encode() not in existing:
+                        self.send_header(name,value)
+        super().end_headers()
 
     def send_head(self):
         # Match static-host byte ranges so the preview can test real video seeking.
