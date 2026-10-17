@@ -1,4 +1,7 @@
 'use strict';
+const wikiLocale=window.WIKI_LOCALE||'en';
+const wikiI18n=window.WIKI_I18N||{};
+function wikiText(key,fallback,vars={}){let value=wikiI18n[key]||fallback;for(const [name,replacement] of Object.entries(vars))value=value.replaceAll(`{${name}}`,replacement);return value;}
 document.querySelectorAll('.guide-video video').forEach(video=>{
   const showError=()=>{const message=video.closest('.guide-video').querySelector('.video-error');if(message)message.hidden=false;};
   video.addEventListener('error',showError);
@@ -23,7 +26,7 @@ document.querySelectorAll('[data-table]').forEach(section=>{
     const q=input.value.trim().toLocaleLowerCase();
     let count=0;
     rows.forEach(row=>{const match=row.textContent.toLocaleLowerCase().includes(q)&&(!type.value||row.dataset.types.split(' ').includes(type.value));row.hidden=!match;if(match)count++;});
-    section.querySelector('[data-count]').textContent=`${count} of ${rows.length} entries`;
+    section.querySelector('[data-count]').textContent=wikiText('entries',`${count} of ${rows.length} entries`,{count:String(count),total:String(rows.length)});
     section.querySelector('[data-empty]').hidden=count!==0;
   };
   form.addEventListener('submit',e=>e.preventDefault());form.addEventListener('input',filter);form.addEventListener('change',filter);form.addEventListener('reset',()=>setTimeout(filter,0));filter();
@@ -54,11 +57,11 @@ if(lab){
       const partner=data.starters.find(p=>p.dex===Number(selected.value));
       const move=data.moves.find(m=>m.id===partner.start);
       lab.dataset.element=partner.types[0];
-      set('name',partner.name);set('type',partner.types.map(t=>t[0].toUpperCase()+t.slice(1)).join(' / ')+' · Starter partner');
+      set('name',partner.name);set('type',partner.types.map(t=>t[0].toUpperCase()+t.slice(1)).join(' / ')+' · '+wikiText('starterPartner','Starter partner'));
       set('number','#'+String(partner.dex).padStart(3,'0'));set('hp',partner.hp);set('speed',partner.spd);set('attack',partner.atk.toFixed(2)+'×');
       set('move',move.name);set('evolution',move.evolution.name);
-      set('requirement',`Level ${move.maxLevel} + ${move.evolution.requirement} in this run, then choose the golden card.`);
-      lab.querySelector('[data-lab-link]').href='/move-evolutions/#'+move.id;
+      set('requirement',wikiText('levelRequirement',`Level ${move.maxLevel} + ${move.evolution.requirement} in this run, then choose the golden card.`,{level:String(move.maxLevel),requirement:move.evolution.requirement}));
+      lab.querySelector('[data-lab-link]').href=(wikiLocale==='en'?'/':'/'+wikiLocale+'/')+'move-evolutions/#'+move.id;
       const glyph=selected.closest('label').querySelector('svg').cloneNode(true);
       glyph.setAttribute('width','37');glyph.setAttribute('height','37');
       lab.querySelector('[data-lab-emblem]').replaceChildren(glyph);
@@ -74,35 +77,35 @@ if(lab){
 const evo=document.querySelector('[data-evolution]');
 if(evo){
   const result=document.querySelector('#evo-result');
-  result.textContent='Loading move requirements…';
+  result.textContent=wikiText('loadingEvolution','Loading move requirements…');
   gameData().then(data=>{
     const move=document.querySelector('#evo-move'),level=document.querySelector('#evo-level'),stat=document.querySelector('#evo-stat');
     function update(){
       const m=data.moves.find(m=>m.id===move.value),n=Number(level.value);
       level.max=String(m.maxLevel);
-      if(!m.evolution){result.textContent=`${m.name} has no move evolution in this snapshot.`;return;}
-      if(level.value===''||!Number.isInteger(n)||n<1||n>m.maxLevel){result.textContent=`Enter a whole level from 1 to ${m.maxLevel}.`;return;}
+      if(!m.evolution){result.textContent=wikiText('noEvolution',`${m.name} has no move evolution in this snapshot.`,{move:m.name});return;}
+      if(level.value===''||!Number.isInteger(n)||n<1||n>m.maxLevel){result.textContent=wikiText('invalidLevel',`Enter a whole level from 1 to ${m.maxLevel}.`,{max:String(m.maxLevel)});return;}
       const missing=[];
-      if(n<m.maxLevel)missing.push(`reach level ${m.maxLevel}`);
-      if(!stat.checked)missing.push(`take ${m.evolution.requirement} in this run`);
-      result.textContent=missing.length?`${m.name} → ${m.evolution.name}: ${missing.join(' and ')}.`:`Eligible for ${m.evolution.name}. Choose the golden evolution card when offered; it does not evolve automatically.`;
+      if(n<m.maxLevel)missing.push(wikiText('reachLevel',`reach level ${m.maxLevel}`,{level:String(m.maxLevel)}));
+      if(!stat.checked)missing.push(wikiText('takeStat',`take ${m.evolution.requirement} in this run`,{stat:m.evolution.requirement}));
+      result.textContent=missing.length?`${m.name} → ${m.evolution.name}: ${missing.join(wikiLocale==='zh-hant'?'、':' + ')}.`:wikiText('eligible',`Eligible for ${m.evolution.name}. Choose the golden evolution card when offered; it does not evolve automatically.`,{evolution:m.evolution.name});
     }
     move.addEventListener('change',()=>{stat.checked=false;update();});level.addEventListener('input',update);stat.addEventListener('change',update);update();
-  }).catch(()=>{result.textContent='The checker could not load. Use the evolution table below or reload to try again.';});
+  }).catch(()=>{result.textContent=wikiText('loadFail','The checker could not load. Use the evolution table below or reload to try again.');});
 }
 const matchup=document.querySelector('[data-matchup]');
 if(matchup){
-  const out=document.querySelector('#type-result');out.textContent='Loading type rules…';
+  const out=document.querySelector('#type-result');out.textContent=wikiText('loadingTypes','Loading type rules…');
   gameData().then(data=>{
     const a=document.querySelector('#attack-type'),b=document.querySelector('#defend-type'),c=document.querySelector('#defend-second');
     function update(){
       [...c.options].forEach(o=>o.disabled=o.value===b.value);
       if(c.value===b.value)c.value='';
       const mult=c.value?data.matchups[a.value][b.value][c.value]:data.matrix[a.value][b.value];
-      out.textContent=`${a.selectedOptions[0].text} → ${b.selectedOptions[0].text}${c.value?' / '+c.selectedOptions[0].text:''}: ${Number(mult.toFixed(3))}× damage`;
+      out.textContent=wikiText('damage',`${a.selectedOptions[0].text} → ${b.selectedOptions[0].text}${c.value?' / '+c.selectedOptions[0].text:''}: ${Number(mult.toFixed(3))}× damage`,{attack:a.selectedOptions[0].text,defense:b.selectedOptions[0].text+(c.value?' / '+c.selectedOptions[0].text:''),mult:String(Number(mult.toFixed(3)))});
     }
     [a,b,c].forEach(s=>s.addEventListener('change',update));update();
-  }).catch(()=>{out.textContent='The calculator could not load. Use the single-type table below or reload to try again.';});
+  }).catch(()=>{out.textContent=wikiText('typeFail','The calculator could not load. Use the single-type table below or reload to try again.');});
 }
 const planner=document.querySelector('[data-build-planner]');
 if(planner){
@@ -120,23 +123,25 @@ if(planner){
     function update(){
       const partner=data.starters.find(p=>p.dex===Number(starter.value));
       const primary=data.moves.find(m=>m.id===partner.start),extra=data.moves.find(m=>m.id===secondary.value);
-      const evolution=m=>m?.evolution?`${m.name} → ${m.evolution.name}: level ${m.maxLevel} + ${m.evolution.requirement}`:`${m?.name||'Move'}: no evolution in this snapshot`;
-      result.textContent=`${partner.name} starts with ${evolution(primary)}. Secondary route: ${evolution(extra)}. Compatible pool: ${partner.types.join(' / ')} and Normal moves.`;
+      const evolution=m=>m?.evolution?wikiText('moveEvolution',`${m.name} → ${m.evolution.name}: level ${m.maxLevel} + ${m.evolution.requirement}`,{move:m.name,evolution:m.evolution.name,level:String(m.maxLevel),requirement:m.evolution.requirement}):wikiText('moveNoEvolution',`${m?.name||'Move'}: no evolution in this snapshot`,{move:m?.name||'Move'});
+      result.textContent=wikiText('buildSummary',`${partner.name} starts with ${evolution(primary)}. Secondary route: ${evolution(extra)}. Compatible pool: ${partner.types.join(' / ')} and Normal moves.`,{partner:partner.name,primary:evolution(primary),secondary:evolution(extra),types:partner.types.join(' / ')});
       const url=new URL(location.href);url.search='';url.searchParams.set('p',partner.dex);if(extra)url.searchParams.set('m',extra.id);share.dataset.url=url.href;
     }
     refreshMoves(params.get('m'));update();
     starter.addEventListener('change',()=>{refreshMoves();update();});secondary.addEventListener('change',update);
-    share.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(share.dataset.url);share.textContent='Link copied';setTimeout(()=>share.textContent='Copy share link',1600);}catch{result.textContent+=' Copying was blocked; use the URL shown in your address bar after changing a selection.';}});
-  }).catch(()=>{result.textContent='The planner could not load. Use the routes and evolution table below.';share.disabled=true;});
+    share.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(share.dataset.url);share.textContent=wikiText('linkCopied','Link copied');setTimeout(()=>share.textContent=wikiText('copyLink','Copy share link'),1600);}catch{result.textContent+=' '+wikiText('copyFail','Copying was blocked; use the URL shown in your address bar.');}});
+  }).catch(()=>{result.textContent=wikiText('plannerFail','The planner could not load. Use the routes and evolution table below.');share.disabled=true;});
 }
 const gacha=document.querySelector('[data-gacha]');
 if(gacha){
   const pulls=gacha.querySelector('#gacha-pulls'),pity=gacha.querySelector('#gacha-pity'),out=gacha.querySelector('#gacha-result');
   function updateGacha(){
     const n=Number(pulls.value),p=Number(pity.value);
-    if(!Number.isInteger(n)||n<1||n>1000||!Number.isInteger(p)||p<0||p>69){out.textContent='Enter 1–1000 pulls and current pity from 0–69.';return;}
+    if(!Number.isInteger(n)||n<1||n>1000||!Number.isInteger(p)||p<0||p>69){out.textContent=wikiText('gachaInvalid','Enter 1–1000 pulls and current pity from 0–69.');return;}
     const five=(1-Math.pow(.985,n))*100,shiny=(1-Math.pow(.99,n))*100,hard=n>=70-p;
-    out.textContent=`Base chance of at least one rarity 5: ${five.toFixed(2)}%. Base chance of at least one shiny-eligible roll: ${shiny.toFixed(2)}%. ${hard?`This window reaches the 70-pull hard pity after at most ${70-p} pull${70-p===1?'':'s'}.`:`Hard pity is not guaranteed within this window; ${70-p} pulls remain from the entered state.`}`;
+    const base=wikiText('gachaSummary',`Base chance of at least one rarity 5: ${five.toFixed(2)}%. Base chance of at least one shiny-eligible roll: ${shiny.toFixed(2)}%.`,{five:five.toFixed(2),shiny:shiny.toFixed(2)});
+    const pityText=hard?wikiText('pityReach',`This window reaches the 70-pull hard pity after at most ${70-p} pulls.`,{pulls:String(70-p)}):wikiText('pityRemain',`Hard pity is not guaranteed within this window; ${70-p} pulls remain from the entered state.`,{pulls:String(70-p)});
+    out.textContent=base+' '+pityText;
   }
   pulls.addEventListener('input',updateGacha);pity.addEventListener('input',updateGacha);updateGacha();
 }
@@ -145,19 +150,19 @@ if(searchInput){
   const form=searchInput.closest('form'),list=document.querySelector('#search-results'),status=document.querySelector('#search-status');
   const initial=new URLSearchParams(location.search).get('q')||'';searchInput.value=initial.slice(0,100);
   let indexPromise;
-  function index(){return indexPromise||=fetch('/assets/search.json').then(r=>{if(!r.ok)throw Error('Search unavailable');return r.json();}).catch(err=>{indexPromise=null;throw err;});}
+  function index(){const file=wikiLocale==='en'?'/assets/search.json':`/assets/search-${wikiLocale}.json`;return indexPromise||=fetch(file).then(r=>{if(!r.ok)throw Error('Search unavailable');return r.json();}).catch(err=>{indexPromise=null;throw err;});}
   let version=0;
   async function search(){
     const request=++version,q=searchInput.value.trim().slice(0,100);list.replaceChildren();
-    if(!q){status.textContent='Try a Pokémon name, a move or a question such as mobile.';return;}
-    status.textContent='Searching…';
+    if(!q){status.textContent=wikiText('searchHint','Try a Pokémon name, a move or a question such as mobile.');return;}
+    status.textContent=wikiText('searching','Searching…');
     try{
       const entries=await index();if(request!==version)return;
       const words=q.toLocaleLowerCase().split(/\s+/);
       const results=entries.filter(p=>words.every(w=>(p.title+' '+p.text).toLocaleLowerCase().includes(w)));
-      status.textContent=results.length?`${results.length} results${results.length>60?' — showing the first 60. Add another word to narrow them down.':'.'}`:'No results. Try a shorter name, a move, or browse the navigation.';
+      status.textContent=results.length?wikiText('results',`${results.length} results.`,{count:String(results.length)}):wikiText('noResults','No results. Try a shorter name, a move, or browse the navigation.');
       results.slice(0,60).forEach(p=>{const li=document.createElement('li'),small=document.createElement('small'),a=document.createElement('a'),desc=document.createElement('p');small.textContent=p.kind;a.href=p.url;a.textContent=p.title;desc.textContent=p.text;li.append(small,a,desc);list.append(li);});
-    }catch{if(request===version)status.textContent='Search could not load. Submit again to retry, or browse the guides and databases above.';}
+    }catch{if(request===version)status.textContent=wikiText('searchFail','Search could not load. Submit again to retry, or browse the guides and databases above.');}
   }
   form.addEventListener('submit',e=>{e.preventDefault();const q=searchInput.value.trim().slice(0,100);history.replaceState(null,'',q?'?q='+encodeURIComponent(q):location.pathname);search();});
   window.addEventListener('popstate',()=>{searchInput.value=(new URLSearchParams(location.search).get('q')||'').slice(0,100);search();});search();

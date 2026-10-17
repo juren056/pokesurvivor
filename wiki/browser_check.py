@@ -94,6 +94,29 @@ def main():
         page.keyboard.press('Escape')
         assert page.get_by_role('button',name='Menu',exact=True).get_attribute('aria-expanded')=='false'
         report['tasks'].append('Short mobile menu and Escape focus return')
+        locale_expectations={
+            'es':{'lang':'es','count':'1 de 966 registros','eligible':'Puedes evolucionar','damage':'de daño','results':'resultados'},
+            'it':{'lang':'it','count':'1 di 966 voci','eligible':'Puoi evolvere','damage':'danno','results':'risultati'},
+            'zh-hant':{'lang':'zh-Hant','count':'顯示 1／966 筆','eligible':'可進化為','damage':'傷害','results':'找到 1 筆結果'},
+        }
+        page.set_viewport_size({'width':390,'height':844})
+        for locale,expected in locale_expectations.items():
+            page.goto(f'{BASE}/{locale}/pokedex/')
+            assert page.locator('html').get_attribute('lang')==expected['lang']
+            page.locator('[data-filter]').fill('Pikachu')
+            assert page.locator('[data-count]').inner_text()==expected['count']
+            assert page.locator('tbody tr:visible').count()==1
+            page.goto(f'{BASE}/{locale}/move-evolutions/')
+            page.locator('#evo-move').select_option('ember');page.locator('#evo-level').fill('5');page.locator('#evo-stat').check()
+            assert expected['eligible'] in page.locator('#evo-result').inner_text()
+            page.goto(f'{BASE}/{locale}/types/')
+            page.locator('#attack-type').select_option('water');page.locator('#defend-type').select_option('fire');page.locator('#defend-second').select_option('rock')
+            assert expected['damage'] in page.locator('#type-result').inner_text() and '2.4×' in page.locator('#type-result').inner_text()
+            page.goto(f'{BASE}/{locale}/search/?q=Pikachu');page.wait_for_selector('#search-results a')
+            assert expected['results'] in page.locator('#search-status').inner_text()
+            assert page.locator('#search-results a').first.get_attribute('href').startswith(f'/{locale}/')
+            page.goto(f'{BASE}/{locale}/');page.screenshot(path=str(OUT/f'mobile-home-{locale}.png'),full_page=True)
+        report['tasks'].append('Spanish, Italian and Traditional Chinese filter, evolution, type calculator and localized search')
         response=page.goto(BASE+'/does-not-exist/')
         assert response.status==404
         report['tasks'].append('True HTTP 404')

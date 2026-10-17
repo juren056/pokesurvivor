@@ -1,0 +1,19 @@
+{
+  "sourceLocale": "en",
+  "reviewed": "2026-10-17",
+  "sourceFingerprint": "generated from the same build.py page inventory and data/game.json snapshot",
+  "routePolicy": "Stable English technical slugs under /es/, /it/ and /zh-hant/",
+  "scope": [
+    "title, description, H1 and body guidance",
+    "navigation, breadcrumbs, related links and footer",
+    "table controls, headers, types and attack-pattern labels",
+    "search index and interactive status messages",
+    "evolution, type, build and gacha tools",
+    "canonical, reciprocal hreflang, JSON-LD and sitemap"
+  ],
+  "locales": {
+    "es": {"routes": 22, "status": "Codex semantic and structural review complete", "nativeExpertApproval": false},
+    "it": {"routes": 22, "status": "Codex semantic and structural review complete", "nativeExpertApproval": false},
+    "zh-hant": {"routes": 22, "status": "Codex semantic and structural review complete", "nativeExpertApproval": false}
+  }
+}

@@ -23,11 +23,13 @@ ul,ol{padding-left:1.4rem}li+li{margin-top:.65rem}.sr-only{position:absolute;wid
 .brand:hover{color:var(--gold)}.brand-mark{width:38px;height:38px;flex-shrink:0}.brand-sub{display:block;font:10px/1.2 Arial,sans-serif;letter-spacing:.13em;color:var(--forest-muted);margin-top:7px}
 .site-header nav{display:flex;align-items:center;gap:22px;margin-left:auto}.site-header nav a{font-size:13px;font-weight:700;color:#d5e1d5;text-decoration:none;white-space:nowrap;padding:10px 0;min-height:42px}.site-header nav a:hover,.site-header nav [aria-current]{color:var(--gold)}.site-header nav [aria-current]{text-decoration:underline;text-decoration-thickness:2px}
 .site-header :focus-visible,.opening :focus-visible{outline-color:var(--gold)}
+.language-switcher{display:flex;justify-content:flex-end;gap:7px;padding:7px max(24px,calc((100vw - 1280px)/2));background:#edf1e8;border-bottom:1px solid var(--line);font-size:11px}.language-switcher a{padding:5px 8px;border-radius:999px;color:var(--forest);text-decoration:none}.language-switcher a:hover,.language-switcher [aria-current]{background:var(--forest);color:var(--white)}
 .play-link{display:flex;gap:7px;align-items:center;font-size:12px;font-weight:700;text-decoration:none;color:var(--gold);white-space:nowrap}.play-link:hover{color:var(--white)}
 .search-link{width:44px;height:44px;display:grid;place-items:center;color:var(--forest-muted);border:1px solid var(--forest-line);border-radius:7px}.search-link:hover{color:var(--gold);border-color:var(--gold)}
 .menu-toggle{display:none;border:1px solid var(--forest-line);border-radius:7px;background:transparent;color:var(--white);padding:10px 13px;min-height:44px}
 main{max-width:1360px;margin:auto;padding:0 40px}.home{max-width:none;padding:0}.opening{background:var(--forest);color:var(--white)}
 .hero{max-width:1360px;margin:auto;padding:58px 40px 48px;display:grid;grid-template-columns:1.12fr 1fr;gap:70px;align-items:center}
+.hero>*{min-width:0}.hero h1,.route strong{overflow-wrap:anywhere}
 .hero h1{font:700 clamp(2.7rem,4.9vw,4.4rem)/1.04 Pixelify,Arial,sans-serif;letter-spacing:-.025em;margin:0 0 23px;max-width:17ch}.hero h1 em{font-style:normal;color:var(--gold)}
 .lead{font-size:1.16rem;color:var(--muted);line-height:1.75}.hero .lead{color:#d0decf;font-size:17px;max-width:46ch;margin-bottom:24px}
 .hero-search{display:flex;align-items:center;gap:12px;background:var(--white);color:var(--ink);padding:7px 8px 7px 16px;border-radius:8px;max-width:520px}
