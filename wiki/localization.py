@@ -165,11 +165,104 @@ JS = {
 JS['es'].update({'moveEvolution':'{move} → {evolution}: nivel {level} + {requirement}','moveNoEvolution':'{move}: sin evolución en esta versión','buildSummary':'{partner} empieza con {primary}. Ruta secundaria: {secondary}. Reserva compatible: tipos {types} y movimientos Normal.','plannerFail':'No se pudo cargar el planificador. Usa las rutas y la tabla de evoluciones.','copyFail':'El navegador bloqueó la copia; usa la URL de la barra de direcciones.'})
 JS['it'].update({'moveEvolution':'{move} → {evolution}: livello {level} + {requirement}','moveNoEvolution':'{move}: nessuna evoluzione in questa versione','buildSummary':'{partner} inizia con {primary}. Percorso secondario: {secondary}. Pool compatibile: tipi {types} e mosse Normale.','plannerFail':'Impossibile caricare il pianificatore. Usa i percorsi e la tabella evoluzioni.','copyFail':'Il browser ha bloccato la copia; usa l’URL nella barra degli indirizzi.'})
 JS['zh-hant'].update({'moveEvolution':'{move} → {evolution}：{level} 級 + {requirement}','moveNoEvolution':'{move}：此版本無進化','buildSummary':'{partner} 的起始路線為 {primary}。副招式路線：{secondary}。相容範圍：{types} 屬性與一般屬性招式。','plannerFail':'無法載入規劃器，請使用路線說明與進化表。','copyFail':'瀏覽器封鎖複製；請使用網址列中的連結。'})
+for _locale in ('es','it','zh-hant'): JS[_locale]['typeNames']=TYPE_NAMES[_locale]
 
 
 def url(locale: str, slug: str) -> str:
     tail = (slug + '/') if slug else ''
     return '/' + tail if locale == 'en' else f'/{locale}/' + tail
+
+
+HOME_TEXT = {
+ 'tiers, builds & guides.':('clasificaciones, builds y guías.','classifiche, build e guide.','排行、配裝與攻略'),
+ 'Your independent Pokémon Survivor Wiki for the 966-partner Pokédex, tier lists, legal builds, co-op fixes and Judgment of Arceus.':('Tu wiki independiente de Pokémon Survivor: Pokédex de 966 compañeros, clasificaciones, builds legales, cooperativo y Judgment of Arceus.','La wiki indipendente di Pokémon Survivor con 966 compagni, classifiche, build valide, coop e Judgment of Arceus.','獨立 Pokémon Survivor 攻略站：收錄 966 名夥伴、強度排行、合法配裝、合作模式與阿爾宙斯審判。'),
+ 'Search Pokémon, moves and guides':('Buscar Pokémon, movimientos y guías','Cerca Pokémon, mosse e guide','搜尋寶可夢、招式與攻略'),
+ 'Pokémon, moves, or a question…':('Pokémon, movimientos o una pregunta…','Pokémon, mosse o una domanda…','輸入寶可夢、招式或問題…'),
+ 'Explore the full tier list':('Ver la clasificación completa','Apri la classifica completa','查看完整強度排行'),
+ 'Survive Arceus':('Sobrevive a Arceus','Sopravvivi ad Arceus','挑戰阿爾宙斯'),
+ 'Independent guide for JPTER78’s browser game. No game login, download charge or in-game purchase is offered here.':('Guía independiente del juego para navegador de JPTER78. Aquí no se cobra por descargar, iniciar sesión ni comprar dentro del juego.','Guida indipendente al gioco per browser di JPTER78. Qui non vengono offerti accessi, download a pagamento o acquisti nel gioco.','JPTER78 瀏覽器遊戲的獨立攻略站；本站不提供遊戲登入、付費下載或遊戲內購買。'),
+ 'Your opening move':('Tu movimiento inicial','La tua mossa iniziale','你的起始招式'),
+ 'All 29 starters':('Los 29 iniciales','Tutti i 29 iniziali','全部 29 名開局夥伴'),
+ 'Preview a starting partner':('Vista previa de un compañero inicial','Anteprima di un compagno iniziale','預覽開局夥伴'),
+ 'Fire · Starter partner':('Fuego · Compañero inicial','Fuoco · Compagno iniziale','火 · 開局夥伴'),
+ 'Movement':('Movimiento','Movimento','移動'),
+ 'Starting move':('Movimiento inicial','Mossa iniziale','起始招式'),
+ 'Evolution':('Evolución','Evoluzione','進化'),
+ 'Level 5 + Power in this run, then choose the golden card.':('Nivel 5 + Power en esta partida; después elige la carta dorada.','Livello 5 + Power in questa partita, poi scegli la carta dorata.','本局升至 5 級並取得 Power，再選擇金色卡。'),
+ 'Plan this evolution':('Planificar esta evolución','Pianifica questa evoluzione','規劃這次進化'),
+ 'Preview shows Charmander. Compare every option in the starter guide.':('La vista previa muestra a Charmander. Compara todas las opciones en la guía de iniciales.','L’anteprima mostra Charmander. Confronta ogni scelta nella guida agli iniziali.','預覽目前顯示 Charmander；請至開局夥伴攻略比較全部選項。'),
+ 'partners':('compañeros','compagni','名夥伴'),
+ 'definitions':('definiciones','definizioni','種定義'),
+ 'conditions':('condiciones','condizioni','項條件'),
+ 'Play the developer’s game':('Jugar al juego del desarrollador','Gioca al titolo dello sviluppatore','前往開發者遊戲'),
+ 'What’s stopping<br>your next run?':('¿Qué frena<br>tu próxima partida?','Cosa blocca<br>la prossima partita?','下一局卡在<br>哪個環節？'),
+ 'Choose the problem. Find your next step.':('Elige el problema y encuentra el siguiente paso.','Scegli il problema e trova il passo successivo.','選擇目前問題，找到下一步。'),
+ 'Explore starter builds':('Ver builds iniciales','Esplora le build iniziali','查看開局配裝'),
+ 'Survive Judgment of Arceus':('Sobrevive al Judgment of Arceus','Sopravvivi al Judgment of Arceus','撐過阿爾宙斯審判'),
+ '30-minute trigger, attacks and achievements.':('Inicio a los 30 minutos, ataques y logros.','Inizio al minuto 30, attacchi e obiettivi.','30 分鐘觸發、攻擊模式與成就。'),
+ 'Fix co-op and invites':('Soluciona el cooperativo y las invitaciones','Risolvi coop e inviti','排解合作與邀請問題'),
+ 'Start a room or diagnose common failures.':('Crea una sala o diagnostica los fallos habituales.','Crea una stanza o risolvi i problemi comuni.','建立房間或排查常見錯誤。'),
+ 'Plan a legal build':('Planifica una build legal','Pianifica una build valida','規劃合法配裝'),
+ 'Starting moves, upgrades and evolution routes.':('Movimientos iniciales, mejoras y rutas de evolución.','Mosse iniziali, potenziamenti e percorsi evolutivi.','起始招式、強化與進化路線。'),
+ 'Take the run to mobile':('Juega también en móvil','Porta la partita su mobile','在手機上繼續遊玩'),
+ 'Touch controls, installation and keeping your save.':('Controles táctiles, instalación y protección del guardado.','Comandi touch, installazione e protezione del salvataggio.','觸控操作、安裝方式與存檔保護。'),
+ 'See the run.<br>Read the next move.':('Mira la partida.<br>Decide el siguiente paso.','Guarda la partita.<br>Scegli la prossima mossa.','觀看實戰。<br>判斷下一步。'),
+ 'Real captures from a fresh local guest session. Watch the automatic attack, then follow the guide for your next upgrade.':('Capturas reales de una sesión local nueva. Observa el ataque automático y sigue la guía para elegir la próxima mejora.','Catture reali da una nuova sessione locale. Osserva l’attacco automatico e segui la guida per il prossimo potenziamento.','來自全新本機訪客存檔的實際畫面；先觀察自動攻擊，再依攻略選擇下一張強化卡。'),
+ 'Learn the controls':('Aprende los controles','Impara i comandi','學習操作'),
+ 'Meet the partners.<br>Know the numbers.':('Conoce a los compañeros.<br>Entiende los números.','Conosci i compagni.<br>Leggi i valori.','認識夥伴。<br>掌握數值。'),
+ 'Actual partner stats and type rules from the recorded game snapshot. Find a name, compare an opening, or check a difficult matchup.':('Estadísticas y reglas de tipos de la versión registrada. Busca un nombre, compara una apertura o revisa un enfrentamiento difícil.','Statistiche e regole dei tipi dalla versione registrata. Cerca un nome, confronta un inizio o controlla uno scontro difficile.','資料來自已記錄的遊戲版本；可搜尋名稱、比較開局能力或確認棘手的屬性相剋。'),
+ 'Open the full Pokédex':('Abrir la Pokédex completa','Apri il Pokédex completo','開啟完整圖鑑'),
+ 'A sample of the partner reference':('Muestra de la tabla de compañeros','Esempio della tabella compagni','夥伴資料表範例'),
+ 'Move patterns & base values':('Patrones y valores base','Schemi e valori base delle mosse','招式型態與基礎數值'),
+ 'Type chart & matchup calculator':('Tabla de tipos y calculadora','Tabella tipi e calcolatore','屬性表與相剋計算器'),
+ 'Legendary encounters & roster':('Encuentros legendarios y plantilla','Incontri leggendari e rosa','傳說遭遇與名單'),
+ 'A tier is a starting point.<br>Your build is the plan.':('Una categoría es el comienzo.<br>Tu build es el plan.','La fascia è il punto di partenza.<br>La build è il piano.','排行只是起點。<br>配裝才是計畫。'),
+ 'Compare all 966 source attributes, then use the dedicated 29-starter list, move patterns and evolution requirements to plan a route.':('Compara los atributos de los 966 compañeros y usa la lista de 29 iniciales, los patrones y los requisitos para planificar la ruta.','Confronta i 966 profili e usa la lista dei 29 iniziali, gli schemi e i requisiti per pianificare il percorso.','比較 966 名夥伴的資料，再搭配 29 名開局排行、招式型態與進化條件安排路線。'),
+ 'See all 966 ranked':('Ver los 966 clasificados','Vedi tutti i 966 classificati','查看 966 名完整排行'),
+ 'Compare starters':('Comparar iniciales','Confronta gli iniziali','比較開局夥伴'),
+ 'Plan a build':('Planificar una build','Pianifica una build','規劃配裝'),
+ 'Latest verified game update':('Última actualización verificada','Ultimo aggiornamento verificato','最新已核對更新'),
+ 'Required updates':('Actualizaciones obligatorias','Aggiornamenti obbligatori','強制更新'),
+ 'A required update ends the current run after a 10-second warning, saves its recorded rewards and reloads the game.':('Una actualización obligatoria avisa durante 10 segundos, termina la partida, guarda las recompensas registradas y recarga el juego.','Un aggiornamento obbligatorio avvisa per 10 secondi, termina la partita, salva le ricompense registrate e ricarica il gioco.','強制更新會先顯示 10 秒提示，結束本局、儲存已記錄獎勵並重新載入遊戲。'),
+ 'Read the verified changes':('Leer los cambios verificados','Leggi le modifiche verificate','閱讀已核對變更'),
+ 'Checked against the source.':('Comprobado en el código fuente.','Controllato sul codice sorgente.','已依原始碼核對。'),
+ 'Reference reviewed 2026-10-17. Source inspection is separate from gameplay testing.':('Referencia revisada el 17-10-2026. Revisar el código no equivale a probar cada situación.','Riferimento verificato il 17/10/2026. L’analisi del codice è distinta dalle prove di gioco.','資料於 2026-10-17 核對；檢查原始碼與實際遊玩測試分開記錄。'),
+ 'Our sources & method':('Fuentes y método','Fonti e metodo','資料來源與方法'),
+ 'Different game, similar name?':('¿Otro juego con un nombre parecido?','Un altro gioco con un nome simile?','名稱相近但不是同一款？'),
+ 'Pokémon Survivor Burst is a separate project. Identify your game before using a build or download guide.':('Pokémon Survivor Burst es otro proyecto. Identifica tu juego antes de seguir una build o una guía de descarga.','Pokémon Survivor Burst è un progetto diverso. Identifica il gioco prima di usare una build o una guida al download.','Pokémon Survivor Burst 是另一個專案；使用配裝或下載攻略前，請先確認目前遊戲。'),
+ 'Compare the games':('Comparar los juegos','Confronta i giochi','比較兩款遊戲')
+}
+
+_LOCALE_INDEX={'es':0,'it':1,'zh-hant':2}
+
+
+def localize_home(body: str, locale: str) -> str:
+    for source, targets in HOME_TEXT.items(): body=body.replace(source,targets[_LOCALE_INDEX[locale]])
+    return localize_component(body,locale)
+
+
+def localize_home_media(body: str, locale: str) -> str:
+    media_text={
+      'Original concept art · AI-assisted.':('Arte conceptual original · asistido por IA.','Concept art originale · assistita dall’IA.','原創概念圖 · AI 輔助。'),
+      'A compass-bearing forest guardian beside a turquoise rift. Original AI-assisted concept illustration.':('Un guardián del bosque con brújula junto a una grieta turquesa. Ilustración conceptual original asistida por IA.','Un guardiano della foresta con bussola accanto a un varco turchese. Illustrazione originale assistita dall’IA.','帶著羅盤的森林守護者站在青綠裂隙旁；原創 AI 輔助概念圖。'),
+      'Credits & scope':('Créditos y alcance','Crediti e ambito','素材說明'),
+      'A first look at the battlefield':('Primer vistazo al campo de batalla','Primo sguardo al campo di battaglia','初次進入戰場'),
+      'Your browser cannot play this video.':('Tu navegador no puede reproducir este vídeo.','Il browser non può riprodurre questo video.','你的瀏覽器無法播放此影片。'),
+      'Open the WebM recording':('Abrir la grabación WebM','Apri la registrazione WebM','開啟 WebM 錄影'),
+      'or read the steps below.':('o lee los pasos siguientes.','oppure leggi i passaggi qui sotto.','或閱讀下方步驟。'),
+      'The video could not load. Read the transcript below or':('No se pudo cargar el vídeo. Lee la transcripción o','Impossibile caricare il video. Leggi la trascrizione o','影片無法載入，請閱讀逐步說明或'),
+      'open the recording':('abre la grabación','apri la registrazione','開啟錄影'),
+      'Read the video steps':('Leer los pasos del vídeo','Leggi i passaggi del video','閱讀影片步驟'),
+      'Ember fires automatically while the partner moves.':('Ember se dispara automáticamente mientras el compañero se mueve.','Ember parte automaticamente mentre il compagno si muove.','夥伴移動時，Ember 會自動發射。'),
+      'Keep space around the partner and approach dropped experience.':('Mantén espacio alrededor del compañero y acércate a la experiencia caída.','Mantieni spazio attorno al compagno e avvicinati all’esperienza caduta.','保持夥伴周圍的空間，再靠近掉落的經驗。'),
+      'Upgrade offers and outcomes vary between runs.':('Las mejoras y los resultados cambian entre partidas.','Potenziamenti e risultati cambiano tra le partite.','每局出現的強化與結果都可能不同。'),
+      'Game capture.':('Captura del juego.','Cattura di gioco.','遊戲實拍。'),
+      'Ember attacks automatically while the partner moves.':('Ember ataca automáticamente mientras el compañero se mueve.','Ember attacca automaticamente mentre il compagno si muove.','夥伴移動時，Ember 會自動攻擊。'),
+      'Capture & credits':('Captura y créditos','Cattura e crediti','錄影與來源')
+    }
+    for source,targets in media_text.items():body=body.replace(source,targets[_LOCALE_INDEX[locale]])
+    body=body.replace('Silent recording with English captions.','')
+    return body
 
 
 def _component(body: str, marker: str) -> str:
@@ -243,8 +336,7 @@ def make_pages(base_pages: dict, locale: str) -> dict:
         if slug == 'search':
             body += f'<form action="{url(locale,"search")}" class="search-page"><label for="search-query">{UI[locale]["search"]}</label><div><input id="search-query" type="search" name="q" maxlength="100" placeholder="{h(guidance)}"><button class="button" type="submit">{UI[locale]["search"]}</button></div></form><p id="search-status" role="status" aria-live="polite"></p><ul id="search-results" class="search-results"></ul><noscript><p>JavaScript required.</p></noscript>'
         elif slug == '':
-            cards = ''.join(f'<a class="route" href="{url(locale,s)}"><span><strong>{h(PAGES[locale][s][0])}</strong><span>{h(PAGES[locale][s][2])}</span></span></a>' for s in ('how-to-play','tier-list','builds','arceus-judgment'))
-            body = f'<section class="opening"><div class="hero"><div class="hero-copy"><h1>{h(title)}</h1><p class="lead">{h(lead)}</p><form class="hero-search" action="{url(locale,"search")}" role="search"><label class="sr-only" for="home-search">{UI[locale]["search"]}</label><input id="home-search" name="q" type="search" maxlength="100" placeholder="{UI[locale]["search"]}…"><button type="submit">→</button></form><div class="actions"><a class="button" href="{url(locale,"tier-list")}">{UI[locale]["tier"]}</a><a class="button secondary" href="{url(locale,"arceus-judgment")}">{UI[locale]["arceus"]}</a></div></div><div class="route-list">{cards}</div></div></section><div class="home-content"><section class="home-section"><div class="section-heading"><h2>{UI[locale]["start"]}</h2><p>{h(guidance)}</p></div></section>{localize_component(_all_tables(source["body"]),locale)}</div>'
+            body = localize_home(source['body'],locale)
         else:
             heading = {'es':'Cómo usar esta guía','it':'Come usare questa guida','zh-hant':'本頁使用方式'}[locale]
             body += f'<section class="article-section" id="uso"><h2>{heading}</h2><p>{h(guidance)}</p></section>'
@@ -254,5 +346,6 @@ def make_pages(base_pages: dict, locale: str) -> dict:
             if tables: body += localize_component(tables, locale)
         item = deepcopy(source)
         item.update(title=title, description=description, body=body)
+        if slug == '': item['preserve_media_layout']=True
         pages[slug] = item
     return pages

@@ -113,7 +113,7 @@ def check():
         text=path.read_text(encoding='utf-8')
         if any(s in text for s in ('firebaseapp.com','app.min.js','<canvas','serviceWorker.register','pokesurvivor-free')):failures.append(f'Inherited game runtime: {path}')
         if any(part in path.parts for part in ('es','it','zh-hant')):
-            for phrase in ('Find in this table','No matches. Try another name','Keep your run moving','Reference reviewed','On this page','Enable JavaScript for the checker','Loading build data'):
+            for phrase in ('Find in this table','No matches. Try another name','Keep your run moving','Reference reviewed','On this page','Enable JavaScript for the checker','Loading build data','Your opening move','What’s stopping','Latest verified game update','Different game, similar name?'):
                 if phrase in text:failures.append(f'Localized surface contains English UI "{phrase}": {path}')
     if failures:
         print('\n'.join(failures));raise SystemExit(1)

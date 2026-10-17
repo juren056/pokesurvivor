@@ -33,6 +33,13 @@ def main():
                 if route in ('/','/move-evolutions/','/pokedex/') and label!='short-mobile':
                     page.screenshot(path=str(OUT/f'{label}-{route.strip("/") or "home"}.png'),full_page=route=='/')
         page.set_viewport_size({'width':1440,'height':1000})
+        home_selectors=['.opening','.hero','.hero-copy','.hero-field','.starter-lab','.topic-strip','.journey','.route','.field-film','.reference-home','.notebook','.trust-strip','.identity','[data-media-id]','[data-video-id]','.data-section']
+        home_signatures={}
+        for locale,path in [('en','/'),('es','/es/'),('it','/it/'),('zh-hant','/zh-hant/')]:
+            page.goto(BASE+path);page.wait_for_load_state('networkidle')
+            home_signatures[locale]={selector:page.locator(selector).count() for selector in home_selectors}
+        assert all(signature==home_signatures['en'] for signature in home_signatures.values()),home_signatures
+        report['tasks'].append('All locale homepages match the English component, media and interaction skeleton')
         page.goto(BASE+'/pokedex/')
         page.locator('[data-filter]').fill('Pikachu')
         assert page.locator('tbody tr:visible').count()==1

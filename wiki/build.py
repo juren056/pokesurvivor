@@ -236,7 +236,10 @@ def home():
 
 def render(slug,p,locale='en',pages=None):
     pages = pages or PAGES
-    if locale == 'en': p={**p, 'body':media.enhance(slug,p['body'])}
+    if locale == 'en' or p.get('preserve_media_layout'):
+        enhanced=media.enhance(slug,p['body'])
+        if locale != 'en': enhanced=localization.localize_home_media(enhanced,locale)
+        p={**p,'body':enhanced}
     ui = localization.UI.get(locale, {
         'start':'Start here','tier':'Tier list','arceus':'Arceus','dex':'Pokédex','moves':'Moves','evolutions':'Evolutions',
         'home':'Home','menu':'Menu','main_nav':'Main navigation','play':'Play game','search':'Search','skip':'Skip to content',

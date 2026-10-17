@@ -59,7 +59,8 @@ if(lab){
       const partner=data.starters.find(p=>p.dex===Number(selected.value));
       const move=data.moves.find(m=>m.id===partner.start);
       lab.dataset.element=partner.types[0];
-      set('name',partner.name);set('type',partner.types.map(t=>t[0].toUpperCase()+t.slice(1)).join(' / ')+' · '+wikiText('starterPartner','Starter partner'));
+      const typeNames=wikiI18n.typeNames||{};
+      set('name',partner.name);set('type',partner.types.map(t=>typeNames[t]||t[0].toUpperCase()+t.slice(1)).join(' / ')+' · '+wikiText('starterPartner','Starter partner'));
       set('number','#'+String(partner.dex).padStart(3,'0'));set('hp',partner.hp);set('speed',partner.spd);set('attack',partner.atk.toFixed(2)+'×');
       set('move',move.name);set('evolution',move.evolution.name);
       set('requirement',wikiText('levelRequirement',`Level ${move.maxLevel} + ${move.evolution.requirement} in this run, then choose the golden card.`,{level:String(move.maxLevel),requirement:move.evolution.requirement}));
