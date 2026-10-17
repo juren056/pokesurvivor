@@ -7,6 +7,14 @@
   }
   const id = 'G-GEQDCG9L1K';
   const key = 'psw-analytics-consent-v1';
+  const locale = window.WIKI_LOCALE || 'en';
+  const consentCopy = {
+    en: {label: 'Optional analytics', title: 'Help improve this Wiki?', body: 'Allow Google Analytics to measure page visits. Your search terms are excluded.', details: 'Privacy details', decline: 'Decline', allow: 'Allow analytics', privacy: '/privacy/'},
+    es: {label: 'Analítica opcional', title: '¿Ayudas a mejorar esta wiki?', body: 'Permite que Google Analytics mida las visitas. Tus términos de búsqueda quedan excluidos.', details: 'Detalles de privacidad', decline: 'Rechazar', allow: 'Permitir analítica', privacy: '/es/privacy/'},
+    it: {label: 'Statistiche facoltative', title: 'Vuoi aiutarci a migliorare la wiki?', body: 'Consenti a Google Analytics di misurare le visite. I termini cercati restano esclusi.', details: 'Dettagli sulla privacy', decline: 'Rifiuta', allow: 'Consenti statistiche', privacy: '/it/privacy/'},
+    'zh-hant': {label: '選用分析資料', title: '協助改善本站？', body: '允許 Google Analytics 統計頁面瀏覽；搜尋內容不會送出。', details: '隱私權說明', decline: '拒絕', allow: '允許分析', privacy: '/zh-hant/privacy/'}
+  };
+  const copy = consentCopy[locale] || consentCopy.en;
   let choice = null;
   try { choice = localStorage.getItem(key); } catch (_) {}
   let started = false;
@@ -35,8 +43,8 @@
   };
   const panel = document.createElement('section');
   panel.className = 'analytics-choice';
-  panel.setAttribute('aria-label', 'Optional analytics');
-  panel.innerHTML = '<strong>Help improve this Wiki?</strong><p>Allow Google Analytics to measure page visits. Your search terms are excluded. <a href="/privacy/">Privacy details</a></p><div><button type="button" class="button secondary" data-analytics="denied">Decline</button><button type="button" class="button" data-analytics="granted">Allow analytics</button></div>';
+  panel.setAttribute('aria-label', copy.label);
+  panel.innerHTML = `<strong>${copy.title}</strong><p>${copy.body} <a href="${copy.privacy}">${copy.details}</a></p><div><button type="button" class="button secondary" data-analytics="denied">${copy.decline}</button><button type="button" class="button" data-analytics="granted">${copy.allow}</button></div>`;
   panel.hidden = choice !== null || !!navigator.globalPrivacyControl;
   document.body.append(panel);
   panel.addEventListener('click', e => {
