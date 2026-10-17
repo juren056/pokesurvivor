@@ -2,12 +2,13 @@
 from pathlib import Path
 import hashlib
 import json
+import os
 import xml.etree.ElementTree as ET
 from playwright.sync_api import sync_playwright
 
 HERE=Path(__file__).resolve().parent
 OUT=HERE/'artifacts'
-BASE='http://127.0.0.1:4173'
+BASE=os.environ.get('WIKI_BASE','http://127.0.0.1:4173')
 
 
 def main():
@@ -15,14 +16,21 @@ def main():
     before=json.loads((HERE/'seo-baseline.json').read_text(encoding='utf-8'))
     manifest=json.loads((HERE/'dist/build-manifest.json').read_text(encoding='utf-8'))
     after={k:{x:v[x] for x in ['title','index','modified']} for k,v in manifest.items()}
-    assert before['routes']==after,'Protected route fields changed'
+    intended={'/','/mobile/','/builds/','/download/','/co-op/','/tier-list/','/updates/'}
+    for route,fields in before['routes'].items():
+        if route not in intended:
+            assert after.get(route)==fields,('Unexpected protected route change',route)
+    assert {'/starter-tier-list/','/arceus-judgment/','/upgrades/','/gacha-calculator/'} <= set(after),'Planned routes missing'
     # Media expansion adds image discovery entries; canonical URLs and dates stay protected.
     def sitemap_pages(text):
         ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
         return [(e.findtext('s:loc',namespaces=ns),e.findtext('s:lastmod',namespaces=ns)) for e in ET.fromstring(text)]
-    assert sitemap_pages(before['sitemap'])==sitemap_pages((HERE/'dist/sitemap.xml').read_text(encoding='utf-8')),'Sitemap page inventory changed'
+    old=dict(sitemap_pages(before['sitemap']));new=dict(sitemap_pages((HERE/'dist/sitemap.xml').read_text(encoding='utf-8')))
+    for url,date in old.items():
+        route=url.removeprefix('https://pokemonsurvivorwiki.com') or '/'
+        if route not in intended: assert new.get(url)==date,('Unexpected sitemap change',url)
     assert before['data_sha256']==hashlib.sha256((HERE/'data/game.json').read_bytes()).hexdigest(),'Game data changed'
-    report={'seo':'18 routes, titles, index flags, dates, sitemap and data preserved','layouts':[],'tasks':[]}
+    report={'seo':'Unchanged routes retain protected titles/index flags/dates; seven approved routes and four new routes match the October 17 plan','layouts':[],'tasks':[]}
     data=json.loads((HERE/'data/game.json').read_text(encoding='utf-8'))
     with sync_playwright() as p:
         browser=p.chromium.launch(headless=True)

@@ -1,12 +1,13 @@
 """Behavior and responsive acceptance checks against the local Wiki server."""
 from pathlib import Path
+import os
 import json
 from playwright.sync_api import sync_playwright
 
 HERE=Path(__file__).resolve().parent
 OUT=HERE/'artifacts'
 OUT.mkdir(exist_ok=True)
-BASE='http://127.0.0.1:4173'
+BASE=os.environ.get('WIKI_BASE','http://127.0.0.1:4173')
 manifest=json.loads((HERE/'dist/build-manifest.json').read_text(encoding='utf-8'))
 report={'routes':[],'tasks':[],'errors':[]}
 
@@ -62,6 +63,19 @@ def main():
         page.locator('#defend-second').select_option('')
         assert '0.3×' in page.locator('#type-result').inner_text()
         report['tasks'].append('Dual-type cap and softened immunity')
+        page.goto(BASE+'/builds/?p=4&m=water-gun')
+        page.wait_for_function("document.querySelector('#build-result').textContent.includes('Charmander starts with')")
+        assert 'Water Gun' not in page.locator('#build-result').inner_text()
+        page.locator('#build-secondary').select_option('tackle')
+        assert 'Tackle' in page.locator('#build-result').inner_text()
+        assert 'p=4' in page.locator('#build-share').get_attribute('data-url')
+        report['tasks'].append('Build planner rejects incompatible shared move and creates a private-data-free share URL')
+        page.goto(BASE+'/gacha-calculator/')
+        page.locator('#gacha-pulls').fill('10');page.locator('#gacha-pity').fill('65')
+        assert 'reaches the 70-pull hard pity' in page.locator('#gacha-result').inner_text()
+        page.locator('#gacha-pulls').fill('0')
+        assert 'Enter 1–1000 pulls' in page.locator('#gacha-result').inner_text()
+        report['tasks'].append('Gacha base probability, pity boundary and invalid input')
         page.goto(BASE+'/search/?q=Pikachu')
         page.wait_for_selector('#search-results a')
         page.locator('#search-results a').first.click()

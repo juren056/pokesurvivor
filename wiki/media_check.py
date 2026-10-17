@@ -1,10 +1,11 @@
 """Rendered media acceptance: images, sitemap, playback, captions and recovery."""
 from pathlib import Path
+import os
 import hashlib,json,urllib.request,xml.etree.ElementTree as ET
 import urllib.error
 from playwright.sync_api import sync_playwright
 
-HERE=Path(__file__).resolve().parent;DIST=HERE/'dist';OUT=HERE/'artifacts';BASE='http://127.0.0.1:4173'
+HERE=Path(__file__).resolve().parent;DIST=HERE/'dist';OUT=HERE/'artifacts';BASE=os.environ.get('WIKI_BASE','http://127.0.0.1:4173')
 report={'images':[],'videos':[],'layouts':[],'failures':[]}
 manifest=json.loads((DIST/'assets/media/manifest.json').read_text(encoding='utf-8'))
 routes=json.loads((DIST/'build-manifest.json').read_text(encoding='utf-8'))

@@ -104,6 +104,42 @@ if(matchup){
     [a,b,c].forEach(s=>s.addEventListener('change',update));update();
   }).catch(()=>{out.textContent='The calculator could not load. Use the single-type table below or reload to try again.';});
 }
+const planner=document.querySelector('[data-build-planner]');
+if(planner){
+  const starter=planner.querySelector('#build-starter'),secondary=planner.querySelector('#build-secondary'),result=planner.querySelector('#build-result'),share=planner.querySelector('#build-share');
+  gameData().then(data=>{
+    const params=new URLSearchParams(location.search);
+    if(data.starters.some(p=>String(p.dex)===params.get('p')))starter.value=params.get('p');
+    function allowed(partner,move){return move.type==='normal'||partner.types.includes(move.type);}
+    function refreshMoves(preferred){
+      const partner=data.starters.find(p=>p.dex===Number(starter.value));
+      [...secondary.options].forEach(option=>{const move=data.moves.find(m=>m.id===option.value);option.hidden=!allowed(partner,move);option.disabled=!allowed(partner,move)||move.id===partner.start;});
+      const candidates=[...secondary.options].filter(o=>!o.disabled&&!o.hidden);
+      secondary.value=candidates.some(o=>o.value===preferred)?preferred:candidates[0]?.value||'';
+    }
+    function update(){
+      const partner=data.starters.find(p=>p.dex===Number(starter.value));
+      const primary=data.moves.find(m=>m.id===partner.start),extra=data.moves.find(m=>m.id===secondary.value);
+      const evolution=m=>m?.evolution?`${m.name} → ${m.evolution.name}: level ${m.maxLevel} + ${m.evolution.requirement}`:`${m?.name||'Move'}: no evolution in this snapshot`;
+      result.textContent=`${partner.name} starts with ${evolution(primary)}. Secondary route: ${evolution(extra)}. Compatible pool: ${partner.types.join(' / ')} and Normal moves.`;
+      const url=new URL(location.href);url.search='';url.searchParams.set('p',partner.dex);if(extra)url.searchParams.set('m',extra.id);share.dataset.url=url.href;
+    }
+    refreshMoves(params.get('m'));update();
+    starter.addEventListener('change',()=>{refreshMoves();update();});secondary.addEventListener('change',update);
+    share.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(share.dataset.url);share.textContent='Link copied';setTimeout(()=>share.textContent='Copy share link',1600);}catch{result.textContent+=' Copying was blocked; use the URL shown in your address bar after changing a selection.';}});
+  }).catch(()=>{result.textContent='The planner could not load. Use the routes and evolution table below.';share.disabled=true;});
+}
+const gacha=document.querySelector('[data-gacha]');
+if(gacha){
+  const pulls=gacha.querySelector('#gacha-pulls'),pity=gacha.querySelector('#gacha-pity'),out=gacha.querySelector('#gacha-result');
+  function updateGacha(){
+    const n=Number(pulls.value),p=Number(pity.value);
+    if(!Number.isInteger(n)||n<1||n>1000||!Number.isInteger(p)||p<0||p>69){out.textContent='Enter 1–1000 pulls and current pity from 0–69.';return;}
+    const five=(1-Math.pow(.985,n))*100,shiny=(1-Math.pow(.99,n))*100,hard=n>=70-p;
+    out.textContent=`Base chance of at least one rarity 5: ${five.toFixed(2)}%. Base chance of at least one shiny-eligible roll: ${shiny.toFixed(2)}%. ${hard?`This window reaches the 70-pull hard pity after at most ${70-p} pull${70-p===1?'':'s'}.`:`Hard pity is not guaranteed within this window; ${70-p} pulls remain from the entered state.`}`;
+  }
+  pulls.addEventListener('input',updateGacha);pity.addEventListener('input',updateGacha);updateGacha();
+}
 const searchInput=document.querySelector('#search-query');
 if(searchInput){
   const form=searchInput.closest('form'),list=document.querySelector('#search-results'),status=document.querySelector('#search-status');

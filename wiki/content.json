@@ -1,5 +1,5 @@
 {
-  "reviewed": "2026-10-15",
+  "reviewed": "2026-10-17",
   "pages": [
     {
       "slug": "how-to-play",
@@ -79,21 +79,30 @@
     },
     {
       "slug": "mobile",
-      "title": "Play PokéSurvivor on mobile",
-      "description": "Browser controls, home-screen installation, performance settings and save precautions for PokéSurvivor on Android and iPhone.",
+      "title": "PokéSurvivor on Android & iPhone: Controls & Fixes",
+      "description": "Play PokéSurvivor on Android, iPhone or iPad, customize touch controls, install the PWA and troubleshoot performance or saves.",
       "group": "Guides",
-      "intro": "The source project supports phone and tablet play in the browser. Start there; an APK is not required for the browser version.",
+      "intro": "PokéSurvivor runs in a mobile browser on Android, iPhone and iPad. Use the official site, rotate to landscape, then customize the touch controls in Settings; no APK is required.",
+      "modified": "2026-10-17",
+      "sourceCommit": "5bbc3b29288d6af4596f21188fb8b54e0e9b739f",
       "sections": [
         {
           "heading": "Set up touch controls",
           "steps": [
-            "Open pokesurvivor.com in a current browser and rotate the device to landscape.",
+          "Open pokesurvivor.com in Android Chrome or iPhone/iPad Safari and rotate the device to landscape.",
             "Choose a guest session or your game account. Start a run and drag on the play area to move; the joystick appears at the touch position.",
-            "Tap the move bar to change the active attack. Use the on-screen pause control before adjusting settings.",
+          "Open Settings → Controls → Place the buttons. Drag attack buttons, pause and the joystick into reachable positions; choose a fixed or floating joystick.",
             "Try a short run before relying on a long session. Screen size, browser support and device performance can differ."
           ]
         },
         {
+        "heading": "Device-specific checkpoints",
+        "paragraphs": [
+          "Android Chrome usually exposes Install app or Add to Home screen in its browser menu. iPhone and iPad use Safari’s Share → Add to Home Screen. A home-screen icon is still the official web app, not a native store package.",
+          "On iPad, test landscape, full-screen behavior and the joystick before a long run. Browser UI and multitasking can reduce the usable play area. This guide does not label a simulator result as a physical-device test."
+        ]
+      },
+      {
           "heading": "Add the game to your home screen",
           "paragraphs": [
             "On Android, look in your browser’s menu for an install or Add to Home screen option. On iPhone or iPad, look in Safari’s Share menu for Add to Home Screen. Wording and availability vary by browser and OS.",
@@ -129,10 +138,11 @@
     },
     {
       "slug": "builds",
-      "title": "Starter builds: plan a move evolution",
-      "description": "Source-based starter build routes for Ember, Bubble, Razor Leaf and Confusion, with evolution prerequisites and practical tradeoffs.",
+      "title": "PokéSurvivor Builds Planner: Moves & Evolutions",
+      "description": "Plan a legal PokéSurvivor starter build, verify its opening move and evolution requirement, and create a shareable route.",
       "group": "Guides",
-      "intro": "Start a build with a move you can evolve, then keep a second damage option for its weak matchups. These are source-based build routes, not measured survival-time records.",
+      "intro": "Choose a starter, verify its actual opening move and record the stat card required for evolution. The planner below uses source data and creates a shareable summary without reading your game account.",
+      "modified": "2026-10-17",
       "sections": [
         {
           "heading": "Four routes to start with",
@@ -202,12 +212,21 @@
     },
     {
       "slug": "download",
-      "title": "Where to play or download PokéSurvivor",
-      "description": "Find the PokéSurvivor browser game, understand PWA installation and avoid confusing its downloads with Pokémon Survivor Burst.",
+      "title": "PokéSurvivor Download? Play Online, PWA & APK Explained",
+      "description": "Play the official PokéSurvivor browser game, install its PWA and understand third-party APK ports, saves and account limitations.",
       "group": "Guides",
-      "intro": "For this PokéSurvivor project, the verified starting point is the developer’s browser game at pokesurvivor.com. You can play without downloading an APK.",
+      "intro": "The official PokéSurvivor is free at pokesurvivor.com and works without an APK. A PWA home-screen install opens that web game; third-party Android ports and Pokémon Survivor Burst are separate products.",
+      "modified": "2026-10-17",
+      "sourceCommit": "5bbc3b29288d6af4596f21188fb8b54e0e9b739f",
       "sections": [
         {
+        "heading": "Saves, accounts and required updates",
+        "paragraphs": [
+          "The October 15 required-update behavior gives a 10-second warning, ends the current run, saves that run’s coins, tickets, records and leaderboard entry as when quitting, then reloads. It does not turn an unlinked guest save into a portable cloud account.",
+          "The official cloud features work on pokesurvivor.com. A copied localhost build or unofficial port can show an authentication referer error because it is a different origin; this Wiki does not present an unverified workaround as an official fix."
+        ]
+      },
+      {
           "heading": "Choose the right way to play",
           "table": {
             "headers": [
@@ -267,10 +286,12 @@
     },
     {
       "slug": "co-op",
-      "title": "PokéSurvivor co-op and account help",
-      "description": "Play with friends, check common co-op problems and understand account recovery in the PokéSurvivor source snapshot.",
+      "title": "PokéSurvivor Co-op Guide: Friends, Invites & Fixes",
+      "description": "Start a PokéSurvivor co-op run, fix offline friends or missing invites, and understand account linking and October 2026 fixes.",
       "group": "Guides",
-      "intro": "The game supports online groups of up to four. Use a cloud game account and the Friends menu; this Wiki has no game login or access to your save.",
+      "intro": "To start co-op, sign in on the official site, open Friends, add the exact nickname, send an invitation and wait until everyone appears in the room before starting. The game supports groups of up to four.",
+      "modified": "2026-10-17",
+      "sourceCommit": "5bbc3b29288d6af4596f21188fb8b54e0e9b739f",
       "sections": [
         {
           "heading": "Start with friends",
@@ -282,12 +303,18 @@
           ]
         },
         {
-          "heading": "Check the simple causes first",
-          "paragraphs": [
-            "If a friend appears offline or an invitation does not arrive, check the device clock and time zone. The October 14 source changelog includes a fix for clock-related presence problems.",
-            "The same changelog describes fixes for players waiting on each other’s choices and invisible enemies after a rift. If you are comparing an older guide or cached copy, check the game’s update prompt and the upstream release notes. Do not erase browser saves to force an update.",
-            "Connections can depend on the local network and browser. A failed connection is not proof that your collection or account is missing."
+        "heading": "Troubleshooting decision table",
+        "table": {
+          "headers": ["Symptom", "Check first", "Next action"],
+          "rows": [
+            ["Friend appears offline", "Exact nickname, both signed in, automatic device clock and time zone", "Reload after the current run; the October 14 build fixed clock-related presence errors"],
+            ["No invitation arrives", "Both players are on pokesurvivor.com and the inviter sees the friend online", "Re-open Friends and send one new invite; do not use an unofficial recovery form"],
+            ["Stuck on card or item choice", "Confirm every player is on the current build", "Allow the required-update reload after the run; October 14 fixed players waiting on each other"],
+            ["Enemies invisible after a rift", "Check whether only a non-host player is affected", "Update/reload; the October 14 source explicitly fixes this case"],
+            ["Disconnected or retrying", "Keep both browsers active and check the network", "Let the room retry; a failed peer connection does not mean the save is gone"],
+            ["Account recovery", "Whether the username/password account was linked to Gmail", "Use Sign in with Google for that Gmail; an unlinked guest cannot be recovered here"]
           ]
+        }
         },
         {
           "heading": "Password and account recovery",
@@ -394,7 +421,7 @@
         {
           "heading": "Credits and rights",
           "paragraphs": [
-            "Game code and code-derived mechanics: JPTER78 / PokéSurvivor, under the repository’s MIT license. Pokémon data in the original project was obtained from PokéAPI. Pokémon names and trademarks belong to their respective owners, including Nintendo, Creatures, GAME FREAK and The Pokémon Company.",
+            "Game code through commit b297089 was released under MIT. Code published after October 14, 2026 uses PolyForm Noncommercial 1.0.0. This Wiki uses source inspection for factual explanation and does not redistribute the later game code. Pokémon data in the original project was obtained from PokéAPI.",
             "This Wiki build does not distribute the original SpriteCollab Pokémon sprites. Pixelify Sans is provided under the SIL Open Font License; the license accompanies the font files. We have no affiliation with the game developer or Pokémon rights holders.",
             "This site has no game account system, paid downloads, token sales or cryptocurrency. For game bugs use the developer’s linked source repository. Source discrepancies can be checked against the file and snapshot references on the affected page."
           ]

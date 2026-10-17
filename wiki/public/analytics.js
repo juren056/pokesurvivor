@@ -62,5 +62,15 @@
     panel.hidden = false;
     panel.querySelector('button').focus();
   });
+  const event = (name, params = {}) => {
+    if (choice === 'granted' && started && window.gtag) gtag('event', name, params);
+  };
+  document.addEventListener?.('click', e => {
+    const link = e.target.closest('a');
+    if (link?.href?.startsWith('https://pokesurvivor.com/')) event('outbound_game_click', {link_domain: 'pokesurvivor.com'});
+    if (link?.closest('.related')) event('guide_navigation', {destination_path: new URL(link.href).pathname});
+    if (e.target.closest('#build-share')) event('tool_submit', {tool_name: 'build_planner'});
+  });
+  document.querySelectorAll?.('.guide-video video').forEach(video => video.addEventListener('play', () => event('video_play', {video_id: video.closest('[data-video-id]')?.dataset.videoId || 'guide'}), {once: true}));
   if (choice === 'granted') start();
 })();

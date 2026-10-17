@@ -71,9 +71,11 @@ def section(title, body, ident=None):
     return f'<section class="article-section" id="{E(ident)}"><h2>{E(title)}</h2>{body}</section>'
 
 
-def add(slug, title, description, body, group='Guides', related=None, sources=None, index=True):
+def add(slug, title, description, body, group='Guides', related=None, sources=None, index=True,
+        modified='2026-10-15', source_commit=None):
     PAGES[slug] = dict(title=title, description=description, body=body, group=group,
-                       related=related or [], sources=sources or [], index=index)
+                       related=related or [], sources=sources or [], index=index,
+                       modified=modified, source_commit=source_commit or DATA['source']['commit'])
 
 
 def prose(p):
@@ -87,7 +89,8 @@ def prose(p):
         body += section(s['heading'], text)
     if p.get('externalSources'):
         body += section('Additional source', ''.join(f'<p><a href="{E(s["url"])}">{E(s["label"])}</a></p>' for s in p['externalSources']))
-    add(p['slug'], p['title'], p['description'], body, p['group'], p['related'], p['sources'])
+    add(p['slug'], p['title'], p['description'], body, p['group'], p['related'], p['sources'],
+        modified=p.get('modified', '2026-10-15'), source_commit=p.get('sourceCommit'))
 
 
 def reference_pages():
@@ -115,15 +118,29 @@ def reference_pages():
     body += section('Three ways to choose','<ul><li><strong>Prefer distance?</strong> Compare partners starting with Ember or Water Gun. Read the move patterns before committing.</li><li><strong>Want a different opening?</strong> Psyduck and Slowpoke start with Confusion, giving a Psychic option outside the regional starter trios.</li><li><strong>Planning an evolution?</strong> Piplup starts with Bubble and needs Sprint; a Water Gun opener needs Power instead.</li></ul><p>These are build considerations, not a claim that one choice always survives longest.</p>')
     body += table(['Partner','Type','Starting move','HP','Speed','Attack','Evolution stat'],rows,True,'Starting partners')
     add('starters','Best PokéSurvivor starters: all 29 starting options','Compare the 29 PokéSurvivor starters by starting move, HP, speed and attack, with the stat card each opening move needs.',body,'Guides',['tier-list','builds','move-evolutions'],['js/data/starters.js','js/data/pokedex.js','js/data/moves.js'])
-    rows=[]
+    starter_rows=[]
     for score,p in ranked:
         band='A' if score>=90 else 'B' if score>=82 else 'C'
-        rows.append(dict(types=p['types'],cells=[f'<span class="rank rank-{band}">{band}</span>',f'<strong>{E(p["name"])}</strong>',badges(p['types']),f'{score:.1f}',p['hp'],p['spd'],f'{p["atk"]:.2f}×', E(MOVES[p['start']]['name'])]))
-    body = '<p class="lead">A transparent starter stat tier list for the 29 starting partners. Use it to compare starting numbers, then check the move and matchup before picking.</p><div class="notice"><strong>Source-based ranking.</strong> These bands are not gameplay-tested rankings, a co-op meta, or a tier list of all 966 partners.</div>'
+        starter_rows.append(dict(types=p['types'],cells=[f'<span class="rank rank-{band}">{band}</span>',f'<strong>{E(p["name"])}</strong>',badges(p['types']),f'{score:.1f}',p['hp'],p['spd'],f'{p["atk"]:.2f}×', E(MOVES[p['start']]['name'])]))
+    body = '<p class="lead">A transparent comparison of all 29 starting partners, including their opening move and weighted starting attributes.</p><div class="notice"><strong>Editorial starter recommendation.</strong> This score is useful for comparing openings, but it is not measured survival time, win rate or an official game tier.</div>'
     body += section('What the score measures',f'<p>Score = 100 × (0.35 × HP / {maxhp} + 0.25 × speed / {maxspd} + 0.40 × attack / {maxatk:.2f}). Each denominator is the highest value among the 29 starters in this snapshot. A = 90 or above; B = 82 to below 90; C = below 82.</p><p>The weights are an editorial choice, not an official game formula. A higher score only means a stronger weighted starting-stat profile. It excludes move pattern, range, weather, resistances, run upgrades and player skill; an A-band partner is not guaranteed to outperform a lower-band one.</p>')
-    body += table(['Band','Partner','Type','Score','HP','Speed','Attack','Starting move'],rows,True,'Starter stat score bands')
+    body += table(['Band','Partner','Type','Score','HP','Speed','Attack','Starting move'],starter_rows,True,'Starter stat score bands')
     body += section('Turn the ranking into a decision','<p>Use the starter guide to find a move you can handle. Use the evolution checker to identify its required card, and test the route in your own runs. For a durable survival-time ranking, comparable repeated runs and recorded conditions would be needed; this site does not invent those results.</p>')
-    add('tier-list','PokéSurvivor tier list: starter stat rankings','Compare 29 PokéSurvivor starters with transparent stat-based tier bands, exact scoring weights and starting moves.',body,'Guides',['starters','builds','types'],['js/data/pokedex.js','js/data/starters.js'])
+    add('starter-tier-list','PokéSurvivor Starter Tier List: All 29 Starters','Compare all 29 PokéSurvivor starters with transparent stat bands, opening moves and evolution prerequisites.',body,'Guides',['tier-list','starters','builds'],['js/data/pokedex.js','js/data/starters.js','js/data/moves.js'],modified='2026-10-17')
+
+    all_max = {k:max(p[k] for p in DATA['dex']) for k in ('hp','spd','atk')}
+    all_ranked=[]
+    for p in DATA['dex']:
+        score=round(100*(.35*p['hp']/all_max['hp']+.25*p['spd']/all_max['spd']+.40*p['atk']/all_max['atk']),1)
+        band='S' if score>=92 else 'A' if score>=84 else 'B' if score>=76 else 'C'
+        all_ranked.append((score,p,band))
+    all_ranked.sort(key=lambda x:(-x[0],x[1]['dex']))
+    rows=[dict(id=f'rank-p{p["dex"]}',types=p['types'],cells=[f'<span class="rank rank-{band}">{band}</span>',f'<span class="dex-no">{p["dex"]:03}</span> <strong>{E(p["name"])}</strong>',badges(p['types']),f'{score:.1f}',p['hp'],p['spd'],f'{p["atk"]:.2f}×',('Starter / gacha' if p.get('starter') else 'Gacha') if p['gacha'] else 'Outside gacha pool']) for score,p,band in all_ranked]
+    body='<p class="lead">Search, filter and sort all 966 partners by a reproducible starting-attribute score. Use this as a roster comparison, then check move patterns, types and unlock route before choosing a build.</p><div class="notice"><strong>Stat ranking, not a win-rate leaderboard.</strong> The list uses source attributes only. It does not claim that 966 partners were run-tested or that an S band guarantees a longer run.</div>'
+    body+=section('How the full-roster score works',f'<p>Score = 100 × (0.35 × HP / {all_max["hp"]} + 0.25 × speed / {all_max["spd"]} + 0.40 × attack / {all_max["atk"]:.2f}). S = 92+, A = 84–91.9, B = 76–83.9 and C = below 76. The weights are an editorial comparison of source attributes, not an official formula.</p><p>Move range, cooldown, evolution prerequisites, weather, enemy type, upgrades, co-op and player control can reverse an apparent stat advantage. For the 29 partners available at the start of a run, use the dedicated Starter Tier List.</p>')
+    body+=table(['Band','Partner','Type','Score','HP','Speed','Attack','Collection'],rows,True,'All 966 partner stat rankings')
+    body+=section('Use a tier as the first filter','<ol class="steps"><li>Filter by a type that fits the enemy or weather you expect.</li><li>Open the move database and compare the partner’s available attack patterns.</li><li>Check the evolution requirement before committing upgrade cards.</li><li>Use the build planner to record a legal route, then judge it in your own runs.</li></ol>')
+    add('tier-list','PokéSurvivor Tier List (2026): All 966 Pokémon Ranked','Search and sort all 966 PokéSurvivor partners by transparent source attributes, with clear limits and a separate 29-starter ranking.',body,'Guides',['starter-tier-list','builds','types'],['js/data/pokedex.js'],modified='2026-10-17')
     options=''.join(f'<option value="{t}">{t.title()}</option>' for t in DATA['types'])
     tool=f'''<div class="tool" data-matchup><h3>Check a type matchup</h3><div class="tool-inputs"><label>Attacking type<select id="attack-type">{options}</select></label><label>Defending type<select id="defend-type">{options}</select></label><label>Second defending type<select id="defend-second"><option value="">None</option>{options}</select></label></div><output id="type-result" aria-live="polite"></output><noscript><p>Enable JavaScript for dual-type calculations. The single-type chart remains available below.</p></noscript></div>'''
     rows=[[badges([a])]+[f'<span class="mult {"good" if DATA["matrix"][a][d]>1 else "weak" if DATA["matrix"][a][d]<1 else ""}">{DATA["matrix"][a][d]:g}×</span>' for d in DATA['types']] for a in DATA['types']]
@@ -137,13 +154,52 @@ def reference_pages():
     body+=section('Follow the rift route','<ol class="steps"><li>During a run, watch for a rift opening on the map.</li><li>Enter it to move into a separate legendary arena.</li><li>Read the enemy’s attacks, terrain and type before committing to close range.</li><li>Defeat the legendary, collect the rewards and return to the main run. Winning grants a move link; it does not automatically add the normal partner to your collection.</li></ol><p>Use the Pokédex collection column for regional gacha eligibility. The roster below identifies legendary/mythical entries, not a guaranteed spawn schedule or a list of starter choices.</p>')
     body+=table(['Partner','Type','HP','Speed','Attack'],rows,True,'Rift legendary roster')
     add('legendaries','PokéSurvivor legendaries: rifts & roster','Understand PokéSurvivor rift encounters and browse the source snapshot’s legendary and mythical partner roster.',body,'Database',['types','pokedex','move-evolutions'],['js/systems/rift.js','js/data/pokedex.js','js/systems/gacha.js'])
-    body='<p class="lead">Selected game changes from the repository snapshot. These are developer changelog entries, not claims that every change was independently playtested here.</p>'
+    body='<p class="lead">Verified developer changes through October 15, 2026. These are source-backed release notes, not claims that every change was independently playtested here.</p>'
+    latest='<p class="date">Game changelog: 2026-10-15</p><h3>Changed</h3><ul><li>For a required update, the current run ends after a 10-second warning and the game reloads.</li><li>The developer states that coins, tickets, records and the leaderboard entry from that run are saved as when quitting. This does not promise that an unlinked guest save can be recovered on another device.</li></ul><p><a href="https://github.com/JPTER78/pokesurvivor/blob/5bbc3b29288d6af4596f21188fb8b54e0e9b739f/js/data/changelog.js">Read the verified source at commit 5bbc3b2</a>.</p>'
+    body+=section('Required updates',latest,'update-2026-10-15')
     for entry in DATA['changelog'][:8]:
+        if entry['date']=='2026-10-15': continue
         text=f'<p class="date">Game changelog: {E(entry["date"])}</p>'
         for key,label in [('new','Added'),('changed','Changed'),('fixed','Fixed')]:
             if entry[key]: text+=f'<h3>{label}</h3><ul>'+''.join(f'<li>{E(x)}</li>' for x in entry[key])+'</ul>'
         body+=section(entry['title'],text, 'update-'+entry['date'])
-    add('updates','PokéSurvivor updates & source snapshot','Read recent PokéSurvivor developer changelog entries, including account recovery, co-op fixes and the Judgment of Arceus.',body,'Guides',['co-op','how-to-play','about'],['js/data/changelog.js'])
+    add('updates','PokéSurvivor Updates: Required Reloads, Co-op & Arceus','Read verified PokéSurvivor updates through October 15, including required reloads, account recovery, co-op fixes and Judgment of Arceus.',body,'Guides',['arceus-judgment','co-op','mobile','download'],['js/data/changelog.js'],modified='2026-10-17',source_commit='5bbc3b29288d6af4596f21188fb8b54e0e9b739f')
+
+    body='<p class="lead">At 30:00 in the official browser game, Arceus moves the run to the Ruins of Judgment. Arceus is invincible: the goal is to dodge its attacks, survive, and defeat the legendary reinforcements needed for the three related achievements.</p><div class="notice"><strong>Official browser version.</strong> This guide covers JPTER78’s pokesurvivor.com build verified at commit <code>5bbc3b2</code>. Third-party Android ports may behave differently.</div>'
+    body+=section('When the Judgment starts','<div class="judgment-timeline" role="img" aria-label="Timeline: new rifts stop at 28 minutes and Judgment of Arceus begins at 30 minutes"><div><strong>28:00</strong><span>No new rifts open</span></div><div><strong>30:00</strong><span>Ruins of Judgment begins</span></div><div><strong>+5 sec</strong><span>Legendary reinforcements continue</span></div></div><p>The October 13 official changelog says new rifts stop from minute 28 so the Judgment cannot begin while you are inside one. At minute 30 Arceus descends and moves the run to the Ruins.</p>')
+    body+=section('What changes in the Ruins','<p>Arceus cannot be defeated in the official browser build. It follows the player faster over time, while the normal survival route gives way to an endurance phase with repeated legendary pressure.</p>')
+    body+=section('Read the four attack warnings','<div class="attack-grid"><article><strong>Pillars</strong><span>Leave marked impact zones.</span></article><article><strong>Beams</strong><span>Cross the lane before it closes.</span></article><article><strong>Shockwaves</strong><span>Keep space to read expanding danger.</span></article><article><strong>Contact</strong><span>Do not let the invincible pursuer pin your route.</span></article></div><p>The official changelog confirms pillars, beams, shockwaves and severe contact damage. These diagrams explain movement choices; they are not game screenshots and do not invent exact frame timings.</p>')
+    body+=section('Legendary reinforcement timeline','<p>A legendary joins about every five seconds, and each new reinforcement is described as having twice the HP and damage of the previous one. The useful decision is to keep a clear movement lane while focusing enough damage to finish three reinforcements in one run for Divine challenge.</p>')
+    body+=section('The three achievements','<div class="achievement-grid"><article><strong>The Judgment</strong><span>Reach minute 30.</span></article><article><strong>Before the Creator</strong><span>Survive 60 seconds against Arceus.</span></article><article><strong>Divine challenge</strong><span>Defeat three reinforcement legendaries in one run.</span></article></div><p>Achievement conditions are verified from the developer changelog. This page does not list a reward until the current achievement data is separately verified.</p>')
+    body+=section('Survival approach','<ol class="steps"><li>Finish rift decisions before 28:00 and protect an open movement lane.</li><li>Enter 30:00 with movement and cooldown improvements that help you reposition without stopping.</li><li>React to the warning area first; damage comes after avoiding Arceus and the next telegraphed attack.</li><li>For Divine challenge, focus one reinforcement at a time without letting Arceus close the escape route.</li></ol><p>This is a source-derived approach, not a claimed first-person 60-second clear.</p>')
+    body+=section('Solo, co-op and Android ports','<p>The official changelog defines the browser version. Co-op positioning and connection quality can change how easy warnings are to read; the source does not justify claiming a separate co-op spawn schedule here. A third-party Android port or Pokémon Survivor Burst is a different build and may contain a defeatable Arceus or another mode.</p>')
+    body+=section('Arceus FAQ','<h3>Can you defeat Arceus?</h3><p>Not in the verified official browser build; Arceus is invincible.</p><h3>Does Judgment begin at 30 minutes?</h3><p>Yes. New rifts stop at 28:00 and Judgment starts at 30:00.</p><h3>What should I prepare?</h3><p>Prioritize controllable movement, clear lanes and a legal evolved build before minute 30. Use the build, move-evolution and type tools for the parts this page can verify.</p>')
+    add('arceus-judgment','PokéSurvivor Arceus Guide (2026): Survive the 30-Minute Judgment','Survive PokéSurvivor Judgment of Arceus at 30 minutes: attacks, legendary reinforcements and three verified achievements.',body,'Guides',['updates','legendaries','builds','co-op','moves','move-evolutions','types'],['js/data/changelog.js','js/systems/judgment.js','js/data/achievements.js'],modified='2026-10-17',source_commit='5bbc3b29288d6af4596f21188fb8b54e0e9b739f')
+
+    upgrades=[('Vitality','+8 HP',10,60,1.35),('Strength','+4% damage',10,80,1.38),('Stride','+3% speed',8,70,1.4),('Reflexes','−3% cooldown',8,90,1.42),('Armor','+2% defense',8,80,1.4),('Synthesis','+0.2 HP/s',5,120,1.5),('Magnet','+12% pickup range',6,50,1.4),('Wisdom','+5% experience',8,100,1.42),('Fortune','+8% coins',8,120,1.45),('Repertoire','Start with 2 moves',1,1500,1),('Critical Hit','+3% crit chance; crits deal 1.5×',10,90,1.4),('Card reroll','+1 level-card reroll per run',5,150,1.6),('Ban','Block 1 move from level cards',3,300,1.9)]
+    upgrade_rows=[]
+    for name,effect,maximum,base,growth in upgrades:
+        costs=[round(base*(growth**level)/10)*10 for level in range(maximum)]
+        upgrade_rows.append([E(name),E(effect),maximum,base,' · '.join(str(c) for c in costs)])
+    body='<p class="lead">Permanent upgrades change every run for one partner. The October 12 update added Critical Hit, Card reroll and Ban; the table below uses the current official definitions and exact cost formula.</p>'
+    body+=section('How upgrade prices scale','<p>The next level costs <code>round(base × growth^current level / 10) × 10</code> coins. The price row lists level purchases from the first level through the cap. Values are per partner, so plan the Pokémon you use before spending.</p>')
+    body+=table(['Upgrade','Effect per level','Max','First cost','All level costs'],upgrade_rows,kind='Permanent upgrade definitions and prices')
+    body+=section('Priority without invented win rates','<p>Movement and cooldown improve control and consistency; Strength and Critical Hit improve damage; Reroll and Ban improve card choice. Repertoire changes the opening by adding a second move. The best order depends on the partner, build and player, so this page does not claim a universal measured survival ranking.</p>')
+    add('upgrades','PokéSurvivor Upgrades: Costs, Caps & Effects','Compare every permanent PokéSurvivor upgrade, including Critical Hit, Card reroll and Ban, with exact caps and level costs.',body,'Database',['builds','moves','arceus-judgment'],['js/data/upgrades.js'],modified='2026-10-17',source_commit='5bbc3b29288d6af4596f21188fb8b54e0e9b739f')
+
+    calc='<div class="tool" data-gacha><h3>Gacha probability calculator</h3><p>Enter future pulls and your current banner pity. Each regional banner tracks its own pity.</p><div class="tool-inputs"><label>Future pulls<input id="gacha-pulls" type="number" min="1" max="1000" value="10"></label><label>Current pity<input id="gacha-pity" type="number" min="0" max="69" value="0"></label></div><output id="gacha-result" aria-live="polite"></output><noscript><p>Base five-star rate is 1.5%, shiny chance is 1%, and pity guarantees a five-star at 70 pulls.</p></noscript></div>'
+    body='<p class="lead">PokéSurvivor regional banners use rarity weights of 45%, 30%, 17%, 6.5% and 1.5%. A ten-pull guarantees at least rarity 4 on its final slot if the first nine did not produce one, and a banner-specific pity guarantees rarity 5 at 70.</p>'+calc
+    body+=section('Rules the calculator uses','<ul><li>Five-star base chance: 1.5% per ordinary pull.</li><li>Shiny chance: 1 in 100 when the selected Pokémon has a shiny sprite.</li><li>Pity is stored separately for each of nine regional banners and resets on a rarity-5 result.</li><li>Ten-pull protection affects the last slot if no rarity-4-or-5 result appeared earlier.</li><li>A repeated shiny is replaced by a missing shiny of the same rarity when one exists; otherwise the result becomes normal.</li></ul><p>The summary reports simple base chances plus whether the entered pull window reaches hard pity. It does not simulate a specific banner pool or promise a particular Pokémon.</p>')
+    add('gacha-calculator','PokéSurvivor Gacha Calculator: Rates, Pity & Shiny Odds','Calculate PokéSurvivor base five-star and shiny odds, check the 70-pull banner pity and understand ten-pull protection.',body,'Tools',['pokedex','upgrades','shiny-guide' if 'shiny-guide' in PAGES else 'updates'],['js/systems/gacha.js'],modified='2026-10-17',source_commit='5bbc3b29288d6af4596f21188fb8b54e0e9b739f')
+
+
+def enhance_content_pages():
+    starter_options=''.join(f'<option value="{p["dex"]}">{E(p["name"])}</option>' for p in DATA['starters'])
+    move_options=''.join(f'<option value="{m["id"]}">{E(m["name"])}</option>' for m in DATA['moves'])
+    planner=f'''<div class="tool build-planner" data-build-planner><h3>Build route planner</h3><p>Choose a starter and a compatible secondary move. The planner keeps the official starting move fixed and checks the evolution cards for both moves.</p><div class="tool-inputs"><label>Starter<select id="build-starter">{starter_options}</select></label><label>Secondary move<select id="build-secondary">{move_options}</select></label></div><output id="build-result" aria-live="polite">Loading build data…</output><div class="actions"><button class="button" id="build-share" type="button">Copy share link</button><a class="text-link" href="/move-evolutions/">Check every evolution</a></div><noscript><p>The planner needs JavaScript. Use the four starter routes and evolution table below.</p></noscript></div>'''
+    PAGES['builds']['body']=PAGES['builds']['body'].replace('</p>','</p>'+planner,1)
+    PAGES['builds']['related']=['moves','move-evolutions','types','starter-tier-list']
+    PAGES['builds']['source_commit']='b29708900da26b34e70d2dc07ad1659a719f4a78'
 
 
 def home():
@@ -151,16 +207,16 @@ def home():
     initial = starters[0]
     move = MOVES[initial['start']]
     choices = ''.join(f'<label class="starter-choice"><input type="radio" name="opening-partner" value="{p["dex"]}" {"checked" if i==0 else ""}><span>{icon(p["types"][0],18)}{E(p["name"])}</span></label>' for i,p in enumerate(starters))
-    featured=[('how-to-play','book','Make your first run count','Controls, upgrade cards and the first decisions that matter.'),('starters','grass','Find your starting partner','Compare 29 opening moves and stat profiles.'),('move-evolutions','evolve','Unlock the next evolution','The level, stat card and golden-card conditions.'),('mobile','mobile','Take the run to mobile','Touch controls, installation and keeping your save.')]
+    featured=[('arceus-judgment','shield','Survive Judgment of Arceus','30-minute trigger, attacks and achievements.'),('co-op','layers','Fix co-op and invites','Start a room or diagnose common failures.'),('builds','fire','Plan a legal build','Starting moves, upgrades and evolution routes.'),('mobile','mobile','Take the run to mobile','Touch controls, installation and keeping your save.')]
     routes=''.join(f'<a class="route" href="{URL(slug)}"><span class="route-icon">{icon(glyph)}</span><span><strong>{E(title)}</strong><span>{E(desc)}</span></span>{icon("arrow",20)}</a>' for slug,glyph,title,desc in featured)
     preview=[]
     for n in (1,4,7,25):
         p=next(p for p in DATA['dex'] if p['dex']==n)
         preview.append([f'<a href="/pokedex/#p{n}"><span class="dex-no">{n:03}</span> <strong>{E(p["name"])}</strong></a>',badges(p['types']),str(p['hp']),f'{p["atk"]:.2f}×'])
     sample=table(['Partner','Type','HP','Attack'],preview,kind='A sample of the partner reference')
-    body=f'''<section class="opening"><div class="hero"><div class="hero-copy"><h1>Plan your next<br><em>PokéSurvivor run.</em></h1><p class="lead">Your independent Pokémon Survivor Wiki. Pick a partner, evolve your moves and build a route through the horde.</p>
+    body=f'''<section class="opening"><div class="hero"><div class="hero-copy"><h1>PokéSurvivor Wiki:<br><em>tiers, builds & guides.</em></h1><p class="lead">Your independent Pokémon Survivor Wiki for the 966-partner Pokédex, tier lists, legal builds, co-op fixes and Judgment of Arceus.</p>
 <form class="hero-search" action="/search/" role="search"><label class="sr-only" for="home-search">Search Pokémon, moves and guides</label>{icon('search',22)}<input id="home-search" name="q" type="search" maxlength="100" placeholder="Pokémon, moves, or a question…"><button type="submit" aria-label="Search the Wiki">{icon('arrow',23)}</button></form>
-<div class="actions">{link('how-to-play','Start your first run','button')}{link('tier-list','Compare starter tiers','button secondary')}</div><p class="hero-note">For jpter78’s browser game. Source-backed data, practical guides.</p></div>
+<div class="actions">{link('tier-list','Explore the full tier list','button')}{link('arceus-judgment','Survive Arceus','button secondary')}</div><p class="hero-note">Independent guide for JPTER78’s browser game. No game login, download charge or in-game purchase is offered here.</p></div>
 <section class="starter-lab" data-starter-lab aria-labelledby="lab-title"><div class="lab-header"><h2 id="lab-title">Your opening move</h2>{link('starters','All 29 starters')}</div><fieldset class="starter-choices"><legend class="sr-only">Preview a starting partner</legend>{choices}</fieldset>
 <div class="partner-profile"><div class="type-emblem" data-lab-emblem>{icon('fire',37)}</div><div><h3 data-lab-name>{E(initial['name'])}</h3><p data-lab-type>Fire · Starter partner</p></div><span class="partner-number" data-lab-number>#{initial['dex']:03}</span></div>
 <dl class="partner-stats"><div><dt>HP</dt><dd data-lab-hp>{initial['hp']}</dd></div><div><dt>Movement</dt><dd data-lab-speed>{initial['spd']}</dd></div><div><dt>Attack</dt><dd data-lab-attack>{initial['atk']:.2f}×</dd></div></dl>
@@ -168,10 +224,10 @@ def home():
 <div class="topic-strip"><a href="/pokedex/">Pokédex <span>{len(DATA['dex'])} partners</span></a><a href="/moves/">Moves <span>{len(DATA['moves'])} definitions</span></a><a href="/move-evolutions/">Evolutions <span>59 conditions</span></a><a href="https://pokesurvivor.com/" class="play-topic">Play the developer’s game {icon('arrow',18)}</a></div></section>
 <div class="home-content"><section class="home-section journey"><div class="section-heading"><h2>What’s stopping<br>your next run?</h2><p>Choose the problem. Find your next step.</p>{link('builds','Explore starter builds','text-link')}</div><div class="route-list">{routes}</div></section>
 <section class="reference-home"><div class="reference-intro"><div class="reference-symbol">{icon('dex',38)}</div><h2>Meet the partners.<br>Know the numbers.</h2><p>Actual partner stats and type rules from the recorded game snapshot. Find a name, compare an opening, or check a difficult matchup.</p><div class="reference-types"><a href="/pokedex/?type=grass">{icon('grass',18)}Grass</a><a href="/pokedex/?type=fire">{icon('fire',18)}Fire</a><a href="/pokedex/?type=water">{icon('water',18)}Water</a></div>{link('pokedex','Open the full Pokédex','button')}</div><div class="reference-preview">{sample}<div class="database-links">{link('moves','Move patterns & base values')}{link('types','Type chart & matchup calculator')}{link('legendaries','Legendary encounters & roster')}</div></div></section>
-<section class="home-section notebook"><div class="build-feature"><h2>A tier is a starting point.<br>Your build is the plan.</h2><p>Compare starting-stat profiles, then choose the move pattern and evolution route that suit your run. Our scoring method is published, so you can see what a ranking measures.</p><div class="actions">{link('tier-list','See the starter tier list','button secondary')}{link('builds','Plan a build','text-link')}</div></div><aside class="latest"><h3>Latest recorded game update</h3><p class="date">{E(DATA['changelog'][0]['date'])}</p><h4>{E(DATA['changelog'][0]['title'])}</h4><p>Account linking and co-op fixes from the source changelog.</p>{link('updates','Read the changes','text-link')}</aside></section>
+<section class="home-section notebook"><div class="build-feature"><h2>A tier is a starting point.<br>Your build is the plan.</h2><p>Compare all 966 source attributes, then use the dedicated 29-starter list, move patterns and evolution requirements to plan a route.</p><div class="actions">{link('tier-list','See all 966 ranked','button secondary')}{link('starter-tier-list','Compare starters','text-link')}{link('builds','Plan a build','text-link')}</div></div><aside class="latest"><h3>Latest verified game update</h3><p class="date">2026-10-15</p><h4>Required updates</h4><p>A required update ends the current run after a 10-second warning, saves its recorded rewards and reloads the game.</p>{link('updates','Read the verified changes','text-link')}</aside></section>
 <section class="trust-strip"><div>{icon('shield',25)}<p><strong>Checked against the source.</strong><span>Reference reviewed {REVIEWED}. Source inspection is separate from gameplay testing.</span></p></div>{link('about','Our sources & method','text-link')}</section>
 <section class="identity"><div><h2>Different game, similar name?</h2><p>Pokémon Survivor Burst is a separate project. Identify your game before using a build or download guide.</p></div>{link('survivor-vs-burst','Compare the games','text-link')}</section></div>'''
-    add('', 'Pokémon Survivor Wiki | PokéSurvivor Guides & Pokédex','An independent PokéSurvivor wiki: starter tier list, 966-partner Pokédex, 64 moves, evolution checker and mobile guides.',body,'Home')
+    add('', 'PokéSurvivor Wiki (2026) – Tier List, Builds & Game Guides','Independent PokéSurvivor wiki with all 966 Pokémon, starter and full tier lists, builds, co-op fixes, evolutions and Arceus guide.',body,'Home',modified='2026-10-17')
     add('search','Search the PokéSurvivor Wiki','Search guides, Pokémon and moves in the PokéSurvivor Wiki.', '<p class="lead">Find a guide, a partner or a move.</p><form action="/search/" class="search-page"><label for="search-query">Search the Wiki</label><div><input id="search-query" type="search" name="q" maxlength="100" placeholder="Try Ember, Pikachu or mobile"><button class="button" type="submit">Search</button></div></form><p id="search-status" role="status" aria-live="polite"></p><ul id="search-results" class="search-results"></ul><noscript><p>Search needs JavaScript. Use the guide and database navigation to browse every topic.</p></noscript>','Search',index=False)
 
 
@@ -187,24 +243,25 @@ def render(slug,p):
         image_path='/assets/media/'+cover['id']+('.svg' if cover['kind']=='diagram' else '-'+str(max(cover['variants']))+'.webp')
         if cover['kind']!='diagram':
             social=f'<meta property="og:image" content="{SITE+image_path}"><meta property="og:image:alt" content="{E(cover["alt"])}">'
-    graph=[{'@type':'WebPage' if home_page else 'CollectionPage' if p['group']=='Database' else 'Article','@id':canonical+'#page','url':canonical,'name':title,'description':p['description'],'inLanguage':'en','dateModified':REVIEWED,'isPartOf':{'@id':SITE+'/#website'}}]
+    modified=p['modified']
+    graph=[{'@type':'WebPage' if home_page else 'CollectionPage' if p['group']=='Database' else 'Article','@id':canonical+'#page','url':canonical,'name':title,'description':p['description'],'inLanguage':'en','dateModified':modified,'isPartOf':{'@id':SITE+'/#website'}}]
     if home_page: graph.append({'@type':'WebSite','@id':SITE+'/#website','url':SITE+'/','name':'Pokémon Survivor Wiki','alternateName':'PokéSurvivor Wiki','inLanguage':'en'})
     else: graph.append({'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Home','item':SITE+'/'},{'@type':'ListItem','position':2,'name':title,'item':canonical}]})
     for ident in media.USED_VIDEOS.get(slug,[]):
         v=media.VIDEO_BY_ID[ident];poster=media.BY_ID[v['poster']]
         graph.append({'@type':'VideoObject','@id':canonical+'#video-'+ident,'name':v['title'],'description':v['description'],'thumbnailUrl':SITE+'/assets/media/'+v['poster']+'-'+str(max(poster['variants']))+'.webp','uploadDate':v['created'],'duration':f'PT{v["duration"]}S','contentUrl':SITE+'/assets/media/'+ident+'.webm','inLanguage':'en','isPartOf':{'@id':canonical+'#page'}})
-    nav=''.join(f'<a {"aria-current=\"page\"" if slug==s else ""} href="{URL(s)}">{label}</a>' for s,label in [('how-to-play','Start here'),('tier-list','Tier list'),('pokedex','Pokédex'),('moves','Moves'),('move-evolutions','Evolutions'),('types','Types')])
+    nav=''.join(f'<a {"aria-current=\"page\"" if slug==s else ""} href="{URL(s)}">{label}</a>' for s,label in [('how-to-play','Start here'),('tier-list','Tier list'),('arceus-judgment','Arceus'),('pokedex','Pokédex'),('moves','Moves'),('move-evolutions','Evolutions')])
     related=''
     if p['related']: related='<section class="related"><h2>Keep your run moving</h2><ul>'+''.join(f'<li>{link(s,PAGES[s]["title"])}</li>' for s in p['related'])+'</ul></section>'
     sources=''
     if p['sources']:
-        src=''.join(f'<li><a href="{DATA["source"]["repository"]}/blob/{DATA["source"]["commit"]}/{E(s)}">{E(s)}</a></li>' for s in p['sources'])
-        sources=f'<details class="sources"><summary>Sources & snapshot scope</summary><p>Reviewed {REVIEWED}. Mechanics and data refer to the local source snapshot <code>{DATA["source"]["commit"][:7]}</code>; later live changes may differ. Source inspection is separate from gameplay testing.</p><ul>{src}</ul></details>'
+        src=''.join(f'<li><a href="{DATA["source"]["repository"]}/blob/{p["source_commit"]}/{E(s)}">{E(s)}</a></li>' for s in p['sources'])
+        sources=f'<details class="sources"><summary>Sources & snapshot scope</summary><p>Reviewed {modified}. Mechanics and data on this page were checked against commit <code>{p["source_commit"][:7]}</code>. Source inspection is separate from gameplay testing.</p><ul>{src}</ul></details>'
     toc=''
     import re
     headings=re.findall(r'<section class="article-section" id="([^"]+)"><h2>(.*?)</h2>',p['body'])
     if headings: toc='<details class="toc" open><summary>On this page</summary><nav aria-label="On this page">'+''.join(f'<a href="#{ident}">{text}</a>' for ident,text in headings)+'</nav></details>'
-    content=p['body'] if home_page else f'<div class="breadcrumbs">{link("","Home")}<span>/</span>{E(p["group"])}</div><div class="article-heading"><h1>{E(title)}</h1><p class="date">Reference reviewed <time datetime="{REVIEWED}">{REVIEWED}</time></p></div><div class="article-layout"><article>{p["body"]}{related}{sources}</article><aside class="article-aside">{toc}<div class="aside-note"><strong>This game, this snapshot.</strong><p>These guides cover jpter78’s browser PokéSurvivor.</p>{link("survivor-vs-burst","Playing Burst instead?")}</div></aside></div>'
+    content=p['body'] if home_page else f'<div class="breadcrumbs">{link("","Home")}<span>/</span>{E(p["group"])}</div><div class="article-heading"><h1>{E(title)}</h1><p class="date">Reference reviewed <time datetime="{modified}">{modified}</time></p></div><div class="article-layout"><article>{p["body"]}{related}{sources}</article><aside class="article-aside">{toc}<div class="aside-note"><strong>This game, this snapshot.</strong><p>These guides cover jpter78’s browser PokéSurvivor.</p>{link("survivor-vs-burst","Playing Burst instead?")}</div></aside></div>'
     dock = '<nav class="mobile-dock" aria-label="Quick navigation">' + ''.join(f'<a href="{URL(dest)}" {"aria-current=\"page\"" if slug==dest else ""}>{icon(glyph,21)}<span>{label}</span></a>' for dest,glyph,label in [('how-to-play','book','Guide'),('pokedex','dex','Pokédex'),('move-evolutions','evolve','Evolve'),('search','search','Search')]) + '</nav>'
     resource_links='<link rel="describedby" href="/llms.txt" type="text/plain">'
     if slug in agent_resources.READING_PATHS:
@@ -220,6 +277,7 @@ def build():
     OUT.mkdir(parents=True,exist_ok=True)
     for p in CONTENT['pages']: prose(p)
     reference_pages()
+    enhance_content_pages()
     home()
     for slug,p in PAGES.items():
         dest=OUT/slug/'index.html'
@@ -249,7 +307,7 @@ def build():
     tree=ET.Element('{'+ns+'}urlset')
     for slug,p in PAGES.items():
         if p['index']:
-            el=ET.SubElement(tree,'{'+ns+'}url'); ET.SubElement(el,'{'+ns+'}loc').text=SITE+URL(slug); ET.SubElement(el,'{'+ns+'}lastmod').text=REVIEWED
+            el=ET.SubElement(tree,'{'+ns+'}url'); ET.SubElement(el,'{'+ns+'}loc').text=SITE+URL(slug); ET.SubElement(el,'{'+ns+'}lastmod').text=p['modified']
             for ident in media.USED.get(slug,[]):
                 m=media.BY_ID[ident]
                 path='/assets/media/'+ident+('.svg' if m['kind']=='diagram' else '-'+str(max(m['variants']))+'.webp')
@@ -261,11 +319,11 @@ def build():
     records=agent_resources.export(OUT,PAGES,REVIEWED,DATA['source']['commit'])
     (OUT/'_headers').write_text('/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: SAMEORIGIN\n/assets/*\n  Cache-Control: public, max-age=3600\n'+agent_resources.headers(records),encoding='utf-8')
     (OUT/'_redirects').write_text('# Hostname redirects are configured in Cloudflare Single and Bulk Redirect Rules.\n',encoding='utf-8')
-    missing=dict(title='Page not found | Pokémon Survivor Wiki',description='This page could not be found. Browse the guides and databases.',body='<h1>That route ends here.</h1><p class="lead">The page you requested is missing. Start from the Wiki or search for the partner or move you need.</p>'+link('','Back to the Wiki','button'),group='Help',index=False,related=[],sources=[])
+    missing=dict(title='Page not found | Pokémon Survivor Wiki',description='This page could not be found. Browse the guides and databases.',body='<h1>That route ends here.</h1><p class="lead">The page you requested is missing. Start from the Wiki or search for the partner or move you need.</p>'+link('','Back to the Wiki','button'),group='Help',index=False,related=[],sources=[],modified='2026-10-15',source_commit=DATA['source']['commit'])
     # Render a standalone 404 without advertising it as an indexable route.
     page404=render('404',missing).replace('<h1>Page not found | Pokémon Survivor Wiki</h1>','<h1>Page not found</h1>').replace('<h1>That route ends here.</h1>','<h2>That route ends here.</h2>')
     (OUT/'404.html').write_text(page404,encoding='utf-8')
-    manifest={URL(s):dict(title=p['title'],index=p['index'],modified=REVIEWED,sha256=hashlib.sha256((OUT/s/'index.html').read_bytes()).hexdigest()) for s,p in PAGES.items()}
+    manifest={URL(s):dict(title=p['title'],index=p['index'],modified=p['modified'],sha256=hashlib.sha256((OUT/s/'index.html').read_bytes()).hexdigest()) for s,p in PAGES.items()}
     (OUT/'build-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
     print(f'Built {len(PAGES)} pages and 404 into {OUT}; {sum(p["index"] for p in PAGES.values())} indexable URLs')
 
