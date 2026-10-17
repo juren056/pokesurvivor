@@ -88,12 +88,17 @@ def main():
         report['tasks'].append('Search, anchor destination, browser Back and safe query rendering')
         page.set_viewport_size({'width':375,'height':500})
         page.goto(BASE+'/')
+        page.locator('.language-menu summary').click()
+        assert page.locator('.language-menu nav').is_visible()
+        assert page.locator('.language-menu nav a').count()==4
+        page.keyboard.press('Escape')
+        assert not page.locator('.language-menu').get_attribute('open')
         page.get_by_role('button',name='Menu',exact=True).click()
         assert page.locator('#site-nav').is_visible()
         assert page.locator('#site-nav a').last.is_visible()
         page.keyboard.press('Escape')
         assert page.get_by_role('button',name='Menu',exact=True).get_attribute('aria-expanded')=='false'
-        report['tasks'].append('Short mobile menu and Escape focus return')
+        report['tasks'].append('Compact language picker, short mobile menu and Escape focus return')
         locale_expectations={
             'es':{'lang':'es','count':'1 de 966 registros','eligible':'Puedes evolucionar','damage':'de daño','results':'resultados'},
             'it':{'lang':'it','count':'1 di 966 voci','eligible':'Puoi evolvere','damage':'danno','results':'risultati'},

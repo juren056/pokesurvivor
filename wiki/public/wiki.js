@@ -10,9 +10,11 @@ document.querySelectorAll('.guide-video video').forEach(video=>{
 document.documentElement.classList.add('js');
 const menu=document.querySelector('.menu-toggle');
 const nav=document.querySelector('#site-nav');
+const languageMenu=document.querySelector('.language-menu');
 function closeMenu(){nav?.classList.remove('is-open');menu?.setAttribute('aria-expanded','false');}
 menu?.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('is-open',open);});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu?.getAttribute('aria-expanded')==='true'){closeMenu();menu.focus();}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(menu?.getAttribute('aria-expanded')==='true'){closeMenu();menu.focus();}if(languageMenu?.open){languageMenu.open=false;languageMenu.querySelector('summary').focus();}}});
+document.addEventListener('click',e=>{if(languageMenu?.open&&!languageMenu.contains(e.target))languageMenu.open=false;});
 nav?.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu();});
 
 document.querySelectorAll('[data-table]').forEach(section=>{
