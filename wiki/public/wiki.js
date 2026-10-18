@@ -148,6 +148,31 @@ if(gacha){
   }
   pulls.addEventListener('input',updateGacha);pity.addEventListener('input',updateGacha);updateGacha();
 }
+const saveDiagnostic=document.querySelector('[data-save-diagnostic]');
+if(saveDiagnostic){
+  const game=saveDiagnostic.querySelector('#save-game'),login=saveDiagnostic.querySelector('#save-login'),copy=saveDiagnostic.querySelector('#save-copy'),symptom=saveDiagnostic.querySelector('#save-symptom');
+  const result=saveDiagnostic.querySelector('#save-result'),report=saveDiagnostic.querySelector('#save-report'),run=saveDiagnostic.querySelector('[data-diagnostic-run]'),copyButton=saveDiagnostic.querySelector('[data-report-copy]');
+  const labels=select=>select.selectedOptions[0].textContent.trim();
+  function diagnose(){
+    let next;
+    if(copy.value==='yes')next=wikiText('savePreserve','Preserve that browser and profile. Do not clear site data or uninstall the PWA. Link the account only through the official game if it is safe to do so.');
+    else if(login.value==='linked')next=wikiText('saveLinked','On the official domain, use Sign in with Google with the same linked Gmail. If progress stays missing, contact the developer with this non-sensitive report.');
+    else if(login.value==='guest')next=wikiText('saveGuest','Recovery is uncertain for an unlinked guest. Keep the original browser and profile unchanged and contact the developer; do not trust a site asking for credentials or a save upload.');
+    else next=wikiText('saveUnknown','Recovery is uncertain. Preserve any remaining browser data and contact the developer with non-sensitive facts before trying destructive changes.');
+    result.textContent=next;
+    report.value=[
+      'PokéSurvivor recovery report (no credentials or save data)',
+      `Location: ${labels(game)}`,
+      `Account state: ${labels(login)}`,
+      `Surviving copy: ${labels(copy)}`,
+      `Visible symptom: ${labels(symptom)}`,
+      `Safe next step: ${next}`
+    ].join('\n');
+    copyButton.disabled=false;
+  }
+  run.addEventListener('click',diagnose);
+  copyButton.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(report.value);copyButton.textContent=wikiText('reportCopied','Report copied');setTimeout(()=>copyButton.textContent=wikiText('copyReport','Copy report'),1600);}catch{result.textContent+=' '+wikiText('reportCopyFail','Copying was blocked. Select the report text and copy it manually.');}});
+}
 const searchInput=document.querySelector('#search-query');
 if(searchInput){
   const form=searchInput.closest('form'),list=document.querySelector('#search-results'),status=document.querySelector('#search-status');

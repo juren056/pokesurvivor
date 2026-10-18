@@ -105,15 +105,16 @@ def reference_pages():
     add('pokedex', 'PokéSurvivor Pokédex: stats & unlock routes', 'Search 966 PokéSurvivor partners by name or type. Compare HP, movement speed, attack multiplier and acquisition category.', body, 'Database', ['starters','tier-list','legendaries'], ['js/data/pokedex.js','js/systems/gacha.js'])
     rows = [dict(id=m['id'],types=[m['type']],cells=[f'<strong>{E(m["name"])}</strong>',badges([m['type']]), E(m['kind'].title()), E(m['damage'] if m['damage'] is not None else '—'), f'{m["cooldown"]:g}s' if m['cooldown'] else '—',m['maxLevel'], link('move-evolutions',m['evolution']['name']) if m['evolution'] else 'No evolution']) for m in DATA['moves']]
     body = '<p class="lead">Every base move, attack pattern and evolution in the source snapshot. Choose attacks by how they work as well as their numbers.</p><p>Damage and cooldown are level-one definition values, before partner multipliers and run upgrades. They are not complete DPS measurements: attack count, hit rate, duration and coverage differ between patterns. A dash, aura and projectile cannot be ranked by one raw number.</p>'
+    body += section('Melee targeting: a reported symptom','<p>GitHub issue #186 reports a case where a partner stopped attacking nearer targets while a miniboss was within a particular radius but outside melee range. This is a player report, not a verified cause or published fix. If it repeats, record the move, partner, enemy positions and game version without uploading account or save data.</p><p><a href="https://github.com/JPTER78/pokesurvivor/issues/186">Read player report #186</a>.</p>')
     body += table(['Move','Type','Pattern','Base damage','Cooldown','Max level','Evolution'],rows,True,'PokéSurvivor move definitions')
-    add('moves','PokéSurvivor moves: damage, patterns & evolutions','Search all 64 PokéSurvivor moves with base damage, cooldown, attack pattern, maximum level and evolution links.',body,'Database',['move-evolutions','builds','types'],['js/data/moves.js'])
+    add('moves','PokéSurvivor moves: damage, patterns & evolutions','Search all 64 PokéSurvivor moves with base damage, cooldown, attack pattern, maximum level and evolution links.',body,'Database',['move-evolutions','builds','types'],['js/data/moves.js'],modified='2026-10-18')
     rows = [dict(id=m['id'],types=[m['type']],cells=[E(m['name']), badges([m['type']]),m['maxLevel'],E(m['evolution']['requirement']), f'<strong>{E(m["evolution"]["name"])}</strong>']) for m in DATA['moves'] if m['evolution']]
     options = ''.join(f'<option value="{E(m["id"])}">{E(m["name"])}</option>' for m in DATA['moves'])
     checker = f'''<div class="tool" data-evolution><h3>Check your next evolution</h3><p>Select what you have in this run. This checker does not access your game save.</p><div class="tool-inputs"><label>Move<select id="evo-move">{options}</select></label><label>Current level<input id="evo-level" type="number" min="1" max="5" value="1" required></label></div><label class="check"><input type="checkbox" id="evo-stat"> I have taken the required stat card in this run</label><output id="evo-result" aria-live="polite"></output><noscript><p>Enable JavaScript for the checker, or use the complete table below.</p></noscript></div>'''
     body = '<p class="lead">Max the move, take its required stat upgrade in the same run, then choose the golden evolution card. Meeting the conditions makes an evolution eligible; it does not automatically evolve the move.</p>' + checker
-    body += section('If the golden card is missing','<ol class="steps"><li>Check the move is at its maximum level.</li><li>Check the exact prerequisite in the table; different moves need different stat cards.</li><li>Confirm you took that stat card in this run, rather than an unrelated permanent upgrade.</li><li>Keep leveling and look for the separate golden card. An already evolved move cannot evolve again.</li></ol><p>Buffs have no evolution. Learning another move is different from evolving one you already have.</p>')
+    body += section('If the golden card is missing','<ol class="steps"><li>Check the move is at its maximum level.</li><li>Check the exact prerequisite in the table; different moves need different stat cards.</li><li>Confirm you took that stat card in this run, rather than an unrelated permanent upgrade.</li><li>Keep leveling and look for the separate golden card. An already evolved move cannot evolve again.</li></ol><p>Eligibility adds the evolution to the possible offer pool; it does not force the next level-up to show it. Buffs have no evolution. Learning another move is different from evolving one you already have.</p>')
     body += table(['Move','Type','Required level','Required stat card','Evolves into'],rows,True,'Move evolution conditions')
-    add('move-evolutions','PokéSurvivor move evolutions & requirement checker','Look up all 59 move evolution conditions, check your level and stat prerequisite, and troubleshoot missing golden cards.',body,'Database',['builds','moves','how-to-play'],['js/data/moves.js','js/systems/levelup.js'])
+    add('move-evolutions','PokéSurvivor move evolutions & requirement checker','Look up all 59 move evolution conditions, check your level and stat prerequisite, and troubleshoot missing golden cards.',body,'Database',['builds','moves','how-to-play'],['js/data/moves.js','js/systems/levelup.js'],modified='2026-10-18')
     starters = DATA['starters']
     maxhp, maxspd, maxatk = (max(p[k] for p in starters) for k in ('hp','spd','atk'))
     ranked = sorted([(round(100*(.35*p['hp']/maxhp+.25*p['spd']/maxspd+.40*p['atk']/maxatk),1),p) for p in starters],key=lambda x:(-x[0],x[1]['dex']))
@@ -204,6 +205,9 @@ def enhance_content_pages():
     PAGES['builds']['body']=PAGES['builds']['body'].replace('</p>','</p>'+planner,1)
     PAGES['builds']['related']=['moves','move-evolutions','types','starter-tier-list']
     PAGES['builds']['source_commit']='b29708900da26b34e70d2dc07ad1659a719f4a78'
+    diagnostic='''<div class="tool save-diagnostic" data-save-diagnostic><h3>Build a privacy-safe recovery report</h3><p>Choose only non-sensitive facts. This tool runs in your browser and does not inspect or upload a save.</p><div class="tool-inputs"><label>Where the game was used<select id="save-game"><option value="official">Official pokesurvivor.com</option><option value="pwa">Installed PWA from the official site</option><option value="other">Another address or unknown</option></select></label><label>Account state<select id="save-login"><option value="linked">Linked to Gmail</option><option value="password">Username/password; linkage unknown</option><option value="guest">Guest or unlinked</option><option value="unknown">Unknown</option></select></label><label>Surviving copy<select id="save-copy"><option value="yes">One browser/profile still shows progress</option><option value="no">No copy shows progress</option><option value="unknown">Unknown</option></select></label><label>Visible symptom<select id="save-symptom"><option value="missing">Progress or account appears missing</option><option value="paused">Paused to protect your progress</option><option value="409">409 response while setting a name</option><option value="other">Other or unknown</option></select></label></div><div class="actions"><button class="button" type="button" data-diagnostic-run>Show safest next step</button></div><output id="save-result" aria-live="polite">Select what you know, then run the checklist.</output><label class="report-label" for="save-report">Non-sensitive report</label><textarea id="save-report" rows="6" readonly></textarea><button class="button secondary" type="button" data-report-copy disabled>Copy report</button><noscript><p>JavaScript is required for the decision helper. Use the safety table above without entering private information.</p></noscript></div>'''
+    PAGES['save-recovery']['body']=PAGES['save-recovery']['body'].replace('</p>','</p>'+diagnostic,1)
+    PAGES['download']['body']=PAGES['download']['body'].replace('</p>','</p><p><a class="button" href="https://pokesurvivor.com/" rel="noopener">Play the official browser game</a></p>',1)
 
 
 def home():
@@ -211,7 +215,7 @@ def home():
     initial = starters[0]
     move = MOVES[initial['start']]
     choices = ''.join(f'<label class="starter-choice"><input type="radio" name="opening-partner" value="{p["dex"]}" {"checked" if i==0 else ""}><span>{icon(p["types"][0],18)}{E(p["name"])}</span></label>' for i,p in enumerate(starters))
-    featured=[('arceus-judgment','shield','Survive Judgment of Arceus','30-minute trigger, attacks and achievements.'),('co-op','layers','Fix co-op and invites','Start a room or diagnose common failures.'),('builds','fire','Plan a legal build','Starting moves, upgrades and evolution routes.'),('mobile','mobile','Take the run to mobile','Touch controls, installation and keeping your save.')]
+    featured=[('arceus-judgment','shield','Survive Judgment of Arceus','30-minute trigger, attacks and achievements.'),('co-op','layers','Fix co-op and invites','Start a room or diagnose common failures.'),('builds','fire','Plan a legal build','Starting moves, upgrades and evolution routes.'),('save-recovery','shield','Protect or recover progress','Use the safe account and save checklist.')]
     routes=''.join(f'<a class="route" href="{URL(slug)}"><span class="route-icon">{icon(glyph)}</span><span><strong>{E(title)}</strong><span>{E(desc)}</span></span>{icon("arrow",20)}</a>' for slug,glyph,title,desc in featured)
     preview=[]
     for n in (1,4,7,25):
@@ -231,7 +235,7 @@ def home():
 <section class="home-section notebook"><div class="build-feature"><h2>A tier is a starting point.<br>Your build is the plan.</h2><p>Compare all 966 source attributes, then use the dedicated 29-starter list, move patterns and evolution requirements to plan a route.</p><div class="actions">{link('tier-list','See all 966 ranked','button secondary')}{link('starter-tier-list','Compare starters','text-link')}{link('builds','Plan a build','text-link')}</div></div><aside class="latest"><h3>Latest verified game update</h3><p class="date">2026-10-15</p><h4>Required updates</h4><p>A required update ends the current run after a 10-second warning, saves its recorded rewards and reloads the game.</p>{link('updates','Read the verified changes','text-link')}</aside></section>
 <section class="trust-strip"><div>{icon('shield',25)}<p><strong>Checked against the source.</strong><span>Reference reviewed {REVIEWED}. Source inspection is separate from gameplay testing.</span></p></div>{link('about','Our sources & method','text-link')}</section>
 <section class="identity"><div><h2>Different game, similar name?</h2><p>Pokémon Survivor Burst is a separate project. Identify your game before using a build or download guide.</p></div>{link('survivor-vs-burst','Compare the games','text-link')}</section></div>'''
-    add('', 'PokéSurvivor Wiki (2026) – Tier List, Builds & Game Guides','Independent PokéSurvivor wiki with all 966 Pokémon, starter and full tier lists, builds, co-op fixes, evolutions and Arceus guide.',body,'Home',modified='2026-10-17')
+    add('', 'PokéSurvivor Wiki (2026) – Tier List, Builds & Game Guides','Independent PokéSurvivor wiki with all 966 Pokémon, starter and full tier lists, builds, co-op fixes, evolutions and Arceus guide.',body,'Home',modified='2026-10-18')
     add('search','Search the PokéSurvivor Wiki','Search guides, Pokémon and moves in the PokéSurvivor Wiki.', '<p class="lead">Find a guide, a partner or a move.</p><form action="/search/" class="search-page"><label for="search-query">Search the Wiki</label><div><input id="search-query" type="search" name="q" maxlength="100" placeholder="Try Ember, Pikachu or mobile"><button class="button" type="submit">Search</button></div></form><p id="search-status" role="status" aria-live="polite"></p><ul id="search-results" class="search-results"></ul><noscript><p>Search needs JavaScript. Use the guide and database navigation to browse every topic.</p></noscript>','Search',index=False)
 
 
@@ -257,7 +261,7 @@ def render(slug,p,locale='en',pages=None):
     home_page=slug==''
     title=p['title']
     canonical=SITE+route(slug)
-    media_ids=media.USED.get(slug,[]) if locale == 'en' else []
+    media_ids=media.USED.get(slug,[]) if locale == 'en' or p.get('preserve_media_layout') else []
     social=''
     if media_ids:
         cover=media.BY_ID[media_ids[0]]
@@ -269,7 +273,7 @@ def render(slug,p,locale='en',pages=None):
     graph=[{'@type':'WebPage' if home_page else 'CollectionPage' if p['group']=='Database' else 'Article','@id':canonical+'#page','url':canonical,'name':title,'description':p['description'],'inLanguage':in_language,'dateModified':modified,'isPartOf':{'@id':SITE+'/#website'}}]
     if home_page: graph.append({'@type':'WebSite','@id':canonical+'#website','url':canonical,'name':'Pokémon Survivor Wiki','alternateName':'PokéSurvivor Wiki','inLanguage':in_language})
     else: graph.append({'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':ui['home'],'item':SITE+route('')},{'@type':'ListItem','position':2,'name':title,'item':canonical}]})
-    for ident in media.USED_VIDEOS.get(slug,[]) if locale == 'en' else []:
+    for ident in media.USED_VIDEOS.get(slug,[]) if locale == 'en' or p.get('preserve_media_layout') else []:
         v=media.VIDEO_BY_ID[ident];poster=media.BY_ID[v['poster']]
         graph.append({'@type':'VideoObject','@id':canonical+'#video-'+ident,'name':v['title'],'description':v['description'],'thumbnailUrl':SITE+'/assets/media/'+v['poster']+'-'+str(max(poster['variants']))+'.webp','uploadDate':v['created'],'duration':f'PT{v["duration"]}S','contentUrl':SITE+'/assets/media/'+ident+'.webm','inLanguage':'en','isPartOf':{'@id':canonical+'#page'}})
     nav=''.join(f'<a {"aria-current=\"page\"" if slug==s else ""} href="{route(s)}">{label}</a>' for s,label in [('how-to-play',ui['start']),('tier-list',ui['tier']),('arceus-judgment',ui['arceus']),('pokedex',ui['dex']),('moves',ui['moves']),('move-evolutions',ui['evolutions'])])
@@ -354,7 +358,7 @@ def build():
                 for alt in localization.LOCALE_ORDER:
                     ET.SubElement(el,'{'+xhtml_ns+'}link',{'rel':'alternate','hreflang':localization.LANG[alt],'href':SITE+localization.url(alt,slug)})
                 ET.SubElement(el,'{'+xhtml_ns+'}link',{'rel':'alternate','hreflang':'x-default','href':SITE+localization.url('en',slug)})
-                if locale == 'en':
+                if locale == 'en' or p.get('preserve_media_layout'):
                     for ident in media.USED.get(slug,[]):
                         m=media.BY_ID[ident]
                         path='/assets/media/'+ident+('.svg' if m['kind']=='diagram' else '-'+str(max(m['variants']))+'.webp')

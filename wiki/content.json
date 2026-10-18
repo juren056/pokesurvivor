@@ -1,5 +1,5 @@
 {
-  "reviewed": "2026-10-17",
+  "reviewed": "2026-10-18",
   "pages": [
     {
       "slug": "how-to-play",
@@ -89,20 +89,20 @@
         {
           "heading": "Set up touch controls",
           "steps": [
-          "Open pokesurvivor.com in Android Chrome or iPhone/iPad Safari and rotate the device to landscape.",
+            "Open pokesurvivor.com in Android Chrome or iPhone/iPad Safari and rotate the device to landscape.",
             "Choose a guest session or your game account. Start a run and drag on the play area to move; the joystick appears at the touch position.",
-          "Open Settings → Controls → Place the buttons. Drag attack buttons, pause and the joystick into reachable positions; choose a fixed or floating joystick.",
+            "Open Settings → Controls → Place the buttons. Drag attack buttons, pause and the joystick into reachable positions; choose a fixed or floating joystick.",
             "Try a short run before relying on a long session. Screen size, browser support and device performance can differ."
           ]
         },
         {
-        "heading": "Device-specific checkpoints",
-        "paragraphs": [
-          "Android Chrome usually exposes Install app or Add to Home screen in its browser menu. iPhone and iPad use Safari’s Share → Add to Home Screen. A home-screen icon is still the official web app, not a native store package.",
-          "On iPad, test landscape, full-screen behavior and the joystick before a long run. Browser UI and multitasking can reduce the usable play area. This guide does not label a simulator result as a physical-device test."
-        ]
-      },
-      {
+          "heading": "Device-specific checkpoints",
+          "paragraphs": [
+            "Android Chrome usually exposes Install app or Add to Home screen in its browser menu. iPhone and iPad use Safari’s Share → Add to Home Screen. A home-screen icon is still the official web app, not a native store package.",
+            "On iPad, test landscape, full-screen behavior and the joystick before a long run. Browser UI and multitasking can reduce the usable play area. This guide does not label a simulator result as a physical-device test."
+          ]
+        },
+        {
           "heading": "Add the game to your home screen",
           "paragraphs": [
             "On Android, look in your browser’s menu for an install or Add to Home screen option. On iPhone or iPad, look in Safari’s Share menu for Add to Home Screen. Wording and availability vary by browser and OS.",
@@ -215,18 +215,27 @@
       "title": "PokéSurvivor Download? Play Online, PWA & APK Explained",
       "description": "Play the official PokéSurvivor browser game, install its PWA and understand third-party APK ports, saves and account limitations.",
       "group": "Guides",
-      "intro": "The official PokéSurvivor is free at pokesurvivor.com and works without an APK. A PWA home-screen install opens that web game; third-party Android ports and Pokémon Survivor Burst are separate products.",
-      "modified": "2026-10-17",
+      "intro": "Play the official PokéSurvivor in a current browser at pokesurvivor.com. On phones and supported desktop browsers, installing the PWA adds that same site to your home screen. There is no verified official APK or native app-store package in this source snapshot.",
+      "modified": "2026-10-18",
       "sourceCommit": "5bbc3b29288d6af4596f21188fb8b54e0e9b739f",
       "sections": [
         {
-        "heading": "Saves, accounts and required updates",
-        "paragraphs": [
-          "The October 15 required-update behavior gives a 10-second warning, ends the current run, saves that run’s coins, tickets, records and leaderboard entry as when quitting, then reloads. It does not turn an unlinked guest save into a portable cloud account.",
-          "The official cloud features work on pokesurvivor.com. A copied localhost build or unofficial port can show an authentication referer error because it is a different origin; this Wiki does not present an unverified workaround as an official fix."
-        ]
-      },
-      {
+          "heading": "Open the official version first",
+          "steps": [
+            "Open pokesurvivor.com in a current Chrome, Edge, Safari or Firefox browser.",
+            "Play in the browser. If your browser offers Install app or Add to Home Screen, use that menu to install the PWA.",
+            "Sign in or link the account before changing browser profiles, clearing site data or moving devices.",
+            "Treat any APK, native installer or similarly named game as a separate third-party product until its publisher and version are verified."
+          ]
+        },
+        {
+          "heading": "Saves, accounts and required updates",
+          "paragraphs": [
+            "The October 15 required-update behavior gives a 10-second warning, ends the current run, saves that run’s coins, tickets, records and leaderboard entry as when quitting, then reloads. It does not turn an unlinked guest save into a portable cloud account.",
+            "The official cloud features work on pokesurvivor.com. A copied localhost build or unofficial port can show an authentication referer error because it is a different origin; this Wiki does not present an unverified workaround as an official fix."
+          ]
+        },
+        {
           "heading": "Choose the right way to play",
           "table": {
             "headers": [
@@ -275,6 +284,7 @@
       ],
       "related": [
         "mobile",
+        "save-recovery",
         "survivor-vs-burst",
         "how-to-play"
       ],
@@ -282,15 +292,25 @@
         "README.md",
         "manifest.webmanifest",
         "sw.js"
+      ],
+      "externalSources": [
+        {
+          "label": "Play the developer’s browser game",
+          "url": "https://pokesurvivor.com/"
+        },
+        {
+          "label": "Inspect the upstream source repository",
+          "url": "https://github.com/JPTER78/pokesurvivor"
+        }
       ]
     },
     {
       "slug": "co-op",
       "title": "PokéSurvivor Co-op Guide: Friends, Invites & Fixes",
-      "description": "Start a PokéSurvivor co-op run, fix offline friends or missing invites, and understand account linking and October 2026 fixes.",
+      "description": "Start PokéSurvivor co-op, diagnose Could not connect, missing invites, invisible enemies and a missing rift boss without risking account data.",
       "group": "Guides",
       "intro": "To start co-op, sign in on the official site, open Friends, add the exact nickname, send an invitation and wait until everyone appears in the room before starting. The game supports groups of up to four.",
-      "modified": "2026-10-17",
+      "modified": "2026-10-18",
       "sourceCommit": "5bbc3b29288d6af4596f21188fb8b54e0e9b739f",
       "sections": [
         {
@@ -303,18 +323,60 @@
           ]
         },
         {
-        "heading": "Troubleshooting decision table",
-        "table": {
-          "headers": ["Symptom", "Check first", "Next action"],
-          "rows": [
-            ["Friend appears offline", "Exact nickname, both signed in, automatic device clock and time zone", "Reload after the current run; the October 14 build fixed clock-related presence errors"],
-            ["No invitation arrives", "Both players are on pokesurvivor.com and the inviter sees the friend online", "Re-open Friends and send one new invite; do not use an unofficial recovery form"],
-            ["Stuck on card or item choice", "Confirm every player is on the current build", "Allow the required-update reload after the run; October 14 fixed players waiting on each other"],
-            ["Enemies invisible after a rift", "Check whether only a non-host player is affected", "Update/reload; the October 14 source explicitly fixes this case"],
-            ["Disconnected or retrying", "Keep both browsers active and check the network", "Let the room retry; a failed peer connection does not mean the save is gone"],
-            ["Account recovery", "Whether the username/password account was linked to Gmail", "Use Sign in with Google for that Gmail; an unlinked guest cannot be recovered here"]
+          "heading": "Could not connect: what to check first",
+          "paragraphs": [
+            "“Could not connect” is a player-reported symptom in GitHub issue #164, not proof that every player is in a confirmed global outage. Check both players are on pokesurvivor.com, signed in, on the current build and using automatic date and time. Then reload both pages and create one new room.",
+            "If the new room still fails, record the time, browser, device, whether each player appeared online and the exact on-screen message. Do not publish a room code, email, password, token or save data."
           ]
-        }
+        },
+        {
+          "heading": "Troubleshooting decision table",
+          "table": {
+            "headers": [
+              "Symptom",
+              "Check first",
+              "Next action"
+            ],
+            "rows": [
+              [
+                "Friend appears offline",
+                "Exact nickname, both signed in, automatic device clock and time zone",
+                "Reload after the current run; the October 14 build fixed clock-related presence errors"
+              ],
+              [
+                "No invitation arrives",
+                "Both players are on pokesurvivor.com and the inviter sees the friend online",
+                "Re-open Friends and send one new invite; do not use an unofficial recovery form"
+              ],
+              [
+                "Stuck on card or item choice",
+                "Confirm every player is on the current build",
+                "Allow the required-update reload after the run; October 14 fixed players waiting on each other"
+              ],
+              [
+                "Enemies invisible after a rift",
+                "Check whether only a non-host player is affected",
+                "Update/reload; the October 14 source explicitly fixes this case"
+              ],
+              [
+                "Disconnected or retrying",
+                "Keep both browsers active and check the network",
+                "Let the room retry; a failed peer connection does not mean the save is gone"
+              ],
+              [
+                "Account recovery",
+                "Whether the username/password account was linked to Gmail",
+                "Use Sign in with Google for that Gmail; an unlinked guest cannot be recovered here"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Boss bar appears but the boss does not",
+          "paragraphs": [
+            "GitHub issue #193 reports a co-op run where a boss health bar appeared without the boss, followed by later rifts no longer appearing. That report was filed on October 18; it is not the same as the October 14 changelog fix for invisible enemies after a rift.",
+            "Reload onto the current build and try a fresh room. If it repeats, report the host/non-host role, run time, rift sequence and whether ordinary enemies remained visible. This Wiki cannot claim a fix until the developer publishes one."
+          ]
         },
         {
           "heading": "Password and account recovery",
@@ -325,6 +387,7 @@
         }
       ],
       "related": [
+        "save-recovery",
         "mobile",
         "updates",
         "how-to-play"
@@ -333,6 +396,105 @@
         "README.md",
         "js/data/changelog.js",
         "dev.html"
+      ],
+      "externalSources": [
+        {
+          "label": "Player report: Could not connect (issue #164)",
+          "url": "https://github.com/JPTER78/pokesurvivor/issues/164"
+        },
+        {
+          "label": "Player report: boss bar without boss (issue #193)",
+          "url": "https://github.com/JPTER78/pokesurvivor/issues/193"
+        }
+      ]
+    },
+    {
+      "slug": "save-recovery",
+      "title": "PokéSurvivor Save Recovery: Safe Account Checklist",
+      "description": "Use a privacy-safe PokéSurvivor save and account recovery checklist for missing progress, Google linking, 409 errors and Paused to protect your progress.",
+      "group": "Help",
+      "intro": "Stop before clearing data, uninstalling a PWA or overwriting a working copy. This guide does not read, upload or repair a save. It helps you preserve evidence and choose the safest next step.",
+      "modified": "2026-10-18",
+      "sourceCommit": "5bbc3b29288d6af4596f21188fb8b54e0e9b739f",
+      "sections": [
+        {
+          "heading": "Safety rules before troubleshooting",
+          "paragraphs": [
+            "Never paste a password, session token, room code, email address or save file into this Wiki. Do not edit a database, import unknown scripts or keep retrying writes against the only browser profile that still shows your progress.",
+            "If one browser, profile or device still shows the correct account, leave it open and unchanged. Record only non-sensitive facts such as browser name, device type, visible nickname, approximate time and the exact error text."
+          ]
+        },
+        {
+          "heading": "Choose the safest branch",
+          "table": {
+            "headers": [
+              "What you still have",
+              "Safest next step",
+              "Avoid"
+            ],
+            "rows": [
+              [
+                "A linked Gmail account",
+                "Use Sign in with Google with that same Gmail on the official domain",
+                "Creating a second account with a different identity"
+              ],
+              [
+                "A username/password account previously linked to Gmail",
+                "Use the linked Gmail route described in the October 14 changelog",
+                "Sending credentials to a helper site"
+              ],
+              [
+                "One browser copy still shows progress",
+                "Preserve that browser/profile and document the visible account state",
+                "Clearing site data, uninstalling the PWA or testing destructive fixes"
+              ],
+              [
+                "Only an unlinked guest session",
+                "Keep the original browser/profile intact and contact the developer with non-sensitive facts",
+                "Assuming the save can move to another browser"
+              ],
+              [
+                "No surviving copy and linkage is unknown",
+                "Treat recovery as unknown; collect the error and account history for support",
+                "Claiming a guaranteed restoration method"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Paused to protect your progress and 409 reports",
+          "paragraphs": [
+            "Issue #185 is a player report describing “Paused to protect your progress” together with a 409 response while setting a name. The report says private browsing and another browser did not solve it. This is evidence of one reported symptom, not a confirmed universal cause or a recovery guarantee.",
+            "Preserve any browser that still displays progress. Note the exact message, time, browser and whether the account was linked. Use the diagnostic below to create a non-sensitive report; submit it only through the developer’s official support or issue tracker."
+          ]
+        },
+        {
+          "heading": "What the October 14 Gmail change means",
+          "paragraphs": [
+            "The official changelog says an existing username/password account can be linked to Gmail, and Sign in with Google with that Gmail should then open the same account. It also warns that an unlinked account cannot be recovered through that Google route.",
+            "Account linking is preventive. It does not prove that an unlinked guest save can be reconstructed after browser data is gone, and this independent Wiki has no access to the developer’s account database."
+          ]
+        }
+      ],
+      "related": [
+        "co-op",
+        "download",
+        "mobile",
+        "updates"
+      ],
+      "sources": [
+        "js/data/changelog.js",
+        "README.md"
+      ],
+      "externalSources": [
+        {
+          "label": "Official October 14 account-linking changelog",
+          "url": "https://github.com/JPTER78/pokesurvivor/blob/5bbc3b29288d6af4596f21188fb8b54e0e9b739f/js/data/changelog.js"
+        },
+        {
+          "label": "Player report: Paused to protect your progress / 409 (issue #185)",
+          "url": "https://github.com/JPTER78/pokesurvivor/issues/185"
+        }
       ]
     },
     {

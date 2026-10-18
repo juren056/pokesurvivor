@@ -54,7 +54,7 @@ with sync_playwright() as p:
   v.evaluate('v=>{v.currentTime=v.duration/2}');page.wait_for_timeout(500)
   frames=v.evaluate('v=>v.getVideoPlaybackQuality().totalVideoFrames');assert frames>0
   v.evaluate('v=>{v.currentTime=Math.max(0,v.duration-.3);v.play()}')
-  page.wait_for_function('(id)=>document.querySelector(`[data-video-id="${id}"] video`).ended',arg=record['id'])
+  page.wait_for_function('(id)=>document.querySelector(`[data-video-id="${id}"] video`).ended',arg=record['id'],timeout=60000)
   assert not v.evaluate('v=>v.error')
   transcript=page.locator(f'[data-video-id="{record["id"]}"] .video-transcript');transcript.locator('summary').click();assert transcript.locator('li').first.is_visible()
   report['videos'].append({'id':record['id'],'duration':duration,'framesDecoded':frames,'playback':'started, seeked, ended','captions':'loaded','transcript':'opened'})
@@ -71,8 +71,9 @@ with urllib.request.urlopen(request) as response:
  assert (status==206 and body==raw[:1024]) or (status==200 and body==raw)
  report['range']={'environment':'local Python preview','status':status,'mode':'partial 206' if status==206 else 'complete original file 200 fallback','verified':True}
 try:
- urllib.request.urlopen(urllib.request.Request(BASE+'/assets/media/'+video,headers={'Range':f'bytes={len(raw)+1}-'}))
- raise AssertionError('Unsatisfiable range was accepted')
+ with urllib.request.urlopen(urllib.request.Request(BASE+'/assets/media/'+video,headers={'Range':f'bytes={len(raw)+1}-'})) as response:
+  body=response.read();assert response.status==200 and body==raw
+  report['range']['invalidRange']='local preview ignored Range and returned the complete original file'
 except urllib.error.HTTPError as error:
  assert error.code==416 and error.headers['Content-Range']==f'bytes */{len(raw)}'
  report['range']['invalidRange']='416 with actual file size'

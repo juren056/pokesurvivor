@@ -142,6 +142,10 @@ _ZH = {
 for slug, value in _IT.items(): PAGES['it'][slug] = tuple(value.split('|'))
 for slug, value in _ZH.items(): PAGES['zh-hant'][slug] = tuple(value.split('|'))
 
+PAGES['es']['save-recovery'] = ('Recuperar el guardado de PokéSurvivor: lista segura','Pasos seguros para progreso perdido, vinculación con Google, errores 409 y el aviso de protección del progreso.','Detente antes de borrar datos, desinstalar la PWA o cambiar la única copia que todavía muestra tu progreso. Esta guía no lee, sube ni repara guardados.','Conserva intacto cualquier navegador que aún muestre la partida. Anota solo datos no sensibles y usa la cuenta de Google vinculada cuando corresponda; no compartas contraseñas, tokens, correos, códigos de sala ni archivos de guardado.')
+PAGES['it']['save-recovery'] = ('Recupero salvataggio PokéSurvivor: procedura sicura','Passaggi sicuri per progressi mancanti, collegamento Google, errori 409 e pausa di protezione.','Fermati prima di cancellare dati, disinstallare la PWA o modificare l’unica copia che mostra ancora i progressi. Questa guida non legge, carica o ripara salvataggi.','Conserva intatto ogni browser che mostra ancora la partita. Annota solo dati non sensibili e usa l’account Google collegato quando applicabile; non condividere password, token, email, codici stanza o file di salvataggio.')
+PAGES['zh-hant']['save-recovery'] = ('PokéSurvivor 存檔救援：安全檢查清單','處理進度消失、Google 綁定、409 錯誤與保護進度暫停訊息的安全步驟。','清除資料、移除 PWA 或更動唯一仍顯示進度的副本前，請先停下來。本站不會讀取、上傳或修復存檔。','保留仍能看到進度的瀏覽器與設定檔，只記錄不敏感資訊；已綁定時使用同一 Google 帳號。請勿分享密碼、權杖、電子郵件、房間代碼或存檔檔案。')
+
 
 TYPE_NAMES = {
  'es': {'normal':'Normal','fire':'Fuego','water':'Agua','electric':'Eléctrico','grass':'Planta','ice':'Hielo','fighting':'Lucha','poison':'Veneno','ground':'Tierra','flying':'Volador','psychic':'Psíquico','bug':'Bicho','rock':'Roca','ghost':'Fantasma','dragon':'Dragón','dark':'Siniestro','steel':'Acero','fairy':'Hada'},
@@ -165,6 +169,9 @@ JS = {
 JS['es'].update({'moveEvolution':'{move} → {evolution}: nivel {level} + {requirement}','moveNoEvolution':'{move}: sin evolución en esta versión','buildSummary':'{partner} empieza con {primary}. Ruta secundaria: {secondary}. Reserva compatible: tipos {types} y movimientos Normal.','plannerFail':'No se pudo cargar el planificador. Usa las rutas y la tabla de evoluciones.','copyFail':'El navegador bloqueó la copia; usa la URL de la barra de direcciones.'})
 JS['it'].update({'moveEvolution':'{move} → {evolution}: livello {level} + {requirement}','moveNoEvolution':'{move}: nessuna evoluzione in questa versione','buildSummary':'{partner} inizia con {primary}. Percorso secondario: {secondary}. Pool compatibile: tipi {types} e mosse Normale.','plannerFail':'Impossibile caricare il pianificatore. Usa i percorsi e la tabella evoluzioni.','copyFail':'Il browser ha bloccato la copia; usa l’URL nella barra degli indirizzi.'})
 JS['zh-hant'].update({'moveEvolution':'{move} → {evolution}：{level} 級 + {requirement}','moveNoEvolution':'{move}：此版本無進化','buildSummary':'{partner} 的起始路線為 {primary}。副招式路線：{secondary}。相容範圍：{types} 屬性與一般屬性招式。','plannerFail':'無法載入規劃器，請使用路線說明與進化表。','copyFail':'瀏覽器封鎖複製；請使用網址列中的連結。'})
+JS['es'].update({'savePreserve':'Conserva ese navegador y perfil. No borres los datos ni desinstales la PWA. Vincula la cuenta solo desde el juego oficial si es seguro hacerlo.','saveLinked':'En el dominio oficial, usa Iniciar sesión con Google con el mismo Gmail vinculado. Si falta el progreso, contacta al desarrollador con este informe sin datos privados.','saveGuest':'La recuperación de un invitado no vinculado es incierta. Conserva el navegador y perfil originales y contacta al desarrollador; no confíes en sitios que pidan credenciales o el guardado.','saveUnknown':'La recuperación es incierta. Conserva los datos restantes y contacta al desarrollador antes de hacer cambios destructivos.','reportCopied':'Informe copiado','copyReport':'Copiar informe','reportCopyFail':'El navegador bloqueó la copia. Selecciona el texto y cópialo manualmente.'})
+JS['it'].update({'savePreserve':'Conserva quel browser e profilo. Non cancellare i dati e non disinstallare la PWA. Collega l’account solo dal gioco ufficiale se è sicuro farlo.','saveLinked':'Sul dominio ufficiale, usa Accedi con Google con lo stesso Gmail collegato. Se i progressi mancano, contatta lo sviluppatore con questo rapporto non sensibile.','saveGuest':'Il recupero di un ospite non collegato è incerto. Conserva browser e profilo originali e contatta lo sviluppatore; non fidarti di siti che chiedono credenziali o salvataggi.','saveUnknown':'Il recupero è incerto. Conserva i dati rimasti e contatta lo sviluppatore prima di modifiche distruttive.','reportCopied':'Rapporto copiato','copyReport':'Copia rapporto','reportCopyFail':'Il browser ha bloccato la copia. Seleziona il testo e copialo manualmente.'})
+JS['zh-hant'].update({'savePreserve':'保留該瀏覽器與設定檔，不要清除網站資料或移除 PWA。只有在安全時，才透過官方遊戲綁定帳號。','saveLinked':'在官方網域使用同一個已綁定 Gmail 登入。進度仍消失時，請以這份不含私密資料的報告聯絡開發者。','saveGuest':'未綁定訪客的救援結果不確定。請保留原瀏覽器與設定檔並聯絡開發者；不要信任要求帳密或上傳存檔的網站。','saveUnknown':'救援結果不確定。進行破壞性變更前，先保留現存瀏覽器資料並以不敏感資訊聯絡開發者。','reportCopied':'報告已複製','copyReport':'複製報告','reportCopyFail':'瀏覽器封鎖複製；請手動選取報告文字。'})
 for _locale in ('es','it','zh-hant'): JS[_locale]['typeNames']=TYPE_NAMES[_locale]
 
 
@@ -206,6 +213,8 @@ HOME_TEXT = {
  'Starting moves, upgrades and evolution routes.':('Movimientos iniciales, mejoras y rutas de evolución.','Mosse iniziali, potenziamenti e percorsi evolutivi.','起始招式、強化與進化路線。'),
  'Take the run to mobile':('Juega también en móvil','Porta la partita su mobile','在手機上繼續遊玩'),
  'Touch controls, installation and keeping your save.':('Controles táctiles, instalación y protección del guardado.','Comandi touch, installazione e protezione del salvataggio.','觸控操作、安裝方式與存檔保護。'),
+ 'Protect or recover progress':('Protege o recupera el progreso','Proteggi o recupera i progressi','保護或救援進度'),
+ 'Use the safe account and save checklist.':('Usa la lista segura para cuentas y guardados.','Usa la procedura sicura per account e salvataggi.','使用安全帳號與存檔檢查清單。'),
  'See the run.<br>Read the next move.':('Mira la partida.<br>Decide el siguiente paso.','Guarda la partita.<br>Scegli la prossima mossa.','觀看實戰。<br>判斷下一步。'),
  'Real captures from a fresh local guest session. Watch the automatic attack, then follow the guide for your next upgrade.':('Capturas reales de una sesión local nueva. Observa el ataque automático y sigue la guía para elegir la próxima mejora.','Catture reali da una nuova sessione locale. Osserva l’attacco automatico e segui la guida per il prossimo potenziamento.','來自全新本機訪客存檔的實際畫面；先觀察自動攻擊，再依攻略選擇下一張強化卡。'),
  'Learn the controls':('Aprende los controles','Impara i comandi','學習操作'),
@@ -226,7 +235,7 @@ HOME_TEXT = {
  'A required update ends the current run after a 10-second warning, saves its recorded rewards and reloads the game.':('Una actualización obligatoria avisa durante 10 segundos, termina la partida, guarda las recompensas registradas y recarga el juego.','Un aggiornamento obbligatorio avvisa per 10 secondi, termina la partita, salva le ricompense registrate e ricarica il gioco.','強制更新會先顯示 10 秒提示，結束本局、儲存已記錄獎勵並重新載入遊戲。'),
  'Read the verified changes':('Leer los cambios verificados','Leggi le modifiche verificate','閱讀已核對變更'),
  'Checked against the source.':('Comprobado en el código fuente.','Controllato sul codice sorgente.','已依原始碼核對。'),
- 'Reference reviewed 2026-10-17. Source inspection is separate from gameplay testing.':('Referencia revisada el 17-10-2026. Revisar el código no equivale a probar cada situación.','Riferimento verificato il 17/10/2026. L’analisi del codice è distinta dalle prove di gioco.','資料於 2026-10-17 核對；檢查原始碼與實際遊玩測試分開記錄。'),
+ 'Reference reviewed 2026-10-18. Source inspection is separate from gameplay testing.':('Referencia revisada el 18-10-2026. Revisar el código no equivale a probar cada situación.','Riferimento verificato il 18/10/2026. L’analisi del codice è distinta dalle prove di gioco.','資料於 2026-10-18 核對；檢查原始碼與實際遊玩測試分開記錄。'),
  'Our sources & method':('Fuentes y método','Fonti e metodo','資料來源與方法'),
  'Different game, similar name?':('¿Otro juego con un nombre parecido?','Un altro gioco con un nome simile?','名稱相近但不是同一款？'),
  'Pokémon Survivor Burst is a separate project. Identify your game before using a build or download guide.':('Pokémon Survivor Burst es otro proyecto. Identifica tu juego antes de seguir una build o una guía de descarga.','Pokémon Survivor Burst è un progetto diverso. Identifica il gioco prima di usare una build o una guida al download.','Pokémon Survivor Burst 是另一個專案；使用配裝或下載攻略前，請先確認目前遊戲。'),
@@ -304,6 +313,30 @@ def localize_component(value: str, locale: str) -> str:
       'Loading build data…': {'es':'Cargando datos de la build…','it':'Caricamento dati della build…','zh-hant':'正在載入配裝資料…'},
       'Check every evolution': {'es':'Consultar todas las evoluciones','it':'Controlla tutte le evoluzioni','zh-hant':'查看所有進化'},
       'The planner needs JavaScript. Use the four starter routes and evolution table below.': {'es':'El planificador necesita JavaScript. También puedes usar las rutas y la tabla.','it':'Il pianificatore richiede JavaScript. Puoi usare anche i percorsi e la tabella.','zh-hant':'規劃器需要 JavaScript；你仍可使用路線說明與進化表。'},
+      'Build a privacy-safe recovery report': {'es':'Crea un informe de recuperación sin datos privados','it':'Crea un rapporto di recupero senza dati privati','zh-hant':'建立不含私密資料的救援報告'},
+      'Choose only non-sensitive facts. This tool runs in your browser and does not inspect or upload a save.': {'es':'Elige solo datos no sensibles. La herramienta funciona en tu navegador y no revisa ni sube el guardado.','it':'Scegli solo dati non sensibili. Lo strumento funziona nel browser e non legge né carica il salvataggio.','zh-hant':'只選擇不敏感資訊；工具在瀏覽器中執行，不會檢查或上傳存檔。'},
+      'Where the game was used': {'es':'Dónde se usó el juego','it':'Dove è stato usato il gioco','zh-hant':'遊戲使用位置'},
+      'Official pokesurvivor.com': {'es':'pokesurvivor.com oficial','it':'pokesurvivor.com ufficiale','zh-hant':'官方 pokesurvivor.com'},
+      'Installed PWA from the official site': {'es':'PWA instalada desde el sitio oficial','it':'PWA installata dal sito ufficiale','zh-hant':'從官方網站安裝的 PWA'},
+      'Another address or unknown': {'es':'Otra dirección o desconocida','it':'Altro indirizzo o non noto','zh-hant':'其他網址或不確定'},
+      'Account state': {'es':'Estado de la cuenta','it':'Stato dell’account','zh-hant':'帳號狀態'},
+      'Linked to Gmail': {'es':'Vinculada a Gmail','it':'Collegato a Gmail','zh-hant':'已綁定 Gmail'},
+      'Username/password; linkage unknown': {'es':'Usuario/contraseña; vínculo desconocido','it':'Nome utente/password; collegamento non noto','zh-hant':'帳號密碼；不確定是否綁定'},
+      'Guest or unlinked': {'es':'Invitado o sin vincular','it':'Ospite o non collegato','zh-hant':'訪客或未綁定'},
+      'Unknown': {'es':'No lo sé','it':'Non noto','zh-hant':'不確定'},
+      'Surviving copy': {'es':'Copia que conserva el progreso','it':'Copia che conserva i progressi','zh-hant':'仍存有進度的副本'},
+      'One browser/profile still shows progress': {'es':'Un navegador o perfil aún muestra el progreso','it':'Un browser o profilo mostra ancora i progressi','zh-hant':'某個瀏覽器／設定檔仍顯示進度'},
+      'No copy shows progress': {'es':'Ninguna copia muestra el progreso','it':'Nessuna copia mostra i progressi','zh-hant':'沒有副本顯示進度'},
+      'Visible symptom': {'es':'Síntoma visible','it':'Sintomo visibile','zh-hant':'畫面上的症狀'},
+      'Progress or account appears missing': {'es':'Falta el progreso o la cuenta','it':'Progressi o account mancanti','zh-hant':'進度或帳號消失'},
+      'Paused to protect your progress': {'es':'Pausado para proteger tu progreso','it':'In pausa per proteggere i progressi','zh-hant':'已暫停以保護進度'},
+      '409 response while setting a name': {'es':'Respuesta 409 al elegir un nombre','it':'Risposta 409 durante la scelta del nome','zh-hant':'設定名稱時出現 409'},
+      'Other or unknown': {'es':'Otro o desconocido','it':'Altro o non noto','zh-hant':'其他或不確定'},
+      'Show safest next step': {'es':'Mostrar el siguiente paso más seguro','it':'Mostra il passo successivo più sicuro','zh-hant':'顯示最安全的下一步'},
+      'Select what you know, then run the checklist.': {'es':'Selecciona lo que sabes y ejecuta la lista.','it':'Seleziona ciò che sai e avvia la procedura.','zh-hant':'選擇已知情況，再執行檢查。'},
+      'Non-sensitive report': {'es':'Informe sin datos sensibles','it':'Rapporto senza dati sensibili','zh-hant':'不含敏感資訊的報告'},
+      'Copy report': {'es':'Copiar informe','it':'Copia rapporto','zh-hant':'複製報告'},
+      'JavaScript is required for the decision helper. Use the safety table above without entering private information.': {'es':'El asistente necesita JavaScript. Usa la tabla sin introducir datos privados.','it':'L’assistente richiede JavaScript. Usa la tabella senza inserire dati privati.','zh-hant':'判斷工具需要 JavaScript；也可直接使用上方表格，請勿輸入私密資料。'},
       'Enable JavaScript for the checker, or use the complete table below.': {'es':'Activa JavaScript para usar el comprobador o consulta la tabla completa.','it':'Attiva JavaScript per il controllo oppure usa la tabella completa.','zh-hant':'啟用 JavaScript 可使用檢查器，或直接查閱完整表格。'},
       'Enable JavaScript for dual-type calculations. The single-type chart remains available below.': {'es':'Activa JavaScript para calcular tipos dobles; la tabla simple sigue disponible.','it':'Attiva JavaScript per i calcoli con doppio tipo; la tabella singola resta disponibile.','zh-hant':'啟用 JavaScript 可計算雙屬性；下方仍提供單屬性表。'},
       'No evolution': {'es':'Sin evolución','it':'Nessuna evoluzione','zh-hant':'無進化'},
@@ -340,7 +373,7 @@ def make_pages(base_pages: dict, locale: str) -> dict:
         else:
             heading = {'es':'Cómo usar esta guía','it':'Come usare questa guida','zh-hant':'本頁使用方式'}[locale]
             body += f'<section class="article-section" id="uso"><h2>{heading}</h2><p>{h(guidance)}</p></section>'
-            tool = _component(source['body'], 'data-(?:evolution|matchup|gacha|build-planner)')
+            tool = _component(source['body'], 'data-(?:evolution|matchup|gacha|build-planner|save-diagnostic)')
             tables = _all_tables(source['body'])
             if tool: body += localize_component(tool, locale)
             if tables: body += localize_component(tables, locale)

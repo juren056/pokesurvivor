@@ -83,6 +83,17 @@ def main():
         page.locator('#gacha-pulls').fill('0')
         assert 'Enter 1–1000 pulls' in page.locator('#gacha-result').inner_text()
         report['tasks'].append('Gacha base probability, pity boundary and invalid input')
+        page.goto(BASE+'/save-recovery/')
+        page.locator('#save-login').select_option('guest')
+        page.locator('#save-copy').select_option('no')
+        page.locator('#save-symptom').select_option('paused')
+        page.locator('[data-diagnostic-run]').click()
+        assert 'Recovery is uncertain for an unlinked guest' in page.locator('#save-result').inner_text()
+        safe_report=page.locator('#save-report').input_value()
+        assert 'Paused to protect your progress' in safe_report
+        assert 'password' not in safe_report.lower() and 'token' not in safe_report.lower() and '@' not in safe_report
+        assert not page.locator('[data-report-copy]').is_disabled()
+        report['tasks'].append('Save recovery unknown branch and privacy-safe report')
         page.goto(BASE+'/search/?q=Pikachu')
         page.wait_for_selector('#search-results a')
         page.locator('#search-results a').first.click()
