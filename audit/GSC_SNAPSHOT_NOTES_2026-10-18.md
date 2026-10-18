@@ -9,3 +9,5 @@ Inspection was performed in the authenticated Google Search Console browser sess
 - URL Inspection showed a temporary sitemap-processing message in discovery details, but the dedicated Sitemap report is the authoritative current submission status and is successful.
 
 The new sitemap is validated locally at 88 canonical, indexable URLs. Recheck the aggregate indexing report after Google finishes processing and resubmit only if the successful sitemap status changes or the production sitemap cannot be fetched.
+
+After deployment, the production sitemap at the submitted URL contains 88 canonical URLs. GSC still shows the prior discovery count of 84 from its last read on 2026-10-17; the submission itself remains successful and Google can reread the unchanged sitemap URL.

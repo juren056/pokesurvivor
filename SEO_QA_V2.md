@@ -7,3 +7,5 @@
 - Functional coverage: Pokédex filters, evolution checker, type calculator, build planner, gacha calculator, search, language picker, mobile menu, 404, offline fallback and no-JavaScript tables.
 - Media: original SVGs contain accessible title/description and explicit dimensions; image/video acceptance is covered by `wiki/media_check.py`.
 - GSC: home, co-op and tier-list are indexed. Aggregate exclusion data remains temporarily unavailable while Google processes the report.
+
+Production verification: PASS — 92 image-route checks, 20 media-layout checks and all 6 videos completed start, decode, seek, caption, transcript and end-state checks. Failure recovery and byte-range/full-file fallback were also verified.

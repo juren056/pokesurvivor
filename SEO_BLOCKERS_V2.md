@@ -5,3 +5,7 @@
 - Physical-device mobile validation: existing captures use Chromium emulation. A real iOS/Android run remains separate evidence work.
 - Native-speaker approval for Spanish, Italian and Traditional Chinese remains pending; semantic and structural localization review is complete.
 - Production verification is pending until the final Git commit reaches Cloudflare.
+
+## Resolved in this release
+
+- Production deployment: release payload `ba9896e` is live; the production homepage, new recovery route and 88-URL sitemap were verified.
