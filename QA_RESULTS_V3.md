@@ -22,10 +22,11 @@
 - 92 image-route checks, 20 media-layout checks and 6 complete video playback/caption/seek checks.
 - Failure recovery and Range fallback verified.
 
-## Search Console before release
+## Search Console after release
 
-- Aggregate Page indexing is still processing; reason rows and sample URLs remain unavailable.
-- The successful sitemap submission remains present; GSC's displayed discovery count is from its earlier read and must not be treated as the current sitemap count or indexed total.
+- Aggregate Page indexing is still processing; reason rows and sample URLs remain unavailable. This remains an external reporting blocker, not evidence of zero exclusions.
+- URL Inspection reports `/moves/`, `/pokedex/`, `/arceus-judgment/` and `/es/arceus-judgment/` are indexed. Each result also reports HTTPS and one valid breadcrumb item.
+- GSC reread `https://pokemonsurvivorwiki.com/sitemap.xml` on 2026-10-19. Status is Successful, with 88 discovered pages and 0 discovered videos.
 
 ## Production
 
