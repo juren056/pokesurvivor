@@ -14,4 +14,9 @@
 
 ## Production checks
 
-Production HTTP and Cloudflare deployment checks are appended after the Git push.
+- Git release commit `7b3b87a` was pushed to `origin/main`; Cloudflare served the V4 payload on the third polling attempt.
+- Home, Spanish Moves, Moves, Move Evolutions, Builds and Save Recovery returned HTTP 200.
+- Home contains `2026-10-19`; Spanish Moves contains the 103-move release copy.
+- Production sitemap contains 88 URLs: 60 dated 2026-10-19, 4 dated 2026-10-17 and 24 unchanged URLs dated 2026-10-15.
+- The four priority English routes above expose self-referencing canonical URLs.
+- GSC reports the sitemap as Success, last read 2026-10-19, with 88 discovered pages. The aggregate Page indexing report remains in processing.
