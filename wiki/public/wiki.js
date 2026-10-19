@@ -61,7 +61,7 @@ if(lab){
       lab.dataset.element=partner.types[0];
       const typeNames=wikiI18n.typeNames||{};
       set('name',partner.name);set('type',partner.types.map(t=>typeNames[t]||t[0].toUpperCase()+t.slice(1)).join(' / ')+' · '+wikiText('starterPartner','Starter partner'));
-      set('number','#'+String(partner.dex).padStart(3,'0'));set('hp',partner.hp);set('speed',partner.spd);set('attack',partner.atk.toFixed(2)+'×');
+      set('number','#'+String(partner.dex).padStart(3,'0'));set('hp',partner.hp);set('speed',partner.spd);set('attack',partner.pa.toFixed(2)+'× / '+partner.sa.toFixed(2)+'×');
       set('move',move.name);set('evolution',move.evolution.name);
       set('requirement',wikiText('levelRequirement',`Level ${move.maxLevel} + ${move.evolution.requirement} in this run, then choose the golden card.`,{level:String(move.maxLevel),requirement:move.evolution.requirement}));
       lab.querySelector('[data-lab-link]').href=(wikiLocale==='en'?'/':'/'+wikiLocale+'/')+'move-evolutions/#'+move.id;
@@ -127,7 +127,15 @@ if(planner){
       const partner=data.starters.find(p=>p.dex===Number(starter.value));
       const primary=data.moves.find(m=>m.id===partner.start),extra=data.moves.find(m=>m.id===secondary.value);
       const evolution=m=>m?.evolution?wikiText('moveEvolution',`${m.name} → ${m.evolution.name}: level ${m.maxLevel} + ${m.evolution.requirement}`,{move:m.name,evolution:m.evolution.name,level:String(m.maxLevel),requirement:m.evolution.requirement}):wikiText('moveNoEvolution',`${m?.name||'Move'}: no evolution in this snapshot`,{move:m?.name||'Move'});
-      result.textContent=wikiText('buildSummary',`${partner.name} starts with ${evolution(primary)}. Secondary route: ${evolution(extra)}. Compatible pool: ${partner.types.join(' / ')} and Normal moves.`,{partner:partner.name,primary:evolution(primary),secondary:evolution(extra),types:partner.types.join(' / ')});
+      const fit=m=>{
+        if(!m)return '';
+        if(!m.category)return `${m.name}: buff ${m.buffStat||''}`.trim();
+        const value=m.category==='physical'?partner.pa:partner.sa;
+        const other=m.category==='physical'?partner.sa:partner.pa;
+        const warning=value<other?'; uses the weaker offensive side':'';
+        return `${m.name}: ${m.category}, ${value.toFixed(2)}×${warning}`;
+      };
+      result.textContent=wikiText('buildSummary',`${partner.name} starts with ${evolution(primary)} [${fit(primary)}]. Secondary route: ${evolution(extra)} [${fit(extra)}]. Compatible pool: ${partner.types.join(' / ')} and Normal moves.`,{partner:partner.name,primary:evolution(primary)+' ['+fit(primary)+']',secondary:evolution(extra)+' ['+fit(extra)+']',types:partner.types.join(' / ')});
       const url=new URL(location.href);url.search='';url.searchParams.set('p',partner.dex);if(extra)url.searchParams.set('m',extra.id);share.dataset.url=url.href;
     }
     refreshMoves(params.get('m'));update();

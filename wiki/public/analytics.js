@@ -75,10 +75,10 @@
   };
   document.addEventListener?.('click', e => {
     const link = e.target.closest('a');
-    if (link?.href?.startsWith('https://pokesurvivor.com/')) event('outbound_game_click', {link_domain: 'pokesurvivor.com'});
+    if (link?.href?.startsWith('https://pokesurvivor.com/')) event('official_game_click', {link_domain: 'pokesurvivor.com'});
     if (link?.closest('.related')) event('guide_navigation', {destination_path: new URL(link.href).pathname});
     if (e.target.closest('#build-share')) event('build_share', {tool_name: 'build_planner'});
-    if (e.target.closest('[data-diagnostic-run]')) event('diagnostic_complete', {tool_name: 'save_recovery'});
+    if (e.target.closest('[data-diagnostic-run]')) event('diagnosis_complete', {tool_name: 'save_recovery'});
     if (e.target.closest('[data-report-copy]')) event('report_copy', {tool_name: 'save_recovery'});
   });
   document.querySelectorAll?.('.guide-video video').forEach(video => video.addEventListener('play', () => event('video_start', {video_id: video.closest('[data-video-id]')?.dataset.videoId || 'guide'}), {once: true}));

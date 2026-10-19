@@ -26,7 +26,9 @@ const en = text => english[text] || text;
 const need = {hp:'Vigor',atk:'Power',spd:'Sprint',cd:'Reflexes',def:'Armor',rgn:'Synthesis',mag:'Magnet',xp:'Learning'};
 const moves = Object.values(G.Moves.BY_ID).map(m=>{
   const evo = G.Moves.EVO[m.id];
-  return {id:m.id,name:title(m.id),type:m.type,kind:m.kind,maxLevel:m.maxLvl || 5,damage:m.dmg ?? null,cooldown:m.cd ?? null,count:m.count ?? null,
+  return {id:m.id,name:title(m.id),type:m.type,kind:m.kind,category:m.cat ?? null,buffStat:m.stat ?? null,
+    description:en(m.desc || ''),maxLevel:m.maxLvl || 5,damage:m.dmg ?? null,cooldown:m.cd ?? null,count:m.count ?? null,
+    radius:m.radius ?? null,arc:m.arc ?? null,upgrades:(m.ups || []).map(u=>({text:en(u.t),mods:u.m})),
     evolution:evo?{name:en(evo[0]),stat:evo[1],requirement:en(G.Moves.NEED_NAME[evo[1]]) || need[evo[1]]}:null};
 });
 const types = Object.keys(G.Types.CHART);
@@ -39,7 +41,7 @@ for(const file of evidenceFiles)hashes[file]=crypto.createHash('sha256').update(
 const commit=execFileSync('git',['log','-1','--format=%H','--',...evidenceFiles],{cwd:root,encoding:'utf8'}).trim();
 execFileSync('git',['diff','--quiet','HEAD','--',...evidenceFiles],{cwd:root});
 const dex=G.DEX.map(p=>({...p,gacha:G.Gacha.pool(p.rarity,p.gen).some(entry=>entry.dex===p.dex)}));
-const data={source:{repository:'https://github.com/JPTER78/pokesurvivor',commit,verified:'2026-10-15',files:hashes},dex,starters,moves,types,matrix,matchups,
+const data={source:{repository:'https://github.com/JPTER78/pokesurvivor',commit,verified:'2026-10-19',files:hashes},dex,starters,moves,types,matrix,matchups,
   changelog:G.CHANGELOG.map(c=>({date:c.d,title:c.title[1],new:(c.new||[]).map(x=>x[1]),changed:(c.chg||[]).map(x=>x[1]),fixed:(c.fix||[]).map(x=>x[1])}))};
 fs.mkdirSync(path.join(__dirname,'data'),{recursive:true});
 fs.writeFileSync(path.join(__dirname,'data','game.json'),JSON.stringify(data,null,2)+'\n');

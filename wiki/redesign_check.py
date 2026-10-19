@@ -16,9 +16,13 @@ def main():
     before=json.loads((HERE/'seo-baseline.json').read_text(encoding='utf-8'))
     manifest=json.loads((HERE/'dist/build-manifest.json').read_text(encoding='utf-8'))
     after={k:{x:v[x] for x in ['title','index','modified']} for k,v in manifest.items()}
-    intended={'/','/mobile/','/builds/','/download/','/co-op/','/tier-list/','/updates/'}
+    intended_slugs={'','mobile','builds','download','co-op','tier-list','updates','pokedex','moves','move-evolutions','starters','starter-tier-list','arceus-judgment','save-recovery'}
+    def intended(route):
+        parts=[part for part in route.split('/') if part]
+        if parts and parts[0] in ('es','it','zh-hant'): parts=parts[1:]
+        return (parts[0] if parts else '') in intended_slugs
     for route,fields in before['routes'].items():
-        if route not in intended:
+        if not intended(route):
             assert after.get(route)==fields,('Unexpected protected route change',route)
     assert {'/starter-tier-list/','/arceus-judgment/','/upgrades/','/gacha-calculator/'} <= set(after),'Planned routes missing'
     # Media expansion adds image discovery entries; canonical URLs and dates stay protected.
@@ -28,9 +32,10 @@ def main():
     old=dict(sitemap_pages(before['sitemap']));new=dict(sitemap_pages((HERE/'dist/sitemap.xml').read_text(encoding='utf-8')))
     for url,date in old.items():
         route=url.removeprefix('https://pokemonsurvivorwiki.com') or '/'
-        if route not in intended: assert new.get(url)==date,('Unexpected sitemap change',url)
-    assert before['data_sha256']==hashlib.sha256((HERE/'data/game.json').read_bytes()).hexdigest(),'Game data changed'
-    report={'seo':'Unchanged routes retain protected titles/index flags/dates; seven approved routes and four new routes match the October 17 plan','layouts':[],'tasks':[]}
+        if not intended(route): assert new.get(url)==date,('Unexpected sitemap change',url)
+    current_data=json.loads((HERE/'data/game.json').read_text(encoding='utf-8'))
+    assert current_data['source']['commit']=='b8e843ffb8b07b95020fb77c4e9aca007d9a1e8d','Unexpected game source'
+    report={'seo':'Unchanged routes retain protected titles/index flags/dates; V3 routes use the locked October 18 source and October 19 review','layouts':[],'tasks':[]}
     data=json.loads((HERE/'data/game.json').read_text(encoding='utf-8'))
     with sync_playwright() as p:
         browser=p.chromium.launch(headless=True)

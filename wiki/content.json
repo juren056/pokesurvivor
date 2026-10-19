@@ -1,5 +1,5 @@
 {
-  "reviewed": "2026-10-18",
+  "reviewed": "2026-10-19",
   "pages": [
     {
       "slug": "how-to-play",
@@ -80,11 +80,11 @@
     {
       "slug": "mobile",
       "title": "PokéSurvivor on Android & iPhone: Controls & Fixes",
-      "description": "Play PokéSurvivor on Android, iPhone or iPad, customize touch controls, install the PWA and troubleshoot performance or saves.",
+      "description": "Play PokéSurvivor on Android, iPhone or iPad with touch, controller or optional manual aim; install the PWA and protect saves.",
       "group": "Guides",
-      "intro": "PokéSurvivor runs in a mobile browser on Android, iPhone and iPad. Use the official site, rotate to landscape, then customize the touch controls in Settings; no APK is required.",
-      "modified": "2026-10-17",
-      "sourceCommit": "5bbc3b29288d6af4596f21188fb8b54e0e9b739f",
+      "intro": "PokéSurvivor runs in a mobile browser on Android, iPhone and iPad. Use touch controls or a supported controller, customize layouts in Settings → Controls, and enable optional Manual aim in Settings → Accessibility.",
+      "modified": "2026-10-19",
+      "sourceCommit": "b8e843ffb8b07b95020fb77c4e9aca007d9a1e8d",
       "sections": [
         {
           "heading": "Set up touch controls",
@@ -93,6 +93,13 @@
             "Choose a guest session or your game account. Start a run and drag on the play area to move; the joystick appears at the touch position.",
             "Open Settings → Controls → Place the buttons. Drag attack buttons, pause and the joystick into reachable positions; choose a fixed or floating joystick.",
             "Try a short run before relying on a long session. Screen size, browser support and device performance can differ."
+          ]
+        },
+        {
+          "heading": "Controller and manual aim",
+          "paragraphs": [
+            "The October 18 build supports Xbox, PlayStation, Switch-compatible and most USB or Bluetooth controllers for movement, attacks, pause, cards and menus. This means a controller connected to the browser device; it does not mean the game is a native Nintendo Switch release.",
+            "Open Settings → Controls for controller setup. Optional Manual aim is under Settings → Accessibility and is off by default. With it enabled, attacks aim toward the mouse or the controller right stick instead of automatically choosing the nearest enemy. Touch-only players can keep automatic targeting."
           ]
         },
         {
@@ -133,7 +140,10 @@
       "sources": [
         "README.md",
         "sw.js",
-        "js/core/settings.js"
+        "js/core/settings.js",
+        "js/core/gamepad.js",
+        "js/ui/settings-ui.js",
+        "js/systems/combat.js"
       ]
     },
     {
@@ -141,8 +151,8 @@
       "title": "PokéSurvivor Builds Planner: Moves & Evolutions",
       "description": "Plan a legal PokéSurvivor starter build, verify its opening move and evolution requirement, and create a shareable route.",
       "group": "Guides",
-      "intro": "Choose a starter, verify its actual opening move and record the stat card required for evolution. The planner below uses source data and creates a shareable summary without reading your game account.",
-      "modified": "2026-10-17",
+      "intro": "Choose a starter, verify the opening move’s physical or special category, and pair it with a compatible route. The planner preserves existing p and m share links and never reads your account.",
+      "modified": "2026-10-19",
       "sections": [
         {
           "heading": "Four routes to start with",
@@ -182,6 +192,13 @@
           }
         },
         {
+          "heading": "Match the move to the correct offensive stat",
+          "paragraphs": [
+            "Physical moves scale from Attack and special moves from Special Attack. Swords Dance and Dragon Dance boost only physical Attack; Nasty Plot is a shared Normal-pool buff that boosts Special Attack and can be selected for a special route such as Charmander with Ember.",
+            "A move evolution can still require the Power card recorded by the current source even when the move is special. That eligibility card and the damage-scaling stat are separate rules; this guide does not invent a replacement evolution requirement."
+          ]
+        },
+        {
           "heading": "A repeatable upgrade order",
           "steps": [
             "Check your starter’s actual starting move in the starter table. Two partners of the same type can start with different moves.",
@@ -207,8 +224,11 @@
       "sources": [
         "js/data/starters.js",
         "js/data/moves.js",
-        "js/systems/levelup.js"
-      ]
+        "js/systems/levelup.js",
+        "js/systems/stats.js",
+        "js/systems/combat.js"
+      ],
+      "sourceCommit": "b8e843ffb8b07b95020fb77c4e9aca007d9a1e8d"
     },
     {
       "slug": "download",
@@ -216,8 +236,8 @@
       "description": "Play the official PokéSurvivor browser game, install its PWA and understand third-party APK ports, saves and account limitations.",
       "group": "Guides",
       "intro": "Play the official PokéSurvivor in a current browser at pokesurvivor.com. On phones and supported desktop browsers, installing the PWA adds that same site to your home screen. There is no verified official APK or native app-store package in this source snapshot.",
-      "modified": "2026-10-18",
-      "sourceCommit": "5bbc3b29288d6af4596f21188fb8b54e0e9b739f",
+      "modified": "2026-10-19",
+      "sourceCommit": "b8e843ffb8b07b95020fb77c4e9aca007d9a1e8d",
       "sections": [
         {
           "heading": "Open the official version first",
@@ -231,6 +251,7 @@
         {
           "heading": "Saves, accounts and required updates",
           "paragraphs": [
+            "The October 18 build adds a Save button at the top right for an immediate cloud save and changes automatic cloud saving to every 10 minutes. Use Save before closing the game or switching devices; wait for the visible completion state rather than assuming a click succeeded.",
             "The October 15 required-update behavior gives a 10-second warning, ends the current run, saves that run’s coins, tickets, records and leaderboard entry as when quitting, then reloads. It does not turn an unlinked guest save into a portable cloud account.",
             "The official cloud features work on pokesurvivor.com. A copied localhost build or unofficial port can show an authentication referer error because it is a different origin; this Wiki does not present an unverified workaround as an official fix."
           ]
@@ -291,7 +312,9 @@
       "sources": [
         "README.md",
         "manifest.webmanifest",
-        "sw.js"
+        "sw.js",
+        "js/core/db.js",
+        "js/data/changelog.js"
       ],
       "externalSources": [
         {
@@ -310,8 +333,8 @@
       "description": "Start PokéSurvivor co-op, diagnose Could not connect, missing invites, invisible enemies and a missing rift boss without risking account data.",
       "group": "Guides",
       "intro": "To start co-op, sign in on the official site, open Friends, add the exact nickname, send an invitation and wait until everyone appears in the room before starting. The game supports groups of up to four.",
-      "modified": "2026-10-18",
-      "sourceCommit": "5bbc3b29288d6af4596f21188fb8b54e0e9b739f",
+      "modified": "2026-10-19",
+      "sourceCommit": "b8e843ffb8b07b95020fb77c4e9aca007d9a1e8d",
       "sections": [
         {
           "heading": "Start with friends",
@@ -384,6 +407,13 @@
             "The October 14 changelog adds linking an existing username/password account to Gmail. If you linked it, using Sign in with Google with that Gmail is intended to open the same account.",
             "The game’s login notice says an unlinked account cannot be recovered through that Google route. Do not type passwords into this Wiki or an unofficial recovery form; we cannot restore the developer’s accounts."
           ]
+        },
+        {
+          "heading": "Separate reports from confirmed fixes",
+          "paragraphs": [
+            "GitHub issues #164, #192 and #193 are player reports and can describe different symptoms. Treat each as reported evidence until a developer changelog or source change confirms the cause and fix. The October 14 changelog does confirm specific invite, pause and invisible-enemy fixes, but it does not automatically close every later boss or rift report.",
+            "Checked on 2026-10-19. When reporting a repeat, include host/non-host role, browser, approximate run time and visible message; never publish room codes or account data."
+          ]
         }
       ],
       "related": [
@@ -405,6 +435,10 @@
         {
           "label": "Player report: boss bar without boss (issue #193)",
           "url": "https://github.com/JPTER78/pokesurvivor/issues/193"
+        },
+        {
+          "label": "Player report #192",
+          "url": "https://github.com/JPTER78/pokesurvivor/issues/192"
         }
       ]
     },
@@ -414,14 +448,21 @@
       "description": "Use a privacy-safe PokéSurvivor save and account recovery checklist for missing progress, Google linking, 409 errors and Paused to protect your progress.",
       "group": "Help",
       "intro": "Stop before clearing data, uninstalling a PWA or overwriting a working copy. This guide does not read, upload or repair a save. It helps you preserve evidence and choose the safest next step.",
-      "modified": "2026-10-18",
-      "sourceCommit": "5bbc3b29288d6af4596f21188fb8b54e0e9b739f",
+      "modified": "2026-10-19",
+      "sourceCommit": "b8e843ffb8b07b95020fb77c4e9aca007d9a1e8d",
       "sections": [
         {
           "heading": "Safety rules before troubleshooting",
           "paragraphs": [
             "Never paste a password, session token, room code, email address or save file into this Wiki. Do not edit a database, import unknown scripts or keep retrying writes against the only browser profile that still shows your progress.",
             "If one browser, profile or device still shows the correct account, leave it open and unchanged. Record only non-sensitive facts such as browser name, device type, visible nickname, approximate time and the exact error text."
+          ]
+        },
+        {
+          "heading": "Save now and confirm the result",
+          "paragraphs": [
+            "On the official October 18 build, use the Save button at the top right before closing or changing devices. The game also performs an automatic cloud save every 10 minutes. A completed or failed on-screen state is the evidence of the attempt; do not describe an unchecked click as a successful save.",
+            "If the save fails, preserve the browser that still shows progress, keep its site data intact and record the exact visible message without sharing credentials, tokens or save files."
           ]
         },
         {
@@ -484,7 +525,9 @@
       ],
       "sources": [
         "js/data/changelog.js",
-        "README.md"
+        "README.md",
+        "js/core/db.js",
+        "js/ui/menu.js"
       ],
       "externalSources": [
         {

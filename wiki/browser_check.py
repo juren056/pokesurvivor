@@ -76,6 +76,11 @@ def main():
         page.locator('#build-secondary').select_option('tackle')
         assert 'Tackle' in page.locator('#build-result').inner_text()
         assert 'p=4' in page.locator('#build-share').get_attribute('data-url')
+        assert 'm=tackle' in page.locator('#build-share').get_attribute('data-url')
+        assert 'physical' in page.locator('#build-result').inner_text()
+        page.locator('#build-secondary').select_option('nasty-plot')
+        assert 'buff satk' in page.locator('#build-result').inner_text()
+        assert 'm=nasty-plot' in page.locator('#build-share').get_attribute('data-url')
         report['tasks'].append('Build planner rejects incompatible shared move and creates a private-data-free share URL')
         page.goto(BASE+'/gacha-calculator/')
         page.locator('#gacha-pulls').fill('10');page.locator('#gacha-pity').fill('65')
@@ -152,7 +157,7 @@ def main():
         nojs=browser.new_context(java_script_enabled=False,viewport={'width':390,'height':844})
         nojs_page=nojs.new_page();nojs_page.goto(BASE+'/moves/')
         assert nojs_page.locator('#site-nav').is_visible()
-        assert nojs_page.locator('tbody tr').count()==64
+        assert nojs_page.locator('tbody tr').count()==65
         report['tasks'].append('No-JavaScript navigation and complete move table')
         assert not report['errors'],report['errors']
         browser.close()

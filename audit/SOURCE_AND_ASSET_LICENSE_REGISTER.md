@@ -1,10 +1,10 @@
-# Source and asset register — 2026-10-17
+# Source and asset register — updated 2026-10-19
 
 | Item | Source/version | Basis | Status |
 | --- | --- | --- | --- |
 | Existing database snapshot | JPTER78 commit `b297089` | MIT for code through that commit; PokéAPI attribution retained | Allowed with notices |
-| Oct 14–15 mechanics and changelog facts | JPTER78 commit `5bbc3b2` | Factual source inspection; no later code redistributed | Allowed for original explanation |
-| Code after `b297089` | PolyForm Noncommercial 1.0.0 | Commercial copying/derivation restricted | Blocked from copying into the Wiki |
+| Oct 18 mechanics and changelog facts | JPTER78 commit `b8e843f` | Factual source inspection with exact hashes; upstream notices retained | Allowed for original explanation and tables |
+| Code after `b297089` | PolyForm Noncommercial 1.0.0 | Noncommercial copying/derivation only; license and notices retained in the source repository | Allowed only within that license; the deployed Wiki artifact contains original presentation rather than a hosted game copy |
 | SpriteCollab Pokémon sprites | CC BY-NC 4.0 | Noncommercial and attribution required | Not redistributed by this Wiki; visible inside limited guide captures only |
 | Existing local gameplay captures | Disposable local session, snapshot `b297089` | Noncommercial guide evidence with captions and scope in media manifest | Needs review before advertising use |
 | AI concept illustrations | Prompts, source files and captions in `wiki/media-art.json` / `media-images.json` | Original AI-assisted Wiki art; labeled as concept art | Allowed |
@@ -12,4 +12,4 @@
 | Pixelify Sans | SIL OFL 1.1 | License shipped in output | Allowed |
 | Competitor images/video | Third-party sites | No transferable permission established | Blocked; use structure as research only |
 
-The October 17 release adds code-native Arceus timeline, attack and achievement diagrams. They are explanatory UI, not game screenshots.
+The October 19 release adds source-backed physical/special tables and an updated Arceus pressure timeline. They are explanatory Wiki UI, not game screenshots.
