@@ -1,0 +1,74 @@
+{
+  "release": "b072b8799bbc7286d7082069fe15380086a0b9a3",
+  "routes": [
+    {
+      "route": "/",
+      "status": 200,
+      "bytes": 23785
+    },
+    {
+      "route": "/moves/",
+      "status": 200,
+      "bytes": 31845
+    },
+    {
+      "route": "/pokedex/",
+      "status": 200,
+      "bytes": 292054
+    },
+    {
+      "route": "/tier-list/",
+      "status": 200,
+      "bytes": 334372
+    },
+    {
+      "route": "/starter-tier-list/",
+      "status": 200,
+      "bytes": 23413
+    },
+    {
+      "route": "/builds/",
+      "status": 200,
+      "bytes": 26493
+    },
+    {
+      "route": "/arceus-judgment/",
+      "status": 200,
+      "bytes": 15499
+    },
+    {
+      "route": "/updates/",
+      "status": 200,
+      "bytes": 21846
+    },
+    {
+      "route": "/mobile/",
+      "status": 200,
+      "bytes": 22204
+    },
+    {
+      "route": "/save-recovery/",
+      "status": 200,
+      "bytes": 16987
+    },
+    {
+      "route": "/es/moves/",
+      "status": 200,
+      "bytes": 34762
+    },
+    {
+      "route": "/it/moves/",
+      "status": 200,
+      "bytes": 34583
+    },
+    {
+      "route": "/zh-hant/moves/",
+      "status": 200,
+      "bytes": 31404
+    }
+  ],
+  "sitemapUrls": 88,
+  "sourceCommit": "b8e843ffb8b07b95020fb77c4e9aca007d9a1e8d",
+  "moves": 65,
+  "partners": 966
+}

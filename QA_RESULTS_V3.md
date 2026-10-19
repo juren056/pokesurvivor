@@ -29,4 +29,8 @@
 
 ## Production
 
-Pending Git push, Cloudflare deployment observation and production smoke checks.
+- Release commit `b072b8799bbc7286d7082069fe15380086a0b9a3` was pushed to `origin/main` and observed on production.
+- 13 priority production routes returned HTTP 200 with one H1 and the 2026-10-19 review date.
+- Production `sitemap.xml` contains 88 URLs; `assets/game.json` contains 65 moves and 966 partners and reports source `b8e843f`.
+- Evidence: `wiki/artifacts/production-smoke-v3.json`.
+
