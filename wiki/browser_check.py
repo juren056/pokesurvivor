@@ -71,7 +71,7 @@ def main():
         assert '0.3×' in page.locator('#type-result').inner_text()
         report['tasks'].append('Dual-type cap and softened immunity')
         page.goto(BASE+'/builds/?p=4&m=water-gun')
-        page.wait_for_function("document.querySelector('#build-result').textContent.includes('Charmander starts with')")
+        page.wait_for_function("document.querySelector('#build-result').textContent.includes('Charmander')")
         assert 'Water Gun' not in page.locator('#build-result').inner_text()
         page.locator('#build-secondary').select_option('tackle')
         assert 'Tackle' in page.locator('#build-result').inner_text()
@@ -152,12 +152,12 @@ def main():
         offline.route('**/assets/game.json',lambda route:route.abort())
         offline.goto(BASE+'/move-evolutions/')
         offline.wait_for_function("document.querySelector('#evo-result').textContent.includes('could not load')")
-        assert offline.locator('tbody tr').count()==59
+        assert offline.locator('tbody tr').count()==97
         report['tasks'].append('Tool network failure keeps static evolution table')
         nojs=browser.new_context(java_script_enabled=False,viewport={'width':390,'height':844})
         nojs_page=nojs.new_page();nojs_page.goto(BASE+'/moves/')
         assert nojs_page.locator('#site-nav').is_visible()
-        assert nojs_page.locator('tbody tr').count()==65
+        assert nojs_page.locator('tbody tr').count()==103
         report['tasks'].append('No-JavaScript navigation and complete move table')
         assert not report['errors'],report['errors']
         browser.close()

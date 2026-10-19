@@ -93,7 +93,7 @@ if(evo){
       if(!stat.checked)missing.push(wikiText('takeStat',`take ${m.evolution.requirement} in this run`,{stat:m.evolution.requirement}));
       result.textContent=missing.length?`${m.name} → ${m.evolution.name}: ${missing.join(wikiLocale==='zh-hant'?'、':' + ')}.`:wikiText('eligible',`Eligible for ${m.evolution.name}. Choose the golden evolution card when offered; it does not evolve automatically.`,{evolution:m.evolution.name});
     }
-    move.addEventListener('change',()=>{stat.checked=false;update();});level.addEventListener('input',update);stat.addEventListener('change',update);update();
+    move.addEventListener('change',()=>{stat.checked=false;update();window.wikiTrack?.('evolution_check',{move:move.value});});level.addEventListener('input',update);stat.addEventListener('change',()=>{update();window.wikiTrack?.('evolution_check',{move:move.value,eligible:stat.checked&&Number(level.value)>=Number(level.max)});});update();
   }).catch(()=>{result.textContent=wikiText('loadFail','The checker could not load. Use the evolution table below or reload to try again.');});
 }
 const matchup=document.querySelector('[data-matchup]');
@@ -112,20 +112,24 @@ if(matchup){
 }
 const planner=document.querySelector('[data-build-planner]');
 if(planner){
-  const starter=planner.querySelector('#build-starter'),secondary=planner.querySelector('#build-secondary'),result=planner.querySelector('#build-result'),share=planner.querySelector('#build-share');
+  const starter=planner.querySelector('#build-starter'),owned=planner.querySelector('#build-start-owned'),starting=planner.querySelector('#build-starting'),secondary=planner.querySelector('#build-secondary'),result=planner.querySelector('#build-result'),share=planner.querySelector('#build-share');
   gameData().then(data=>{
     const params=new URLSearchParams(location.search);
     if(data.starters.some(p=>String(p.dex)===params.get('p')))starter.value=params.get('p');
     function allowed(partner,move){return move.type==='normal'||partner.types.includes(move.type);}
-    function refreshMoves(preferred){
+    function refreshMoves(preferredSecondary,preferredStarting){
       const partner=data.starters.find(p=>p.dex===Number(starter.value));
       [...secondary.options].forEach(option=>{const move=data.moves.find(m=>m.id===option.value);option.hidden=!allowed(partner,move);option.disabled=!allowed(partner,move)||move.id===partner.start;});
       const candidates=[...secondary.options].filter(o=>!o.disabled&&!o.hidden);
-      secondary.value=candidates.some(o=>o.value===preferred)?preferred:candidates[0]?.value||'';
+      secondary.value=candidates.some(o=>o.value===preferredSecondary)?preferredSecondary:candidates[0]?.value||'';
+      const legal=new Set(partner.startChoices||[partner.start]);
+      [...starting.options].forEach(option=>{option.hidden=!legal.has(option.value);option.disabled=!legal.has(option.value)||(!owned.checked&&option.value!==partner.baseStart);});
+      const legalEnabled=[...starting.options].filter(o=>!o.disabled&&!o.hidden);
+      starting.value=legalEnabled.some(o=>o.value===preferredStarting)?preferredStarting:partner.baseStart;
     }
     function update(){
       const partner=data.starters.find(p=>p.dex===Number(starter.value));
-      const primary=data.moves.find(m=>m.id===partner.start),extra=data.moves.find(m=>m.id===secondary.value);
+      const base=data.moves.find(m=>m.id===partner.baseStart),primary=data.moves.find(m=>m.id===starting.value),extra=data.moves.find(m=>m.id===secondary.value);
       const evolution=m=>m?.evolution?wikiText('moveEvolution',`${m.name} → ${m.evolution.name}: level ${m.maxLevel} + ${m.evolution.requirement}`,{move:m.name,evolution:m.evolution.name,level:String(m.maxLevel),requirement:m.evolution.requirement}):wikiText('moveNoEvolution',`${m?.name||'Move'}: no evolution in this snapshot`,{move:m?.name||'Move'});
       const fit=m=>{
         if(!m)return '';
@@ -133,14 +137,16 @@ if(planner){
         const value=m.category==='physical'?partner.pa:partner.sa;
         const other=m.category==='physical'?partner.sa:partner.pa;
         const warning=value<other?'; uses the weaker offensive side':'';
-        return `${m.name}: ${m.category}, ${value.toFixed(2)}×${warning}`;
+        const mono=partner.types.length===1&&m.type===partner.types[0];
+        return `${m.name}: ${m.category}, ${value.toFixed(2)}×${mono?'; matching single-type damage factor 1.20×':''}${warning}`;
       };
-      result.textContent=wikiText('buildSummary',`${partner.name} starts with ${evolution(primary)} [${fit(primary)}]. Secondary route: ${evolution(extra)} [${fit(extra)}]. Compatible pool: ${partner.types.join(' / ')} and Normal moves.`,{partner:partner.name,primary:evolution(primary)+' ['+fit(primary)+']',secondary:evolution(extra)+' ['+fit(extra)+']',types:partner.types.join(' / ')});
-      const url=new URL(location.href);url.search='';url.searchParams.set('p',partner.dex);if(extra)url.searchParams.set('m',extra.id);share.dataset.url=url.href;
+      const unlock=owned.checked?wikiText('startingUnlocked','Unlocked Starting Move'):wikiText('startingLocked','Starting Move not purchased');
+      result.textContent=wikiText('buildSummary',`${partner.name}. Default opening: ${base.name}. ${unlock}: ${evolution(primary)} [${fit(primary)}]. Repertoire second move: ${evolution(extra)} [${fit(extra)}]. The 20% factor applies only to damaging moves matching a single-type partner.`,{partner:partner.name,defaultMove:base.name,unlock,primary:evolution(primary)+' ['+fit(primary)+']',secondary:evolution(extra)+' ['+fit(extra)+']'});
+      const url=new URL(location.href);url.search='';url.searchParams.set('p',partner.dex);if(extra)url.searchParams.set('m',extra.id);if(owned.checked){url.searchParams.set('u','1');url.searchParams.set('s',primary.id);}share.dataset.url=url.href;
     }
-    refreshMoves(params.get('m'));update();
-    starter.addEventListener('change',()=>{refreshMoves();update();});secondary.addEventListener('change',update);
-    share.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(share.dataset.url);share.textContent=wikiText('linkCopied','Link copied');setTimeout(()=>share.textContent=wikiText('copyLink','Copy share link'),1600);}catch{result.textContent+=' '+wikiText('copyFail','Copying was blocked; use the URL shown in your address bar.');}});
+    owned.checked=params.get('u')==='1';refreshMoves(params.get('m'),params.get('s'));update();
+    starter.addEventListener('change',()=>{refreshMoves();update();});owned.addEventListener('change',()=>{refreshMoves(secondary.value,starting.value);update();});starting.addEventListener('change',()=>{update();window.wikiTrack?.('starting_move_select',{partner:String(starter.value),move:starting.value});});secondary.addEventListener('change',update);
+    share.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(share.dataset.url);window.wikiTrack?.('build_share',{locale:wikiLocale});share.textContent=wikiText('linkCopied','Link copied');setTimeout(()=>share.textContent=wikiText('copyLink','Copy share link'),1600);}catch{result.textContent+=' '+wikiText('copyFail','Copying was blocked; use the URL shown in your address bar.');}});
   }).catch(()=>{result.textContent=wikiText('plannerFail','The planner could not load. Use the routes and evolution table below.');share.disabled=true;});
 }
 const gacha=document.querySelector('[data-gacha]');

@@ -2,7 +2,8 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const assert = require('node:assert/strict');
 const source = fs.readFileSync(__dirname + '/public/analytics.js', 'utf8');
-for (const name of ['official_game_click','build_share','diagnosis_complete','video_start']) assert.ok(source.includes(`'${name}'`), name);
+const eventSource = source + fs.readFileSync(__dirname + '/public/wiki.js', 'utf8');
+for (const name of ['official_game_click','build_share','diagnosis_complete','video_start']) assert.ok(eventSource.includes(`'${name}'`), name);
 for (const obsolete of ['outbound_game_click','diagnostic_complete']) assert.ok(!source.includes(`'${obsolete}'`), obsolete);
 function fixture(host = 'pokemonsurvivorwiki.com', saved = null, gpc = false) {
   const scripts = [], events = {}, settings = {};

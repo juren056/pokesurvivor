@@ -63,8 +63,9 @@ def enhance(slug,body):
         body=after_section(body,'If the golden card is missing',image('evolution-conditions')+gallery(['ember-evolution','bubble-evolution'])+video('evolution-route'))
         body+=image('evolution-notebook')
         if 'golden-evolution-card' in BY_ID:body+=gallery(['golden-evolution-card','evolved-active-move'])
+    elif slug=='moves':body=after_section(body,'Eight new attack behaviors',image('new-move-patterns'))
     elif slug=='builds':
-        body=after_section(body,'Four routes to start with',image('build-route')+video('starter-selection'))
+        body=after_section(body,'Four routes to start with',image('starting-move-rules')+image('build-route')+video('starter-selection'))
         body+=gallery(['fire-trail','water-trail'])+image('grass-trail')+gallery(['experience-route','run-summary'])+image('permanent-upgrades')
     elif slug=='starters':
         body=after_section(body,'Three ways to choose',image('starter-roster')+gallery(['starter-bulbasaur','starter-squirtle'])+image('starter-charmander'))
@@ -75,6 +76,7 @@ def enhance(slug,body):
     elif slug=='co-op':body=after_section(body,'Could not connect: what to check first',image('coop-connection-check-flow'))+image('co-op-camp')+image('guest-account')
     elif slug=='save-recovery':body=after_section(body,'Safety rules before troubleshooting',image('save-safety-decision-flow'))
     elif slug=='download':body+=image('mobile-expedition')
+    elif slug=='upgrades':body=after_section(body,'Starting Move versus Repertoire',image('starting-move-rules'))
     elif slug=='about':
         body+='''<section class="article-section" id="media-credits"><h2>Capture and artwork credits</h2><p>Game screenshots and silent recordings were captured on 15 October 2026 from fresh, disposable local guest sessions of the JPTER78 source snapshot <code>b297089</code>. Normal combat uses automated keyboard inputs and the unbundled <code>dev.html</code> build without modifying game stats, drops, cards or save progress. The separately labeled controlled evolution demonstration preconfigures Ember level five and Power, then uses the developer level-up trigger and the real golden-card UI. Its visible label, caption and manifest distinguish it from an unassisted run. Touch captures use Chromium emulation, not physical iPhone or Android hardware. These clips illustrate the recorded steps, not comparative performance benchmarks.</p><p>Game: <a href="https://github.com/JPTER78/pokesurvivor">JPTER78 / PokéSurvivor</a>. Embedded sprites: SpriteCollab, <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>; <a href="https://github.com/JPTER78/pokesurvivor/blob/b29708900da26b34e70d2dc07ad1659a719f4a78/CREDITS.md">individual artist credits</a>. These noncommercial guide captures preserve game artwork and do not grant a commercial media license. Pokémon © Nintendo / Creatures / GAME FREAK.</p><p>Forest, elemental trail, camp and portal pictures are original AI-assisted concept illustrations made for this Wiki, not official environments or gameplay screenshots. Mechanic diagrams are original source-derived SVGs. <a href="/assets/media/manifest.json">Read the media source and production manifest</a>.</p></section>'''
     video_ids=re.findall(r'data-video-id="([^"]+)"',body)

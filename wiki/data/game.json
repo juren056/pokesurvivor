@@ -1,33 +1,35 @@
 {
   "source": {
     "repository": "https://github.com/JPTER78/pokesurvivor",
-    "commit": "b8e843ffb8b07b95020fb77c4e9aca007d9a1e8d",
+    "commit": "5a23d49a99a795f9262d2fb24a9842f0858a0b50",
     "verified": "2026-10-19",
     "files": {
       "js/core/util.js": "cbe280d866fcbbe7a603d5c60c708eecd556f17b7ec0f1dd58c1d4548ab9ccc4",
       "js/core/i18n.js": "96f1289a6a2fc3eedd8d36dd3dead4086150f8ef7bf1f7b807c970f4605cf5b8",
-      "js/data/lang-en.js": "124e05eceee9e3770f76dacd8950e197bcaacaf56b8b63abfcc2e9fc71e27918",
+      "js/data/lang-en.js": "214b1c6ee8cf0dc22216f4249678fcb97a2a355f9d8fb7453826942874b9bcaa",
       "js/data/pokedex.js": "43ec37ef3ac48452f9a72c51851a188e2375ec93cde9394b335612ad1e107369",
       "js/data/sprites-meta.js": "c719091bb7ce284bce5b4fdc93eeb0b93a096f1302e8e3466142de05323b311a",
-      "js/data/moves.js": "af3e678fc552c1e21f8c56b8f7003974e68581efbf0e9c2ef04aea6811f11fde",
-      "js/data/starters.js": "9c03f970324627affa43c9b223c3b20eb5d9d0ec1f8d775608387ff67556045d",
+      "js/data/moves.js": "6c104208d723ad8b56af2eff6e4bab8a198342d8acabcbc51a33f52cc7f04ece",
+      "js/data/starters.js": "1f522b5e40c73c97229a18909cbb46328a01467c7e945d0fd614ea66b69a2b90",
       "js/data/types.js": "52910f46f49a2d5535ed1e2d7eced8ccef342ceebd46649c6d3059c3a9ca048f",
+      "js/data/upgrades.js": "d01bbd1d012b0efec1020d3787783b9dbaacca4f21dac8784a920f4d3053826c",
       "js/systems/gacha.js": "957b89be9521070c366e1ae21c6bdcf5f96899e5ea0c71cafd712289d11eea15",
-      "js/data/changelog.js": "f92c0b7af5addeffa846dcf9ebdfe927d8cb573e2c0a29926381a85a1ca1c3f8",
+      "js/data/changelog.js": "114c0201859ecff27e151eae695da8e5a84a3678e0553c62be440aa2c9a205cb",
       "README.md": "e2a1b34bfd66023cb95c10a8d1f82b6c69e1f98b6c1a64eff080cc2467171979",
       "js/systems/levelup.js": "5d797d83e7b7ca6ddd62eb2414bfd427821886ea4d2ac30eb0b58ac5d43f58fe",
       "sw.js": "195a017cb8cfc56036b3ae34c08c269f8173621d264a3392651624cbeaabecd4",
       "js/core/settings.js": "c1c7e5283d7020deced463755e9efc50dde96e13a4a5ab19ac0e570afdd0581b",
       "js/core/gamepad.js": "03fbd2de913fc43787347dc933c2c364216fbf32ab8d7381a118f80e6362b612",
       "js/ui/settings-ui.js": "f8a6a0346fad0504a9c232d963a972640c79e4098b78bf1cecab39757abf69a3",
-      "js/systems/combat.js": "47fff6c8a790bf2512bb01810a0c90218c870a2cd60c7dc0de632870036319a5",
+      "js/systems/combat.js": "2e2316917c8e911d885dd47bb4b20be69ee99a411b00687a5f8a066eb56fe34b",
       "js/systems/stats.js": "158f2780859b367580c5f580edebd38ae40df4bea86d013bac53bad152198f65",
       "manifest.webmanifest": "bbbc24b15841a58106fad76dacd7796c66e445add59929c0edda7636d4cc8a38",
-      "js/core/db.js": "f82fe482853b890702a674ad285fb7c699880c2633e2c490b993b3d049bbdd00",
+      "js/core/db.js": "ef3f70c764e3602f41b82522e520e7c1f23d45bbcf1e09d3f6441f69e41d8ab5",
       "dev.html": "8d324c39d4675260e4c2110dafce1a030dc9cb55ccada678d6fbc2778c55325d",
-      "js/ui/menu.js": "6b27ea46c299bab5a3ec5d1a7c8be49c6c699b6a6faeff21141c5b1d8c4703c4",
+      "js/ui/menu.js": "b275d57e5872ac8ca0b242722f6fa9254da868ff7e82bb7b0fa9003f25710afd",
       "LICENSE": "f99b80284d21e7fb84c90ffc44440668480f26fe4ac3f9d76a6796d84a186999",
       "CREDITS.md": "2b3832c56ada5f57ceb13cc61fb0bb2cab19d699b0a24fb5e80667cbca2cb8a7",
+      "js/entities/player.js": "8a6785ce55189a793e161c03b00dc12e0fa0199079526e6e05853e9b1d866d48",
       "js/systems/rift.js": "28da109c435cbcc7984f544a4ef7965956ee6a4ea3337fd448051e4c74e66002",
       "js/systems/spawner.js": "e371f1e815fe384e835b17d6a826b93e3ea938b409b0cf95bdc0a9bb6212eb3c"
     }
@@ -18984,7 +18986,29 @@
       "rarity": 1,
       "bst": 318,
       "starter": true,
-      "gen": 1
+      "gen": 1,
+      "baseStart": "vine-whip",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "vine-whip",
+        "razor-leaf",
+        "leaf-storm",
+        "giga-drain",
+        "seed-bomb",
+        "energy-ball",
+        "solar-beam",
+        "sludge",
+        "poison-sting",
+        "toxic",
+        "toxic-spikes",
+        "acid-spray"
+      ]
     },
     {
       "dex": 4,
@@ -19007,7 +19031,24 @@
       "rarity": 1,
       "bst": 309,
       "starter": true,
-      "gen": 1
+      "gen": 1,
+      "baseStart": "ember",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "ember",
+        "flamethrower",
+        "fire-spin",
+        "heat-wave",
+        "will-o-wisp",
+        "flame-wheel",
+        "flame-charge"
+      ]
     },
     {
       "dex": 7,
@@ -19030,7 +19071,22 @@
       "rarity": 1,
       "bst": 314,
       "starter": true,
-      "gen": 1
+      "gen": 1,
+      "baseStart": "water-gun",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "water-gun",
+        "bubble",
+        "hydro-pump",
+        "bubble-beam",
+        "whirlpool"
+      ]
     },
     {
       "dex": 152,
@@ -19053,7 +19109,24 @@
       "rarity": 1,
       "bst": 318,
       "starter": true,
-      "gen": 2
+      "gen": 2,
+      "baseStart": "vine-whip",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "vine-whip",
+        "razor-leaf",
+        "leaf-storm",
+        "giga-drain",
+        "seed-bomb",
+        "energy-ball",
+        "solar-beam"
+      ]
     },
     {
       "dex": 155,
@@ -19076,7 +19149,24 @@
       "rarity": 1,
       "bst": 309,
       "starter": true,
-      "gen": 2
+      "gen": 2,
+      "baseStart": "ember",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "ember",
+        "flamethrower",
+        "fire-spin",
+        "heat-wave",
+        "will-o-wisp",
+        "flame-wheel",
+        "flame-charge"
+      ]
     },
     {
       "dex": 158,
@@ -19099,7 +19189,22 @@
       "rarity": 1,
       "bst": 314,
       "starter": true,
-      "gen": 2
+      "gen": 2,
+      "baseStart": "water-gun",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "water-gun",
+        "bubble",
+        "hydro-pump",
+        "bubble-beam",
+        "whirlpool"
+      ]
     },
     {
       "dex": 252,
@@ -19122,7 +19227,24 @@
       "rarity": 1,
       "bst": 310,
       "starter": true,
-      "gen": 3
+      "gen": 3,
+      "baseStart": "razor-leaf",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "vine-whip",
+        "razor-leaf",
+        "leaf-storm",
+        "giga-drain",
+        "seed-bomb",
+        "energy-ball",
+        "solar-beam"
+      ]
     },
     {
       "dex": 255,
@@ -19145,7 +19267,24 @@
       "rarity": 1,
       "bst": 310,
       "starter": true,
-      "gen": 3
+      "gen": 3,
+      "baseStart": "ember",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "ember",
+        "flamethrower",
+        "fire-spin",
+        "heat-wave",
+        "will-o-wisp",
+        "flame-wheel",
+        "flame-charge"
+      ]
     },
     {
       "dex": 258,
@@ -19168,7 +19307,22 @@
       "rarity": 1,
       "bst": 310,
       "starter": true,
-      "gen": 3
+      "gen": 3,
+      "baseStart": "water-gun",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "water-gun",
+        "bubble",
+        "hydro-pump",
+        "bubble-beam",
+        "whirlpool"
+      ]
     },
     {
       "dex": 387,
@@ -19191,7 +19345,24 @@
       "rarity": 1,
       "bst": 318,
       "starter": true,
-      "gen": 4
+      "gen": 4,
+      "baseStart": "vine-whip",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "vine-whip",
+        "razor-leaf",
+        "leaf-storm",
+        "giga-drain",
+        "seed-bomb",
+        "energy-ball",
+        "solar-beam"
+      ]
     },
     {
       "dex": 390,
@@ -19214,7 +19385,24 @@
       "rarity": 1,
       "bst": 309,
       "starter": true,
-      "gen": 4
+      "gen": 4,
+      "baseStart": "ember",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "ember",
+        "flamethrower",
+        "fire-spin",
+        "heat-wave",
+        "will-o-wisp",
+        "flame-wheel",
+        "flame-charge"
+      ]
     },
     {
       "dex": 393,
@@ -19237,7 +19425,22 @@
       "rarity": 1,
       "bst": 314,
       "starter": true,
-      "gen": 4
+      "gen": 4,
+      "baseStart": "bubble",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "water-gun",
+        "bubble",
+        "hydro-pump",
+        "bubble-beam",
+        "whirlpool"
+      ]
     },
     {
       "dex": 495,
@@ -19260,7 +19463,24 @@
       "rarity": 1,
       "bst": 308,
       "starter": true,
-      "gen": 5
+      "gen": 5,
+      "baseStart": "razor-leaf",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "vine-whip",
+        "razor-leaf",
+        "leaf-storm",
+        "giga-drain",
+        "seed-bomb",
+        "energy-ball",
+        "solar-beam"
+      ]
     },
     {
       "dex": 498,
@@ -19283,7 +19503,24 @@
       "rarity": 1,
       "bst": 308,
       "starter": true,
-      "gen": 5
+      "gen": 5,
+      "baseStart": "ember",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "ember",
+        "flamethrower",
+        "fire-spin",
+        "heat-wave",
+        "will-o-wisp",
+        "flame-wheel",
+        "flame-charge"
+      ]
     },
     {
       "dex": 501,
@@ -19306,7 +19543,22 @@
       "rarity": 1,
       "bst": 308,
       "starter": true,
-      "gen": 5
+      "gen": 5,
+      "baseStart": "water-gun",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "water-gun",
+        "bubble",
+        "hydro-pump",
+        "bubble-beam",
+        "whirlpool"
+      ]
     },
     {
       "dex": 650,
@@ -19329,7 +19581,24 @@
       "rarity": 1,
       "bst": 313,
       "starter": true,
-      "gen": 6
+      "gen": 6,
+      "baseStart": "vine-whip",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "vine-whip",
+        "razor-leaf",
+        "leaf-storm",
+        "giga-drain",
+        "seed-bomb",
+        "energy-ball",
+        "solar-beam"
+      ]
     },
     {
       "dex": 653,
@@ -19352,7 +19621,24 @@
       "rarity": 1,
       "bst": 307,
       "starter": true,
-      "gen": 6
+      "gen": 6,
+      "baseStart": "ember",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "ember",
+        "flamethrower",
+        "fire-spin",
+        "heat-wave",
+        "will-o-wisp",
+        "flame-wheel",
+        "flame-charge"
+      ]
     },
     {
       "dex": 656,
@@ -19375,7 +19661,22 @@
       "rarity": 1,
       "bst": 314,
       "starter": true,
-      "gen": 6
+      "gen": 6,
+      "baseStart": "water-gun",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "water-gun",
+        "bubble",
+        "hydro-pump",
+        "bubble-beam",
+        "whirlpool"
+      ]
     },
     {
       "dex": 722,
@@ -19399,7 +19700,29 @@
       "rarity": 2,
       "bst": 320,
       "starter": true,
-      "gen": 7
+      "gen": 7,
+      "baseStart": "razor-leaf",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "vine-whip",
+        "razor-leaf",
+        "leaf-storm",
+        "giga-drain",
+        "seed-bomb",
+        "energy-ball",
+        "solar-beam",
+        "gust",
+        "wing-attack",
+        "aerial-ace",
+        "whirlwind",
+        "air-slash"
+      ]
     },
     {
       "dex": 725,
@@ -19422,7 +19745,24 @@
       "rarity": 2,
       "bst": 320,
       "starter": true,
-      "gen": 7
+      "gen": 7,
+      "baseStart": "ember",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "ember",
+        "flamethrower",
+        "fire-spin",
+        "heat-wave",
+        "will-o-wisp",
+        "flame-wheel",
+        "flame-charge"
+      ]
     },
     {
       "dex": 728,
@@ -19445,7 +19785,22 @@
       "rarity": 2,
       "bst": 320,
       "starter": true,
-      "gen": 7
+      "gen": 7,
+      "baseStart": "bubble",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "water-gun",
+        "bubble",
+        "hydro-pump",
+        "bubble-beam",
+        "whirlpool"
+      ]
     },
     {
       "dex": 810,
@@ -19468,7 +19823,24 @@
       "rarity": 1,
       "bst": 310,
       "starter": true,
-      "gen": 8
+      "gen": 8,
+      "baseStart": "vine-whip",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "vine-whip",
+        "razor-leaf",
+        "leaf-storm",
+        "giga-drain",
+        "seed-bomb",
+        "energy-ball",
+        "solar-beam"
+      ]
     },
     {
       "dex": 813,
@@ -19491,7 +19863,24 @@
       "rarity": 1,
       "bst": 310,
       "starter": true,
-      "gen": 8
+      "gen": 8,
+      "baseStart": "ember",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "ember",
+        "flamethrower",
+        "fire-spin",
+        "heat-wave",
+        "will-o-wisp",
+        "flame-wheel",
+        "flame-charge"
+      ]
     },
     {
       "dex": 816,
@@ -19514,7 +19903,22 @@
       "rarity": 1,
       "bst": 310,
       "starter": true,
-      "gen": 8
+      "gen": 8,
+      "baseStart": "water-gun",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "water-gun",
+        "bubble",
+        "hydro-pump",
+        "bubble-beam",
+        "whirlpool"
+      ]
     },
     {
       "dex": 906,
@@ -19537,7 +19941,24 @@
       "rarity": 1,
       "bst": 310,
       "starter": true,
-      "gen": 9
+      "gen": 9,
+      "baseStart": "razor-leaf",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "vine-whip",
+        "razor-leaf",
+        "leaf-storm",
+        "giga-drain",
+        "seed-bomb",
+        "energy-ball",
+        "solar-beam"
+      ]
     },
     {
       "dex": 909,
@@ -19560,7 +19981,24 @@
       "rarity": 1,
       "bst": 310,
       "starter": true,
-      "gen": 9
+      "gen": 9,
+      "baseStart": "ember",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "ember",
+        "flamethrower",
+        "fire-spin",
+        "heat-wave",
+        "will-o-wisp",
+        "flame-wheel",
+        "flame-charge"
+      ]
     },
     {
       "dex": 912,
@@ -19583,7 +20021,22 @@
       "rarity": 1,
       "bst": 310,
       "starter": true,
-      "gen": 9
+      "gen": 9,
+      "baseStart": "water-gun",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "water-gun",
+        "bubble",
+        "hydro-pump",
+        "bubble-beam",
+        "whirlpool"
+      ]
     },
     {
       "dex": 54,
@@ -19606,7 +20059,23 @@
       "rarity": 2,
       "bst": 320,
       "starter": true,
-      "gen": 1
+      "gen": 1,
+      "baseStart": "confusion",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "water-gun",
+        "bubble",
+        "hydro-pump",
+        "bubble-beam",
+        "whirlpool",
+        "confusion"
+      ]
     },
     {
       "dex": 79,
@@ -19630,7 +20099,28 @@
       "rarity": 1,
       "bst": 315,
       "starter": true,
-      "gen": 1
+      "gen": 1,
+      "baseStart": "confusion",
+      "startChoices": [
+        "tackle",
+        "quick-attack",
+        "body-slam",
+        "hyper-voice",
+        "substitute",
+        "hyper-beam",
+        "rapid-spin",
+        "water-gun",
+        "bubble",
+        "hydro-pump",
+        "bubble-beam",
+        "whirlpool",
+        "confusion",
+        "psybeam",
+        "psychic",
+        "psycho-cut",
+        "extrasensory",
+        "mist-ball"
+      ]
     }
   ],
   "moves": [
@@ -22684,6 +23174,1808 @@
         "name": "Poltergeist",
         "stat": "mag",
         "requirement": "Magnet"
+      }
+    },
+    {
+      "id": "hyper-beam",
+      "name": "Hyper Beam",
+      "type": "normal",
+      "kind": "charge",
+      "category": "special",
+      "buffStat": null,
+      "description": "Charges for a moment and fires a huge beam that pierces everything.",
+      "maxLevel": 5,
+      "damage": 58,
+      "cooldown": 2.2,
+      "count": null,
+      "radius": 300,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+45% damage",
+          "mods": {
+            "dmg": 1.45
+          }
+        },
+        {
+          "text": "+30% range and width",
+          "mods": {
+            "radius": 1.3,
+            "width": 1.3
+          }
+        },
+        {
+          "text": "Charges faster and -20% cooldown",
+          "mods": {
+            "charge": 0.7,
+            "cd": 0.8
+          }
+        },
+        {
+          "text": "+50% damage",
+          "mods": {
+            "dmg": 1.5
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Prismatic Laser",
+        "stat": "atk",
+        "requirement": "Power"
+      }
+    },
+    {
+      "id": "rapid-spin",
+      "name": "Rapid Spin",
+      "type": "normal",
+      "kind": "spin",
+      "category": "physical",
+      "buffStat": null,
+      "description": "You spin in place, hitting everything around you several times.",
+      "maxLevel": 5,
+      "damage": 9,
+      "cooldown": 1,
+      "count": 3,
+      "radius": 62,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+25% radius",
+          "mods": {
+            "radius": 1.25
+          }
+        },
+        {
+          "text": "+1 spin",
+          "mods": {
+            "count": 1
+          }
+        },
+        {
+          "text": "-25% cooldown and +30% damage",
+          "mods": {
+            "cd": 0.75,
+            "dmg": 1.3
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Tri Attack",
+        "stat": "spd",
+        "requirement": "Sprint"
+      }
+    },
+    {
+      "id": "flame-charge",
+      "name": "Flame Charge",
+      "type": "fire",
+      "kind": "dash",
+      "category": "physical",
+      "buffStat": null,
+      "description": "You dash wrapped in flames, burning everything in your path.",
+      "maxLevel": 5,
+      "damage": 19,
+      "cooldown": 0.8,
+      "count": null,
+      "radius": 115,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+30% distance",
+          "mods": {
+            "radius": 1.3
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+60% damage and wider",
+          "mods": {
+            "dmg": 1.6,
+            "width": 1.4
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Heat Crash",
+        "stat": "spd",
+        "requirement": "Sprint"
+      }
+    },
+    {
+      "id": "whirlpool",
+      "name": "Whirlpool",
+      "type": "water",
+      "kind": "vortex",
+      "category": "special",
+      "buffStat": null,
+      "description": "A whirlpool that drags enemies into its center and keeps damaging them.",
+      "maxLevel": 5,
+      "damage": 8,
+      "cooldown": 3,
+      "count": null,
+      "radius": 72,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+30% radius",
+          "mods": {
+            "radius": 1.3
+          }
+        },
+        {
+          "text": "+50% duration",
+          "mods": {
+            "dur": 1.5
+          }
+        },
+        {
+          "text": "Pulls harder and +40% damage",
+          "mods": {
+            "pull": 1.4,
+            "dmg": 1.4
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Brine",
+        "stat": "rgn",
+        "requirement": "Synthesis"
+      }
+    },
+    {
+      "id": "seed-bomb",
+      "name": "Seed Bomb",
+      "type": "grass",
+      "kind": "bounce",
+      "category": "physical",
+      "buffStat": null,
+      "description": "A seed that bounces from enemy to enemy.",
+      "maxLevel": 5,
+      "damage": 10,
+      "cooldown": 0.6,
+      "count": null,
+      "radius": null,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+1 bounce",
+          "mods": {
+            "bounce": 1
+          }
+        },
+        {
+          "text": "+45% damage",
+          "mods": {
+            "dmg": 1.45
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+1 projectile and +1 bounce",
+          "mods": {
+            "count": 1,
+            "bounce": 1,
+            "spread": 1.3
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Wood Hammer",
+        "stat": "atk",
+        "requirement": "Power"
+      }
+    },
+    {
+      "id": "energy-ball",
+      "name": "Energy Ball",
+      "type": "grass",
+      "kind": "homing",
+      "category": "special",
+      "buffStat": null,
+      "description": "A ball of energy that chases the enemy.",
+      "maxLevel": 5,
+      "damage": 19,
+      "cooldown": 0.62,
+      "count": null,
+      "radius": null,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+1 projectile",
+          "mods": {
+            "count": 1,
+            "spread": 1.3
+          }
+        },
+        {
+          "text": "+45% damage",
+          "mods": {
+            "dmg": 1.45
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+1 projectile and +40% damage",
+          "mods": {
+            "count": 1,
+            "dmg": 1.4
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Giga Drain",
+        "stat": "rgn",
+        "requirement": "Synthesis"
+      }
+    },
+    {
+      "id": "solar-beam",
+      "name": "Solar Beam",
+      "type": "grass",
+      "kind": "charge",
+      "category": "special",
+      "buffStat": null,
+      "description": "Absorbs light for a moment and releases it as a huge beam.",
+      "maxLevel": 5,
+      "damage": 62,
+      "cooldown": 2.3,
+      "count": null,
+      "radius": 290,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+45% damage",
+          "mods": {
+            "dmg": 1.45
+          }
+        },
+        {
+          "text": "+30% range and width",
+          "mods": {
+            "radius": 1.3,
+            "width": 1.3
+          }
+        },
+        {
+          "text": "Charges faster and -20% cooldown",
+          "mods": {
+            "charge": 0.7,
+            "cd": 0.8
+          }
+        },
+        {
+          "text": "+50% damage",
+          "mods": {
+            "dmg": 1.5
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Solar Blade",
+        "stat": "cd",
+        "requirement": "Reflexes"
+      }
+    },
+    {
+      "id": "thunder-wave",
+      "name": "Thunder Wave",
+      "type": "electric",
+      "kind": "stun",
+      "category": "special",
+      "buffStat": null,
+      "description": "A shock marked on the ground that paralyzes whoever it catches.",
+      "maxLevel": 5,
+      "damage": 22,
+      "cooldown": 1.6,
+      "count": null,
+      "radius": 58,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+25% radius",
+          "mods": {
+            "radius": 1.25
+          }
+        },
+        {
+          "text": "+50% stun",
+          "mods": {
+            "stun": 1.5
+          }
+        },
+        {
+          "text": "-25% cooldown and +30% damage",
+          "mods": {
+            "cd": 0.75,
+            "dmg": 1.3
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Volt Tackle",
+        "stat": "atk",
+        "requirement": "Power"
+      }
+    },
+    {
+      "id": "electro-ball",
+      "name": "Electro Ball",
+      "type": "electric",
+      "kind": "bounce",
+      "category": "special",
+      "buffStat": null,
+      "description": "An electric ball that jumps from enemy to enemy.",
+      "maxLevel": 5,
+      "damage": 10,
+      "cooldown": 0.62,
+      "count": null,
+      "radius": null,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+1 bounce",
+          "mods": {
+            "bounce": 1
+          }
+        },
+        {
+          "text": "+45% damage",
+          "mods": {
+            "dmg": 1.45
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+1 projectile and +1 bounce",
+          "mods": {
+            "count": 1,
+            "bounce": 1,
+            "spread": 1.3
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Spark",
+        "stat": "spd",
+        "requirement": "Sprint"
+      }
+    },
+    {
+      "id": "extrasensory",
+      "name": "Extrasensory",
+      "type": "psychic",
+      "kind": "shove",
+      "category": "special",
+      "buffStat": null,
+      "description": "A mental wave that damages and pushes away everyone near you.",
+      "maxLevel": 5,
+      "damage": 16,
+      "cooldown": 1.2,
+      "count": null,
+      "radius": 92,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+25% radius",
+          "mods": {
+            "radius": 1.25
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+50% push and +40% damage",
+          "mods": {
+            "knock": 1.5,
+            "dmg": 1.4
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Psywave",
+        "stat": "def",
+        "requirement": "Armor"
+      }
+    },
+    {
+      "id": "mist-ball",
+      "name": "Mist Ball",
+      "type": "psychic",
+      "kind": "homing",
+      "category": "special",
+      "buffStat": null,
+      "description": "A ball of mist that chases the enemy and slows it down.",
+      "maxLevel": 5,
+      "damage": 13,
+      "cooldown": 0.55,
+      "count": null,
+      "radius": null,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+1 projectile",
+          "mods": {
+            "count": 1,
+            "spread": 1.3
+          }
+        },
+        {
+          "text": "+45% damage",
+          "mods": {
+            "dmg": 1.45
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+1 projectile and +40% damage",
+          "mods": {
+            "count": 1,
+            "dmg": 1.4
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Luster Purge",
+        "stat": "cd",
+        "requirement": "Reflexes"
+      }
+    },
+    {
+      "id": "acid-spray",
+      "name": "Acid Spray",
+      "type": "poison",
+      "kind": "bounce",
+      "category": "special",
+      "buffStat": null,
+      "description": "An acid spray that jumps between enemies and poisons them.",
+      "maxLevel": 5,
+      "damage": 8,
+      "cooldown": 0.66,
+      "count": null,
+      "radius": null,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+1 bounce",
+          "mods": {
+            "bounce": 1
+          }
+        },
+        {
+          "text": "+45% damage",
+          "mods": {
+            "dmg": 1.45
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+1 projectile and +1 bounce",
+          "mods": {
+            "count": 1,
+            "bounce": 1,
+            "spread": 1.3
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Sludge Wave",
+        "stat": "rgn",
+        "requirement": "Synthesis"
+      }
+    },
+    {
+      "id": "sand-tomb",
+      "name": "Sand Tomb",
+      "type": "ground",
+      "kind": "vortex",
+      "category": "physical",
+      "buffStat": null,
+      "description": "A sand vortex that traps and drags enemies in.",
+      "maxLevel": 5,
+      "damage": 9,
+      "cooldown": 3,
+      "count": null,
+      "radius": 70,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+30% radius",
+          "mods": {
+            "radius": 1.3
+          }
+        },
+        {
+          "text": "+50% duration",
+          "mods": {
+            "dur": 1.5
+          }
+        },
+        {
+          "text": "Pulls harder and +40% damage",
+          "mods": {
+            "pull": 1.4,
+            "dmg": 1.4
+          }
+        }
+      ],
+      "evolution": {
+        "name": "High Horsepower",
+        "stat": "hp",
+        "requirement": "Vigor"
+      }
+    },
+    {
+      "id": "magnitude",
+      "name": "Magnitude",
+      "type": "ground",
+      "kind": "quake",
+      "category": "physical",
+      "buffStat": null,
+      "description": "The ground bursts in a line in front of you, wave after wave.",
+      "maxLevel": 5,
+      "damage": 18,
+      "cooldown": 1.15,
+      "count": 6,
+      "radius": 30,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+2 waves",
+          "mods": {
+            "count": 2
+          }
+        },
+        {
+          "text": "+45% damage",
+          "mods": {
+            "dmg": 1.45
+          }
+        },
+        {
+          "text": "+25% size",
+          "mods": {
+            "radius": 1.25
+          }
+        },
+        {
+          "text": "-25% cooldown and +2 waves",
+          "mods": {
+            "cd": 0.75,
+            "count": 2
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Drill Run",
+        "stat": "atk",
+        "requirement": "Power"
+      }
+    },
+    {
+      "id": "whirlwind",
+      "name": "Whirlwind",
+      "type": "flying",
+      "kind": "shove",
+      "category": "special",
+      "buffStat": null,
+      "description": "A gust of wind that sweeps away everyone near you.",
+      "maxLevel": 5,
+      "damage": 14,
+      "cooldown": 1.1,
+      "count": null,
+      "radius": 96,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+25% radius",
+          "mods": {
+            "radius": 1.25
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+50% push and +40% damage",
+          "mods": {
+            "knock": 1.5,
+            "dmg": 1.4
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Hurricane",
+        "stat": "spd",
+        "requirement": "Sprint"
+      }
+    },
+    {
+      "id": "air-slash",
+      "name": "Air Slash",
+      "type": "flying",
+      "kind": "homing",
+      "category": "special",
+      "buffStat": null,
+      "description": "Two blades of air that seek out the enemy.",
+      "maxLevel": 5,
+      "damage": 9,
+      "cooldown": 0.55,
+      "count": 2,
+      "radius": null,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+1 projectile",
+          "mods": {
+            "count": 1,
+            "spread": 1.3
+          }
+        },
+        {
+          "text": "+45% damage",
+          "mods": {
+            "dmg": 1.45
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+1 projectile and +40% damage",
+          "mods": {
+            "count": 1,
+            "dmg": 1.4
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Sky Attack",
+        "stat": "cd",
+        "requirement": "Reflexes"
+      }
+    },
+    {
+      "id": "signal-beam",
+      "name": "Signal Beam",
+      "type": "bug",
+      "kind": "bounce",
+      "category": "special",
+      "buffStat": null,
+      "description": "A flash that bounces between enemies.",
+      "maxLevel": 5,
+      "damage": 10,
+      "cooldown": 0.6,
+      "count": null,
+      "radius": null,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+1 bounce",
+          "mods": {
+            "bounce": 1
+          }
+        },
+        {
+          "text": "+45% damage",
+          "mods": {
+            "dmg": 1.45
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+1 projectile and +1 bounce",
+          "mods": {
+            "count": 1,
+            "bounce": 1,
+            "spread": 1.3
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Megahorn",
+        "stat": "atk",
+        "requirement": "Power"
+      }
+    },
+    {
+      "id": "u-turn",
+      "name": "U Turn",
+      "type": "bug",
+      "kind": "dash",
+      "category": "physical",
+      "buffStat": null,
+      "description": "You dash through the enemies, hitting everyone in your path.",
+      "maxLevel": 5,
+      "damage": 17,
+      "cooldown": 0.7,
+      "count": null,
+      "radius": 120,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+30% distance",
+          "mods": {
+            "radius": 1.3
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+60% damage and wider",
+          "mods": {
+            "dmg": 1.6,
+            "width": 1.4
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Leech Life",
+        "stat": "rgn",
+        "requirement": "Synthesis"
+      }
+    },
+    {
+      "id": "rock-tomb",
+      "name": "Rock Tomb",
+      "type": "rock",
+      "kind": "stun",
+      "category": "physical",
+      "buffStat": null,
+      "description": "Rocks fall where the ground warns, trapping whoever they catch.",
+      "maxLevel": 5,
+      "damage": 31,
+      "cooldown": 1.7,
+      "count": null,
+      "radius": 56,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+25% radius",
+          "mods": {
+            "radius": 1.25
+          }
+        },
+        {
+          "text": "+50% stun",
+          "mods": {
+            "stun": 1.5
+          }
+        },
+        {
+          "text": "-25% cooldown and +30% damage",
+          "mods": {
+            "cd": 0.75,
+            "dmg": 1.3
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Head Smash",
+        "stat": "hp",
+        "requirement": "Vigor"
+      }
+    },
+    {
+      "id": "ancient-power",
+      "name": "Ancient Power",
+      "type": "rock",
+      "kind": "orbit",
+      "category": "special",
+      "buffStat": null,
+      "description": "Ancient rocks that circle around you.",
+      "maxLevel": 5,
+      "damage": 13,
+      "cooldown": 0.28,
+      "count": 3,
+      "radius": 70,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+1 orb",
+          "mods": {
+            "count": 1
+          }
+        },
+        {
+          "text": "+55% damage",
+          "mods": {
+            "dmg": 1.55
+          }
+        },
+        {
+          "text": "+25% radius and spins faster",
+          "mods": {
+            "radius": 1.25,
+            "speed": 1.35
+          }
+        },
+        {
+          "text": "+1 orb and +55% damage",
+          "mods": {
+            "count": 1,
+            "dmg": 1.55
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Diamond Storm",
+        "stat": "def",
+        "requirement": "Armor"
+      }
+    },
+    {
+      "id": "power-gem",
+      "name": "Power Gem",
+      "type": "rock",
+      "kind": "bounce",
+      "category": "special",
+      "buffStat": null,
+      "description": "A gem flash that bounces from enemy to enemy.",
+      "maxLevel": 5,
+      "damage": 11,
+      "cooldown": 0.66,
+      "count": null,
+      "radius": null,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+1 bounce",
+          "mods": {
+            "bounce": 1
+          }
+        },
+        {
+          "text": "+45% damage",
+          "mods": {
+            "dmg": 1.45
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+1 projectile and +1 bounce",
+          "mods": {
+            "count": 1,
+            "bounce": 1,
+            "spread": 1.3
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Meteor Beam",
+        "stat": "atk",
+        "requirement": "Power"
+      }
+    },
+    {
+      "id": "ice-shard",
+      "name": "Ice Shard",
+      "type": "ice",
+      "kind": "homing",
+      "category": "physical",
+      "buffStat": null,
+      "description": "Super fast shards that chase the enemy.",
+      "maxLevel": 5,
+      "damage": 9,
+      "cooldown": 0.32,
+      "count": null,
+      "radius": null,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+1 projectile",
+          "mods": {
+            "count": 1,
+            "spread": 1.3
+          }
+        },
+        {
+          "text": "+45% damage",
+          "mods": {
+            "dmg": 1.45
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+1 projectile and +40% damage",
+          "mods": {
+            "count": 1,
+            "dmg": 1.4
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Icicle Spear",
+        "stat": "cd",
+        "requirement": "Reflexes"
+      }
+    },
+    {
+      "id": "freeze-dry",
+      "name": "Freeze Dry",
+      "type": "ice",
+      "kind": "stun",
+      "category": "special",
+      "buffStat": null,
+      "description": "A sudden chill marked on the ground that freezes whoever it catches.",
+      "maxLevel": 5,
+      "damage": 24,
+      "cooldown": 1.6,
+      "count": null,
+      "radius": 60,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+25% radius",
+          "mods": {
+            "radius": 1.25
+          }
+        },
+        {
+          "text": "+50% stun",
+          "mods": {
+            "stun": 1.5
+          }
+        },
+        {
+          "text": "-25% cooldown and +30% damage",
+          "mods": {
+            "cd": 0.75,
+            "dmg": 1.3
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Sheer Cold",
+        "stat": "atk",
+        "requirement": "Power"
+      }
+    },
+    {
+      "id": "rolling-kick",
+      "name": "Rolling Kick",
+      "type": "fighting",
+      "kind": "spin",
+      "category": "physical",
+      "buffStat": null,
+      "description": "Spinning kicks that hit everything around you.",
+      "maxLevel": 5,
+      "damage": 11,
+      "cooldown": 0.95,
+      "count": 3,
+      "radius": 60,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+25% radius",
+          "mods": {
+            "radius": 1.25
+          }
+        },
+        {
+          "text": "+1 spin",
+          "mods": {
+            "count": 1
+          }
+        },
+        {
+          "text": "-25% cooldown and +30% damage",
+          "mods": {
+            "cd": 0.75,
+            "dmg": 1.3
+          }
+        }
+      ],
+      "evolution": {
+        "name": "High Jump Kick",
+        "stat": "spd",
+        "requirement": "Sprint"
+      }
+    },
+    {
+      "id": "vacuum-wave",
+      "name": "Vacuum Wave",
+      "type": "fighting",
+      "kind": "shove",
+      "category": "special",
+      "buffStat": null,
+      "description": "A punch into the air that sends out a wave and pushes enemies away.",
+      "maxLevel": 5,
+      "damage": 17,
+      "cooldown": 1.1,
+      "count": null,
+      "radius": 88,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+25% radius",
+          "mods": {
+            "radius": 1.25
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+50% push and +40% damage",
+          "mods": {
+            "knock": 1.5,
+            "dmg": 1.4
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Power-Up Punch",
+        "stat": "def",
+        "requirement": "Armor"
+      }
+    },
+    {
+      "id": "dynamic-punch",
+      "name": "Dynamic Punch",
+      "type": "fighting",
+      "kind": "stun",
+      "category": "physical",
+      "buffStat": null,
+      "description": "A tremendous punch where the ground warns: it stuns whoever it catches.",
+      "maxLevel": 5,
+      "damage": 33,
+      "cooldown": 1.7,
+      "count": null,
+      "radius": 54,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+25% radius",
+          "mods": {
+            "radius": 1.25
+          }
+        },
+        {
+          "text": "+50% stun",
+          "mods": {
+            "stun": 1.5
+          }
+        },
+        {
+          "text": "-25% cooldown and +30% damage",
+          "mods": {
+            "cd": 0.75,
+            "dmg": 1.3
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Mega Punch",
+        "stat": "atk",
+        "requirement": "Power"
+      }
+    },
+    {
+      "id": "shadow-sneak",
+      "name": "Shadow Sneak",
+      "type": "ghost",
+      "kind": "homing",
+      "category": "physical",
+      "buffStat": null,
+      "description": "A shadow that slips along the ground to the enemy.",
+      "maxLevel": 5,
+      "damage": 14,
+      "cooldown": 0.45,
+      "count": null,
+      "radius": null,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+1 projectile",
+          "mods": {
+            "count": 1,
+            "spread": 1.3
+          }
+        },
+        {
+          "text": "+45% damage",
+          "mods": {
+            "dmg": 1.45
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+1 projectile and +40% damage",
+          "mods": {
+            "count": 1,
+            "dmg": 1.4
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Shadow Claw",
+        "stat": "cd",
+        "requirement": "Reflexes"
+      }
+    },
+    {
+      "id": "ominous-wind",
+      "name": "Ominous Wind",
+      "type": "ghost",
+      "kind": "vortex",
+      "category": "special",
+      "buffStat": null,
+      "description": "A cursed wind that swirls enemies together and keeps damaging them.",
+      "maxLevel": 5,
+      "damage": 9,
+      "cooldown": 3,
+      "count": null,
+      "radius": 74,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+30% radius",
+          "mods": {
+            "radius": 1.3
+          }
+        },
+        {
+          "text": "+50% duration",
+          "mods": {
+            "dur": 1.5
+          }
+        },
+        {
+          "text": "Pulls harder and +40% damage",
+          "mods": {
+            "pull": 1.4,
+            "dmg": 1.4
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Shadow Force",
+        "stat": "mag",
+        "requirement": "Magnet"
+      }
+    },
+    {
+      "id": "dragon-breath",
+      "name": "Dragon Breath",
+      "type": "dragon",
+      "kind": "cone",
+      "category": "special",
+      "buffStat": null,
+      "description": "A short fan of dragon breath that slows.",
+      "maxLevel": 5,
+      "damage": 7,
+      "cooldown": 0.7,
+      "count": 7,
+      "radius": null,
+      "arc": 0.95,
+      "upgrades": [
+        {
+          "text": "+3 shots",
+          "mods": {
+            "count": 3
+          }
+        },
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+30% range",
+          "mods": {
+            "life": 1.3
+          }
+        },
+        {
+          "text": "+3 shots and +1 pierce",
+          "mods": {
+            "count": 3,
+            "pierce": 1
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Dragon Pulse",
+        "stat": "atk",
+        "requirement": "Power"
+      }
+    },
+    {
+      "id": "dragon-claw",
+      "name": "Dragon Claw",
+      "type": "dragon",
+      "kind": "melee",
+      "category": "physical",
+      "buffStat": null,
+      "description": "A dragon claw swipe in an arc.",
+      "maxLevel": 5,
+      "damage": 23,
+      "cooldown": 0.52,
+      "count": null,
+      "radius": 65,
+      "arc": 2.5,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+25% range",
+          "mods": {
+            "radius": 1.25
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "Hits in 360° and +50% damage",
+          "mods": {
+            "arc": 9,
+            "dmg": 1.5
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Dragon Rush",
+        "stat": "atk",
+        "requirement": "Power"
+      }
+    },
+    {
+      "id": "outrage",
+      "name": "Outrage",
+      "type": "dragon",
+      "kind": "spin",
+      "category": "physical",
+      "buffStat": null,
+      "description": "A fury of spinning blows that leaves no one standing.",
+      "maxLevel": 5,
+      "damage": 12,
+      "cooldown": 1.1,
+      "count": 4,
+      "radius": 64,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+25% radius",
+          "mods": {
+            "radius": 1.25
+          }
+        },
+        {
+          "text": "+1 spin",
+          "mods": {
+            "count": 1
+          }
+        },
+        {
+          "text": "-25% cooldown and +30% damage",
+          "mods": {
+            "cd": 0.75,
+            "dmg": 1.3
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Dragon Darts",
+        "stat": "hp",
+        "requirement": "Vigor"
+      }
+    },
+    {
+      "id": "draining-kiss",
+      "name": "Draining Kiss",
+      "type": "fairy",
+      "kind": "homing",
+      "category": "special",
+      "buffStat": null,
+      "description": "A kiss that chases the enemy and heals you a little when it hits.",
+      "maxLevel": 5,
+      "damage": 13,
+      "cooldown": 0.55,
+      "count": null,
+      "radius": null,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+1 projectile",
+          "mods": {
+            "count": 1,
+            "spread": 1.3
+          }
+        },
+        {
+          "text": "+45% damage",
+          "mods": {
+            "dmg": 1.45
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+1 projectile and +40% damage",
+          "mods": {
+            "count": 1,
+            "dmg": 1.4
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Moonlight",
+        "stat": "rgn",
+        "requirement": "Synthesis"
+      }
+    },
+    {
+      "id": "play-rough",
+      "name": "Play Rough",
+      "type": "fairy",
+      "kind": "melee",
+      "category": "physical",
+      "buffStat": null,
+      "description": "A playful but very strong attack in an arc.",
+      "maxLevel": 5,
+      "damage": 26,
+      "cooldown": 0.6,
+      "count": null,
+      "radius": 63,
+      "arc": 2.5,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+25% range",
+          "mods": {
+            "radius": 1.25
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "Hits in 360° and +50% damage",
+          "mods": {
+            "arc": 9,
+            "dmg": 1.5
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Spirit Break",
+        "stat": "atk",
+        "requirement": "Power"
+      }
+    },
+    {
+      "id": "disarming-voice",
+      "name": "Disarming Voice",
+      "type": "fairy",
+      "kind": "shove",
+      "category": "special",
+      "buffStat": null,
+      "description": "A charming cry that damages and pushes away those near you.",
+      "maxLevel": 5,
+      "damage": 15,
+      "cooldown": 1.15,
+      "count": null,
+      "radius": 94,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+25% radius",
+          "mods": {
+            "radius": 1.25
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+50% push and +40% damage",
+          "mods": {
+            "knock": 1.5,
+            "dmg": 1.4
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Charm",
+        "stat": "def",
+        "requirement": "Armor"
+      }
+    },
+    {
+      "id": "mirror-shot",
+      "name": "Mirror Shot",
+      "type": "steel",
+      "kind": "bounce",
+      "category": "special",
+      "buffStat": null,
+      "description": "A metallic flash that bounces between enemies.",
+      "maxLevel": 5,
+      "damage": 10,
+      "cooldown": 0.64,
+      "count": null,
+      "radius": null,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+1 bounce",
+          "mods": {
+            "bounce": 1
+          }
+        },
+        {
+          "text": "+45% damage",
+          "mods": {
+            "dmg": 1.45
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+1 projectile and +1 bounce",
+          "mods": {
+            "count": 1,
+            "bounce": 1,
+            "spread": 1.3
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Steel Beam",
+        "stat": "atk",
+        "requirement": "Power"
+      }
+    },
+    {
+      "id": "gyro-ball",
+      "name": "Gyro Ball",
+      "type": "steel",
+      "kind": "spin",
+      "category": "physical",
+      "buffStat": null,
+      "description": "You spin like a steel ball, hitting everything around.",
+      "maxLevel": 5,
+      "damage": 12,
+      "cooldown": 1.05,
+      "count": 3,
+      "radius": 60,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+25% radius",
+          "mods": {
+            "radius": 1.25
+          }
+        },
+        {
+          "text": "+1 spin",
+          "mods": {
+            "count": 1
+          }
+        },
+        {
+          "text": "-25% cooldown and +30% damage",
+          "mods": {
+            "cd": 0.75,
+            "dmg": 1.3
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Heavy Slam",
+        "stat": "def",
+        "requirement": "Armor"
+      }
+    },
+    {
+      "id": "sucker-punch",
+      "name": "Sucker Punch",
+      "type": "dark",
+      "kind": "homing",
+      "category": "physical",
+      "buffStat": null,
+      "description": "A sneaky blow that seeks out the enemy.",
+      "maxLevel": 5,
+      "damage": 22,
+      "cooldown": 0.7,
+      "count": null,
+      "radius": null,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+1 projectile",
+          "mods": {
+            "count": 1,
+            "spread": 1.3
+          }
+        },
+        {
+          "text": "+45% damage",
+          "mods": {
+            "dmg": 1.45
+          }
+        },
+        {
+          "text": "-25% cooldown",
+          "mods": {
+            "cd": 0.75
+          }
+        },
+        {
+          "text": "+1 projectile and +40% damage",
+          "mods": {
+            "count": 1,
+            "dmg": 1.4
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Foul Play",
+        "stat": "atk",
+        "requirement": "Power"
+      }
+    },
+    {
+      "id": "night-slash",
+      "name": "Night Slash",
+      "type": "dark",
+      "kind": "spin",
+      "category": "physical",
+      "buffStat": null,
+      "description": "Spinning slashes that reach everything around you.",
+      "maxLevel": 5,
+      "damage": 11,
+      "cooldown": 1,
+      "count": 3,
+      "radius": 62,
+      "arc": null,
+      "upgrades": [
+        {
+          "text": "+40% damage",
+          "mods": {
+            "dmg": 1.4
+          }
+        },
+        {
+          "text": "+25% radius",
+          "mods": {
+            "radius": 1.25
+          }
+        },
+        {
+          "text": "+1 spin",
+          "mods": {
+            "count": 1
+          }
+        },
+        {
+          "text": "-25% cooldown and +30% damage",
+          "mods": {
+            "cd": 0.75,
+            "dmg": 1.3
+          }
+        }
+      ],
+      "evolution": {
+        "name": "Darkest Lariat",
+        "stat": "spd",
+        "requirement": "Sprint"
       }
     }
   ],
@@ -29263,7 +31555,161 @@
       }
     }
   },
+  "upgrades": [
+    {
+      "id": "hp",
+      "name": "Vitality",
+      "unit": "+8 HP",
+      "max": 10,
+      "base": 60,
+      "grow": 1.35
+    },
+    {
+      "id": "atk",
+      "name": "Strength",
+      "unit": "+4% damage",
+      "max": 10,
+      "base": 80,
+      "grow": 1.38
+    },
+    {
+      "id": "spd",
+      "name": "Stride",
+      "unit": "+3% speed",
+      "max": 8,
+      "base": 70,
+      "grow": 1.4
+    },
+    {
+      "id": "cd",
+      "name": "Reflexes",
+      "unit": "-3% cooldown",
+      "max": 8,
+      "base": 90,
+      "grow": 1.42
+    },
+    {
+      "id": "def",
+      "name": "Armor",
+      "unit": "+2% defense",
+      "max": 8,
+      "base": 80,
+      "grow": 1.4
+    },
+    {
+      "id": "regen",
+      "name": "Synthesis",
+      "unit": "+0.2 HP/s",
+      "max": 5,
+      "base": 120,
+      "grow": 1.5
+    },
+    {
+      "id": "magnet",
+      "name": "Magnet",
+      "unit": "+12% pickup",
+      "max": 6,
+      "base": 50,
+      "grow": 1.4
+    },
+    {
+      "id": "xp",
+      "name": "Wisdom",
+      "unit": "+5% experience",
+      "max": 8,
+      "base": 100,
+      "grow": 1.42
+    },
+    {
+      "id": "coins",
+      "name": "Fortune",
+      "unit": "+8% PokéCoins",
+      "max": 8,
+      "base": 120,
+      "grow": 1.45
+    },
+    {
+      "id": "moves",
+      "name": "Repertoire",
+      "unit": "Start with 2 moves",
+      "max": 1,
+      "base": 1500,
+      "grow": 1
+    },
+    {
+      "id": "crit",
+      "name": "Critical Hit",
+      "unit": "+3% critical chance (x1.5 damage)",
+      "max": 10,
+      "base": 90,
+      "grow": 1.4
+    },
+    {
+      "id": "reroll",
+      "name": "Card reroll",
+      "unit": "+1 level-up card reroll per run",
+      "max": 5,
+      "base": 150,
+      "grow": 1.6
+    },
+    {
+      "id": "ban",
+      "name": "Ban",
+      "unit": "Ban 1 move: it never shows up in your cards",
+      "max": 3,
+      "base": 300,
+      "grow": 1.9
+    },
+    {
+      "id": "start",
+      "name": "Starting move",
+      "unit": "Choose which move you start the run with",
+      "max": 1,
+      "base": 400,
+      "grow": 1
+    }
+  ],
+  "rules": {
+    "startingMove": {
+      "upgradeId": "start",
+      "cost": 400,
+      "max": 1,
+      "excludesKind": "buff",
+      "defaultAlwaysAllowed": true
+    },
+    "repertoire": {
+      "upgradeId": "moves",
+      "cost": 1500,
+      "startMoves": 2
+    },
+    "singleTypeDamage": {
+      "multiplier": 1.2,
+      "requiresSingleType": true,
+      "requiresMatchingMoveType": true,
+      "damagingOnly": true
+    },
+    "cloudSave": {
+      "pendingMs": 1800000,
+      "minUploadGapMs": 65000
+    }
+  },
   "changelog": [
+    {
+      "date": "2026-10-19",
+      "title": "38 new moves",
+      "new": [
+        "38 new moves: every type now has 5 or more (Rock, Fighting, Dragon and Fairy had only 2). Among them Hyper Beam, Solar Beam, Magnitude, Whirlpool, Thunder Wave, Outrage, Play Rough, Sucker Punch... each with its evolution.",
+        "New ways to attack: shots that chase enemies or bounce between them, beams you charge up, spins that hit everything around you, shockwaves that travel along the ground, vortexes that pull enemies in, waves that push them away and zones that stun them.",
+        "New upgrade, Starting move: buy it once per Pokémon and then choose for free which move it starts the run with."
+      ],
+      "changed": [
+        "Single-type Pokémon deal 20% more damage with moves of their type, to make up for having less variety.",
+        "Learning a new move no longer switches to it on its own: you keep the one you were using and switch whenever you want."
+      ],
+      "fixed": [
+        "Starting move: you can now go back to the default move even if it is not of its type (for example Confusion on Psyduck)."
+      ]
+    },
     {
       "date": "2026-10-18",
       "title": "Physical and special, controller, Save button and fresh leaderboards",

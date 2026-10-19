@@ -73,11 +73,11 @@
   const event = (name, params = {}) => {
     if (choice === 'granted' && started && window.gtag) gtag('event', name, params);
   };
+  window.wikiTrack = event;
   document.addEventListener?.('click', e => {
     const link = e.target.closest('a');
     if (link?.href?.startsWith('https://pokesurvivor.com/')) event('official_game_click', {link_domain: 'pokesurvivor.com'});
     if (link?.closest('.related')) event('guide_navigation', {destination_path: new URL(link.href).pathname});
-    if (e.target.closest('#build-share')) event('build_share', {tool_name: 'build_planner'});
     if (e.target.closest('[data-diagnostic-run]')) event('diagnosis_complete', {tool_name: 'save_recovery'});
     if (e.target.closest('[data-report-copy]')) event('report_copy', {tool_name: 'save_recovery'});
   });

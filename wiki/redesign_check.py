@@ -34,8 +34,8 @@ def main():
         route=url.removeprefix('https://pokemonsurvivorwiki.com') or '/'
         if not intended(route): assert new.get(url)==date,('Unexpected sitemap change',url)
     current_data=json.loads((HERE/'data/game.json').read_text(encoding='utf-8'))
-    assert current_data['source']['commit']=='b8e843ffb8b07b95020fb77c4e9aca007d9a1e8d','Unexpected game source'
-    report={'seo':'Unchanged routes retain protected titles/index flags/dates; V3 routes use the locked October 18 source and October 19 review','layouts':[],'tasks':[]}
+    assert current_data['source']['commit']=='5a23d49a99a795f9262d2fb24a9842f0858a0b50','Unexpected game source'
+    report={'seo':'Unchanged routes retain protected titles/index flags/dates; V4 routes use the locked October 19 source and review','layouts':[],'tasks':[]}
     data=json.loads((HERE/'data/game.json').read_text(encoding='utf-8'))
     with sync_playwright() as p:
         browser=p.chromium.launch(headless=True)

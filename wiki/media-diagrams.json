@@ -9,33 +9,9 @@
     ],
     "width": 960,
     "height": 580,
-    "created": "2026-10-15",
-    "source": "Pinned game source b297089; js/data/moves.js, js/data/types.js, js/core/input.js, js/core/touch.js, js/systems/levelup.js",
+    "created": "2026-10-19",
+    "source": "Pinned game source 5a23d49; js/data/moves.js, js/data/starters.js, js/data/upgrades.js, js/data/types.js, js/systems/levelup.js",
     "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
-  },
-  {
-    "id": "coop-connection-check-flow",
-    "kind": "diagram",
-    "caption": "Check the official domain, current session and a fresh room before writing a privacy-safe co-op report.",
-    "alt": "Four steps: same official site, check session and clock, create a fresh room, report without codes or tokens",
-    "pages": ["co-op"],
-    "width": 960,
-    "height": 580,
-    "created": "2026-10-18",
-    "source": "Official changelog snapshot 5bbc3b2 and public player reports #164 and #193.",
-    "rights": "Original SVG diagram authored for this Wiki; no third-party artwork."
-  },
-  {
-    "id": "save-safety-decision-flow",
-    "kind": "diagram",
-    "caption": "Preserve a working copy first; account recovery depends on whether the account was linked.",
-    "alt": "Save safety route: preserve a surviving copy, use linked Gmail on the official domain, treat unlinked recovery as uncertain",
-    "pages": ["save-recovery"],
-    "width": 960,
-    "height": 580,
-    "created": "2026-10-18",
-    "source": "Official account-linking changelog snapshot 5bbc3b2 and public player report #185.",
-    "rights": "Original SVG diagram authored for this Wiki; no third-party artwork."
   },
   {
     "id": "controls-map",
@@ -47,8 +23,8 @@
     ],
     "width": 960,
     "height": 580,
-    "created": "2026-10-15",
-    "source": "Pinned game source b297089; js/data/moves.js, js/data/types.js, js/core/input.js, js/core/touch.js, js/systems/levelup.js",
+    "created": "2026-10-19",
+    "source": "Pinned game source 5a23d49; js/data/moves.js, js/data/starters.js, js/data/upgrades.js, js/data/types.js, js/systems/levelup.js",
     "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
   },
   {
@@ -61,8 +37,8 @@
     ],
     "width": 960,
     "height": 580,
-    "created": "2026-10-15",
-    "source": "Pinned game source b297089; js/data/moves.js, js/data/types.js, js/core/input.js, js/core/touch.js, js/systems/levelup.js",
+    "created": "2026-10-19",
+    "source": "Pinned game source 5a23d49; js/data/moves.js, js/data/starters.js, js/data/upgrades.js, js/data/types.js, js/systems/levelup.js",
     "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
   },
   {
@@ -76,8 +52,8 @@
     ],
     "width": 960,
     "height": 580,
-    "created": "2026-10-15",
-    "source": "Pinned game source b297089; js/data/moves.js, js/data/types.js, js/core/input.js, js/core/touch.js, js/systems/levelup.js",
+    "created": "2026-10-19",
+    "source": "Pinned game source 5a23d49; js/data/moves.js, js/data/starters.js, js/data/upgrades.js, js/data/types.js, js/systems/levelup.js",
     "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
   },
   {
@@ -91,8 +67,8 @@
     ],
     "width": 960,
     "height": 580,
-    "created": "2026-10-15",
-    "source": "Pinned game source b297089; js/data/moves.js, js/data/types.js, js/core/input.js, js/core/touch.js, js/systems/levelup.js",
+    "created": "2026-10-19",
+    "source": "Pinned game source 5a23d49; js/data/moves.js, js/data/starters.js, js/data/upgrades.js, js/data/types.js, js/systems/levelup.js",
     "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
   },
   {
@@ -106,8 +82,8 @@
     ],
     "width": 960,
     "height": 580,
-    "created": "2026-10-15",
-    "source": "Pinned game source b297089; js/data/moves.js, js/data/types.js, js/core/input.js, js/core/touch.js, js/systems/levelup.js",
+    "created": "2026-10-19",
+    "source": "Pinned game source 5a23d49; js/data/moves.js, js/data/starters.js, js/data/upgrades.js, js/data/types.js, js/systems/levelup.js",
     "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
   },
   {
@@ -120,8 +96,8 @@
     ],
     "width": 960,
     "height": 580,
-    "created": "2026-10-15",
-    "source": "Pinned game source b297089; js/data/moves.js, js/data/types.js, js/core/input.js, js/core/touch.js, js/systems/levelup.js",
+    "created": "2026-10-19",
+    "source": "Pinned game source 5a23d49; js/data/moves.js, js/data/starters.js, js/data/upgrades.js, js/data/types.js, js/systems/levelup.js",
     "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
   },
   {
@@ -134,8 +110,65 @@
     ],
     "width": 960,
     "height": 580,
-    "created": "2026-10-15",
-    "source": "Pinned game source b297089; js/data/moves.js, js/data/types.js, js/core/input.js, js/core/touch.js, js/systems/levelup.js",
+    "created": "2026-10-19",
+    "source": "Pinned game source 5a23d49; js/data/moves.js, js/data/starters.js, js/data/upgrades.js, js/data/types.js, js/systems/levelup.js",
+    "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
+  },
+  {
+    "id": "new-move-patterns",
+    "kind": "diagram",
+    "caption": "Eight new attack behaviors. Behavior is not the same as physical or special category.",
+    "alt": "Homing / bounce: guided or chained shots; Charge / spin: timed beam or radial hits; Quake / vortex: traveling wave or pull field; Shove / stun: displacement or control zone",
+    "pages": [
+      "moves"
+    ],
+    "width": 960,
+    "height": 580,
+    "created": "2026-10-19",
+    "source": "Pinned game source 5a23d49; js/data/moves.js, js/data/starters.js, js/data/upgrades.js, js/data/types.js, js/systems/levelup.js",
+    "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
+  },
+  {
+    "id": "starting-move-rules",
+    "kind": "diagram",
+    "caption": "Starting Move decision path. Repertoire is separate and costs 1,500 coins.",
+    "alt": "Default move works before purchase; Pay 400 once for that partner; Choose a legal non-buff move; Default remains available even off-type",
+    "pages": [
+      "builds",
+      "upgrades"
+    ],
+    "width": 960,
+    "height": 580,
+    "created": "2026-10-19",
+    "source": "Pinned game source 5a23d49; js/data/moves.js, js/data/starters.js, js/data/upgrades.js, js/data/types.js, js/systems/levelup.js",
+    "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
+  },
+  {
+    "id": "save-safety-decision-flow",
+    "kind": "diagram",
+    "caption": "Protect a surviving save. Do not clear the only browser copy while diagnosing.",
+    "alt": "Keep the working browser unchanged; Check account and visible sync state; Separate pending, wait, offline and done; Report only non-sensitive facts",
+    "pages": [
+      "save-recovery"
+    ],
+    "width": 960,
+    "height": 580,
+    "created": "2026-10-19",
+    "source": "Pinned game source 5a23d49; js/data/moves.js, js/data/starters.js, js/data/upgrades.js, js/data/types.js, js/systems/levelup.js",
+    "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
+  },
+  {
+    "id": "coop-connection-check-flow",
+    "kind": "diagram",
+    "caption": "Co-op connection checks. Switching networks is not a guaranteed fix.",
+    "alt": "Confirm the current build and sign-in; Record host, guest and exact message; Try one fresh room after reloading; Preserve account and save data",
+    "pages": [
+      "co-op"
+    ],
+    "width": 960,
+    "height": 580,
+    "created": "2026-10-19",
+    "source": "Pinned game source 5a23d49; js/data/moves.js, js/data/starters.js, js/data/upgrades.js, js/data/types.js, js/systems/levelup.js",
     "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
   }
 ]
