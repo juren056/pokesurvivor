@@ -19,7 +19,7 @@ SPECS=[
  ('new-move-patterns','Eight new attack behaviors',['Homing / bounce: guided or chained shots','Charge / spin: timed beam or radial hits','Quake / vortex: traveling wave or pull field','Shove / stun: displacement or control zone'],'Behavior is not the same as physical or special category.',['moves']),
  ('starting-move-rules','Starting Move decision path',['Default move works before purchase','Pay 400 once for that partner','Choose a legal non-buff move','Default remains available even off-type'],'Repertoire is separate and costs 1,500 coins.',['builds','upgrades']),
  ('save-safety-decision-flow','Protect a surviving save',['Keep the working browser unchanged','Check account and visible sync state','Separate pending, wait, offline and done','Report only non-sensitive facts'],'Do not clear the only browser copy while diagnosing.',['save-recovery']),
- ('coop-connection-check-flow','Co-op connection checks',['Confirm the current build and sign-in','Record host, guest and exact message','Try one fresh room after reloading','Preserve account and save data'],'Switching networks is not a guaranteed fix.',['co-op']),
+ ('coop-connection-check-flow','Four co-op stages',['Friendship accepted','Room invitation accepted','Peer connection established','Running game synchronized'],'A room entry does not prove the connection is ready.',['co-op']),
 ]
 
 
@@ -34,7 +34,7 @@ def build():
             lines+=f'<rect x="40" y="{y}" width="880" height="66" rx="12" fill="#213f34"/><circle cx="78" cy="{y+33}" r="{8 if not number else 20}" fill="#f2c66d"/>{number}<text x="118" y="{y+43}" fill="#fffef8" font-size="30">{esc(text)}</text>'
         svg=f'<svg xmlns="http://www.w3.org/2000/svg" width="960" height="580" viewBox="0 0 960 580" role="img" aria-labelledby="title desc"><title id="title">{esc(title)}</title><desc id="desc">{esc(". ".join(steps)+". "+note)}</desc><rect width="960" height="580" rx="16" fill="#142f28"/><g font-family="Arial,Helvetica,sans-serif"><text x="40" y="70" fill="#f2c66d" font-size="39" font-weight="700">{esc(title)}</text><text x="40" y="110" fill="#d2e0cf" font-size="22">PokéSurvivor Wiki · source-based diagram</text>{lines}<text x="40" y="536" fill="#d2e0cf" font-size="23">{esc(note)}</text></g></svg>'
         (OUT/(ident+'.svg')).write_text(svg,encoding='utf-8')
-        records.append(dict(id=ident,kind='diagram',caption=title+'. '+note,alt='; '.join(steps),pages=pages,width=960,height=580,created='2026-10-19',source='Pinned game source 5a23d49; js/data/moves.js, js/data/starters.js, js/data/upgrades.js, js/data/types.js, js/systems/levelup.js',rights='Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork.'))
+        records.append(dict(id=ident,kind='diagram',caption=title+'. '+note,alt='; '.join(steps),pages=pages,width=960,height=580,created='2026-10-20',source='Pinned game source 018e986; js/data/changelog.js, js/data/moves.js, js/data/starters.js, js/data/upgrades.js, js/data/types.js, js/systems/levelup.js, infra/coturn/README.md',rights='Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork.'))
     (HERE/'media-diagrams.json').write_text(json.dumps(records,indent=2)+'\n',encoding='utf-8')
     return records
 

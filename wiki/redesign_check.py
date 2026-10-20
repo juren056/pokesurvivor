@@ -16,7 +16,7 @@ def main():
     before=json.loads((HERE/'seo-baseline.json').read_text(encoding='utf-8'))
     manifest=json.loads((HERE/'dist/build-manifest.json').read_text(encoding='utf-8'))
     after={k:{x:v[x] for x in ['title','index','modified']} for k,v in manifest.items()}
-    intended_slugs={'','mobile','builds','download','co-op','tier-list','updates','pokedex','moves','move-evolutions','starters','starter-tier-list','arceus-judgment','save-recovery'}
+    intended_slugs={'','how-to-play','mobile','builds','download','co-op','tier-list','updates','pokedex','moves','move-evolutions','starters','starter-tier-list','arceus-judgment','save-recovery'}
     def intended(route):
         parts=[part for part in route.split('/') if part]
         if parts and parts[0] in ('es','it','zh-hant'): parts=parts[1:]
@@ -34,8 +34,8 @@ def main():
         route=url.removeprefix('https://pokemonsurvivorwiki.com') or '/'
         if not intended(route): assert new.get(url)==date,('Unexpected sitemap change',url)
     current_data=json.loads((HERE/'data/game.json').read_text(encoding='utf-8'))
-    assert current_data['source']['commit']=='5a23d49a99a795f9262d2fb24a9842f0858a0b50','Unexpected game source'
-    report={'seo':'Unchanged routes retain protected titles/index flags/dates; V4 routes use the locked October 19 source and review','layouts':[],'tasks':[]}
+    assert current_data['source']['commit']=='018e986f4c12f414dfa84193ee35b2959b1e325c','Unexpected game source'
+    report={'seo':'Unchanged routes retain protected titles/index flags/dates; V5 routes use the locked October 20 review source','layouts':[],'tasks':[]}
     data=json.loads((HERE/'data/game.json').read_text(encoding='utf-8'))
     with sync_playwright() as p:
         browser=p.chromium.launch(headless=True)

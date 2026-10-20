@@ -99,6 +99,18 @@ def main():
         assert 'password' not in safe_report.lower() and 'token' not in safe_report.lower() and '@' not in safe_report
         assert not page.locator('[data-report-copy]').is_disabled()
         report['tasks'].append('Save recovery unknown branch and privacy-safe report')
+        page.goto(BASE+'/co-op/')
+        page.locator('#coop-site').select_option('embedded')
+        page.locator('#coop-stage').select_option('connecting')
+        page.locator('#coop-network').select_option('different')
+        page.locator('[data-coop-run]').click()
+        coop_result=page.locator('#coop-result').inner_text()
+        assert 'pokesurvivor.com' in coop_result.lower() and 'TURN package is not deployed' in coop_result
+        coop_report=page.locator('#coop-report').input_value()
+        assert 'no credentials' in coop_report.lower()
+        assert '@' not in coop_report and '192.168.' not in coop_report
+        assert not page.locator('[data-coop-copy]').is_disabled()
+        report['tasks'].append('Co-op four-stage diagnostic distinguishes iframe and connection causes without reading private data')
         page.goto(BASE+'/search/?q=Pikachu')
         page.wait_for_selector('#search-results a')
         page.locator('#search-results a').first.click()
@@ -143,8 +155,12 @@ def main():
             page.goto(f'{BASE}/{locale}/search/?q=Pikachu');page.wait_for_selector('#search-results a')
             assert expected['results'] in page.locator('#search-status').inner_text()
             assert page.locator('#search-results a').first.get_attribute('href').startswith(f'/{locale}/')
+            page.goto(f'{BASE}/{locale}/co-op/')
+            page.locator('#coop-stage').select_option('connecting')
+            page.locator('[data-coop-run]').click()
+            assert page.locator('#coop-result').inner_text().strip()
             page.goto(f'{BASE}/{locale}/');page.screenshot(path=str(OUT/f'mobile-home-{locale}.png'),full_page=True)
-        report['tasks'].append('Spanish, Italian and Traditional Chinese filter, evolution, type calculator and localized search')
+        report['tasks'].append('Spanish, Italian and Traditional Chinese filter, evolution, type calculator, co-op diagnostic and localized search')
         response=page.goto(BASE+'/does-not-exist/')
         assert response.status==404
         report['tasks'].append('True HTTP 404')

@@ -5,10 +5,10 @@ const source = fs.readFileSync(__dirname + '/public/analytics.js', 'utf8');
 const eventSource = source + fs.readFileSync(__dirname + '/public/wiki.js', 'utf8');
 for (const name of ['official_game_click','build_share','diagnosis_complete','video_start']) assert.ok(eventSource.includes(`'${name}'`), name);
 for (const obsolete of ['outbound_game_click','diagnostic_complete']) assert.ok(!source.includes(`'${obsolete}'`), obsolete);
-function fixture(host = 'pokemonsurvivorwiki.com', saved = null, gpc = false) {
+function fixture(host = 'pokemonsurvivorwiki.com', saved = null, gpc = false, pathname = '/search/') {
   const scripts = [], events = {}, settings = {};
   const panel = {hidden:false, setAttribute(){}, querySelector(){return {focus(){}};}, addEventListener(k,v){events[k]=v;}};
-  const context = {location:{hostname:host, origin:'https://' + host, pathname:'/search/', search:'?q=private'}, navigator:{globalPrivacyControl:gpc}, localStorage:{getItem(){return saved;},setItem(k,v){saved=v;}}, document:{referrer:'https://example.com/path?q=secret', cookie:'_ga=sample', createElement(tag){return tag==='script'?{}:panel;}, head:{append(s){scripts.push(s);}},body:{append(){}}, querySelector(){return {setAttribute(){},addEventListener(k,v){settings[k]=v;}};}}, URL, Date};
+  const context = {location:{hostname:host, origin:'https://' + host, pathname, search:'?q=private'}, navigator:{globalPrivacyControl:gpc}, localStorage:{getItem(){return saved;},setItem(k,v){saved=v;}}, document:{referrer:'https://example.com/path?q=secret', cookie:'_ga=sample', createElement(tag){return tag==='script'?{}:panel;}, head:{append(s){scripts.push(s);}},body:{append(){}}, querySelector(){return {setAttribute(){},addEventListener(k,v){settings[k]=v;}};}}, URL, Date};
   context.window = context; vm.createContext(context); vm.runInContext(source, context);
   const choose = value => events.click({target:{closest(){return {dataset:{analytics:value}};}}});
   return {context, scripts, panel, choose, settings};
@@ -24,4 +24,10 @@ f.choose('granted'); assert.equal(f.scripts.length,1); assert.equal(f.context['g
 assert.equal(fixture('pokemonsurvivorwiki.com','granted').scripts.length,1);
 assert.equal(fixture('pokemonsurvivorwiki.com','granted',true).scripts.length,0);
 assert.equal(fixture('pokemonsurvivorwiki.pages.dev','granted').scripts.length,0);
-console.log('PASS: opt-in, refusal, withdrawal/re-enable, query removal, saved choice, GPC and preview isolation.');
+for (const path of ['/', '/es/co-op/', '/it/mobile/', '/zh-hant/moves/']) {
+  assert.equal(fixture('pokemonsurvivorwiki.com',null,false,path).scripts.length,0,`default ${path}`);
+  assert.equal(fixture('pokemonsurvivorwiki.com','denied',false,path).scripts.length,0,`denied ${path}`);
+  assert.equal(fixture('pokemonsurvivorwiki.com','granted',false,path).scripts.length,1,`granted ${path}`);
+  assert.equal(fixture('pokemonsurvivorwiki.com','granted',true,path).scripts.length,0,`GPC ${path}`);
+}
+console.log('PASS: four-locale opt-in matrix, refusal, withdrawal/re-enable, query removal, saved choice, GPC and preview isolation.');

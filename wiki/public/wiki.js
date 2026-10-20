@@ -187,6 +187,30 @@ if(saveDiagnostic){
   run.addEventListener('click',diagnose);
   copyButton.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(report.value);copyButton.textContent=wikiText('reportCopied','Report copied');setTimeout(()=>copyButton.textContent=wikiText('copyReport','Copy report'),1600);}catch{result.textContent+=' '+wikiText('reportCopyFail','Copying was blocked. Select the report text and copy it manually.');}});
 }
+const coopDiagnostic=document.querySelector('[data-coop-diagnostic]');
+if(coopDiagnostic){
+  const site=coopDiagnostic.querySelector('#coop-site'),stage=coopDiagnostic.querySelector('#coop-stage'),network=coopDiagnostic.querySelector('#coop-network');
+  const result=coopDiagnostic.querySelector('#coop-result'),report=coopDiagnostic.querySelector('#coop-report'),run=coopDiagnostic.querySelector('[data-coop-run]'),copyButton=coopDiagnostic.querySelector('[data-coop-copy]');
+  function coopCheck(){
+    const steps=[];
+    if(site.value==='embedded')steps.push(wikiText('coopOfficial','Open pokesurvivor.com directly. The current game blocks third-party iframe play; this Wiki cannot provide a proxy or restore an account.'));
+    if(stage.value==='friend')steps.push(wikiText('coopInvite','Confirm the intended accounts, accepted friendship and one fresh invitation to the current room.'));
+    if(stage.value==='connecting'){
+      steps.push(wikiText('coopConnecting','Appearing in a room does not prove the peer connection is ready. Check the current version and keep the host active.'));
+      if(network.value==='different')steps.push(wikiText('coopDifferent','A player reported same-network success and cross-network failure. Record that comparison; it does not diagnose your NAT. The reviewed TURN package is not deployed or connected to the game.'));
+      if(network.value==='same')steps.push(wikiText('coopSame','The same network does not rule out another cause. Record the result without resetting accounts or deleting data.'));
+    }
+    if(stage.value==='boss')steps.push(wikiText('coopBoss','This is a running-game issue. The October 19 changelog describes a far-away boss spawning fix; check the visible version and whether it still repeats.'));
+    if(stage.value==='move')steps.push(wikiText('coopMove','Record the move, level, evolution state, partner, mode and game version. Issue #232 is a player report, not proof that every move is broken.'));
+    steps.push(wikiText('coopReport','Record the exact message, host or join role, browser/device category and approximate time. Remove nicknames, IP addresses and private details.'));
+    result.textContent=steps.join(' ');
+    report.value=[wikiText('coopReportTitle','PokéSurvivor co-op checklist (no credentials, saves or raw WebRTC data)'),`Site: ${site.selectedOptions[0].textContent.trim()}`,`Stage: ${stage.selectedOptions[0].textContent.trim()}`,`Network comparison: ${network.selectedOptions[0].textContent.trim()}`,...steps.map((x,i)=>`${i+1}. ${x}`)].join('\n');
+    copyButton.disabled=false;
+    window.wikiTrack?.('diagnosis_complete',{tool:'coop',stage:stage.value,network:network.value});
+  }
+  run.addEventListener('click',coopCheck);
+  copyButton.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(report.value);copyButton.textContent=wikiText('checklistCopied','Checklist copied');setTimeout(()=>copyButton.textContent=wikiText('copyChecklist','Copy checklist'),1600);}catch{result.textContent+=' '+wikiText('checklistCopyFail','Copying was blocked. Select the checklist and copy it manually.');}});
+}
 const searchInput=document.querySelector('#search-query');
 if(searchInput){
   const form=searchInput.closest('form'),list=document.querySelector('#search-results'),status=document.querySelector('#search-status');

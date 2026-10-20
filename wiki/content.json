@@ -1,5 +1,5 @@
 {
-  "reviewed": "2026-10-19",
+  "reviewed": "2026-10-20",
   "pages": [
     {
       "slug": "how-to-play",
@@ -64,6 +64,19 @@
             "Guest progress lives in this game origin’s browser storage. Clearing site data can remove it. A cloud account is the route for continuing on another device; this Wiki does not store or recover game saves.",
             "A failed run is a useful checkpoint: compare whether you ran out of space, healing, or damage, and change that part of the next attempt."
           ]
+        },
+        {
+          "heading": "Starting Move, active move and language",
+          "paragraphs": [
+            "Buying Starting Move lets you choose a legal non-buff opening for that partner; it is separate from Repertoire, which adds a second opening move. During a run, learning a move no longer changes the active slot automatically. Use 1–4 or Q/E on desktop, or tap the move on touch devices, when you want to switch.",
+            "To change the game language, open Settings → Graphics → Language. The October 19 changelog lists French, Italian, Brazilian Portuguese, Simplified Chinese and Traditional Chinese in addition to the existing game languages. The game language and this Wiki’s language menu are separate settings."
+          ]
+        },
+        {
+          "heading": "Use the official game window",
+          "paragraphs": [
+            "The current game source prevents play inside an iframe on another website and directs the player to pokesurvivor.com. Open the official site directly instead of using a proxy, copied login form or paid workaround. This Wiki provides guides and does not embed or operate the game."
+          ]
         }
       ],
       "related": [
@@ -75,7 +88,9 @@
         "README.md",
         "js/systems/levelup.js",
         "js/data/moves.js"
-      ]
+      ],
+      "modified": "2026-10-20",
+      "sourceCommit": "018e986f4c12f414dfa84193ee35b2959b1e325c"
     },
     {
       "slug": "mobile",
@@ -83,8 +98,8 @@
       "description": "Play PokéSurvivor on Android, iPhone or iPad with touch, controller or optional manual aim; install the PWA and protect saves.",
       "group": "Guides",
       "intro": "PokéSurvivor runs in a mobile browser on Android, iPhone and iPad. Use touch controls or a supported controller, customize layouts in Settings → Controls, and enable optional Manual aim in Settings → Accessibility.",
-      "modified": "2026-10-19",
-      "sourceCommit": "5a23d49a99a795f9262d2fb24a9842f0858a0b50",
+      "modified": "2026-10-20",
+      "sourceCommit": "018e986f4c12f414dfa84193ee35b2959b1e325c",
       "sections": [
         {
           "heading": "Set up touch controls",
@@ -136,6 +151,13 @@
           "paragraphs": [
             "Check that you opened the same game address, browser profile and account as before. A different domain or private-browsing session has separate browser storage.",
             "If you used a cloud account, sign back into that account. If you played as a guest and erased its storage, installing a home-screen shortcut does not reconstruct the missing save."
+          ]
+        },
+        {
+          "heading": "Change controls and language safely",
+          "paragraphs": [
+            "Use Settings → Controls for button placement and controller mapping, Settings → Accessibility for optional Manual aim, and Settings → Graphics → Language for the game language. These menus belong to the game; the language selector in this Wiki changes only the guide text.",
+            "Learning a new move no longer makes it active automatically. Tap the move you want at the bottom of the play area. Starting Move affects the opening loadout and does not replace that in-run switch."
           ]
         }
       ],
@@ -243,8 +265,8 @@
       "description": "Play the official PokéSurvivor browser game, install its PWA and understand third-party APK ports, saves and account limitations.",
       "group": "Guides",
       "intro": "Play the official PokéSurvivor in a current browser at pokesurvivor.com. On phones and supported desktop browsers, installing the PWA adds that same site to your home screen. There is no verified official APK or native app-store package in this source snapshot.",
-      "modified": "2026-10-19",
-      "sourceCommit": "5a23d49a99a795f9262d2fb24a9842f0858a0b50",
+      "modified": "2026-10-20",
+      "sourceCommit": "018e986f4c12f414dfa84193ee35b2959b1e325c",
       "sections": [
         {
           "heading": "Open the official version first",
@@ -308,6 +330,13 @@
           "paragraphs": [
             "This source snapshot documents browser/mobile and PWA support. It is not evidence of a native App Store or Google Play listing. Use the mobile guide for the supported browser route instead of treating every search result with the name as the same product."
           ]
+        },
+        {
+          "heading": "Official site and embedded copies",
+          "paragraphs": [
+            "The current developer notice prevents the game from running inside a third-party iframe and provides a button to the official site. If an embedded window says the game is available only on its official website, open pokesurvivor.com directly. Do not use a proxy or copied account form.",
+            "This restriction does not create a new APK or native store build. Android and iPhone players still use the official browser version or add its PWA to the home screen."
+          ]
         }
       ],
       "related": [
@@ -336,12 +365,12 @@
     },
     {
       "slug": "co-op",
-      "title": "PokéSurvivor Co-op Guide: Friends, Invites & Fixes",
-      "description": "Start PokéSurvivor co-op, diagnose Could not connect, missing invites, invisible enemies and a missing rift boss without risking account data.",
+      "title": "PokéSurvivor Co-op Not Working? Connecting & Reconnecting",
+      "description": "Check PokéSurvivor friends, room invites, Connecting and Reconnecting loops, cross-network reports and rift-boss symptoms without risking a save.",
       "group": "Guides",
-      "intro": "To start co-op, sign in on the official site, open Friends, add the exact nickname, send an invitation and wait until everyone appears in the room before starting. The game supports groups of up to four.",
-      "modified": "2026-10-19",
-      "sourceCommit": "5a23d49a99a795f9262d2fb24a9842f0858a0b50",
+      "intro": "If a room stays on Connecting, Reconnecting or Could not connect, separate four stages: friendship, room invitation, peer connection and the running game. A player can appear in a room before the browser-to-host connection is ready.",
+      "modified": "2026-10-20",
+      "sourceCommit": "018e986f4c12f414dfa84193ee35b2959b1e325c",
       "sections": [
         {
           "heading": "Start with friends",
@@ -426,7 +455,54 @@
           "heading": "Separate reports from confirmed fixes",
           "paragraphs": [
             "GitHub issues #164, #192 and #193 are player reports and can describe different symptoms. Treat each as reported evidence until a developer changelog or source change confirms the cause and fix. The October 14 changelog does confirm specific invite, pause and invisible-enemy fixes, but it does not automatically close every later boss or rift report.",
-            "Checked on 2026-10-19. When reporting a repeat, include host/non-host role, browser, approximate run time and visible message; never publish room codes or account data."
+            "Checked on 2026-10-20. When reporting a repeat, include host/non-host role, browser, approximate run time and visible message; never publish room codes or account data."
+          ]
+        },
+        {
+          "heading": "Four stages: find where co-op stopped",
+          "table": {
+            "headers": [
+              "Stage",
+              "Confirm",
+              "Does not prove"
+            ],
+            "rows": [
+              [
+                "Friendship",
+                "The intended account accepted the friend request",
+                "That a room invitation was received"
+              ],
+              [
+                "Room invitation",
+                "The invited account joined the current room",
+                "That the peer connection is ready"
+              ],
+              [
+                "Peer connection",
+                "The game reports the browser-to-host link is established",
+                "That every later event will synchronize"
+              ],
+              [
+                "Running game",
+                "The host starts and all players see the expected encounter",
+                "That a missing boss is the same problem as a connection loop"
+              ]
+            ]
+          }
+        },
+        {
+          "heading": "Connecting and Reconnecting reports checked October 20",
+          "paragraphs": [
+            "Issues #233, #234 and #235 are player reports, not proof of a global outage. One report describes same-network success and cross-network failure, while another describes persistent Connecting or Reconnecting across devices and networks. Record the comparison without claiming that CGNAT, NAT type or the relay is confirmed as your cause.",
+            "The repository contains a TURN deployment package, but its README at the reviewed source commit says it is prepared and not deployed or connected to the game. A merged binary-protocol optimization also does not prove that every connection path is fixed.",
+            "Safe checks are limited: open the official site directly, confirm both players use the current version and intended accounts, accept a fresh room invitation and keep the host active. Do not clear site data, disable a firewall or upload passwords, saves, tokens or raw WebRTC dumps."
+          ]
+        },
+        {
+          "heading": "Boss missing after a rift",
+          "paragraphs": [
+            "This is an already-running-game symptom, not the initial connection stage. The updated October 19 changelog describes a boss spawning too far away after returning from a rift and a change that spawns it nearby or relocates it when too far away.",
+            "Check the visible game version and record whether the symptom still occurs. A published boss-spawn change is not evidence that room-connection failures are fixed."
           ]
         }
       ],
@@ -461,6 +537,22 @@
         {
           "label": "Player report: co-op connection remains unavailable (#212)",
           "url": "https://github.com/JPTER78/pokesurvivor/issues/212"
+        },
+        {
+          "label": "Player report: cross-network failure (#233)",
+          "url": "https://github.com/JPTER78/pokesurvivor/issues/233"
+        },
+        {
+          "label": "Player report: reconnecting loop (#234)",
+          "url": "https://github.com/JPTER78/pokesurvivor/issues/234"
+        },
+        {
+          "label": "Player report: multiplayer failure (#235)",
+          "url": "https://github.com/JPTER78/pokesurvivor/issues/235"
+        },
+        {
+          "label": "TURN package status at reviewed source",
+          "url": "https://github.com/JPTER78/pokesurvivor/blob/018e986f4c12f414dfa84193ee35b2959b1e325c/infra/coturn/README.md"
         }
       ]
     },
