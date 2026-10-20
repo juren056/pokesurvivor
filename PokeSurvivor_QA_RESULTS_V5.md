@@ -23,5 +23,9 @@ Date: 2026-10-20
 
 ## Production acceptance
 
-Production deployment and HTTP checks are recorded after the Git push in the release commit history and Cloudflare Pages status.
+- Git release `8c89ca0` reached the production domain through the connected Cloudflare build.
+- Production HTML exposes the 2026-10-20 homepage review, co-op diagnostic, TURN boundary and timezone-qualified video date.
+- Production `sitemap.xml` returns 88 URLs and the updated 2026-10-20 `lastmod` values.
+- GSC's live URL test at 2026-10-20 12:56 found one valid video item without showing the two previous upload-date warnings.
+- The updated sitemap was resubmitted in GSC and the interface confirmed successful submission.
 

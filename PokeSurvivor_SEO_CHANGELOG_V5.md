@@ -29,4 +29,5 @@ Reviewed game source: `018e986f4c12f414dfa84193ee35b2959b1e325c`
 - URL Inspection showed `/co-op/`, `/es/download/` and `/move-evolutions/` indexed and HTTPS/breadcrumb checks valid.
 - The aggregate Page indexing report was still processing and displayed a request to return in about one day.
 - `/move-evolutions/` had a noncritical video warning for an invalid upload date and missing timezone. The generated production markup now supplies `2026-10-15T00:00:00+00:00`; GSC will retain its earlier crawl result until Google recrawls it.
+- After deployment, GSC's live URL test found one valid video item and no longer displayed the two previous date warnings. The refreshed 88-URL sitemap was then submitted successfully.
 
