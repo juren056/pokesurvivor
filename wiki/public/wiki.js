@@ -197,7 +197,7 @@ if(coopDiagnostic){
     if(stage.value==='friend')steps.push(wikiText('coopInvite','Confirm the intended accounts, accepted friendship and one fresh invitation to the current room.'));
     if(stage.value==='connecting'){
       steps.push(wikiText('coopConnecting','Appearing in a room does not prove the peer connection is ready. Check the current version and keep the host active.'));
-      if(network.value==='different')steps.push(wikiText('coopDifferent','A player reported same-network success and cross-network failure. Record that comparison; it does not diagnose your NAT. The reviewed TURN package is not deployed or connected to the game.'));
+      if(network.value==='different')steps.push(wikiText('coopDifferent','The current client prefers a direct connection and can use the TURN pilot for authorized accounts. Without credentials it continues with STUN only; this does not prove universal service availability.'));
       if(network.value==='same')steps.push(wikiText('coopSame','The same network does not rule out another cause. Record the result without resetting accounts or deleting data.'));
     }
     if(stage.value==='boss')steps.push(wikiText('coopBoss','This is a running-game issue. The October 19 changelog describes a far-away boss spawning fix; check the visible version and whether it still repeats.'));
@@ -210,6 +210,30 @@ if(coopDiagnostic){
   }
   run.addEventListener('click',coopCheck);
   copyButton.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(report.value);copyButton.textContent=wikiText('checklistCopied','Checklist copied');setTimeout(()=>copyButton.textContent=wikiText('copyChecklist','Copy checklist'),1600);}catch{result.textContent+=' '+wikiText('checklistCopyFail','Copying was blocked. Select the checklist and copy it manually.');}});
+}
+const moveMaster=document.querySelector('[data-move-master]');
+if(moveMaster){
+  const KEY='pokesurvivor.wiki.moveMaster.v1',SCHEMA=1,MAX_FILE=200000;
+  const list=moveMaster.querySelector('#master-list'),count=moveMaster.querySelector('#master-count'),status=moveMaster.querySelector('#master-status');
+  const search=moveMaster.querySelector('#master-search'),filter=moveMaster.querySelector('#master-filter'),importer=moveMaster.querySelector('[data-master-import]');
+  let memoryOnly=false,known=[],completed=new Set(),unknown=[];
+  const store=()=>{const value={schemaVersion:SCHEMA,datasetVersion:'2026-10-21',completedMoveIds:[...completed],unknownMoveIds:unknown,updatedAt:new Date().toISOString()};try{localStorage.setItem(KEY,JSON.stringify(value));}catch{memoryOnly=true;status.textContent=wikiText('masterMemory','Storage is unavailable. Changes remain only until this page closes.');}return value;};
+  const load=()=>{try{const raw=localStorage.getItem(KEY);if(!raw)return;if(raw.length>MAX_FILE)throw Error();const value=JSON.parse(raw);if(value.schemaVersion!==SCHEMA||!Array.isArray(value.completedMoveIds))throw Error();completed=new Set(value.completedMoveIds.filter(x=>typeof x==='string'));unknown=Array.isArray(value.unknownMoveIds)?value.unknownMoveIds.filter(x=>typeof x==='string'):[];}catch{memoryOnly=true;status.textContent=wikiText('masterInvalidStored','The saved checklist was invalid. A temporary empty checklist is open.');}};
+  function renderMaster(){
+    const q=search.value.trim().toLocaleLowerCase(),mode=filter.value;
+    list.replaceChildren();let shown=0;
+    known.filter(m=>{const done=completed.has(m.id);return(!q||(m.name+' '+m.evolution.name).toLocaleLowerCase().includes(q))&&(mode==='all'||(mode==='done'&&done)||(mode==='open'&&!done));}).forEach(m=>{
+      shown++;const label=document.createElement('label'),box=document.createElement('input'),span=document.createElement('span');box.type='checkbox';box.checked=completed.has(m.id);box.setAttribute('aria-label',`${m.name} → ${m.evolution.name}`);span.textContent=`${m.name} → ${m.evolution.name}`;box.addEventListener('change',()=>{box.checked?completed.add(m.id):completed.delete(m.id);store();renderMaster();window.wikiTrack?.('move_master_toggle',{state:box.checked?'done':'open'});});label.append(box,span);list.append(label);
+    });
+    const valid=[...completed].filter(id=>known.some(m=>m.id===id)).length;
+    count.textContent=wikiText('masterCount',`${valid} of ${known.length} completed · ${shown} shown`,{done:String(valid),total:String(known.length),shown:String(shown)})+(memoryOnly?' · '+wikiText('masterMemoryShort','temporary memory only'):'');
+  }
+  load();
+  gameData().then(data=>{known=data.moves.filter(m=>m.evolution);const ids=new Set(known.map(m=>m.id));unknown=[...new Set([...unknown,...completed].filter(id=>!ids.has(id)))];completed=new Set([...completed].filter(id=>ids.has(id)));store();renderMaster();}).catch(()=>{status.textContent=wikiText('masterLoadFail','The checklist could not load. Use the static table below.');});
+  search.addEventListener('input',renderMaster);filter.addEventListener('change',renderMaster);
+  moveMaster.querySelector('[data-master-export]').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(store(),null,2)+'\n'],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='pokesurvivor-move-master.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),0);window.wikiTrack?.('move_master_export',{count:String(completed.size)});});
+  importer.addEventListener('change',async()=>{const file=importer.files[0];importer.value='';if(!file)return;if(file.size>MAX_FILE){status.textContent=wikiText('masterTooLarge','Import rejected: the file is too large.');return;}try{const value=JSON.parse(await file.text());if(value.schemaVersion!==SCHEMA||!Array.isArray(value.completedMoveIds))throw Error();const ids=new Set(known.map(m=>m.id)),incoming=[...new Set(value.completedMoveIds.filter(x=>typeof x==='string'))],bad=incoming.filter(id=>!ids.has(id));completed=new Set(incoming.filter(id=>ids.has(id)));unknown=[...new Set([...(Array.isArray(value.unknownMoveIds)?value.unknownMoveIds:[]),...bad].filter(x=>typeof x==='string'))];store();renderMaster();status.textContent=bad.length?wikiText('masterUnknown',`Imported with ${bad.length} unknown ID(s) retained for review.`,{count:String(bad.length)}):wikiText('masterImported','Checklist imported.');window.wikiTrack?.('move_master_import',{unknown:String(bad.length)});}catch{status.textContent=wikiText('masterInvalid','Import rejected: choose a valid Move Master JSON file.');}});
+  moveMaster.querySelector('[data-master-reset]').addEventListener('click',()=>{if(!confirm(wikiText('masterResetConfirm','Reset every completed move in this browser checklist?')))return;completed.clear();unknown=[];store();renderMaster();status.textContent=wikiText('masterReset','Checklist reset.');window.wikiTrack?.('move_master_reset',{});});
 }
 const searchInput=document.querySelector('#search-query');
 if(searchInput){

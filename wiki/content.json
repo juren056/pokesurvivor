@@ -1,5 +1,5 @@
 {
-  "reviewed": "2026-10-20",
+  "reviewed": "2026-10-21",
   "pages": [
     {
       "slug": "how-to-play",
@@ -89,17 +89,17 @@
         "js/systems/levelup.js",
         "js/data/moves.js"
       ],
-      "modified": "2026-10-20",
-      "sourceCommit": "018e986f4c12f414dfa84193ee35b2959b1e325c"
+      "modified": "2026-10-21",
+      "sourceCommit": "3c9641c9e782cf74afbde490f39cd60adf59e32b"
     },
     {
       "slug": "mobile",
       "title": "PokéSurvivor on Android & iPhone: Controls & Fixes",
-      "description": "Play PokéSurvivor on Android, iPhone or iPad with touch, controller or optional manual aim; install the PWA and protect saves.",
+      "description": "Play PokéSurvivor on Android, iPhone or iPad with touch or a supported controller; install the PWA, protect saves and diagnose current mobile reports.",
       "group": "Guides",
-      "intro": "PokéSurvivor runs in a mobile browser on Android, iPhone and iPad. Use touch controls or a supported controller, customize layouts in Settings → Controls, and enable optional Manual aim in Settings → Accessibility.",
-      "modified": "2026-10-20",
-      "sourceCommit": "018e986f4c12f414dfa84193ee35b2959b1e325c",
+      "intro": "PokéSurvivor runs in a mobile browser on Android, iPhone and iPad. Use the touch controls, or a supported controller where available, and customize the touch layout in Settings → Controls. Manual Aim is not available on mobile in the reviewed October 20 source.",
+      "modified": "2026-10-21",
+      "sourceCommit": "3c9641c9e782cf74afbde490f39cd60adf59e32b",
       "sections": [
         {
           "heading": "Set up touch controls",
@@ -111,10 +111,10 @@
           ]
         },
         {
-          "heading": "Controller and manual aim",
+          "heading": "Controller and touch targeting",
           "paragraphs": [
-            "The October 18 build supports Xbox, PlayStation, Switch-compatible and most USB or Bluetooth controllers for movement, attacks, pause, cards and menus. This means a controller connected to the browser device; it does not mean the game is a native Nintendo Switch release.",
-            "Open Settings → Controls for controller setup. Optional Manual aim is under Settings → Accessibility and is off by default. With it enabled, attacks aim toward the mouse or the controller right stick instead of automatically choosing the nearest enemy. Touch-only players can keep automatic targeting."
+            "The October 18 build added broad controller support. The reviewed October 20 source then removed Manual Aim on mobile. Desktop or controller behavior and touch behavior must therefore be diagnosed separately.",
+            "On a phone or tablet, use the touch joystick and tap the move slot you want. Do not look for Settings → Accessibility → Manual Aim on mobile. A controller connected to a browser device does not make this a native console release."
           ]
         },
         {
@@ -127,8 +127,8 @@
         {
           "heading": "Controller detected but movement does not respond",
           "paragraphs": [
-            "Issue #206 reports a controller being detected while movement still failed. This is a player report, not proof of a universal controller defect or a confirmed fix. Verify focus is on the game, movement mapping is selected under Settings → Controls, and Manual aim uses the right stick rather than replacing movement.",
-            "Record the controller model, connection method, browser, operating system and whether menus respond. A successful browser-emulation test does not certify every physical controller."
+            "Issue #206 reports a detected controller whose movement failed. Issue #259 separately reports a touch joystick that stayed locked after a level-up or notification. These are player reports, not reproduced universal defects.",
+            "Record the device category, browser, controller model if any, and whether the failure started after a card or notification. Save first if possible before reloading or restarting. Do not clear site data as a routine test."
           ]
         },
         {
@@ -156,8 +156,8 @@
         {
           "heading": "Change controls and language safely",
           "paragraphs": [
-            "Use Settings → Controls for button placement and controller mapping, Settings → Accessibility for optional Manual aim, and Settings → Graphics → Language for the game language. These menus belong to the game; the language selector in this Wiki changes only the guide text.",
-            "Learning a new move no longer makes it active automatically. Tap the move you want at the bottom of the play area. Starting Move affects the opening loadout and does not replace that in-run switch."
+            "Use Settings → Controls for touch-button placement and controller mapping, and Settings → Graphics → Language for the game language. Manual Aim was removed on mobile in the reviewed October 20 source.",
+            "Issue #258 reports missing move or map graphics after a tab switch or screen lock. Save first if possible, then reload the current page. Record whether the problem returns; no cause is confirmed and clearing storage is not a safe diagnostic step."
           ]
         }
       ],
@@ -265,8 +265,8 @@
       "description": "Play the official PokéSurvivor browser game, install its PWA and understand third-party APK ports, saves and account limitations.",
       "group": "Guides",
       "intro": "Play the official PokéSurvivor in a current browser at pokesurvivor.com. On phones and supported desktop browsers, installing the PWA adds that same site to your home screen. There is no verified official APK or native app-store package in this source snapshot.",
-      "modified": "2026-10-20",
-      "sourceCommit": "018e986f4c12f414dfa84193ee35b2959b1e325c",
+      "modified": "2026-10-21",
+      "sourceCommit": "3c9641c9e782cf74afbde490f39cd60adf59e32b",
       "sections": [
         {
           "heading": "Open the official version first",
@@ -280,9 +280,9 @@
         {
           "heading": "Saves, accounts and required updates",
           "paragraphs": [
-            "The October 19 implementation stores a persistent account copy in the current browser and schedules ordinary pending cloud uploads 30 minutes after the first unsynced change. Manual Save may still wait because successful uploads are kept at least 65 seconds apart. Wait or pending does not mean the cloud write completed; confirm the visible sync result before changing devices.",
-            "The October 15 required-update behavior gives a 10-second warning, ends the current run, saves that run’s coins, tickets, records and leaderboard entry as when quitting, then reloads. It does not turn an unlinked guest save into a portable cloud account.",
-            "The official cloud features work on pokesurvivor.com. A copied localhost build or unofficial port can show an authentication referer error because it is a different origin; this Wiki does not present an unverified workaround as an official fix."
+            "The current source saves normal progress immediately in this browser. Cloud upload now happens when you press the Save button, plus the game’s before-update and before-logout paths. The older 10-minute and 30-minute automatic schedules are historical behavior and must not be used as current guidance.",
+            "Save can show local, pending, syncing, success or offline. Pending and the 65-second wait between successful uploads do not mean the cloud write completed. Before moving devices, press Save and wait for the visible success state on the first device.",
+            "The official cloud features work on pokesurvivor.com. A guest copy is not guaranteed to be recoverable or portable, and this Wiki cannot merge competing device copies."
           ]
         },
         {
@@ -368,9 +368,9 @@
       "title": "PokéSurvivor Co-op Not Working? Connecting & Reconnecting",
       "description": "Check PokéSurvivor friends, room invites, Connecting and Reconnecting loops, cross-network reports and rift-boss symptoms without risking a save.",
       "group": "Guides",
-      "intro": "If a room stays on Connecting, Reconnecting or Could not connect, separate four stages: friendship, room invitation, peer connection and the running game. A player can appear in a room before the browser-to-host connection is ready.",
-      "modified": "2026-10-20",
-      "sourceCommit": "018e986f4c12f414dfa84193ee35b2959b1e325c",
+      "intro": "Find the exact co-op stage that failed: accepted friendship, three-minute room invitation, browser peer connection, or the running game. An accepted friend can be invited without an Online indicator in the current source.",
+      "modified": "2026-10-21",
+      "sourceCommit": "3c9641c9e782cf74afbde490f39cd60adf59e32b",
       "sections": [
         {
           "heading": "Start with friends",
@@ -385,7 +385,7 @@
           "heading": "Could not connect: what to check first",
           "paragraphs": [
             "“Could not connect” is a player-reported symptom in GitHub issue #164, not proof that every player is in a confirmed global outage. Check both players are on pokesurvivor.com, signed in, on the current build and using automatic date and time. Then reload both pages and create one new room.",
-            "If the new room still fails, record the time, browser, device, whether each player appeared online and the exact on-screen message. Do not publish a room code, email, password, token or save data."
+            "If the new room still fails, record the time, browser, device, the host/guest role, failed stage and exact on-screen status. Do not publish a room code, email, password, token or save data."
           ]
         },
         {
@@ -398,14 +398,14 @@
             ],
             "rows": [
               [
-                "Friend appears offline",
-                "Exact nickname, both signed in, automatic device clock and time zone",
-                "Reload after the current run; the October 14 build fixed clock-related presence errors"
+                "Accepted friend is not shown for invitation",
+                "Both accounts signed in, friendship accepted and current room open",
+                "Re-open Friends and send a fresh invite; there is no Online prerequisite"
               ],
               [
                 "No invitation arrives",
-                "Both players are on pokesurvivor.com and the inviter sees the friend online",
-                "Re-open Friends and send one new invite; do not use an unofficial recovery form"
+                "Both players are on pokesurvivor.com and the friendship is accepted and the inviter has a current room",
+                "Send one fresh invite; it expires after three minutes"
               ],
               [
                 "Stuck on card or item choice",
@@ -491,11 +491,10 @@
           }
         },
         {
-          "heading": "Connecting and Reconnecting reports checked October 20",
+          "heading": "Connecting, relay and disconnect reports checked October 21",
           "paragraphs": [
-            "Issues #233, #234 and #235 are player reports, not proof of a global outage. One report describes same-network success and cross-network failure, while another describes persistent Connecting or Reconnecting across devices and networks. Record the comparison without claiming that CGNAT, NAT type or the relay is confirmed as your cause.",
-            "The repository contains a TURN deployment package, but its README at the reviewed source commit says it is prepared and not deployed or connected to the game. A merged binary-protocol optimization also does not prove that every connection path is fixed.",
-            "Safe checks are limited: open the official site directly, confirm both players use the current version and intended accounts, accept a fresh room invitation and keep the host active. Do not clear site data, disable a firewall or upload passwords, saves, tokens or raw WebRTC dumps."
+            "Issue #260 reports an initial connection failure. Issue #253 reports a disconnect after play had already started. Keep these stages separate and record host or guest, device category, visible room status and game version. Their timing near the pilot commit does not prove the pilot caused either report.",
+            "Commit 3c9641c integrates a client TURN pilot: the browser still prefers a direct connection, requests credentials from ice.pokesurvivor.com for authorized accounts, and falls back to STUN-only behavior when credentials are unavailable. A relayed room can display “Connected (via server)”. This is source evidence, not proof of universal availability or success."
           ]
         },
         {
@@ -503,6 +502,13 @@
           "paragraphs": [
             "This is an already-running-game symptom, not the initial connection stage. The updated October 19 changelog describes a boss spawning too far away after returning from a rift and a change that spawns it nearby or relocates it when too far away.",
             "Check the visible game version and record whether the symptom still occurs. A published boss-spawn change is not evidence that room-connection failures are fixed."
+          ]
+        },
+        {
+          "heading": "Privacy-safe co-op evidence",
+          "paragraphs": [
+            "Report only platform or device category, visible game version, host or guest role, the failed stage and the visible status. Do not publish IP addresses, room codes, tokens, TURN credentials or raw WebRTC dumps.",
+            "A direct connection is preferred; server relay is a fallback for authorized pilot accounts. “Connected (via server)” describes the selected path, not a different gameplay mode."
           ]
         }
       ],
@@ -562,8 +568,8 @@
       "description": "Use a privacy-safe PokéSurvivor save and account recovery checklist for missing progress, Google linking, 409 errors and Paused to protect your progress.",
       "group": "Help",
       "intro": "Stop before clearing data, uninstalling a PWA or overwriting a working copy. This guide does not read, upload or repair a save. It helps you preserve evidence and choose the safest next step.",
-      "modified": "2026-10-19",
-      "sourceCommit": "5a23d49a99a795f9262d2fb24a9842f0858a0b50",
+      "modified": "2026-10-21",
+      "sourceCommit": "3c9641c9e782cf74afbde490f39cd60adf59e32b",
       "sections": [
         {
           "heading": "Safety rules before troubleshooting",
@@ -575,9 +581,9 @@
         {
           "heading": "Save now and confirm the result",
           "paragraphs": [
-            "For a persistent account, the browser copy and a cloud upload are separate steps. In the October 19 source, ordinary pending changes are scheduled for upload 30 minutes after the first unsynced change. Later edits do not continually postpone that earlier timer.",
-            "Manual Save can request an earlier upload, but a successful upload is separated from the previous one by at least 65 seconds. A wait or pending state is not a completed cloud save. Offline and failed states need their own next step; closing the page can attempt an upload but cannot guarantee the network request finishes.",
-            "The October 18 changelog described a ten-minute schedule. That is historical version evidence; this page follows the locked October 19 implementation. Guest play is memory-only in this code path and does not provide the same persistent local or cloud protection."
+            "Normal progress is written to this browser first. In the reviewed October 21 source, cloud upload is manual: press Save. The game also attempts the same path before a required update and before logout. The old 10-minute and 30-minute schedules remain historical notes, not current promises.",
+            "Read the visible state literally: local means this browser has the copy; pending or waiting means upload is not confirmed; syncing means a request is in progress; success confirms the current upload; offline means the cloud request could not complete. Successful uploads are kept at least 65 seconds apart.",
+            "For a device handoff, finish on device A, press Save, wait for success, then open device B. Do not make progress on both devices and assume every field will merge. Closing the tab, forcing logout or clearing storage is not a safe substitute for a confirmed Save."
           ]
         },
         {
@@ -629,6 +635,13 @@
           "paragraphs": [
             "The official changelog says an existing username/password account can be linked to Gmail, and Sign in with Google with that Gmail should then open the same account. It also warns that an unlinked account cannot be recovered through that Google route.",
             "Account linking is preventive. It does not prove that an unlinked guest save can be reconstructed after browser data is gone, and this independent Wiki has no access to the developer’s account database."
+          ]
+        },
+        {
+          "heading": "What this checklist cannot promise",
+          "paragraphs": [
+            "An unlinked guest is not guaranteed to be recoverable. A cloud account helps portability, but this guide cannot guarantee mid-run continuity or reconstruct a copy whose browser storage is gone.",
+            "The current upload path no longer pre-reads an older cloud copy before writing. That reduces extra reads; it is not a promise that competing device copies will be merged."
           ]
         }
       ],

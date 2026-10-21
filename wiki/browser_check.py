@@ -22,7 +22,7 @@ def main():
             page.set_viewport_size({'width':width,'height':height})
             for route in manifest:
                 response=page.goto(BASE+route)
-                page.wait_for_load_state('networkidle')
+                page.wait_for_load_state('load')
                 assert response.status==200,(route,response.status)
                 assert page.locator('h1').count()==1,route
                 overflow=page.evaluate('document.documentElement.scrollWidth > innerWidth + 1')
@@ -36,7 +36,7 @@ def main():
         home_selectors=['.opening','.hero','.hero-copy','.hero-field','.starter-lab','.topic-strip','.journey','.route','.field-film','.reference-home','.notebook','.trust-strip','.identity','[data-media-id]','[data-video-id]','.data-section']
         home_signatures={}
         for locale,path in [('en','/'),('es','/es/'),('it','/it/'),('zh-hant','/zh-hant/')]:
-            page.goto(BASE+path);page.wait_for_load_state('networkidle')
+            page.goto(BASE+path);page.wait_for_load_state('load')
             home_signatures[locale]={selector:page.locator(selector).count() for selector in home_selectors}
         assert all(signature==home_signatures['en'] for signature in home_signatures.values()),home_signatures
         report['tasks'].append('All locale homepages match the English component, media and interaction skeleton')
@@ -105,7 +105,7 @@ def main():
         page.locator('#coop-network').select_option('different')
         page.locator('[data-coop-run]').click()
         coop_result=page.locator('#coop-result').inner_text()
-        assert 'pokesurvivor.com' in coop_result.lower() and 'TURN package is not deployed' in coop_result
+        assert 'pokesurvivor.com' in coop_result.lower() and 'TURN pilot' in coop_result
         coop_report=page.locator('#coop-report').input_value()
         assert 'no credentials' in coop_report.lower()
         assert '@' not in coop_report and '192.168.' not in coop_report

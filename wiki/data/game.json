@@ -1,8 +1,8 @@
 {
   "source": {
     "repository": "https://github.com/JPTER78/pokesurvivor",
-    "commit": "018e986f4c12f414dfa84193ee35b2959b1e325c",
-    "verified": "2026-10-20",
+    "commit": "3c9641c9e782cf74afbde490f39cd60adf59e32b",
+    "verified": "2026-10-21",
     "files": {
       "js/core/util.js": "cbe280d866fcbbe7a603d5c60c708eecd556f17b7ec0f1dd58c1d4548ab9ccc4",
       "js/core/locales.js": "42c7e152f59953eead02b3a46607d0efcf19677af5f1037e8f43babb3da62bb2",
@@ -10,27 +10,27 @@
       "js/data/lang-en.js": "0b00cfc3ecd44195f0d8ba850f59352f4d3108101e3c808438842d08f0a1ff1f",
       "js/data/pokedex.js": "43ec37ef3ac48452f9a72c51851a188e2375ec93cde9394b335612ad1e107369",
       "js/data/sprites-meta.js": "c719091bb7ce284bce5b4fdc93eeb0b93a096f1302e8e3466142de05323b311a",
-      "js/data/moves.js": "6c104208d723ad8b56af2eff6e4bab8a198342d8acabcbc51a33f52cc7f04ece",
+      "js/data/moves.js": "150a2f5d2b3ca259317fffb650dde4d5043d6a2eb0c0a84fd4fe5ac98ae4b935",
       "js/data/starters.js": "1f522b5e40c73c97229a18909cbb46328a01467c7e945d0fd614ea66b69a2b90",
       "js/data/types.js": "52910f46f49a2d5535ed1e2d7eced8ccef342ceebd46649c6d3059c3a9ca048f",
       "js/data/upgrades.js": "d01bbd1d012b0efec1020d3787783b9dbaacca4f21dac8784a920f4d3053826c",
       "js/systems/gacha.js": "957b89be9521070c366e1ae21c6bdcf5f96899e5ea0c71cafd712289d11eea15",
-      "js/data/changelog.js": "ee40fa72249d1a823ccbc80488d684313203d4dd9ac5b417b09b2e38d76b0498",
-      "README.md": "e2a1b34bfd66023cb95c10a8d1f82b6c69e1f98b6c1a64eff080cc2467171979",
+      "js/data/changelog.js": "3bf9a97cf0bf1077bd48e847eb4793cdd748013a9cb45cd1ca790167395b1374",
+      "README.md": "85bb64fba46cd439523cbf378c5154dfb45b87bc9c93966949f73f27137e190a",
       "js/systems/levelup.js": "296a02c1f3b5871ecb1d1cb49a595f22e3fbc671fbe92144f5c689d1d19eea52",
       "sw.js": "195a017cb8cfc56036b3ae34c08c269f8173621d264a3392651624cbeaabecd4",
       "js/core/settings.js": "c1c7e5283d7020deced463755e9efc50dde96e13a4a5ab19ac0e570afdd0581b",
       "js/core/gamepad.js": "03fbd2de913fc43787347dc933c2c364216fbf32ab8d7381a118f80e6362b612",
-      "js/ui/settings-ui.js": "a6e925470a5897fabbf86960e5d515dced9339a87565df3b77d4f827b795f33a",
-      "js/systems/combat.js": "2e2316917c8e911d885dd47bb4b20be69ee99a411b00687a5f8a066eb56fe34b",
+      "js/ui/settings-ui.js": "fd0ce5b78dbb96c7b8855d5f7922549b1169bfc52de760ec35ea1c671c331e6c",
+      "js/systems/combat.js": "9df29b044a0a0a9a42ebf6af4144de024c3ee25ce724794d15ecbfa0cd626584",
       "js/systems/stats.js": "158f2780859b367580c5f580edebd38ae40df4bea86d013bac53bad152198f65",
       "manifest.webmanifest": "bbbc24b15841a58106fad76dacd7796c66e445add59929c0edda7636d4cc8a38",
-      "js/core/db.js": "ef3f70c764e3602f41b82522e520e7c1f23d45bbcf1e09d3f6441f69e41d8ab5",
+      "js/core/db.js": "5ab4f6daad6c6886adfc270cebdd97f284d8f784fded75c56caae33dd81bb352",
       "dev.html": "0a921ac16cd139101921a0cb34e5380fd1dd00ba701dc798332f6b589984aedb",
-      "js/ui/menu.js": "026690bfeddb9feadc2e437daa5ce8a8c348bc88c17c1c00198deed9c1927a2c",
+      "js/ui/menu.js": "4e22daf98fad2665926e3a5f054dad4157230582bee0f5d4a2c7873422481535",
       "LICENSE": "f99b80284d21e7fb84c90ffc44440668480f26fe4ac3f9d76a6796d84a186999",
       "CREDITS.md": "2b3832c56ada5f57ceb13cc61fb0bb2cab19d699b0a24fb5e80667cbca2cb8a7",
-      "js/entities/player.js": "665c51f2a8f6bb097b05c2a7be368adcd95e153417a092db70c114c995bb13c1",
+      "js/entities/player.js": "40631f8d7308ab9cd074ccec8078d0572bd9e4563743235d4ca47e22a554f47b",
       "js/systems/rift.js": "2c27b749de34a0f7be0a53e5499e1591837dd1b5c9b1d54f440493b894c50f76",
       "js/systems/spawner.js": "34a2dda00ad0c3f485b8c7a512b4924949a4fadb073df845418581e6d1128fd9"
     }
@@ -23377,7 +23377,7 @@
       "maxLevel": 5,
       "damage": 10,
       "cooldown": 0.6,
-      "count": null,
+      "count": 1,
       "radius": null,
       "arc": null,
       "upgrades": [
@@ -23425,7 +23425,7 @@
       "maxLevel": 5,
       "damage": 19,
       "cooldown": 0.62,
-      "count": null,
+      "count": 1,
       "radius": null,
       "arc": null,
       "upgrades": [
@@ -23568,7 +23568,7 @@
       "maxLevel": 5,
       "damage": 10,
       "cooldown": 0.62,
-      "count": null,
+      "count": 1,
       "radius": null,
       "arc": null,
       "upgrades": [
@@ -23663,7 +23663,7 @@
       "maxLevel": 5,
       "damage": 13,
       "cooldown": 0.55,
-      "count": null,
+      "count": 1,
       "radius": null,
       "arc": null,
       "upgrades": [
@@ -23711,7 +23711,7 @@
       "maxLevel": 5,
       "damage": 8,
       "cooldown": 0.66,
-      "count": null,
+      "count": 1,
       "radius": null,
       "arc": null,
       "upgrades": [
@@ -23948,7 +23948,7 @@
       "maxLevel": 5,
       "damage": 10,
       "cooldown": 0.6,
-      "count": null,
+      "count": 1,
       "radius": null,
       "arc": null,
       "upgrades": [
@@ -24138,7 +24138,7 @@
       "maxLevel": 5,
       "damage": 11,
       "cooldown": 0.66,
-      "count": null,
+      "count": 1,
       "radius": null,
       "arc": null,
       "upgrades": [
@@ -24186,7 +24186,7 @@
       "maxLevel": 5,
       "damage": 9,
       "cooldown": 0.32,
-      "count": null,
+      "count": 1,
       "radius": null,
       "arc": null,
       "upgrades": [
@@ -24422,7 +24422,7 @@
       "maxLevel": 5,
       "damage": 14,
       "cooldown": 0.45,
-      "count": null,
+      "count": 1,
       "radius": null,
       "arc": null,
       "upgrades": [
@@ -24658,7 +24658,7 @@
       "maxLevel": 5,
       "damage": 13,
       "cooldown": 0.55,
-      "count": null,
+      "count": 1,
       "radius": null,
       "arc": null,
       "upgrades": [
@@ -24800,7 +24800,7 @@
       "maxLevel": 5,
       "damage": 10,
       "cooldown": 0.64,
-      "count": null,
+      "count": 1,
       "radius": null,
       "arc": null,
       "upgrades": [
@@ -24895,7 +24895,7 @@
       "maxLevel": 5,
       "damage": 22,
       "cooldown": 0.7,
-      "count": null,
+      "count": 1,
       "radius": null,
       "arc": null,
       "upgrades": [
@@ -31690,11 +31690,34 @@
       "damagingOnly": true
     },
     "cloudSave": {
-      "pendingMs": 1800000,
+      "automaticUploads": false,
+      "manualButton": true,
+      "beforeUpdate": true,
+      "beforeLogout": true,
       "minUploadGapMs": 65000
     }
   },
   "changelog": [
+    {
+      "date": "2026-10-20",
+      "title": "Safer co-op and move fixes",
+      "new": [],
+      "changed": [
+        "On mobile the \"Manual aim\" option is gone (it did not work with the touch screen): moves always aim on their own.",
+        "Per-Pokémon leaderboard: runs now count from 5 minutes on (the other leaderboards still from 2 minutes).",
+        "Friends: you no longer see who is online, and you can invite any friend to a room (if they do not join, the invite expires on its own after 3 minutes).",
+        "Cloud save: your game is now only uploaded to the cloud when you press the Save button at the top (and before a game update). Everything is still saved instantly in this browser. If you play on another device or are about to clear your browser data, press Save first.",
+        "New friend requests show up when you open Friends."
+      ],
+      "fixed": [
+        "Co-op: a player with a tampered game can no longer freeze the others by sending impossible numbers (infinite experience froze the host and a giant effect froze the guests).",
+        "Upgrades: after changing your partner, the upgrades screen now opens on the new one instead of the last one you had looked at.",
+        "Co-op: a guest's Ominous Wind, Sand Tomb and Whirlpool now pull enemies in (only the host's did).",
+        "Co-op: a guest's Hex now deals its extra damage to burned, poisoned or slowed enemies.",
+        "Acid Spray, Electro Ball, Seed Bomb, Signal Beam, Power Gem, Mist Ball, Energy Ball, Ice Shard, Shadow Sneak and Draining Kiss: once evolved, the shots flew off to the sides and hit nothing. Now they go forward, and the \"+1 projectile\" upgrade really adds one (it added none before).",
+        "Co-op: if someone's level-up cards closed before they had picked (it could happen when picking very fast), they now open again and the others are no longer left waiting for them."
+      ]
+    },
     {
       "date": "2026-10-19",
       "title": "38 new moves",

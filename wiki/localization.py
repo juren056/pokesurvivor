@@ -254,6 +254,10 @@ JS['es'].update({'coopOfficial':'Abre pokesurvivor.com directamente. El juego bl
 JS['it'].update({'coopOfficial':'Apri direttamente pokesurvivor.com. Il gioco blocca gli iframe di terzi; la Wiki non offre proxy e non recupera account.','coopInvite':'Verifica account, amicizia accettata e un nuovo invito alla stanza corrente.','coopConnecting':'Essere nella stanza non prova che la connessione con l’host sia pronta. Verifica la versione e mantieni attivo l’host.','coopDifferent':'Un utente segnala successo sulla stessa rete e problemi tra reti. Registralo senza diagnosticare il NAT. Il TURN verificato non è distribuito né collegato al gioco.','coopSame':'La stessa rete non esclude altre cause. Registra il risultato senza reimpostare account o cancellare dati.','coopBoss':'È un problema durante la partita. Il changelog del 19 ottobre descrive una correzione per un boss troppo lontano; verifica versione e persistenza.','coopMove':'Annota mossa, livello, evoluzione, compagno, modalità e versione. #232 è una segnalazione, non la prova che tutto sia rotto.','coopReport':'Annota messaggio, ruolo, browser/dispositivo e ora approssimativa. Nascondi nomi, IP e dati privati.','coopReportTitle':'Lista co-op PokéSurvivor (senza credenziali, salvataggi o dati WebRTC completi)','checklistCopied':'Elenco copiato','copyChecklist':'Copia elenco','checklistCopyFail':'Il browser ha bloccato la copia. Seleziona il testo e copialo manualmente.'})
 JS['zh-hant'].update({'coopOfficial':'直接開啟 pokesurvivor.com。遊戲會阻擋第三方 iframe；本站不提供代理，也不能恢復帳號。','coopInvite':'確認雙方帳號、已接受好友關係，以及目前房間的新邀請。','coopConnecting':'出現在房間中不代表已與房主建立連線；先核對版本並讓房主保持前台。','coopDifferent':'有玩家回報同網成功、跨網失敗；請記錄比較，不要據此診斷 NAT。已核對的 TURN 套件仍未部署、未接入遊戲。','coopSame':'同一網路仍可能有其他原因。記錄結果，不要重設帳號或刪除資料。','coopBoss':'這是對局內問題。10 月 19 日更新日誌描述 Boss 生成過遠的修正；請核對版本並記錄是否重現。','coopMove':'記錄招式、等級、進化、夥伴、模式與版本。#232 是玩家回報，不代表所有招式都壞了。','coopReport':'記錄錯誤文字、房主或加入者、瀏覽器／裝置及大約時間；移除暱稱、IP 與私密資料。','coopReportTitle':'PokéSurvivor 合作檢查清單（不含帳密、存檔或完整 WebRTC 資料）','checklistCopied':'清單已複製','copyChecklist':'複製檢查清單','checklistCopyFail':'瀏覽器封鎖複製；請手動選取清單文字。'})
 
+JS['es'].update({'coopDifferent':'La versión actual prefiere una conexión directa y puede usar el piloto TURN para cuentas autorizadas. Sin credenciales, continúa solo con STUN; esto no garantiza disponibilidad universal.','masterCount':'{done} de {total} completadas · {shown} visibles','masterMemory':'El almacenamiento no está disponible. Los cambios solo duran hasta cerrar esta página.','masterMemoryShort':'solo memoria temporal','masterInvalidStored':'La lista guardada no era válida. Se abrió una lista temporal vacía.','masterLoadFail':'No se pudo cargar la lista. Usa la tabla estática inferior.','masterTooLarge':'Importación rechazada: el archivo es demasiado grande.','masterUnknown':'Importado con {count} ID desconocidos conservados para revisión.','masterImported':'Lista importada.','masterInvalid':'Importación rechazada: elige un JSON válido de Move Master.','masterResetConfirm':'¿Restablecer todos los movimientos completados de esta lista del navegador?','masterReset':'Lista restablecida.'})
+JS['it'].update({'coopDifferent':'La versione attuale preferisce una connessione diretta e può usare il pilota TURN per gli account autorizzati. Senza credenziali continua solo con STUN; non è una garanzia di disponibilità universale.','masterCount':'{done} di {total} completate · {shown} visibili','masterMemory':'Lo spazio locale non è disponibile. Le modifiche durano solo fino alla chiusura della pagina.','masterMemoryShort':'solo memoria temporanea','masterInvalidStored':'La lista salvata non era valida. È stata aperta una lista temporanea vuota.','masterLoadFail':'Impossibile caricare la lista. Usa la tabella statica sotto.','masterTooLarge':'Importazione rifiutata: file troppo grande.','masterUnknown':'Importazione completata con {count} ID sconosciuti conservati per verifica.','masterImported':'Lista importata.','masterInvalid':'Importazione rifiutata: scegli un JSON Move Master valido.','masterResetConfirm':'Azzerare tutte le mosse completate in questa lista del browser?','masterReset':'Lista azzerata.'})
+JS['zh-hant'].update({'coopDifferent':'目前版本優先使用直接連線；獲授權帳號可使用 TURN 試行服務。沒有憑證時只使用 STUN，這不代表服務全面可用。','masterCount':'已完成 {done}／{total} · 顯示 {shown} 項','masterMemory':'無法使用瀏覽器儲存空間；變更只保留到關閉本頁。','masterMemoryShort':'僅暫存於記憶體','masterInvalidStored':'已儲存的清單無效，已開啟暫時空白清單。','masterLoadFail':'無法載入清單，請使用下方靜態表格。','masterTooLarge':'匯入遭拒：檔案過大。','masterUnknown':'已匯入，另保留 {count} 個未知 ID 供檢查。','masterImported':'清單已匯入。','masterInvalid':'匯入遭拒：請選擇有效的 Move Master JSON。','masterResetConfirm':'要重設此瀏覽器清單中的所有完成項目嗎？','masterReset':'清單已重設。'})
+
 
 def url(locale: str, slug: str) -> str:
     tail = (slug + '/') if slug else ''
@@ -331,6 +335,11 @@ HOME_TEXT.update({
  'Languages, co-op evidence & official-site access':('Idiomas, evidencias co-op y acceso oficial','Lingue, prove co-op e accesso ufficiale','語言、合作證據與官方入口'),
  'The October 19 release remains at 103 moves and 97 evolutions. The latest review adds the game-language path, separates connection reports from the boss-spawn fix, and records the official-site iframe rule.':('La versión del 19 de octubre mantiene 103 movimientos y 97 evoluciones. La revisión añade la ruta del idioma, separa los informes de conexión de la corrección del jefe y registra la regla de iframe.','La versione del 19 ottobre resta a 103 mosse e 97 evoluzioni. La verifica aggiunge il percorso della lingua, separa le segnalazioni di connessione dalla correzione del boss e registra la regola iframe.','10 月 19 日版本仍為 103 種招式與 97 條進化；最新核對補上遊戲語言路徑、區分連線回報與 Boss 生成修正，並記錄官方網站 iframe 規則。'),
  'Reference reviewed 2026-10-20. Source inspection is separate from gameplay testing.':('Referencia revisada el 20-10-2026. Revisar el código no equivale a probar cada situación.','Riferimento verificato il 20/10/2026. L’analisi del codice è distinta dalle prove di gioco.','資料於 2026-10-20 核對；檢查原始碼與實際遊玩測試分開記錄。')
+})
+HOME_TEXT.update({
+ 'Manual Save, friend invites & TURN pilot':('Guardado manual, invitaciones y piloto TURN','Salvataggio manuale, inviti e pilota TURN','手動儲存、好友邀請與 TURN 試行'),
+ 'The current source uses explicit cloud Save, removes the friend Online prerequisite and integrates an authorized TURN pilot while preserving direct connections.':('El código actual usa Guardar para subir a la nube, elimina el requisito En línea para invitar e integra un piloto TURN autorizado manteniendo la conexión directa.','Il codice attuale usa Salva per il cloud, rimuove il requisito Online per gli inviti e integra un pilota TURN autorizzato mantenendo la connessione diretta.','目前原始碼改用明確的雲端「儲存」、移除好友邀請的上線前提，並在保留直接連線的同時整合授權 TURN 試行。'),
+ 'Reference reviewed 2026-10-21. Source inspection is separate from gameplay testing.':('Referencia revisada el 21-10-2026. Revisar el código no equivale a probar cada situación.','Riferimento verificato il 21/10/2026. L’analisi del codice è distinta dalle prove di gioco.','資料於 2026-10-21 核對；檢查原始碼與實際遊玩測試分開記錄。')
 })
 
 _LOCALE_INDEX={'es':0,'it':1,'zh-hant':2}
@@ -460,6 +469,33 @@ def localize_component(value: str, locale: str) -> str:
       'Non-sensitive checklist': {'es':'Lista sin datos sensibles','it':'Lista non sensibile','zh-hant':'不敏感檢查清單'},
       'Copy checklist': {'es':'Copiar lista','it':'Copia elenco','zh-hant':'複製檢查清單'},
       'Use the four-stage table below: friendship, room invitation, peer connection and running game. Open the official site directly, keep the host active, preserve site data and report only non-sensitive facts.': {'es':'Usa las cuatro fases: amistad, invitación, conexión y partida. Abre la web oficial, mantén activo al anfitrión, conserva los datos y comunica solo hechos no sensibles.','it':'Usa le quattro fasi: amicizia, invito, connessione e partita. Apri il sito ufficiale, mantieni attivo l’host, conserva i dati e comunica solo fatti non sensibili.','zh-hant':'依好友、房間邀請、網路連線及對局四階段檢查；直接開啟官方網站、讓房主保持前台、保留網站資料，且只回報不敏感資訊。'},
+      'Move Master checklist': {'es':'Lista Move Master','it':'Lista Move Master','zh-hant':'Move Master 招式清單'},
+      'Track the 97 move evolutions completed in this browser. This is a Wiki checklist, not a game save, cloud record or official achievement.': {'es':'Marca las 97 evoluciones completadas en este navegador. Es una lista de la Wiki, no un guardado, registro en la nube ni logro oficial.','it':'Segna le 97 evoluzioni completate in questo browser. È una lista della Wiki, non un salvataggio, registro cloud o obiettivo ufficiale.','zh-hant':'在此瀏覽器記錄 97 條已完成的招式進化；這是本站清單，不是遊戲存檔、雲端紀錄或官方成就。'},
+      'Search moves': {'es':'Buscar movimientos','it':'Cerca mosse','zh-hant':'搜尋招式'},
+      'Move or evolution': {'es':'Movimiento o evolución','it':'Mossa o evoluzione','zh-hant':'招式或進化'},
+      '>Show<': {'es':'>Mostrar<','it':'>Mostra<','zh-hant':'>顯示<'},
+      '>All recipes<': {'es':'>Todas las recetas<','it':'>Tutte le ricette<','zh-hant':'>全部配方<'},
+      '>Incomplete<': {'es':'>Incompletas<','it':'>Incomplete<','zh-hant':'>未完成<'},
+      '>Completed<': {'es':'>Completadas<','it':'>Completate<','zh-hant':'>已完成<'},
+      'Loading checklist…': {'es':'Cargando lista…','it':'Caricamento lista…','zh-hant':'正在載入清單…'},
+      '>Export JSON<': {'es':'>Exportar JSON<','it':'>Esporta JSON<','zh-hant':'>匯出 JSON<'},
+      '>Import JSON<': {'es':'>Importar JSON<','it':'>Importa JSON<','zh-hant':'>匯入 JSON<'},
+      '>Reset checklist<': {'es':'>Restablecer lista<','it':'>Azzera lista<','zh-hant':'>重設清單<'},
+      'JavaScript is needed for the checklist. The complete static table remains below.': {'es':'La lista necesita JavaScript. La tabla estática completa sigue disponible abajo.','it':'La lista richiede JavaScript. La tabella statica completa resta disponibile sotto.','zh-hant':'清單需要 JavaScript；下方仍提供完整靜態表格。'},
+      '>Option<': {'es':'>Opción<','it':'>Opzione<','zh-hant':'>方式<'},
+      '>What it means<': {'es':'>Qué significa<','it':'>Cosa significa<','zh-hant':'>代表意義<'},
+      '>Where to start<': {'es':'>Dónde empezar<','it':'>Da dove iniziare<','zh-hant':'>從哪裡開始<'},
+      '>Browser game<': {'es':'>Juego en navegador<','it':'>Gioco nel browser<','zh-hant':'>瀏覽器遊戲<'},
+      '>Play on desktop or mobile without a separate installer<': {'es':'>Juega en ordenador o móvil sin instalador separado<','it':'>Gioca su computer o mobile senza un installer separato<','zh-hant':'>免安裝即可在電腦或手機遊玩<'},
+      '>Home-screen app / PWA<': {'es':'>Aplicación de inicio / PWA<','it':'>App schermata Home / PWA<','zh-hant':'>主畫面應用程式／PWA<'},
+      '>A browser installation using the project’s manifest and cache<': {'es':'>Instalación del navegador que usa el manifiesto y la caché del proyecto<','it':'>Installazione del browser basata su manifest e cache del progetto<','zh-hant':'>使用專案 manifest 與快取的瀏覽器安裝<'},
+      '>Your browser’s install or home-screen menu<': {'es':'>Menú Instalar o Añadir a inicio del navegador<','it':'>Menu Installa o Aggiungi alla schermata Home del browser<','zh-hant':'>瀏覽器的安裝或加入主畫面選單<'},
+      '>Local source copy<': {'es':'>Copia local del código<','it':'>Copia locale del sorgente<','zh-hant':'>本機原始碼副本<'},
+      '>Developer files; a separate origin and setup from the live game<': {'es':'>Archivos para desarrollo; origen y configuración distintos del juego público<','it':'>File per sviluppatori; origine e configurazione separate dal gioco pubblico<','zh-hant':'>開發用檔案；與正式遊戲使用不同來源與設定<'},
+      '>The upstream GitHub repository<': {'es':'>Repositorio original de GitHub<','it':'>Repository GitHub originale<','zh-hant':'>上游 GitHub 儲存庫<'},
+      '>APK or native port<': {'es':'>APK o adaptación nativa<','it':'>APK o port nativo<','zh-hant':'>APK 或原生移植版<'},
+      '>A separate package whose author, version and compatibility need checking<': {'es':'>Paquete separado cuyo autor, versión y compatibilidad deben comprobarse<','it':'>Pacchetto separato: verifica autore, versione e compatibilità<','zh-hant':'>獨立套件，需核對作者、版本與相容性<'},
+      '>Follow a specific developer announcement; no package is hosted here<': {'es':'>Sigue un anuncio concreto del desarrollador; aquí no se aloja ningún paquete<','it':'>Segui un annuncio specifico dello sviluppatore; qui non ospitiamo pacchetti<','zh-hant':'>依開發者明確公告操作；本站不代管套件<'},
     }
     for source, targets in replacements.items(): value = value.replace(source, targets[locale])
     patterns = {
@@ -488,6 +524,9 @@ def make_pages(base_pages: dict, locale: str) -> dict:
             tool = _component(source['body'], 'data-(?:evolution|matchup|gacha|build-planner|save-diagnostic|coop-diagnostic)')
             tables = _all_tables(source['body'])
             if tool: body += localize_component(tool, locale)
+            if slug == 'move-evolutions':
+                tracker = _component(source['body'], 'data-move-master')
+                if tracker: body += localize_component(tracker, locale)
             if tables: body += localize_component(tables, locale)
         item = deepcopy(source)
         item.update(title=title, description=description, body=body)
