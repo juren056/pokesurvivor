@@ -90,12 +90,14 @@ def main():
         report['tasks'].append('Gacha base probability, pity boundary and invalid input')
         page.goto(BASE+'/save-recovery/')
         page.locator('#save-login').select_option('guest')
-        page.locator('#save-copy').select_option('no')
-        page.locator('#save-symptom').select_option('paused')
+        page.locator('#save-copy').select_option('yes')
+        page.locator('#save-state').select_option('pending')
+        page.locator('#save-second').select_option('no')
+        page.locator('#save-timing').select_option('after')
         page.locator('[data-diagnostic-run]').click()
-        assert 'Recovery is uncertain for an unlinked guest' in page.locator('#save-result').inner_text()
+        assert 'Saved locally, pending, syncing, cloud success and loaded on the second device are different states' in page.locator('#save-result').inner_text()
         safe_report=page.locator('#save-report').input_value()
-        assert 'Paused to protect your progress' in safe_report
+        assert 'Pending upload' in safe_report and 'After pressing Save' in safe_report
         assert 'password' not in safe_report.lower() and 'token' not in safe_report.lower() and '@' not in safe_report
         assert not page.locator('[data-report-copy]').is_disabled()
         report['tasks'].append('Save recovery unknown branch and privacy-safe report')

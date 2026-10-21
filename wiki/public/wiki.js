@@ -164,22 +164,25 @@ if(gacha){
 }
 const saveDiagnostic=document.querySelector('[data-save-diagnostic]');
 if(saveDiagnostic){
-  const game=saveDiagnostic.querySelector('#save-game'),login=saveDiagnostic.querySelector('#save-login'),copy=saveDiagnostic.querySelector('#save-copy'),symptom=saveDiagnostic.querySelector('#save-symptom');
+  const game=saveDiagnostic.querySelector('#save-game'),login=saveDiagnostic.querySelector('#save-login'),copy=saveDiagnostic.querySelector('#save-copy'),state=saveDiagnostic.querySelector('#save-state'),second=saveDiagnostic.querySelector('#save-second'),timing=saveDiagnostic.querySelector('#save-timing');
   const result=saveDiagnostic.querySelector('#save-result'),report=saveDiagnostic.querySelector('#save-report'),run=saveDiagnostic.querySelector('[data-diagnostic-run]'),copyButton=saveDiagnostic.querySelector('[data-report-copy]');
   const labels=select=>select.selectedOptions[0].textContent.trim();
   function diagnose(){
     let next;
-    if(copy.value==='yes')next=wikiText('savePreserve','Preserve that browser and profile. Do not clear site data or uninstall the PWA. Link the account only through the official game if it is safe to do so.');
+    if(copy.value==='yes'&&(second.value==='no'||state.value!=='success'))next=wikiText('savePreserveMismatch','Preserve the original device and its browser profile. Saved locally, pending, syncing, cloud success and loaded on the second device are different states. Do not clear site data or upload an older copy while investigating.');
+    else if(copy.value==='yes')next=wikiText('savePreserve','Preserve that browser and profile. Do not clear site data or uninstall the PWA. Link the account only through the official game if it is safe to do so.');
     else if(login.value==='linked')next=wikiText('saveLinked','On the official domain, use Sign in with Google with the same linked Gmail. If progress stays missing, contact the developer with this non-sensitive report.');
     else if(login.value==='guest')next=wikiText('saveGuest','Recovery is uncertain for an unlinked guest. Keep the original browser and profile unchanged and contact the developer; do not trust a site asking for credentials or a save upload.');
     else next=wikiText('saveUnknown','Recovery is uncertain. Preserve any remaining browser data and contact the developer with non-sensitive facts before trying destructive changes.');
     result.textContent=next;
     report.value=[
       'PokéSurvivor recovery report (no credentials or save data)',
-      `Location: ${labels(game)}`,
+      `Device handoff: ${labels(game)}`,
       `Account state: ${labels(login)}`,
-      `Surviving copy: ${labels(copy)}`,
-      `Visible symptom: ${labels(symptom)}`,
+      `Original device complete: ${labels(copy)}`,
+      `Original save state: ${labels(state)}`,
+      `Second device same collection: ${labels(second)}`,
+      `Difference appeared: ${labels(timing)}`,
       `Safe next step: ${next}`
     ].join('\n');
     copyButton.disabled=false;

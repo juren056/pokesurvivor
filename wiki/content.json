@@ -77,6 +77,13 @@
           "paragraphs": [
             "The current game source prevents play inside an iframe on another website and directs the player to pokesurvivor.com. Open the official site directly instead of using a proxy, copied login form or paid workaround. This Wiki provides guides and does not embed or operate the game."
           ]
+        },
+        {
+          "heading": "Game freezes after choosing an upgrade",
+          "paragraphs": [
+            "A player report describes the clock and movement stopping after an upgrade while music and some animation continue. The cause has not been verified here. Record the browser, partner, run time, upgrade type and whether the game was solo or co-op.",
+            "Preserve existing save data and use Save if the control still responds. Clearing browser storage is not a verified fix, and the reported Firebase message does not by itself establish the cause."
+          ]
         }
       ],
       "related": [
@@ -181,7 +188,7 @@
       "description": "Plan a legal PokéSurvivor starter build, verify its opening move and evolution requirement, and create a shareable route.",
       "group": "Guides",
       "intro": "Choose a starter, verify the opening move’s physical or special category, and pair it with a compatible route. The planner preserves existing p and m share links and never reads your account.",
-      "modified": "2026-10-19",
+      "modified": "2026-10-21",
       "sections": [
         {
           "heading": "Four routes to start with",
@@ -242,6 +249,15 @@
             "An attack’s raw damage does not account for missed shots, travel, area coverage or enemy resistance. Do not compare a persistent aura and a projectile as if damage divided by cooldown measured identical things.",
             "Melee moves require closer positioning. The snapshot includes a melee balance change in the move definitions, so older tables may disagree with this reference. Inspect both the current move and the risk of staying in range.",
             "Stat upgrades, terrain and weather can change a run. Treat the routes above as starting plans and use the type calculator when your damage seems unexpectedly low."
+          ]
+        },
+        {
+          "heading": "From partner choice to a saved route",
+          "steps": [
+            "Choose a partner you already own or compare the 29 free starters.",
+            "Check which moves are legal for that partner and whether they scale from Attack or Special Attack.",
+            "Confirm the exact evolution card before spending level choices.",
+            "Build and share the route, then press Save in the official game and wait for the cloud-success state before changing devices."
           ]
         }
       ],
@@ -491,10 +507,10 @@
           }
         },
         {
-          "heading": "Connecting, relay and disconnect reports checked October 21",
+          "heading": "Connection failures, server relays, and mid-run disconnects",
           "paragraphs": [
-            "Issue #260 reports an initial connection failure. Issue #253 reports a disconnect after play had already started. Keep these stages separate and record host or guest, device category, visible room status and game version. Their timing near the pilot commit does not prove the pilot caused either report.",
-            "Commit 3c9641c integrates a client TURN pilot: the browser still prefers a direct connection, requests credentials from ice.pokesurvivor.com for authorized accounts, and falls back to STUN-only behavior when credentials are unavailable. A relayed room can display “Connected (via server)”. This is source evidence, not proof of universal availability or success."
+            "The October 21 developer notes now describe a server-relay path for networks that cannot connect directly. Commit 006257f also remembers peers that needed TURN during the session so later attempts can start with the relay sooner. These are published capabilities, not proof that every account or network has been tested here.",
+            "A room that never connects and a game that disconnects after it has started remain separate symptoms. Record host or guest, device category, visible status and version; do not share IP addresses, room codes, credentials or raw WebRTC data."
           ]
         },
         {
@@ -587,6 +603,13 @@
           ]
         },
         {
+          "heading": "PokéSurvivor Cloud Save Not Syncing Between iPad and PC?",
+          "paragraphs": [
+            "Being signed in with the same Google account does not, by itself, confirm that both devices have loaded the same cloud save. Keep the device that still holds your progress intact. Distinguish a local copy, a requested upload, a completed cloud save, and data loaded on the other device. Do not clear site data or overwrite a remaining copy while investigating a mismatch.",
+            "The developer's October 21 source update adds revision checking to protect a newer cloud save from an older device copy. If an upload conflicts with a newer revision, the code can read, merge and retry. This is a published change, not a promise that this guide can restore already-missing progress or that every client has completed the update."
+          ]
+        },
+        {
           "heading": "Choose the safest branch",
           "table": {
             "headers": [
@@ -641,7 +664,7 @@
           "heading": "What this checklist cannot promise",
           "paragraphs": [
             "An unlinked guest is not guaranteed to be recoverable. A cloud account helps portability, but this guide cannot guarantee mid-run continuity or reconstruct a copy whose browser storage is gone.",
-            "The current upload path no longer pre-reads an older cloud copy before writing. That reduces extra reads; it is not a promise that competing device copies will be merged."
+            "The October 21 revision rule changes the conflict path: a stale upload can be rejected, after which the client reads the cloud copy, merges and retries. Normal uploads do not pre-read every cloud copy. This reduces overwrite risk but is not permission to play on two devices at once or a guarantee that already-missing progress will return."
           ]
         }
       ],

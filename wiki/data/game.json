@@ -1,7 +1,7 @@
 {
   "source": {
     "repository": "https://github.com/JPTER78/pokesurvivor",
-    "commit": "3c9641c9e782cf74afbde490f39cd60adf59e32b",
+    "commit": "40c51c178adb7af421a5c6db0f7b43c4492cc861",
     "verified": "2026-10-21",
     "files": {
       "js/core/util.js": "cbe280d866fcbbe7a603d5c60c708eecd556f17b7ec0f1dd58c1d4548ab9ccc4",
@@ -15,7 +15,7 @@
       "js/data/types.js": "52910f46f49a2d5535ed1e2d7eced8ccef342ceebd46649c6d3059c3a9ca048f",
       "js/data/upgrades.js": "d01bbd1d012b0efec1020d3787783b9dbaacca4f21dac8784a920f4d3053826c",
       "js/systems/gacha.js": "957b89be9521070c366e1ae21c6bdcf5f96899e5ea0c71cafd712289d11eea15",
-      "js/data/changelog.js": "3bf9a97cf0bf1077bd48e847eb4793cdd748013a9cb45cd1ca790167395b1374",
+      "js/data/changelog.js": "27a0184b5bd3464635c25dddfeb68d2783ccde68007bef6b2162defd9f8eff83",
       "README.md": "85bb64fba46cd439523cbf378c5154dfb45b87bc9c93966949f73f27137e190a",
       "js/systems/levelup.js": "296a02c1f3b5871ecb1d1cb49a595f22e3fbc671fbe92144f5c689d1d19eea52",
       "sw.js": "195a017cb8cfc56036b3ae34c08c269f8173621d264a3392651624cbeaabecd4",
@@ -25,7 +25,7 @@
       "js/systems/combat.js": "9df29b044a0a0a9a42ebf6af4144de024c3ee25ce724794d15ecbfa0cd626584",
       "js/systems/stats.js": "158f2780859b367580c5f580edebd38ae40df4bea86d013bac53bad152198f65",
       "manifest.webmanifest": "bbbc24b15841a58106fad76dacd7796c66e445add59929c0edda7636d4cc8a38",
-      "js/core/db.js": "5ab4f6daad6c6886adfc270cebdd97f284d8f784fded75c56caae33dd81bb352",
+      "js/core/db.js": "e6bfe9623152627b781d98d344c45b873e043c6e1db1a7929f181d6a0539eeb0",
       "dev.html": "0a921ac16cd139101921a0cb34e5380fd1dd00ba701dc798332f6b589984aedb",
       "js/ui/menu.js": "4e22daf98fad2665926e3a5f054dad4157230582bee0f5d4a2c7873422481535",
       "LICENSE": "f99b80284d21e7fb84c90ffc44440668480f26fe4ac3f9d76a6796d84a186999",
@@ -31694,10 +31694,23 @@
       "manualButton": true,
       "beforeUpdate": true,
       "beforeLogout": true,
-      "minUploadGapMs": 65000
+      "minUploadGapMs": 65000,
+      "revisionConflictProtection": true,
+      "conflictAction": "read-merge-retry"
     }
   },
   "changelog": [
+    {
+      "date": "2026-10-21",
+      "title": "Co-op on any connection",
+      "new": [
+        "Co-op: if your networks cannot connect to each other directly (it sometimes happens on mobile data and with some routers), the match now goes through our server and you can still play together. If you can connect directly, nothing changes. You need to be signed in with an account."
+      ],
+      "changed": [],
+      "fixed": [
+        "Cloud save: if you played and saved on one device, another device that still had the game open could upload its old copy over it (when saving or when the game updated), and your new tickets and Pokémon did not show up on the other one. Now, if the cloud has something newer, it is merged with yours before saving and nothing is lost."
+      ]
+    },
     {
       "date": "2026-10-20",
       "title": "Safer co-op and move fixes",

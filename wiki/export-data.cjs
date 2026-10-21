@@ -5,7 +5,7 @@ const vm = require('node:vm');
 const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 const root = path.resolve(__dirname, '..');
-const SOURCE_COMMIT = '3c9641c9e782cf74afbde490f39cd60adf59e32b';
+const SOURCE_COMMIT = '40c51c178adb7af421a5c6db0f7b43c4492cc861';
 const files = ['js/core/util.js', 'js/core/locales.js', 'js/core/i18n.js', 'js/data/lang-en.js', 'js/data/pokedex.js', 'js/data/sprites-meta.js', 'js/data/moves.js', 'js/data/starters.js', 'js/data/types.js', 'js/data/upgrades.js', 'js/systems/gacha.js', 'js/data/changelog.js'];
 const sandbox = {G: {}, console, CanvasRenderingContext2D:function(){}, location:{pathname:'/en/',protocol:'http:'}, navigator: {language:'en',languages:['en']}, localStorage:{getItem:()=> 'en',setItem:()=>{}}, document:{documentElement:{},currentScript:null,write:()=>{},addEventListener:()=>{}}, window:{}, performance:{now:()=>0}};
 sandbox.window = sandbox;
@@ -47,7 +47,7 @@ const commit=SOURCE_COMMIT;
 const dex=G.DEX.map(p=>({...p,gacha:G.Gacha.pool(p.rarity,p.gen).some(entry=>entry.dex===p.dex)}));
 const data={source:{repository:'https://github.com/JPTER78/pokesurvivor',commit,verified:'2026-10-21',files:hashes},dex,starters,moves,types,matrix,matchups,
   upgrades:G.Upgrades.LIST.map(u=>({id:u.id,name:en(u.name),unit:en(u.unit),max:u.max,base:u.base,grow:u.grow})),
-  rules:{startingMove:{upgradeId:'start',cost:400,max:1,excludesKind:'buff',defaultAlwaysAllowed:true},repertoire:{upgradeId:'moves',cost:1500,startMoves:2},singleTypeDamage:{multiplier:1.2,requiresSingleType:true,requiresMatchingMoveType:true,damagingOnly:true},cloudSave:{automaticUploads:false,manualButton:true,beforeUpdate:true,beforeLogout:true,minUploadGapMs:65000}},
+  rules:{startingMove:{upgradeId:'start',cost:400,max:1,excludesKind:'buff',defaultAlwaysAllowed:true},repertoire:{upgradeId:'moves',cost:1500,startMoves:2},singleTypeDamage:{multiplier:1.2,requiresSingleType:true,requiresMatchingMoveType:true,damagingOnly:true},cloudSave:{automaticUploads:false,manualButton:true,beforeUpdate:true,beforeLogout:true,minUploadGapMs:65000,revisionConflictProtection:true,conflictAction:'read-merge-retry'}},
   changelog:G.CHANGELOG.map(c=>({date:c.d,title:c.title[1],new:(c.new||[]).map(x=>x[1]),changed:(c.chg||[]).map(x=>x[1]),fixed:(c.fix||[]).map(x=>x[1])}))};
 fs.mkdirSync(path.join(__dirname,'data'),{recursive:true});
 fs.writeFileSync(path.join(__dirname,'data','game.json'),JSON.stringify(data,null,2)+'\n');
