@@ -18,5 +18,6 @@ Date: 2026-10-21
 
 - GSC page indexing displayed “processing data; check again in about one day,” so no unindexed reason or URL table was available to diagnose.
 - GSC sitemap displayed Success and 88 discovered pages before V6 deployment.
+- GSC URL Inspection reports both `/` and `/move-evolutions/` indexed. The stored October 20 crawl showed two non-critical `uploadDate` warnings, while the October 21 12:51 live test detected one valid VideoObject with no warning rows, confirming the production fix.
 - GA4 loaded the configured property and showed complete-data indicators on visible cards. The requested orange quality detail was not exposed as an orange warning in the accessible UI; no quality warning was invented.
 

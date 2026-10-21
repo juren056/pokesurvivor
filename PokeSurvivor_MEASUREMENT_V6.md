@@ -7,6 +7,7 @@ Date: 2026-10-21
 - The page-indexing report is still processing and currently exposes no exclusion reasons or example URLs.
 - The submitted `https://pokemonsurvivorwiki.com/sitemap.xml` was successful with 88 discovered pages before this release.
 - The V6 sitemap keeps 88 canonical indexable URLs and updates only truthful `lastmod` values.
+- URL Inspection confirms the homepage and Move Master page are indexed. The live Move Master test on 2026-10-21 detected valid video structured data; older indexed warnings await Google’s next crawl refresh.
 
 ## GA4
 

@@ -5,6 +5,7 @@ Date: 2026-10-21
 ## External waiting states
 
 - GSC page indexing is still processing. Google currently provides no unindexed reason rows or example URLs for this property, so per-URL exclusion diagnosis must wait for that report to populate.
+- Priority spot checks are not blocked: GSC reports `/` and `/move-evolutions/` indexed. The missing data is the aggregate exclusion table for any other affected URLs.
 - GSC discovery/indexing after sitemap resubmission remains controlled by Google; submission is evidence of receipt, not guaranteed indexing.
 - TURN is a client pilot for authorized accounts. The repository proves integration and fallback behavior, not universal credentials or relay availability.
 - Player reports #258, #259, #260 and #253 are not treated as reproduced causes or universal defects.
