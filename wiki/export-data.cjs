@@ -5,8 +5,8 @@ const vm = require('node:vm');
 const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 const root = path.resolve(__dirname, '..');
-const SOURCE_COMMIT = '40c51c178adb7af421a5c6db0f7b43c4492cc861';
-const files = ['js/core/util.js', 'js/core/locales.js', 'js/core/i18n.js', 'js/data/lang-en.js', 'js/data/pokedex.js', 'js/data/sprites-meta.js', 'js/data/moves.js', 'js/data/starters.js', 'js/data/types.js', 'js/data/upgrades.js', 'js/systems/gacha.js', 'js/data/changelog.js'];
+const SOURCE_COMMIT = 'ce5785313b0205af8b9477423f64b0a7b7039dcd';
+const files = ['js/core/util.js', 'js/core/locales.js', 'js/core/i18n.js', 'js/data/lang-en.js', 'js/data/lang-updates.js', 'js/data/pokedex.js', 'js/data/sprites-meta.js', 'js/data/moves.js', 'js/data/starters.js', 'js/data/types.js', 'js/data/upgrades.js', 'js/data/abilities.js', 'js/data/natures.js', 'js/data/tms.js', 'js/data/ability-fx.js', 'js/data/shop.js', 'js/systems/gacha.js', 'js/data/changelog.js'];
 const sandbox = {G: {}, console, CanvasRenderingContext2D:function(){}, location:{pathname:'/en/',protocol:'http:'}, navigator: {language:'en',languages:['en']}, localStorage:{getItem:()=> 'en',setItem:()=>{}}, document:{documentElement:{},currentScript:null,write:()=>{},addEventListener:()=>{}}, window:{}, performance:{now:()=>0}};
 sandbox.window = sandbox;
 vm.createContext(sandbox);
@@ -36,18 +36,36 @@ const types = Object.keys(G.Types.CHART);
 const matrix = Object.fromEntries(types.map(a=>[a,Object.fromEntries(types.map(d=>[d,G.Types.mult(a,[d])]))]));
 const matchups = Object.fromEntries(types.map(a=>[a,Object.fromEntries(types.map(b=>[b,Object.fromEntries(types.filter(c=>c!==b).map(c=>[c,G.Types.mult(a,[b,c])]))]))]));
 const starters = G.STARTERS.map(s=>({...s,...G.DEX_BY[s.dex],baseStart:G.baseStartOf(s.dex),startChoices:G.startChoices(s.dex)}));
-const evidenceFiles = [...new Set([...files,...JSON.parse(fs.readFileSync(path.join(__dirname,'content.json'),'utf8')).pages.flatMap(p=>p.sources), 'js/core/db.js','js/entities/player.js','js/systems/combat.js','js/systems/levelup.js','js/systems/rift.js','js/systems/spawner.js'])];
+const evidenceFiles = [...new Set([...files,...JSON.parse(fs.readFileSync(path.join(__dirname,'content.json'),'utf8')).pages.flatMap(p=>p.sources), 'js/core/db.js','js/entities/player.js','js/systems/combat.js','js/systems/levelup.js','js/systems/mons.js','js/systems/rift.js','js/systems/spawner.js','js/net/coop.js'])];
 for(const file of evidenceFiles)hashes[file]=crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex');
 // Refuse a mixed-version export: all factual game files must match the locked source commit.
-const lockedFiles = ['js/data/moves.js','js/data/starters.js','js/data/upgrades.js','js/data/changelog.js','js/core/db.js','js/entities/player.js','js/systems/combat.js','js/systems/levelup.js'];
+const lockedFiles = ['js/data/moves.js','js/data/starters.js','js/data/upgrades.js','js/data/changelog.js','js/data/abilities.js','js/data/natures.js','js/data/tms.js','js/data/ability-fx.js','js/data/shop.js','js/core/db.js','js/entities/player.js','js/systems/combat.js','js/systems/levelup.js','js/systems/mons.js','js/net/coop.js'];
 execFileSync('git',['diff','--quiet',SOURCE_COMMIT,'--',...lockedFiles],{cwd:root});
 const commit=SOURCE_COMMIT;
 // Wiki copy and diagrams may be edited in the same release. Only the locked
 // game-source files must remain byte-identical to the reviewed source commit.
 const dex=G.DEX.map(p=>({...p,gacha:G.Gacha.pool(p.rarity,p.gen).some(entry=>entry.dex===p.dex)}));
-const data={source:{repository:'https://github.com/JPTER78/pokesurvivor',commit,verified:'2026-10-21',files:hashes},dex,starters,moves,types,matrix,matchups,
-  upgrades:G.Upgrades.LIST.map(u=>({id:u.id,name:en(u.name),unit:en(u.unit),max:u.max,base:u.base,grow:u.grow})),
-  rules:{startingMove:{upgradeId:'start',cost:400,max:1,excludesKind:'buff',defaultAlwaysAllowed:true},repertoire:{upgradeId:'moves',cost:1500,startMoves:2},singleTypeDamage:{multiplier:1.2,requiresSingleType:true,requiresMatchingMoveType:true,damagingOnly:true},cloudSave:{automaticUploads:false,manualButton:true,beforeUpdate:true,beforeLogout:true,minUploadGapMs:65000,revisionConflictProtection:true,conflictAction:'read-merge-retry'}},
+const playableDex = new Set(dex.map(p=>p.dex));
+const natureNames = n => ({es:n.n[0],en:n.n[1],it:n.n[3],'zh-hant':n.n[5]});
+const natures = G.NATURES.map(n=>({id:n.id,names:natureNames(n),up:n.up||null,down:n.down||null,neutral:!n.up&&!n.down}));
+const usedAbilityIds = new Set();
+const abilitySlots = {};
+for (const p of dex) {
+  const slots = (G.DEX_ABIL[p.dex] || [0,0,0]).map(x=>x||null);
+  abilitySlots[p.dex] = slots;
+  slots.filter(Boolean).forEach(id=>usedAbilityIds.add(id));
+}
+const abilityNames = n => ({es:n[0],en:n[1],it:n[3],'zh-hant':n[5]});
+const abilities = [...usedAbilityIds].sort().map(id=>{
+  const fx=G.AbilityFX.FX[id];
+  return {id,names:abilityNames(G.ABIL[id]),effect:fx?en(fx.d):'Fallback: +8% damage with moves matching the partner’s primary type.',effectType:fx?'specialized':'fallback'};
+});
+const tms = Object.keys(G.TM_MOVES).filter(id=>G.Moves.BY_ID[id]).sort().map(id=>({id,name:title(id),price:G.TM_PRICE[id]||400,compatibleDex:G.TM_MOVES[id].filter(d=>playableDex.has(d))}));
+const naturalMoves = Object.fromEntries(dex.map(p=>[p.dex,G.Moves.poolFor(p,true)]));
+const data={source:{repository:'https://github.com/JPTER78/pokesurvivor',commit,verified:'2026-10-22',files:hashes},dex,starters,moves,types,matrix,matchups,natures,abilities,abilitySlots,tms,naturalMoves,
+  shop:{items:Object.fromEntries(Object.entries(G.Shop.ITEMS).map(([id,x])=>[id,{name:en(x.name),price:x.price,hidden:!!x.hidden}])),dailyTmCount:8,timeZone:'Europe/Madrid',defaultTmPrice:400},
+  upgrades:G.Upgrades.LIST.map(u=>({id:u.id,name:en(u.name),unit:en(u.unit),max:u.max,base:u.base,grow:u.grow,needs:u.needs||null})),
+  rules:{startingMove:{upgradeId:'start',cost:400,max:1,excludesKind:'buff',defaultAlwaysAllowed:true},secondStartingMove:{upgradeId:'start2',cost:400,max:1,requires:'moves',cannotDuplicateFirst:true,usesStartChoices:true},repertoire:{upgradeId:'moves',cost:1500,startMoves:2},singleTypeDamage:{multiplier:1.2,requiresSingleType:true,requiresMatchingMoveType:true,damagingOnly:true},cloudSave:{automaticUploads:false,manualButton:true,beforeUpdate:true,beforeLogout:true,minUploadGapMs:65000,revisionConflictProtection:true,conflictAction:'read-merge-retry'}},
   changelog:G.CHANGELOG.map(c=>({date:c.d,title:c.title[1],new:(c.new||[]).map(x=>x[1]),changed:(c.chg||[]).map(x=>x[1]),fixed:(c.fix||[]).map(x=>x[1])}))};
 fs.mkdirSync(path.join(__dirname,'data'),{recursive:true});
 fs.writeFileSync(path.join(__dirname,'data','game.json'),JSON.stringify(data,null,2)+'\n');

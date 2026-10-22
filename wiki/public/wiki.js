@@ -112,24 +112,36 @@ if(matchup){
 }
 const planner=document.querySelector('[data-build-planner]');
 if(planner){
-  const starter=planner.querySelector('#build-starter'),owned=planner.querySelector('#build-start-owned'),starting=planner.querySelector('#build-starting'),secondary=planner.querySelector('#build-secondary'),result=planner.querySelector('#build-result'),share=planner.querySelector('#build-share');
+  const starter=planner.querySelector('#build-starter'),owned=planner.querySelector('#build-start-owned'),starting=planner.querySelector('#build-starting'),repertoire=planner.querySelector('#build-repertoire'),secondOwned=planner.querySelector('#build-second-owned'),secondary=planner.querySelector('#build-secondary'),taught=planner.querySelector('#build-tm'),result=planner.querySelector('#build-result'),share=planner.querySelector('#build-share');
   gameData().then(data=>{
     const params=new URLSearchParams(location.search);
     if(data.starters.some(p=>String(p.dex)===params.get('p')))starter.value=params.get('p');
-    function allowed(partner,move){return move.type==='normal'||partner.types.includes(move.type);}
-    function refreshMoves(preferredSecondary,preferredStarting){
+    const byMove=id=>data.moves.find(move=>move.id===id);
+    const tmById=id=>data.tms.find(tm=>tm.id===id);
+    function legalIds(partner){
+      const ids=new Set(partner.startChoices||[partner.baseStart]);
+      const tm=tmById(taught.value);
+      if(tm&&tm.compatibleDex.includes(partner.dex)&&!data.naturalMoves[String(partner.dex)].includes(tm.id))ids.add(tm.id);
+      return ids;
+    }
+    function refreshMoves(preferredSecondary,preferredStarting,preferredTm){
       const partner=data.starters.find(p=>p.dex===Number(starter.value));
-      [...secondary.options].forEach(option=>{const move=data.moves.find(m=>m.id===option.value);option.hidden=!allowed(partner,move);option.disabled=!allowed(partner,move)||move.id===partner.start;});
-      const candidates=[...secondary.options].filter(o=>!o.disabled&&!o.hidden);
-      secondary.value=candidates.some(o=>o.value===preferredSecondary)?preferredSecondary:candidates[0]?.value||'';
-      const legal=new Set(partner.startChoices||[partner.start]);
+      const natural=new Set(data.naturalMoves[String(partner.dex)]||[]);
+      [...taught.options].forEach(option=>{if(!option.value)return;const tm=tmById(option.value);option.hidden=!tm||!tm.compatibleDex.includes(partner.dex)||natural.has(option.value);option.disabled=option.hidden;});
+      const tmChoices=[...taught.options].filter(o=>!o.disabled&&!o.hidden);
+      taught.value=tmChoices.some(o=>o.value===preferredTm)?preferredTm:'';
+      const legal=legalIds(partner);
       [...starting.options].forEach(option=>{option.hidden=!legal.has(option.value);option.disabled=!legal.has(option.value)||(!owned.checked&&option.value!==partner.baseStart);});
       const legalEnabled=[...starting.options].filter(o=>!o.disabled&&!o.hidden);
       starting.value=legalEnabled.some(o=>o.value===preferredStarting)?preferredStarting:partner.baseStart;
+      [...secondary.options].forEach(option=>{const move=byMove(option.value);option.hidden=!legal.has(option.value)||move?.kind==='buff';option.disabled=option.hidden||option.value===starting.value||!repertoire.checked||!secondOwned.checked;});
+      const candidates=[...secondary.options].filter(o=>!o.hidden&&o.value!==starting.value);
+      secondary.value=candidates.some(o=>o.value===preferredSecondary)?preferredSecondary:candidates[0]?.value||'';
+      secondOwned.disabled=!repertoire.checked;if(secondOwned.disabled)secondOwned.checked=false;
     }
     function update(){
       const partner=data.starters.find(p=>p.dex===Number(starter.value));
-      const base=data.moves.find(m=>m.id===partner.baseStart),primary=data.moves.find(m=>m.id===starting.value),extra=data.moves.find(m=>m.id===secondary.value);
+      const base=byMove(partner.baseStart),primary=byMove(starting.value),extra=byMove(secondary.value);
       const evolution=m=>m?.evolution?wikiText('moveEvolution',`${m.name} → ${m.evolution.name}: level ${m.maxLevel} + ${m.evolution.requirement}`,{move:m.name,evolution:m.evolution.name,level:String(m.maxLevel),requirement:m.evolution.requirement}):wikiText('moveNoEvolution',`${m?.name||'Move'}: no evolution in this snapshot`,{move:m?.name||'Move'});
       const fit=m=>{
         if(!m)return '';
@@ -140,14 +152,46 @@ if(planner){
         const mono=partner.types.length===1&&m.type===partner.types[0];
         return `${m.name}: ${m.category}, ${value.toFixed(2)}×${mono?'; matching single-type damage factor 1.20×':''}${warning}`;
       };
-      const unlock=owned.checked?wikiText('startingUnlocked','Unlocked Starting Move'):wikiText('startingLocked','Starting Move not purchased');
-      result.textContent=wikiText('buildSummary',`${partner.name}. Default opening: ${base.name}. ${unlock}: ${evolution(primary)} [${fit(primary)}]. Repertoire second move: ${evolution(extra)} [${fit(extra)}]. The 20% factor applies only to damaging moves matching a single-type partner.`,{partner:partner.name,defaultMove:base.name,unlock,primary:evolution(primary)+' ['+fit(primary)+']',secondary:evolution(extra)+' ['+fit(extra)+']'});
-      const url=new URL(location.href);url.search='';url.searchParams.set('p',partner.dex);if(extra)url.searchParams.set('m',extra.id);if(owned.checked){url.searchParams.set('u','1');url.searchParams.set('s',primary.id);}share.dataset.url=url.href;
+      const first=owned.checked?wikiText('startingUnlocked','first selector unlocked'):wikiText('startingLocked','default first move');
+      const second=!repertoire.checked?wikiText('repertoireLocked','Repertoire not purchased'):secondOwned.checked?wikiText('secondSelected','second selector unlocked: {move}',{move:extra?.name||''}):wikiText('secondRandom','Repertoire gives a random legal second move');
+      const cost=(owned.checked?400:0)+(repertoire.checked?1500:0)+(secondOwned.checked?400:0);
+      result.textContent=`${partner.name}. ${first}: ${evolution(primary)} [${fit(primary)}]. ${second}. Modelled unlock cost: ${cost.toLocaleString()} coins. The 20% factor applies only to damaging moves matching a single-type partner.`;
+      const url=new URL(location.href);url.search='';url.searchParams.set('p',partner.dex);if(extra&&repertoire.checked)url.searchParams.set('m',extra.id);if(owned.checked){url.searchParams.set('u','1');url.searchParams.set('s',primary.id);}if(repertoire.checked)url.searchParams.set('r','1');if(secondOwned.checked)url.searchParams.set('u2','1');if(taught.value)url.searchParams.set('tm',taught.value);url.searchParams.set('v','8');share.dataset.url=url.href;
     }
-    owned.checked=params.get('u')==='1';refreshMoves(params.get('m'),params.get('s'));update();
-    starter.addEventListener('change',()=>{refreshMoves();update();});owned.addEventListener('change',()=>{refreshMoves(secondary.value,starting.value);update();});starting.addEventListener('change',()=>{update();window.wikiTrack?.('starting_move_select',{partner:String(starter.value),move:starting.value});});secondary.addEventListener('change',update);
+    owned.checked=params.get('u')==='1';repertoire.checked=params.get('r')==='1'||params.has('m');secondOwned.checked=params.get('u2')==='1';refreshMoves(params.get('m'),params.get('s'),params.get('tm'));update();
+    starter.addEventListener('change',()=>{refreshMoves();update();});owned.addEventListener('change',()=>{refreshMoves(secondary.value,starting.value,taught.value);update();});repertoire.addEventListener('change',()=>{refreshMoves(secondary.value,starting.value,taught.value);update();});secondOwned.addEventListener('change',()=>{refreshMoves(secondary.value,starting.value,taught.value);update();});taught.addEventListener('change',()=>{refreshMoves(secondary.value,starting.value,taught.value);update();});starting.addEventListener('change',()=>{refreshMoves(secondary.value,starting.value,taught.value);update();window.wikiTrack?.('starting_move_select',{partner:String(starter.value),move:starting.value});});secondary.addEventListener('change',update);
     share.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(share.dataset.url);window.wikiTrack?.('build_share',{locale:wikiLocale});share.textContent=wikiText('linkCopied','Link copied');setTimeout(()=>share.textContent=wikiText('copyLink','Copy share link'),1600);}catch{result.textContent+=' '+wikiText('copyFail','Copying was blocked; use the URL shown in your address bar.');}});
   }).catch(()=>{result.textContent=wikiText('plannerFail','The planner could not load. Use the routes and evolution table below.');share.disabled=true;});
+}
+
+const shopPreview=document.querySelector('[data-shop-preview]');
+if(shopPreview){
+  const partner=shopPreview.querySelector('#shop-partner'),out=shopPreview.querySelector('#shop-result'),list=shopPreview.querySelector('#shop-tms');
+  const seedText=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Madrid',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  const hash=text=>{let h=2166136261;for(const c of text){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;};
+  const shuffle=(items,seed)=>{let x=hash(seed);const a=[...items];for(let i=a.length-1;i>0;i--){x=(Math.imul(x,1664525)+1013904223)>>>0;const j=x%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;};
+  gameData().then(data=>{
+    function update(){const dex=Number(partner.value),date=seedText(),natural=new Set(data.naturalMoves[String(dex)]||[]),base=shuffle(data.tms,`kecleon:${date}`).slice(0,data.shop.dailyTmCount),learnable=data.tms.filter(t=>t.compatibleDex.includes(dex)&&!natural.has(t.id));let offers=[...base];if(!offers.some(t=>learnable.some(x=>x.id===t.id))&&learnable.length)offers[offers.length-1]=shuffle(learnable,`kecleon:${date}:${dex}`)[0];const name=data.dex.find(p=>p.dex===dex)?.name||'';out.textContent=`${date} · Europe/Madrid · ${name}: ${offers.length} rule-based TM offers. Empty taught-TM assumption.`;list.replaceChildren(...offers.map(t=>{const li=document.createElement('li');li.textContent=`${t.name} — ${t.price.toLocaleString()} coins${t.compatibleDex.includes(dex)&&!natural.has(t.id)?' · compatible':''}`;return li;}));}
+    partner.addEventListener('change',update);update();
+  }).catch(()=>out.textContent='The source-backed preview could not load. Use the rules below.');
+}
+
+const tmChecker=document.querySelector('[data-tm-checker]');
+if(tmChecker){
+  const partner=tmChecker.querySelector('#tm-partner'),move=tmChecker.querySelector('#tm-move'),taught=tmChecker.querySelector('#tm-taught'),out=tmChecker.querySelector('#tm-result'),share=tmChecker.querySelector('#tm-share');
+  gameData().then(data=>{const params=new URLSearchParams(location.search);if(data.dex.some(p=>String(p.dex)===params.get('p')))partner.value=params.get('p');if(data.tms.some(t=>t.id===params.get('tm')))move.value=params.get('tm');taught.checked=params.get('taught')==='1';function update(){const dex=Number(partner.value),p=data.dex.find(x=>x.dex===dex),tm=data.tms.find(x=>x.id===move.value),natural=(data.naturalMoves[String(dex)]||[]).includes(tm.id);let state=natural?'natural move — no TM needed':tm.compatibleDex.includes(dex)?taught.checked?'compatible and modelled as already taught':'compatible, not taught; obtain and use the TM':'incompatible in this source snapshot';out.textContent=`${p.name} → ${tm.name}: ${state}. Shop price: ${tm.price.toLocaleString()} coins.`;const url=new URL(location.href);url.search='';url.searchParams.set('p',dex);url.searchParams.set('tm',tm.id);if(taught.checked)url.searchParams.set('taught','1');share.dataset.url=url.href;}[partner,move,taught].forEach(x=>x.addEventListener('change',update));share.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(share.dataset.url);share.textContent=wikiText('linkCopied','Link copied');setTimeout(()=>share.textContent=wikiText('copyLink','Copy share link'),1600);}catch{out.textContent+=' Copying was blocked; use the address bar.';}});update();}).catch(()=>{out.textContent='Compatibility data could not load.';share.disabled=true;});
+}
+
+const natureCalculator=document.querySelector('[data-nature-calculator]');
+if(natureCalculator){
+  const partner=natureCalculator.querySelector('#nature-partner'),choice=natureCalculator.querySelector('#nature-choice'),out=natureCalculator.querySelector('#nature-result');
+  gameData().then(data=>{function update(){const p=data.dex.find(x=>x.dex===Number(partner.value)),n=data.natures.find(x=>x.id===choice.value),labels={pa:'Attack',sa:'Special Attack',df:'Defense',sd:'Special Defense',spd:'Speed'},stats=['pa','sa','df','sd','spd'].map(k=>`${labels[k]} ${(p[k]*(n.up===k?1.1:n.down===k?.9:1)).toFixed(2)}`);out.textContent=`${p.name} · ${n.names[wikiLocale]||n.names.en}: HP ${p.hp} (unchanged); ${stats.join(' · ')}.`;}partner.addEventListener('change',update);choice.addEventListener('change',update);update();}).catch(()=>out.textContent='Nature data could not load.');
+}
+
+const abilityChecker=document.querySelector('[data-ability-checker]');
+if(abilityChecker){
+  const partner=abilityChecker.querySelector('#ability-partner'),out=abilityChecker.querySelector('#ability-result');
+  gameData().then(data=>{function update(){const dex=Number(partner.value),p=data.dex.find(x=>x.dex===dex),slots=data.abilitySlots[String(dex)]||[],name=id=>data.abilities.find(a=>a.id===id),describe=(id,label)=>{const a=name(id);return a?`${label}: ${a.names[wikiLocale]||a.names.en} — ${a.effect}`:`${label}: none`;};out.textContent=`${p.name}. ${describe(slots[0],'Regular 1')} ${describe(slots[1],'Regular 2')} ${describe(slots[2],'Hidden')}`;}partner.addEventListener('change',update);update();}).catch(()=>out.textContent='Ability data could not load.');
 }
 const gacha=document.querySelector('[data-gacha]');
 if(gacha){
