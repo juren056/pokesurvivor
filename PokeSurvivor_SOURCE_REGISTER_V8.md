@@ -8,5 +8,6 @@
 | Build rules | `js/data/upgrades.js`, `js/data/starters.js`, `js/systems/mons.js` | 400/1,500/400 coin unlock model and TM teaching |
 | GSC aggregate | live UI, updated 2026-10-16 | 82 excluded, including 64 crawled-not-indexed; lagging report |
 | GSC URL inspection | live UI, 2026-10-22 | `/zh-hant/starter-tier-list/`, `/arceus-judgment/`, `/es/gacha-calculator/` indexed with valid HTTPS and breadcrumb data |
-| Media | existing project credit register and original site assets | no V8 third-party media copied without a reusable basis |
+| Existing media | existing project credit register and original site assets | no V8 third-party media copied without a reusable basis |
+| V8 system illustrations | four original AI-assisted source images generated 2026-10-22; prompts and source filenames recorded in `wiki/media-images.json` | concept visuals for Shop, TM compatibility, natures and abilities; explicitly not gameplay screenshots |
 

@@ -405,7 +405,15 @@ def localize_home_media(body: str, locale: str) -> str:
       'Upgrade offers and outcomes vary between runs.':('Las mejoras y los resultados cambian entre partidas.','Potenziamenti e risultati cambiano tra le partite.','每局出現的強化與結果都可能不同。'),
       'Game capture.':('Captura del juego.','Cattura di gioco.','遊戲實拍。'),
       'Ember attacks automatically while the partner moves.':('Ember ataca automáticamente mientras el compañero se mueve.','Ember attacca automaticamente mentre il compagno si muove.','夥伴移動時，Ember 會自動攻擊。'),
-      'Capture & credits':('Captura y créditos','Cattura e crediti','錄影與來源')
+      'Capture & credits':('Captura y créditos','Cattura e crediti','錄影與來源'),
+      'An original forest merchant presents mint leaves, three capsule relics and eight daily move discs. AI-assisted concept illustration; not a game screenshot.':('Un mercader original del bosque presenta mentas, tres cápsulas y ocho discos de movimientos diarios. Ilustración conceptual asistida por IA; no es una captura del juego.','Un mercante originale della foresta presenta mente, tre capsule e otto dischi mossa giornalieri. Concept art assistita dall’IA; non è una schermata di gioco.','原創森林商人展示薄荷、三種膠囊與八個每日招式圓盤。AI 輔助概念圖，並非遊戲實拍。'),
+      'Original chameleon-like forest merchant at a woodland kiosk with mint leaves, three capsules and eight move discs.':('Mercader original con aspecto de camaleón en un puesto del bosque, con mentas, tres cápsulas y ocho discos de movimientos.','Mercante originale simile a un camaleonte in un chiosco nel bosco, con mente, tre capsule e otto dischi mossa.','原創變色龍造型森林商人站在林間攤位，身旁有薄荷、三種膠囊與八個招式圓盤。'),
+      'An original forest guardian compares a move disc with branching compatible and incompatible routes. AI-assisted concept illustration; not a game screenshot.':('Un guardián original del bosque compara un disco de movimiento con rutas compatibles e incompatibles. Ilustración conceptual asistida por IA; no es una captura del juego.','Un guardiano originale della foresta confronta un disco mossa con percorsi compatibili e incompatibili. Concept art assistita dall’IA; non è una schermata di gioco.','原創森林守護者將招式圓盤與相容及不相容路徑比較。AI 輔助概念圖，並非遊戲實拍。'),
+      'Original forest guardian studying a move disc over a glowing compatibility atlas with green and red branching routes.':('Guardián original del bosque que estudia un disco de movimiento sobre un atlas luminoso con rutas verdes y rojas.','Guardiano originale della foresta che studia un disco mossa su un atlante luminoso con percorsi verdi e rossi.','原創森林守護者在發光的相容性圖譜上研究招式圓盤，圖中有綠色與紅色分支。'),
+      'An original companion stands among five symbolic stat currents, illustrating nature tradeoffs. AI-assisted concept illustration; not a game screenshot.':('Un compañero original entre cinco corrientes simbólicas muestra los intercambios de estadísticas de las naturalezas. Ilustración conceptual asistida por IA; no es una captura del juego.','Un compagno originale tra cinque correnti simboliche mostra i compromessi delle statistiche delle nature. Concept art assistita dall’IA; non è una schermata di gioco.','原創夥伴站在五道象徵能力值的氣流之間，呈現性格的能力取捨。AI 輔助概念圖，並非遊戲實拍。'),
+      'Original small fantasy companion in a botanical observatory surrounded by five symbolic colored stat currents.':('Pequeño compañero fantástico original en un observatorio botánico, rodeado por cinco corrientes de estadísticas de colores.','Piccolo compagno fantasy originale in un osservatorio botanico, circondato da cinque correnti colorate delle statistiche.','原創小型奇幻夥伴置身植物觀測室，周圍環繞五道象徵能力值的彩色氣流。'),
+      'An original woodland guardian shows two regular aura sigils and one hidden sigil. AI-assisted concept illustration; not a game screenshot.':('Un guardián original del bosque muestra dos sigilos de aura normales y uno oculto. Ilustración conceptual asistida por IA; no es una captura del juego.','Un guardiano originale del bosco mostra due sigilli aura normali e uno nascosto. Concept art assistita dall’IA; non è una schermata di gioco.','原創林地守護者展示兩個一般光環符印與一個隱藏符印。AI 輔助概念圖，並非遊戲實拍。'),
+      'Original armored woodland companion at a forest shrine with two gold-green sigils and one hidden turquoise sigil.':('Compañero original con armadura en un santuario del bosque, con dos sigilos verde dorado y uno turquesa oculto.','Compagno originale corazzato in un santuario del bosco, con due sigilli verde-oro e un sigillo turchese nascosto.','原創披甲林地夥伴站在森林祭壇前，帶有兩個金綠符印與一個隱藏的青綠符印。')
     }
     for source,targets in media_text.items():body=body.replace(source,targets[_LOCALE_INDEX[locale]])
     body=body.replace('Silent recording with English captions.','')
@@ -645,6 +653,7 @@ def make_pages(base_pages: dict, locale: str) -> dict:
             if tables: body += localize_component(tables, locale)
         item = deepcopy(source)
         item.update(title=title, description=description, body=body)
-        if slug == '': item['preserve_media_layout']=True
+        if slug in ('','kecleon-shop','tm-compatibility','natures','abilities'):
+            item['preserve_media_layout']=True
         pages[slug] = item
     return pages

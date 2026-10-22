@@ -9,8 +9,10 @@ Date: 2026-10-22
 - 966 partners, 29 starters, 103 moves, 97 evolutions, 58 TMs, 25 natures and Shop prices.
 - Mewtwo/Shadow Ball compatible and Psyduck/Flamethrower incompatible in the recorded source.
 - Four new tools execute in Chromium; all four locales render them; checked pages have no horizontal overflow at 390px.
+- Four new responsive illustrations load successfully in all four locales, expose valid `srcset` values and retain lazy loading outside the initial viewport.
 - Analytics consent contract passes in all four locales.
 - Mobile screenshot: `wiki/qa-v8-mobile.png`.
+- Shop media screenshot: `wiki/qa-v8-shop-media.png`.
 
 ## GSC evidence
 

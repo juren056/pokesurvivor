@@ -10,11 +10,12 @@ Date: 2026-10-22
 - Expanded the build planner for Repertoire, the second 400-coin starting-move selector and compatible taught-TM assumptions while preserving older shared links.
 - Updated co-op spectating, cross-device report #275, mid-run report #278 and Arceus report #281 with explicit evidence boundaries.
 - Updated the homepage and all genuinely changed pages to the 2026-10-22 review date.
+- Added four original AI-assisted concept illustrations for the Shop, TM compatibility, nature and ability guides. Each image has 480, 960 and 1,440 pixel WebP variants, localized captions and alt text, and a manifest record containing its prompt and generated source file.
 
 ## SEO and release
 
 - Expanded the sitemap from 88 to 104 canonical indexable URLs with reciprocal four-locale hreflang and genuine `lastmod` values.
 - GSC's aggregate report dated 2026-10-16 still listed 64 crawled-not-indexed samples. Live URL inspection showed the checked Traditional Chinese, English and Spanish examples are now indexed, so the aggregate report is stale.
 - The sole GSC 404 sample is a malformed external URL containing an entire Chinese sentence, not a site-generated link; it correctly remains a 404.
-- No unlicensed third-party gameplay asset was added. Existing traceable media and original site artwork remain in use.
+- No unlicensed third-party gameplay asset was added. Existing traceable media and original site artwork remain in use; the new illustrations are explicitly labeled as concepts rather than gameplay evidence.
 

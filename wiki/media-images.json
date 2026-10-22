@@ -768,5 +768,89 @@
     "platform": "Windows Chromium, desktop keyboard",
     "rights": "Game capture for the noncommercial fan guide. Game code MIT; embedded SpriteCollab artwork CC BY-NC 4.0. Attribution and individual artist credits linked beside media. Pok\u00e9mon belongs to its owners.",
     "attribution": "JPTER78 / Pok\u00e9Survivor; SpriteCollab artists (see linked CREDITS.md); Nintendo / Creatures / GAME FREAK"
+  },
+  {
+    "id": "kecleon-shop-concept",
+    "caption": "An original forest merchant presents mint leaves, three capsule relics and eight daily move discs. AI-assisted concept illustration; not a game screenshot.",
+    "pages": [
+      "kecleon-shop"
+    ],
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      480,
+      960,
+      1440
+    ],
+    "kind": "concept",
+    "alt": "Original chameleon-like forest merchant at a woodland kiosk with mint leaves, three capsules and eight move discs.",
+    "created": "2026-10-22",
+    "source": "Original AI-assisted concept illustration commissioned for this independent Wiki.",
+    "originalGeneratedFile": "exec-603c0b11-fcce-4eae-a78b-baac0405cfe7.png",
+    "prompt": "Wide editorial fantasy illustration of an original chameleon-like forest merchant at a woodland kiosk, with mint leaves, three capsules and eight blank rune discs; deep forest palette; no existing characters, text, UI or watermark.",
+    "rights": "Original AI-assisted concept art commissioned for this independent Wiki; no claim of official game artwork."
+  },
+  {
+    "id": "tm-compatibility-concept",
+    "caption": "An original forest guardian compares a move disc with branching compatible and incompatible routes. AI-assisted concept illustration; not a game screenshot.",
+    "pages": [
+      "tm-compatibility"
+    ],
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      480,
+      960,
+      1440
+    ],
+    "kind": "concept",
+    "alt": "Original forest guardian studying a move disc over a glowing compatibility atlas with green and red branching routes.",
+    "created": "2026-10-22",
+    "source": "Original AI-assisted concept illustration commissioned for this independent Wiki.",
+    "originalGeneratedFile": "exec-f5c86df9-e4c9-4dee-969e-103290c7558c.png",
+    "prompt": "Wide editorial fantasy illustration of an original forest guardian comparing a circular move token with a glowing compatibility atlas and branching compatible and incompatible paths; no existing characters, text, UI or watermark.",
+    "rights": "Original AI-assisted concept art commissioned for this independent Wiki; no claim of official game artwork."
+  },
+  {
+    "id": "nature-balance-concept",
+    "caption": "An original companion stands among five symbolic stat currents, illustrating nature tradeoffs. AI-assisted concept illustration; not a game screenshot.",
+    "pages": [
+      "natures"
+    ],
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      480,
+      960,
+      1440
+    ],
+    "kind": "concept",
+    "alt": "Original small fantasy companion in a botanical observatory surrounded by five symbolic colored stat currents.",
+    "created": "2026-10-22",
+    "source": "Original AI-assisted concept illustration commissioned for this independent Wiki.",
+    "originalGeneratedFile": "exec-4c0a9bb4-5dcd-4a37-b5c0-97d816097b24.png",
+    "prompt": "Wide editorial fantasy illustration of an original small companion in a botanical observatory, surrounded by five colored symbolic stat currents and a neutral center to show nature tradeoffs; no text, numbers, existing characters or watermark.",
+    "rights": "Original AI-assisted concept art commissioned for this independent Wiki; no claim of official game artwork."
+  },
+  {
+    "id": "ability-slots-concept",
+    "caption": "An original woodland guardian shows two regular aura sigils and one hidden sigil. AI-assisted concept illustration; not a game screenshot.",
+    "pages": [
+      "abilities"
+    ],
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      480,
+      960,
+      1440
+    ],
+    "kind": "concept",
+    "alt": "Original armored woodland companion at a forest shrine with two gold-green sigils and one hidden turquoise sigil.",
+    "created": "2026-10-22",
+    "source": "Original AI-assisted concept illustration commissioned for this independent Wiki.",
+    "originalGeneratedFile": "exec-9fb04b55-9c4f-4ecd-80be-6a624b2b14e7.png",
+    "prompt": "Wide editorial fantasy illustration of an original armored woodland companion at a forest shrine, showing two regular gold-green ability sigils and one hidden turquoise shadow sigil; no existing characters, text, UI or watermark.",
+    "rights": "Original AI-assisted concept art commissioned for this independent Wiki; no claim of official game artwork."
   }
 ]
