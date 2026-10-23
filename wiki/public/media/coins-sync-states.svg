@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Coin balance and save state decision path</title>
+  <desc id="desc">Four distinct states: a local browser copy, a pending upload, confirmed cloud success, and the second device loading the confirmed copy. Stop writes when balances disagree.</desc>
+  <rect width="960" height="520" rx="24" fill="#10261f"/>
+  <g font-family="Arial,Helvetica,sans-serif">
+    <text x="48" y="64" fill="#f2c66d" font-size="34" font-weight="700">Coins differ? Separate the save states first.</text>
+    <text x="48" y="99" fill="#d6e2d5" font-size="18">Safety diagram · not a game screenshot · no automatic recovery promise</text>
+    <g transform="translate(48 140)">
+      <rect width="190" height="154" rx="16" fill="#213e34" stroke="#6f8a78"/>
+      <circle cx="32" cy="34" r="18" fill="#ee785f"/><text x="32" y="41" text-anchor="middle" fill="#10261f" font-size="20" font-weight="700">1</text>
+      <text x="24" y="80" fill="#fffef8" font-size="22" font-weight="700">Local copy</text>
+      <text x="24" y="112" fill="#d6e2d5" font-size="15">Exists in this browser.</text>
+      <text x="24" y="137" fill="#d6e2d5" font-size="15">Cloud is not confirmed.</text>
+    </g>
+    <path d="M247 217h38" stroke="#f2c66d" stroke-width="5"/><path d="m278 207 12 10-12 10" fill="none" stroke="#f2c66d" stroke-width="5"/>
+    <g transform="translate(300 140)">
+      <rect width="190" height="154" rx="16" fill="#213e34" stroke="#6f8a78"/>
+      <circle cx="32" cy="34" r="18" fill="#f2c66d"/><text x="32" y="41" text-anchor="middle" fill="#10261f" font-size="20" font-weight="700">2</text>
+      <text x="24" y="80" fill="#fffef8" font-size="22" font-weight="700">Pending / syncing</text>
+      <text x="24" y="112" fill="#d6e2d5" font-size="15">A request is in progress.</text>
+      <text x="24" y="137" fill="#d6e2d5" font-size="15">Do not call it success.</text>
+    </g>
+    <path d="M499 217h38" stroke="#f2c66d" stroke-width="5"/><path d="m530 207 12 10-12 10" fill="none" stroke="#f2c66d" stroke-width="5"/>
+    <g transform="translate(552 140)">
+      <rect width="160" height="154" rx="16" fill="#213e34" stroke="#6f8a78"/>
+      <circle cx="32" cy="34" r="18" fill="#aabd91"/><text x="32" y="41" text-anchor="middle" fill="#10261f" font-size="20" font-weight="700">3</text>
+      <text x="24" y="80" fill="#fffef8" font-size="22" font-weight="700">Cloud success</text>
+      <text x="24" y="112" fill="#d6e2d5" font-size="15">Visible confirmation</text>
+      <text x="24" y="137" fill="#d6e2d5" font-size="15">for this upload.</text>
+    </g>
+    <path d="M721 217h38" stroke="#f2c66d" stroke-width="5"/><path d="m752 207 12 10-12 10" fill="none" stroke="#f2c66d" stroke-width="5"/>
+    <g transform="translate(774 140)">
+      <rect width="138" height="154" rx="16" fill="#213e34" stroke="#6f8a78"/>
+      <circle cx="32" cy="34" r="18" fill="#aabd91"/><text x="32" y="41" text-anchor="middle" fill="#10261f" font-size="20" font-weight="700">4</text>
+      <text x="20" y="80" fill="#fffef8" font-size="20" font-weight="700">Device B</text>
+      <text x="20" y="110" fill="#d6e2d5" font-size="14">Loaded the</text>
+      <text x="20" y="133" fill="#d6e2d5" font-size="14">confirmed copy.</text>
+    </g>
+    <rect x="48" y="338" width="864" height="122" rx="16" fill="#f7f2df"/>
+    <text x="76" y="381" fill="#a73727" font-size="23" font-weight="700">If balances already disagree</text>
+    <text x="76" y="415" fill="#263c33" font-size="17">Preserve the device that still shows expected progress. Stop spending and repeated uploads.</text>
+    <text x="76" y="442" fill="#263c33" font-size="17">If no trusted copy is identifiable, keep both states unchanged and prepare a non-sensitive report.</text>
+  </g>
+</svg>

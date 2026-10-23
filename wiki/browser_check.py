@@ -89,6 +89,7 @@ def main():
         assert 'Enter 1–1000 pulls' in page.locator('#gacha-result').inner_text()
         report['tasks'].append('Gacha base probability, pity boundary and invalid input')
         page.goto(BASE+'/save-recovery/')
+        page.locator('#save-symptom').select_option('progress_missing')
         page.locator('#save-login').select_option('guest')
         page.locator('#save-copy').select_option('yes')
         page.locator('#save-state').select_option('pending')

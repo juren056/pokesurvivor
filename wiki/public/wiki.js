@@ -209,26 +209,31 @@ if(gacha){
 }
 const saveDiagnostic=document.querySelector('[data-save-diagnostic]');
 if(saveDiagnostic){
-  const game=saveDiagnostic.querySelector('#save-game'),login=saveDiagnostic.querySelector('#save-login'),copy=saveDiagnostic.querySelector('#save-copy'),state=saveDiagnostic.querySelector('#save-state'),second=saveDiagnostic.querySelector('#save-second'),timing=saveDiagnostic.querySelector('#save-timing');
+  const symptom=saveDiagnostic.querySelector('#save-symptom'),game=saveDiagnostic.querySelector('#save-game'),login=saveDiagnostic.querySelector('#save-login'),copy=saveDiagnostic.querySelector('#save-copy'),state=saveDiagnostic.querySelector('#save-state'),second=saveDiagnostic.querySelector('#save-second'),timing=saveDiagnostic.querySelector('#save-timing');
   const result=saveDiagnostic.querySelector('#save-result'),report=saveDiagnostic.querySelector('#save-report'),run=saveDiagnostic.querySelector('[data-diagnostic-run]'),copyButton=saveDiagnostic.querySelector('[data-report-copy]');
   const labels=select=>select.selectedOptions[0].textContent.trim();
   function diagnose(){
     let next;
-    if(copy.value==='yes'&&(second.value==='no'||state.value!=='success'))next=wikiText('savePreserveMismatch','Preserve the original device and its browser profile. Saved locally, pending, syncing, cloud success and loaded on the second device are different states. Do not clear site data or upload an older copy while investigating.');
+    if(symptom.value==='coins_differ'&&copy.value!=='yes')next=wikiText('saveCoinsUnknown','Coin balances disagree and no single trusted copy is confirmed. Stop spending and repeated saves on both devices. Keep both browser profiles unchanged and prepare a non-sensitive report; this checklist cannot restore coins.');
+    else if(symptom.value==='coins_differ'&&state.value!=='success')next=wikiText('saveCoinsPreserve','Keep the device that still shows the expected coins and progress unchanged. Pending, syncing, offline and local do not confirm a cloud upload. Do not upload the other device’s older or zero-balance copy.');
+    else if(symptom.value==='coins_differ'&&second.value==='no')next=wikiText('saveCoinsCloudMismatch','Cloud Save is visibly successful but the second device still differs. Preserve both states, stop repeated writes and report the device/browser categories and game version to the developer without private account data.');
+    else if(symptom.value==='shiny_missing')next=wikiText('saveShinyMissing','Preserve the current browser data and record the partner, active filters and visible version. A missing shiny report does not establish a cache or sync cause; do not clear storage or repeatedly upload another copy.');
+    else if(copy.value==='yes'&&(second.value==='no'||state.value!=='success'))next=wikiText('savePreserveMismatch','Preserve the original device and its browser profile. Saved locally, pending, syncing, cloud success and loaded on the second device are different states. Do not clear site data or upload an older copy while investigating.');
     else if(copy.value==='yes')next=wikiText('savePreserve','Preserve that browser and profile. Do not clear site data or uninstall the PWA. Link the account only through the official game if it is safe to do so.');
     else if(login.value==='linked')next=wikiText('saveLinked','On the official domain, use Sign in with Google with the same linked Gmail. If progress stays missing, contact the developer with this non-sensitive report.');
     else if(login.value==='guest')next=wikiText('saveGuest','Recovery is uncertain for an unlinked guest. Keep the original browser and profile unchanged and contact the developer; do not trust a site asking for credentials or a save upload.');
     else next=wikiText('saveUnknown','Recovery is uncertain. Preserve any remaining browser data and contact the developer with non-sensitive facts before trying destructive changes.');
     result.textContent=next;
     report.value=[
-      'PokéSurvivor recovery report (no credentials or save data)',
-      `Device handoff: ${labels(game)}`,
-      `Account state: ${labels(login)}`,
-      `Original device complete: ${labels(copy)}`,
-      `Original save state: ${labels(state)}`,
-      `Second device same collection: ${labels(second)}`,
-      `Difference appeared: ${labels(timing)}`,
-      `Safe next step: ${next}`
+      wikiText('saveReportTitle','PokéSurvivor recovery report (no credentials or save data)'),
+      `${wikiText('saveReportSymptom','Visible symptom')}: ${labels(symptom)}`,
+      `${wikiText('saveReportHandoff','Device handoff')}: ${labels(game)}`,
+      `${wikiText('saveReportAccount','Account state')}: ${labels(login)}`,
+      `${wikiText('saveReportCopy','Original device complete')}: ${labels(copy)}`,
+      `${wikiText('saveReportState','Original save state')}: ${labels(state)}`,
+      `${wikiText('saveReportSecond','Second device same collection')}: ${labels(second)}`,
+      `${wikiText('saveReportTiming','Difference appeared')}: ${labels(timing)}`,
+      `${wikiText('saveReportNext','Safe next step')}: ${next}`
     ].join('\n');
     copyButton.disabled=false;
   }
@@ -248,6 +253,8 @@ if(coopDiagnostic){
       if(network.value==='different')steps.push(wikiText('coopDifferent','The current client prefers a direct connection and can use the TURN pilot for authorized accounts. Without credentials it continues with STUN only; this does not prove universal service availability.'));
       if(network.value==='same')steps.push(wikiText('coopSame','The same network does not rule out another cause. Record the result without resetting accounts or deleting data.'));
     }
+    if(stage.value==='lag')steps.push(wikiText('coopLag','You are still connected, so separate movement stutter from a card-selection pause. Record which player is choosing, who sees the slowdown and whether the timer continues; the reconnect fix does not prove all lag is resolved.'));
+    if(stage.value==='disconnect')steps.push(wikiText('coopDisconnect','For a direct connection that had already started, the current source can pause the guest for up to 45 seconds while reconnecting. Record whether the player recovered, waited in the room or left completely; the window is not a recovery guarantee.'));
     if(stage.value==='boss')steps.push(wikiText('coopBoss','This is a running-game issue. The October 19 changelog describes a far-away boss spawning fix; check the visible version and whether it still repeats.'));
     if(stage.value==='move')steps.push(wikiText('coopMove','Record the move, level, evolution state, partner, mode and game version. Issue #232 is a player report, not proof that every move is broken.'));
     steps.push(wikiText('coopReport','Record the exact message, host or join role, browser/device category and approximate time. Remove nicknames, IP addresses and private details.'));

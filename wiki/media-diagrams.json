@@ -170,5 +170,19 @@
     "created": "2026-10-20",
     "source": "Pinned game source 018e986; js/data/changelog.js, js/data/moves.js, js/data/starters.js, js/data/upgrades.js, js/data/types.js, js/systems/levelup.js, infra/coturn/README.md",
     "rights": "Original SVG diagram authored for this Wiki; source-derived mechanics, no third-party sprite artwork."
+  },
+  {
+    "id": "coins-sync-states",
+    "kind": "diagram",
+    "caption": "Separate local, pending, cloud-confirmed and second-device-loaded states before changing either copy.",
+    "alt": "Local save, pending upload, confirmed cloud save and second-device load are separate states",
+    "pages": [
+      "save-recovery"
+    ],
+    "width": 960,
+    "height": 520,
+    "created": "2026-10-23",
+    "source": "Pinned game source 6f0f440; player report #305; diagram records diagnostic states and does not claim recovery.",
+    "rights": "Original SVG diagram authored for this Wiki; source-derived diagnostic flow, no third-party artwork."
   }
 ]
