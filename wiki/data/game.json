@@ -1,14 +1,14 @@
 {
   "source": {
     "repository": "https://github.com/JPTER78/pokesurvivor",
-    "commit": "ce5785313b0205af8b9477423f64b0a7b7039dcd",
-    "verified": "2026-10-22",
+    "commit": "6f0f4409f68adcc5bc31a77cafaf8ba9a0318397",
+    "verified": "2026-10-23",
     "files": {
       "js/core/util.js": "cbe280d866fcbbe7a603d5c60c708eecd556f17b7ec0f1dd58c1d4548ab9ccc4",
       "js/core/locales.js": "42c7e152f59953eead02b3a46607d0efcf19677af5f1037e8f43babb3da62bb2",
       "js/core/i18n.js": "1dc2985758785f45323c081b0e13da86128a379ea3792c87d6038b8a0b302aa8",
-      "js/data/lang-en.js": "b4cff58ffef9ac6b5f1125352b8c5609102dbd3e4f44d6ca03e466b8cea1d6de",
-      "js/data/lang-updates.js": "8a7b655d29fe613d5c6d265810ccb4793a1504d0562e924d565a9be5c6aceb34",
+      "js/data/lang-en.js": "72bfabea3bca752e7f65218258024e2fba928a0d69d05e19411ec60e0c80ba82",
+      "js/data/lang-updates.js": "2abd3b67653ba1c76e4db41805a1dfa1180c9736db0474ac6fe1ace5786b90e9",
       "js/data/pokedex.js": "43ec37ef3ac48452f9a72c51851a188e2375ec93cde9394b335612ad1e107369",
       "js/data/sprites-meta.js": "c719091bb7ce284bce5b4fdc93eeb0b93a096f1302e8e3466142de05323b311a",
       "js/data/moves.js": "ecd20a27cfc9cf4e41abd73a278eee5c22b3d4157c7145ae34a7377365341c13",
@@ -21,7 +21,9 @@
       "js/data/ability-fx.js": "a58bbb526ec3c562af20cb32928338b916246f29e914137374a0a5dd1ec240e9",
       "js/data/shop.js": "3c723bdf86983ca413e6d68ba815274c08b591c86307905e8aed696eafea915f",
       "js/systems/gacha.js": "957b89be9521070c366e1ae21c6bdcf5f96899e5ea0c71cafd712289d11eea15",
-      "js/data/changelog.js": "69c4dd25385b77fad0a3d74afc861c8d39a58c96fefb000302319e18a27fec1a",
+      "js/data/changelog.js": "865fecb1ab733b368afe42e539cd755125d842677288e9c5fa30f4c8d35079ed",
+      "js/lang/it.js": "5cb612891eacf1e8e9e44193e497b13280ffed57c3f118dcf091a6376acd3718",
+      "js/lang/zh-Hant.js": "745f1abe30ac47ab38570a205d035764315dfbac43bf688494275cf006308ac0",
       "README.md": "85bb64fba46cd439523cbf378c5154dfb45b87bc9c93966949f73f27137e190a",
       "js/systems/levelup.js": "b40e9d02b19c8f695818aea6f46417518d6d9e083aa210c02c2cb0ce9779dd63",
       "sw.js": "195a017cb8cfc56036b3ae34c08c269f8173621d264a3392651624cbeaabecd4",
@@ -40,7 +42,7 @@
       "js/systems/mons.js": "4732470f436b8c32cdc3e04ce13132c23a89a1cc43ff89ef366bc5d8dacc524e",
       "js/systems/rift.js": "2c27b749de34a0f7be0a53e5499e1591837dd1b5c9b1d54f440493b894c50f76",
       "js/systems/spawner.js": "34a2dda00ad0c3f485b8c7a512b4924949a4fadb073df845418581e6d1128fd9",
-      "js/net/coop.js": "0abba633f5832ec83e3e42aff81ae5bb2fba778aa93767093a5f09fba9006786"
+      "js/net/coop.js": "63956e7f55a1bc7cd203263968945d0b36f89d96133386daa3eb59f624c8579c"
     }
   },
   "dex": [
@@ -20234,7 +20236,7 @@
       "kind": "buff",
       "category": null,
       "buffStat": "patk",
-      "description": "不造成傷害：生效期間持續提升攻擊（物理）。",
+      "description": "Deals no damage: builds (physical) ATTACK while active.",
       "maxLevel": 5,
       "damage": null,
       "cooldown": 0.85,
@@ -20277,7 +20279,7 @@
       "kind": "buff",
       "category": null,
       "buffStat": "satk",
-      "description": "不造成傷害：生效期間持續提升特攻。",
+      "description": "Deals no damage: builds SPECIAL ATTACK while active.",
       "maxLevel": 5,
       "damage": null,
       "cooldown": 0.85,
@@ -20511,7 +20513,7 @@
       "arc": null,
       "upgrades": [
         {
-          "text": "+1 orbe",
+          "text": "+1 orb",
           "mods": {
             "count": 1
           }
@@ -20886,7 +20888,7 @@
       "arc": null,
       "upgrades": [
         {
-          "text": "+1 orbe",
+          "text": "+1 orb",
           "mods": {
             "count": 1
           }
@@ -21363,7 +21365,7 @@
       "arc": null,
       "upgrades": [
         {
-          "text": "+1 orbe",
+          "text": "+1 orb",
           "mods": {
             "count": 1
           }
@@ -22256,7 +22258,7 @@
       "kind": "buff",
       "category": null,
       "buffStat": "patk",
-      "description": "不造成傷害：比劍舞更快地提升攻擊（物理）。",
+      "description": "Deals no damage: builds (physical) ATTACK faster than Swords Dance.",
       "maxLevel": 5,
       "damage": null,
       "cooldown": 0.7,
@@ -23192,7 +23194,7 @@
       "kind": "charge",
       "category": "special",
       "buffStat": null,
-      "description": "短暫蓄力後射出貫穿一切的巨大光束。",
+      "description": "Charges for a moment and fires a huge beam that pierces everything.",
       "maxLevel": 5,
       "damage": 58,
       "cooldown": 2.2,
@@ -23214,7 +23216,7 @@
           }
         },
         {
-          "text": "蓄力更快、冷卻時間 -20%",
+          "text": "Charges faster and -20% cooldown",
           "mods": {
             "charge": 0.7,
             "cd": 0.8
@@ -23228,7 +23230,7 @@
         }
       ],
       "evolution": {
-        "name": "稜鏡鐳射",
+        "name": "Prismatic Laser",
         "stat": "atk",
         "requirement": "Power"
       }
@@ -23240,7 +23242,7 @@
       "kind": "spin",
       "category": "physical",
       "buffStat": null,
-      "description": "原地旋轉，多次攻擊周圍的一切。",
+      "description": "You spin in place, hitting everything around you several times.",
       "maxLevel": 5,
       "damage": 9,
       "cooldown": 1,
@@ -23255,19 +23257,19 @@
           }
         },
         {
-          "text": "半徑 +25%",
+          "text": "+25% radius",
           "mods": {
             "radius": 1.25
           }
         },
         {
-          "text": "旋轉圈數 +1",
+          "text": "+1 spin",
           "mods": {
             "count": 1
           }
         },
         {
-          "text": "冷卻時間 -25%、傷害 +30%",
+          "text": "-25% cooldown and +30% damage",
           "mods": {
             "cd": 0.75,
             "dmg": 1.3
@@ -23275,7 +23277,7 @@
         }
       ],
       "evolution": {
-        "name": "三重攻擊",
+        "name": "Tri Attack",
         "stat": "spd",
         "requirement": "Sprint"
       }
@@ -23287,7 +23289,7 @@
       "kind": "dash",
       "category": "physical",
       "buffStat": null,
-      "description": "全身包裹火焰向前衝刺，灼燒沿途的一切。",
+      "description": "You dash wrapped in flames, burning everything in your path.",
       "maxLevel": 5,
       "damage": 19,
       "cooldown": 0.8,
@@ -23322,7 +23324,7 @@
         }
       ],
       "evolution": {
-        "name": "高溫重壓",
+        "name": "Heat Crash",
         "stat": "spd",
         "requirement": "Sprint"
       }
@@ -23334,7 +23336,7 @@
       "kind": "vortex",
       "category": "special",
       "buffStat": null,
-      "description": "將敵人捲入中心並持續造成傷害的漩渦。",
+      "description": "A whirlpool that drags enemies into its center and keeps damaging them.",
       "maxLevel": 5,
       "damage": 8,
       "cooldown": 3,
@@ -23361,7 +23363,7 @@
           }
         },
         {
-          "text": "吸引力增強、傷害 +40%",
+          "text": "Pulls harder and +40% damage",
           "mods": {
             "pull": 1.4,
             "dmg": 1.4
@@ -23369,7 +23371,7 @@
         }
       ],
       "evolution": {
-        "name": "鹽水",
+        "name": "Brine",
         "stat": "rgn",
         "requirement": "Synthesis"
       }
@@ -23381,7 +23383,7 @@
       "kind": "bounce",
       "category": "physical",
       "buffStat": null,
-      "description": "在敵人之間來回彈跳的種子。",
+      "description": "A seed that bounces from enemy to enemy.",
       "maxLevel": 5,
       "damage": 10,
       "cooldown": 0.6,
@@ -23390,7 +23392,7 @@
       "arc": null,
       "upgrades": [
         {
-          "text": "彈跳次數 +1",
+          "text": "+1 bounce",
           "mods": {
             "bounce": 1
           }
@@ -23408,7 +23410,7 @@
           }
         },
         {
-          "text": "投射物 +1、彈跳次數 +1",
+          "text": "+1 projectile and +1 bounce",
           "mods": {
             "count": 1,
             "bounce": 1,
@@ -23417,7 +23419,7 @@
         }
       ],
       "evolution": {
-        "name": "木槌",
+        "name": "Wood Hammer",
         "stat": "atk",
         "requirement": "Power"
       }
@@ -23429,7 +23431,7 @@
       "kind": "homing",
       "category": "special",
       "buffStat": null,
-      "description": "追蹤敵人的能量球。",
+      "description": "A ball of energy that chases the enemy.",
       "maxLevel": 5,
       "damage": 19,
       "cooldown": 0.62,
@@ -23457,7 +23459,7 @@
           }
         },
         {
-          "text": "投射物 +1、傷害 +40%",
+          "text": "+1 projectile and +40% damage",
           "mods": {
             "count": 1,
             "dmg": 1.4
@@ -23477,7 +23479,7 @@
       "kind": "charge",
       "category": "special",
       "buffStat": null,
-      "description": "短暫吸收光芒，再化作巨大光束釋放。",
+      "description": "Absorbs light for a moment and releases it as a huge beam.",
       "maxLevel": 5,
       "damage": 62,
       "cooldown": 2.3,
@@ -23499,7 +23501,7 @@
           }
         },
         {
-          "text": "蓄力更快、冷卻時間 -20%",
+          "text": "Charges faster and -20% cooldown",
           "mods": {
             "charge": 0.7,
             "cd": 0.8
@@ -23513,7 +23515,7 @@
         }
       ],
       "evolution": {
-        "name": "日光刃",
+        "name": "Solar Blade",
         "stat": "cd",
         "requirement": "Reflexes"
       }
@@ -23525,7 +23527,7 @@
       "kind": "stun",
       "category": "special",
       "buffStat": null,
-      "description": "先在地面顯示範圍，再放出電流麻痺被擊中的敵人。",
+      "description": "A shock marked on the ground that paralyzes whoever it catches.",
       "maxLevel": 5,
       "damage": 22,
       "cooldown": 1.6,
@@ -23540,19 +23542,19 @@
           }
         },
         {
-          "text": "半徑 +25%",
+          "text": "+25% radius",
           "mods": {
             "radius": 1.25
           }
         },
         {
-          "text": "暈眩時間 +50%",
+          "text": "+50% stun",
           "mods": {
             "stun": 1.5
           }
         },
         {
-          "text": "冷卻時間 -25%、傷害 +30%",
+          "text": "-25% cooldown and +30% damage",
           "mods": {
             "cd": 0.75,
             "dmg": 1.3
@@ -23560,7 +23562,7 @@
         }
       ],
       "evolution": {
-        "name": "伏特攻擊",
+        "name": "Volt Tackle",
         "stat": "atk",
         "requirement": "Power"
       }
@@ -23572,7 +23574,7 @@
       "kind": "bounce",
       "category": "special",
       "buffStat": null,
-      "description": "在敵人之間跳躍的電球。",
+      "description": "An electric ball that jumps from enemy to enemy.",
       "maxLevel": 5,
       "damage": 10,
       "cooldown": 0.62,
@@ -23581,7 +23583,7 @@
       "arc": null,
       "upgrades": [
         {
-          "text": "彈跳次數 +1",
+          "text": "+1 bounce",
           "mods": {
             "bounce": 1
           }
@@ -23599,7 +23601,7 @@
           }
         },
         {
-          "text": "投射物 +1、彈跳次數 +1",
+          "text": "+1 projectile and +1 bounce",
           "mods": {
             "count": 1,
             "bounce": 1,
@@ -23608,7 +23610,7 @@
         }
       ],
       "evolution": {
-        "name": "電光",
+        "name": "Spark",
         "stat": "spd",
         "requirement": "Sprint"
       }
@@ -23620,7 +23622,7 @@
       "kind": "shove",
       "category": "special",
       "buffStat": null,
-      "description": "造成傷害並擊退身邊所有敵人的念力波。",
+      "description": "A mental wave that damages and pushes away everyone near you.",
       "maxLevel": 5,
       "damage": 16,
       "cooldown": 1.2,
@@ -23635,7 +23637,7 @@
           }
         },
         {
-          "text": "半徑 +25%",
+          "text": "+25% radius",
           "mods": {
             "radius": 1.25
           }
@@ -23647,7 +23649,7 @@
           }
         },
         {
-          "text": "擊退 +50%、傷害 +40%",
+          "text": "+50% push and +40% damage",
           "mods": {
             "knock": 1.5,
             "dmg": 1.4
@@ -23655,7 +23657,7 @@
         }
       ],
       "evolution": {
-        "name": "精神波",
+        "name": "Psywave",
         "stat": "def",
         "requirement": "Armor"
       }
@@ -23667,7 +23669,7 @@
       "kind": "homing",
       "category": "special",
       "buffStat": null,
-      "description": "追蹤敵人並使其減速的霧球。",
+      "description": "A ball of mist that chases the enemy and slows it down.",
       "maxLevel": 5,
       "damage": 13,
       "cooldown": 0.55,
@@ -23695,7 +23697,7 @@
           }
         },
         {
-          "text": "投射物 +1、傷害 +40%",
+          "text": "+1 projectile and +40% damage",
           "mods": {
             "count": 1,
             "dmg": 1.4
@@ -23703,7 +23705,7 @@
         }
       ],
       "evolution": {
-        "name": "潔淨光芒",
+        "name": "Luster Purge",
         "stat": "cd",
         "requirement": "Reflexes"
       }
@@ -23715,7 +23717,7 @@
       "kind": "bounce",
       "category": "special",
       "buffStat": null,
-      "description": "在敵人之間跳躍並使其中毒的酸液。",
+      "description": "An acid spray that jumps between enemies and poisons them.",
       "maxLevel": 5,
       "damage": 8,
       "cooldown": 0.66,
@@ -23724,7 +23726,7 @@
       "arc": null,
       "upgrades": [
         {
-          "text": "彈跳次數 +1",
+          "text": "+1 bounce",
           "mods": {
             "bounce": 1
           }
@@ -23742,7 +23744,7 @@
           }
         },
         {
-          "text": "投射物 +1、彈跳次數 +1",
+          "text": "+1 projectile and +1 bounce",
           "mods": {
             "count": 1,
             "bounce": 1,
@@ -23751,7 +23753,7 @@
         }
       ],
       "evolution": {
-        "name": "污泥波",
+        "name": "Sludge Wave",
         "stat": "rgn",
         "requirement": "Synthesis"
       }
@@ -23763,7 +23765,7 @@
       "kind": "vortex",
       "category": "physical",
       "buffStat": null,
-      "description": "困住並拖曳敵人的沙之漩渦。",
+      "description": "A sand vortex that traps and drags enemies in.",
       "maxLevel": 5,
       "damage": 9,
       "cooldown": 3,
@@ -23790,7 +23792,7 @@
           }
         },
         {
-          "text": "吸引力增強、傷害 +40%",
+          "text": "Pulls harder and +40% damage",
           "mods": {
             "pull": 1.4,
             "dmg": 1.4
@@ -23798,7 +23800,7 @@
         }
       ],
       "evolution": {
-        "name": "十萬馬力",
+        "name": "High Horsepower",
         "stat": "hp",
         "requirement": "Vigor"
       }
@@ -23810,7 +23812,7 @@
       "kind": "quake",
       "category": "physical",
       "buffStat": null,
-      "description": "前方地面一波接一波地呈直線爆裂。",
+      "description": "The ground bursts in a line in front of you, wave after wave.",
       "maxLevel": 5,
       "damage": 18,
       "cooldown": 1.15,
@@ -23819,7 +23821,7 @@
       "arc": null,
       "upgrades": [
         {
-          "text": "波數 +2",
+          "text": "+2 waves",
           "mods": {
             "count": 2
           }
@@ -23831,13 +23833,13 @@
           }
         },
         {
-          "text": "體積 +25%",
+          "text": "+25% size",
           "mods": {
             "radius": 1.25
           }
         },
         {
-          "text": "冷卻時間 -25%、波數 +2",
+          "text": "-25% cooldown and +2 waves",
           "mods": {
             "cd": 0.75,
             "count": 2
@@ -23845,7 +23847,7 @@
         }
       ],
       "evolution": {
-        "name": "直衝鑽",
+        "name": "Drill Run",
         "stat": "atk",
         "requirement": "Power"
       }
@@ -23857,7 +23859,7 @@
       "kind": "shove",
       "category": "special",
       "buffStat": null,
-      "description": "吹飛身邊所有敵人的狂風。",
+      "description": "A gust of wind that sweeps away everyone near you.",
       "maxLevel": 5,
       "damage": 14,
       "cooldown": 1.1,
@@ -23872,7 +23874,7 @@
           }
         },
         {
-          "text": "半徑 +25%",
+          "text": "+25% radius",
           "mods": {
             "radius": 1.25
           }
@@ -23884,7 +23886,7 @@
           }
         },
         {
-          "text": "擊退 +50%、傷害 +40%",
+          "text": "+50% push and +40% damage",
           "mods": {
             "knock": 1.5,
             "dmg": 1.4
@@ -23892,7 +23894,7 @@
         }
       ],
       "evolution": {
-        "name": "暴風",
+        "name": "Hurricane",
         "stat": "spd",
         "requirement": "Sprint"
       }
@@ -23904,7 +23906,7 @@
       "kind": "homing",
       "category": "special",
       "buffStat": null,
-      "description": "追蹤敵人的兩道空氣之刃。",
+      "description": "Two blades of air that seek out the enemy.",
       "maxLevel": 5,
       "damage": 9,
       "cooldown": 0.55,
@@ -23932,7 +23934,7 @@
           }
         },
         {
-          "text": "投射物 +1、傷害 +40%",
+          "text": "+1 projectile and +40% damage",
           "mods": {
             "count": 1,
             "dmg": 1.4
@@ -23940,7 +23942,7 @@
         }
       ],
       "evolution": {
-        "name": "神鳥猛擊",
+        "name": "Sky Attack",
         "stat": "cd",
         "requirement": "Reflexes"
       }
@@ -23952,7 +23954,7 @@
       "kind": "bounce",
       "category": "special",
       "buffStat": null,
-      "description": "在敵人之間彈跳的閃光。",
+      "description": "A flash that bounces between enemies.",
       "maxLevel": 5,
       "damage": 10,
       "cooldown": 0.6,
@@ -23961,7 +23963,7 @@
       "arc": null,
       "upgrades": [
         {
-          "text": "彈跳次數 +1",
+          "text": "+1 bounce",
           "mods": {
             "bounce": 1
           }
@@ -23979,7 +23981,7 @@
           }
         },
         {
-          "text": "投射物 +1、彈跳次數 +1",
+          "text": "+1 projectile and +1 bounce",
           "mods": {
             "count": 1,
             "bounce": 1,
@@ -23988,7 +23990,7 @@
         }
       ],
       "evolution": {
-        "name": "超級角擊",
+        "name": "Megahorn",
         "stat": "atk",
         "requirement": "Power"
       }
@@ -24000,7 +24002,7 @@
       "kind": "dash",
       "category": "physical",
       "buffStat": null,
-      "description": "穿過敵群，攻擊沿途所有敵人。",
+      "description": "You dash through the enemies, hitting everyone in your path.",
       "maxLevel": 5,
       "damage": 17,
       "cooldown": 0.7,
@@ -24035,7 +24037,7 @@
         }
       ],
       "evolution": {
-        "name": "吸血",
+        "name": "Leech Life",
         "stat": "rgn",
         "requirement": "Synthesis"
       }
@@ -24047,7 +24049,7 @@
       "kind": "stun",
       "category": "physical",
       "buffStat": null,
-      "description": "岩石落在地面標示的位置，困住被擊中的敵人。",
+      "description": "Rocks fall where the ground warns, trapping whoever they catch.",
       "maxLevel": 5,
       "damage": 31,
       "cooldown": 1.7,
@@ -24062,19 +24064,19 @@
           }
         },
         {
-          "text": "半徑 +25%",
+          "text": "+25% radius",
           "mods": {
             "radius": 1.25
           }
         },
         {
-          "text": "暈眩時間 +50%",
+          "text": "+50% stun",
           "mods": {
             "stun": 1.5
           }
         },
         {
-          "text": "冷卻時間 -25%、傷害 +30%",
+          "text": "-25% cooldown and +30% damage",
           "mods": {
             "cd": 0.75,
             "dmg": 1.3
@@ -24082,7 +24084,7 @@
         }
       ],
       "evolution": {
-        "name": "雙刃頭錘",
+        "name": "Head Smash",
         "stat": "hp",
         "requirement": "Vigor"
       }
@@ -24094,7 +24096,7 @@
       "kind": "orbit",
       "category": "special",
       "buffStat": null,
-      "description": "在你周圍環繞的遠古岩石。",
+      "description": "Ancient rocks that circle around you.",
       "maxLevel": 5,
       "damage": 13,
       "cooldown": 0.28,
@@ -24103,7 +24105,7 @@
       "arc": null,
       "upgrades": [
         {
-          "text": "+1 orbe",
+          "text": "+1 orb",
           "mods": {
             "count": 1
           }
@@ -24130,7 +24132,7 @@
         }
       ],
       "evolution": {
-        "name": "鑽石風暴",
+        "name": "Diamond Storm",
         "stat": "def",
         "requirement": "Armor"
       }
@@ -24142,7 +24144,7 @@
       "kind": "bounce",
       "category": "special",
       "buffStat": null,
-      "description": "在敵人之間彈跳的寶石光芒。",
+      "description": "A gem flash that bounces from enemy to enemy.",
       "maxLevel": 5,
       "damage": 11,
       "cooldown": 0.66,
@@ -24151,7 +24153,7 @@
       "arc": null,
       "upgrades": [
         {
-          "text": "彈跳次數 +1",
+          "text": "+1 bounce",
           "mods": {
             "bounce": 1
           }
@@ -24169,7 +24171,7 @@
           }
         },
         {
-          "text": "投射物 +1、彈跳次數 +1",
+          "text": "+1 projectile and +1 bounce",
           "mods": {
             "count": 1,
             "bounce": 1,
@@ -24178,7 +24180,7 @@
         }
       ],
       "evolution": {
-        "name": "流星光束",
+        "name": "Meteor Beam",
         "stat": "atk",
         "requirement": "Power"
       }
@@ -24190,7 +24192,7 @@
       "kind": "homing",
       "category": "physical",
       "buffStat": null,
-      "description": "追蹤敵人的極速冰片。",
+      "description": "Super fast shards that chase the enemy.",
       "maxLevel": 5,
       "damage": 9,
       "cooldown": 0.32,
@@ -24218,7 +24220,7 @@
           }
         },
         {
-          "text": "投射物 +1、傷害 +40%",
+          "text": "+1 projectile and +40% damage",
           "mods": {
             "count": 1,
             "dmg": 1.4
@@ -24226,7 +24228,7 @@
         }
       ],
       "evolution": {
-        "name": "冰錐",
+        "name": "Icicle Spear",
         "stat": "cd",
         "requirement": "Reflexes"
       }
@@ -24238,7 +24240,7 @@
       "kind": "stun",
       "category": "special",
       "buffStat": null,
-      "description": "先在地面顯示範圍，再以驟寒凍住被擊中的敵人。",
+      "description": "A sudden chill marked on the ground that freezes whoever it catches.",
       "maxLevel": 5,
       "damage": 24,
       "cooldown": 1.6,
@@ -24253,19 +24255,19 @@
           }
         },
         {
-          "text": "半徑 +25%",
+          "text": "+25% radius",
           "mods": {
             "radius": 1.25
           }
         },
         {
-          "text": "暈眩時間 +50%",
+          "text": "+50% stun",
           "mods": {
             "stun": 1.5
           }
         },
         {
-          "text": "冷卻時間 -25%、傷害 +30%",
+          "text": "-25% cooldown and +30% damage",
           "mods": {
             "cd": 0.75,
             "dmg": 1.3
@@ -24273,7 +24275,7 @@
         }
       ],
       "evolution": {
-        "name": "絕對零度",
+        "name": "Sheer Cold",
         "stat": "atk",
         "requirement": "Power"
       }
@@ -24285,7 +24287,7 @@
       "kind": "spin",
       "category": "physical",
       "buffStat": null,
-      "description": "旋轉踢擊周圍的一切。",
+      "description": "Spinning kicks that hit everything around you.",
       "maxLevel": 5,
       "damage": 11,
       "cooldown": 0.95,
@@ -24300,19 +24302,19 @@
           }
         },
         {
-          "text": "半徑 +25%",
+          "text": "+25% radius",
           "mods": {
             "radius": 1.25
           }
         },
         {
-          "text": "旋轉圈數 +1",
+          "text": "+1 spin",
           "mods": {
             "count": 1
           }
         },
         {
-          "text": "冷卻時間 -25%、傷害 +30%",
+          "text": "-25% cooldown and +30% damage",
           "mods": {
             "cd": 0.75,
             "dmg": 1.3
@@ -24320,7 +24322,7 @@
         }
       ],
       "evolution": {
-        "name": "飛膝踢",
+        "name": "High Jump Kick",
         "stat": "spd",
         "requirement": "Sprint"
       }
@@ -24332,7 +24334,7 @@
       "kind": "shove",
       "category": "special",
       "buffStat": null,
-      "description": "朝空中揮拳放出衝擊波，擊退敵人。",
+      "description": "A punch into the air that sends out a wave and pushes enemies away.",
       "maxLevel": 5,
       "damage": 17,
       "cooldown": 1.1,
@@ -24347,7 +24349,7 @@
           }
         },
         {
-          "text": "半徑 +25%",
+          "text": "+25% radius",
           "mods": {
             "radius": 1.25
           }
@@ -24359,7 +24361,7 @@
           }
         },
         {
-          "text": "擊退 +50%、傷害 +40%",
+          "text": "+50% push and +40% damage",
           "mods": {
             "knock": 1.5,
             "dmg": 1.4
@@ -24367,7 +24369,7 @@
         }
       ],
       "evolution": {
-        "name": "增強拳",
+        "name": "Power-Up Punch",
         "stat": "def",
         "requirement": "Armor"
       }
@@ -24379,7 +24381,7 @@
       "kind": "stun",
       "category": "physical",
       "buffStat": null,
-      "description": "在地面標示處打出猛烈一拳，使被擊中的敵人暈眩。",
+      "description": "A tremendous punch where the ground warns: it stuns whoever it catches.",
       "maxLevel": 5,
       "damage": 33,
       "cooldown": 1.7,
@@ -24394,19 +24396,19 @@
           }
         },
         {
-          "text": "半徑 +25%",
+          "text": "+25% radius",
           "mods": {
             "radius": 1.25
           }
         },
         {
-          "text": "暈眩時間 +50%",
+          "text": "+50% stun",
           "mods": {
             "stun": 1.5
           }
         },
         {
-          "text": "冷卻時間 -25%、傷害 +30%",
+          "text": "-25% cooldown and +30% damage",
           "mods": {
             "cd": 0.75,
             "dmg": 1.3
@@ -24414,7 +24416,7 @@
         }
       ],
       "evolution": {
-        "name": "百萬噸重拳",
+        "name": "Mega Punch",
         "stat": "atk",
         "requirement": "Power"
       }
@@ -24426,7 +24428,7 @@
       "kind": "homing",
       "category": "physical",
       "buffStat": null,
-      "description": "沿著地面潛行至敵人身邊的影子。",
+      "description": "A shadow that slips along the ground to the enemy.",
       "maxLevel": 5,
       "damage": 14,
       "cooldown": 0.45,
@@ -24454,7 +24456,7 @@
           }
         },
         {
-          "text": "投射物 +1、傷害 +40%",
+          "text": "+1 projectile and +40% damage",
           "mods": {
             "count": 1,
             "dmg": 1.4
@@ -24462,7 +24464,7 @@
         }
       ],
       "evolution": {
-        "name": "暗影爪",
+        "name": "Shadow Claw",
         "stat": "cd",
         "requirement": "Reflexes"
       }
@@ -24474,7 +24476,7 @@
       "kind": "vortex",
       "category": "special",
       "buffStat": null,
-      "description": "捲起敵人並持續造成傷害的不祥之風。",
+      "description": "A cursed wind that swirls enemies together and keeps damaging them.",
       "maxLevel": 5,
       "damage": 9,
       "cooldown": 3,
@@ -24501,7 +24503,7 @@
           }
         },
         {
-          "text": "吸引力增強、傷害 +40%",
+          "text": "Pulls harder and +40% damage",
           "mods": {
             "pull": 1.4,
             "dmg": 1.4
@@ -24509,7 +24511,7 @@
         }
       ],
       "evolution": {
-        "name": "暗影潛襲",
+        "name": "Shadow Force",
         "stat": "mag",
         "requirement": "Magnet"
       }
@@ -24521,7 +24523,7 @@
       "kind": "cone",
       "category": "special",
       "buffStat": null,
-      "description": "短距離扇形噴出的龍之吐息，可使敵人減速。",
+      "description": "A short fan of dragon breath that slows.",
       "maxLevel": 5,
       "damage": 7,
       "cooldown": 0.7,
@@ -24556,7 +24558,7 @@
         }
       ],
       "evolution": {
-        "name": "龍之波動",
+        "name": "Dragon Pulse",
         "stat": "atk",
         "requirement": "Power"
       }
@@ -24568,7 +24570,7 @@
       "kind": "melee",
       "category": "physical",
       "buffStat": null,
-      "description": "呈弧形揮出的龍之爪擊。",
+      "description": "A dragon claw swipe in an arc.",
       "maxLevel": 5,
       "damage": 23,
       "cooldown": 0.52,
@@ -24603,7 +24605,7 @@
         }
       ],
       "evolution": {
-        "name": "龍之俯衝",
+        "name": "Dragon Rush",
         "stat": "atk",
         "requirement": "Power"
       }
@@ -24615,7 +24617,7 @@
       "kind": "spin",
       "category": "physical",
       "buffStat": null,
-      "description": "旋轉著狂暴連擊，不讓任何敵人站著。",
+      "description": "A fury of spinning blows that leaves no one standing.",
       "maxLevel": 5,
       "damage": 12,
       "cooldown": 1.1,
@@ -24630,19 +24632,19 @@
           }
         },
         {
-          "text": "半徑 +25%",
+          "text": "+25% radius",
           "mods": {
             "radius": 1.25
           }
         },
         {
-          "text": "旋轉圈數 +1",
+          "text": "+1 spin",
           "mods": {
             "count": 1
           }
         },
         {
-          "text": "冷卻時間 -25%、傷害 +30%",
+          "text": "-25% cooldown and +30% damage",
           "mods": {
             "cd": 0.75,
             "dmg": 1.3
@@ -24650,7 +24652,7 @@
         }
       ],
       "evolution": {
-        "name": "龍箭",
+        "name": "Dragon Darts",
         "stat": "hp",
         "requirement": "Vigor"
       }
@@ -24662,7 +24664,7 @@
       "kind": "homing",
       "category": "special",
       "buffStat": null,
-      "description": "追蹤敵人的吻，命中時為你恢復少量體力。",
+      "description": "A kiss that chases the enemy and heals you a little when it hits.",
       "maxLevel": 5,
       "damage": 13,
       "cooldown": 0.55,
@@ -24690,7 +24692,7 @@
           }
         },
         {
-          "text": "投射物 +1、傷害 +40%",
+          "text": "+1 projectile and +40% damage",
           "mods": {
             "count": 1,
             "dmg": 1.4
@@ -24698,7 +24700,7 @@
         }
       ],
       "evolution": {
-        "name": "月光",
+        "name": "Moonlight",
         "stat": "rgn",
         "requirement": "Synthesis"
       }
@@ -24710,7 +24712,7 @@
       "kind": "melee",
       "category": "physical",
       "buffStat": null,
-      "description": "看似嬉鬧卻十分強力的弧形攻擊。",
+      "description": "A playful but very strong attack in an arc.",
       "maxLevel": 5,
       "damage": 26,
       "cooldown": 0.6,
@@ -24745,7 +24747,7 @@
         }
       ],
       "evolution": {
-        "name": "靈魂衝擊",
+        "name": "Spirit Break",
         "stat": "atk",
         "requirement": "Power"
       }
@@ -24757,7 +24759,7 @@
       "kind": "shove",
       "category": "special",
       "buffStat": null,
-      "description": "造成傷害並擊退身邊敵人的迷人叫聲。",
+      "description": "A charming cry that damages and pushes away those near you.",
       "maxLevel": 5,
       "damage": 15,
       "cooldown": 1.15,
@@ -24772,7 +24774,7 @@
           }
         },
         {
-          "text": "半徑 +25%",
+          "text": "+25% radius",
           "mods": {
             "radius": 1.25
           }
@@ -24784,7 +24786,7 @@
           }
         },
         {
-          "text": "擊退 +50%、傷害 +40%",
+          "text": "+50% push and +40% damage",
           "mods": {
             "knock": 1.5,
             "dmg": 1.4
@@ -24792,7 +24794,7 @@
         }
       ],
       "evolution": {
-        "name": "撒嬌",
+        "name": "Charm",
         "stat": "def",
         "requirement": "Armor"
       }
@@ -24804,7 +24806,7 @@
       "kind": "bounce",
       "category": "special",
       "buffStat": null,
-      "description": "在敵人之間彈跳的金屬閃光。",
+      "description": "A metallic flash that bounces between enemies.",
       "maxLevel": 5,
       "damage": 10,
       "cooldown": 0.64,
@@ -24813,7 +24815,7 @@
       "arc": null,
       "upgrades": [
         {
-          "text": "彈跳次數 +1",
+          "text": "+1 bounce",
           "mods": {
             "bounce": 1
           }
@@ -24831,7 +24833,7 @@
           }
         },
         {
-          "text": "投射物 +1、彈跳次數 +1",
+          "text": "+1 projectile and +1 bounce",
           "mods": {
             "count": 1,
             "bounce": 1,
@@ -24840,7 +24842,7 @@
         }
       ],
       "evolution": {
-        "name": "鐵蹄光線",
+        "name": "Steel Beam",
         "stat": "atk",
         "requirement": "Power"
       }
@@ -24852,7 +24854,7 @@
       "kind": "spin",
       "category": "physical",
       "buffStat": null,
-      "description": "像鋼球一樣旋轉，攻擊周圍的一切。",
+      "description": "You spin like a steel ball, hitting everything around.",
       "maxLevel": 5,
       "damage": 12,
       "cooldown": 1.05,
@@ -24867,19 +24869,19 @@
           }
         },
         {
-          "text": "半徑 +25%",
+          "text": "+25% radius",
           "mods": {
             "radius": 1.25
           }
         },
         {
-          "text": "旋轉圈數 +1",
+          "text": "+1 spin",
           "mods": {
             "count": 1
           }
         },
         {
-          "text": "冷卻時間 -25%、傷害 +30%",
+          "text": "-25% cooldown and +30% damage",
           "mods": {
             "cd": 0.75,
             "dmg": 1.3
@@ -24887,7 +24889,7 @@
         }
       ],
       "evolution": {
-        "name": "重磅衝撞",
+        "name": "Heavy Slam",
         "stat": "def",
         "requirement": "Armor"
       }
@@ -24899,7 +24901,7 @@
       "kind": "homing",
       "category": "physical",
       "buffStat": null,
-      "description": "追蹤敵人的偷襲一擊。",
+      "description": "A sneaky blow that seeks out the enemy.",
       "maxLevel": 5,
       "damage": 22,
       "cooldown": 0.7,
@@ -24927,7 +24929,7 @@
           }
         },
         {
-          "text": "投射物 +1、傷害 +40%",
+          "text": "+1 projectile and +40% damage",
           "mods": {
             "count": 1,
             "dmg": 1.4
@@ -24935,7 +24937,7 @@
         }
       ],
       "evolution": {
-        "name": "欺詐",
+        "name": "Foul Play",
         "stat": "atk",
         "requirement": "Power"
       }
@@ -24947,7 +24949,7 @@
       "kind": "spin",
       "category": "physical",
       "buffStat": null,
-      "description": "旋轉斬擊，命中周圍的一切。",
+      "description": "Spinning slashes that reach everything around you.",
       "maxLevel": 5,
       "damage": 11,
       "cooldown": 1,
@@ -24962,19 +24964,19 @@
           }
         },
         {
-          "text": "半徑 +25%",
+          "text": "+25% radius",
           "mods": {
             "radius": 1.25
           }
         },
         {
-          "text": "旋轉圈數 +1",
+          "text": "+1 spin",
           "mods": {
             "count": 1
           }
         },
         {
-          "text": "冷卻時間 -25%、傷害 +30%",
+          "text": "-25% cooldown and +30% damage",
           "mods": {
             "cd": 0.75,
             "dmg": 1.3
@@ -24982,7 +24984,7 @@
         }
       ],
       "evolution": {
-        "name": "DD金勾臂",
+        "name": "Darkest Lariat",
         "stat": "spd",
         "requirement": "Sprint"
       }
@@ -31875,7 +31877,13 @@
         "it": "Adattabilità",
         "zh-hant": "適應力"
       },
-      "effect": "與自身屬性相同的招式傷害+25%。",
+      "effects": {
+        "es": "+25 % de daño con los movimientos de sus tipos.",
+        "en": "+25% damage with moves of its own types.",
+        "it": "+25% di danni con le mosse dei suoi tipi.",
+        "zh-hant": "與自身屬性相同的招式傷害+25%。"
+      },
+      "effect": "+25% damage with moves of its own types.",
       "effectType": "specialized"
     },
     {
@@ -31886,7 +31894,13 @@
         "it": "Scoppio",
         "zh-hant": "引爆"
       },
-      "effect": "每局一次，體力較低時會爆炸，傷害周圍的敵人。",
+      "effects": {
+        "es": "Una vez por partida, al quedar con poca vida, explota y daña a los de alrededor.",
+        "en": "Once per run, when low on HP, it explodes and hurts everything around.",
+        "it": "Una volta per partita, quando ha pochi PS, esplode e ferisce chi ha intorno.",
+        "zh-hant": "每局一次，體力較低時會爆炸，傷害周圍的敵人。"
+      },
+      "effect": "Once per run, when low on HP, it explodes and hurts everything around.",
       "effectType": "specialized"
     },
     {
@@ -31896,6 +31910,12 @@
         "en": "Air Lock",
         "it": "Riparo",
         "zh-hant": "氣閘"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -31908,7 +31928,13 @@
         "it": "Ponderazione",
         "zh-hant": "分析"
       },
-      "effect": "對體力低於一半的敵人傷害+15%。",
+      "effects": {
+        "es": "+15 % de daño a enemigos con menos de la mitad de vida.",
+        "en": "+15% damage to enemies below half HP.",
+        "it": "+15% di danni ai nemici sotto metà PS.",
+        "zh-hant": "對體力低於一半的敵人傷害+15%。"
+      },
+      "effect": "+15% damage to enemies below half HP.",
       "effectType": "specialized"
     },
     {
@@ -31919,7 +31945,13 @@
         "it": "Grancollera",
         "zh-hant": "憤怒穴位"
       },
-      "effect": "第一次體力低於一半時會發怒：本局剩餘時間傷害+25%。",
+      "effects": {
+        "es": "La primera vez que baja de la mitad de vida se enfurece: +25 % de daño el resto de la partida.",
+        "en": "The first time it drops below half HP it gets angry: +25% damage for the rest of the run.",
+        "it": "La prima volta che scende sotto metà PS si infuria: +25% di danni per il resto della partita.",
+        "zh-hant": "第一次體力低於一半時會發怒：本局剩餘時間傷害+25%。"
+      },
+      "effect": "The first time it drops below half HP it gets angry: +25% damage for the rest of the run.",
       "effectType": "specialized"
     },
     {
@@ -31930,7 +31962,13 @@
         "it": "Presagio",
         "zh-hant": "危險預知"
       },
-      "effect": "察覺危險：能閃避6%的攻擊。",
+      "effects": {
+        "es": "Presiente el peligro: esquiva el 6 % de los golpes.",
+        "en": "Senses danger: dodges 6% of hits.",
+        "it": "Percepisce il pericolo: schiva il 6% dei colpi.",
+        "zh-hant": "察覺危險：能閃避6%的攻擊。"
+      },
+      "effect": "Senses danger: dodges 6% of hits.",
       "effectType": "specialized"
     },
     {
@@ -31940,6 +31978,12 @@
         "en": "Arena Trap",
         "it": "Trappoarena",
         "zh-hant": "沙穴"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -31952,6 +31996,12 @@
         "it": "Codarmatura",
         "zh-hant": "尾甲"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -31962,6 +32012,12 @@
         "en": "Aroma Veil",
         "it": "Aromavelo",
         "zh-hant": "芳香幕"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -31974,6 +32030,12 @@
         "it": "Frangiaura",
         "zh-hant": "氣場破壞"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -31984,6 +32046,12 @@
         "en": "Bad Dreams",
         "it": "Sogniamari",
         "zh-hant": "夢魘"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -31996,6 +32064,12 @@
         "it": "Raccattapalle",
         "zh-hant": "撿球"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -32006,6 +32080,12 @@
         "en": "Battery",
         "it": "Batteria",
         "zh-hant": "蓄電池"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32018,7 +32098,13 @@
         "it": "Lottascudo",
         "zh-hant": "戰鬥盔甲"
       },
-      "effect": "受到的傷害-8%。",
+      "effects": {
+        "es": "Recibe un 8 % menos de daño.",
+        "en": "Takes 8% less damage.",
+        "it": "Subisce l’8% di danni in meno.",
+        "zh-hant": "受到的傷害-8%。"
+      },
+      "effect": "Takes 8% less damage.",
       "effectType": "specialized"
     },
     {
@@ -32028,6 +32114,12 @@
         "en": "Beads of Ruin",
         "it": "Monile Nefasto",
         "zh-hant": "災禍之玉"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32040,7 +32132,13 @@
         "it": "Ultraboost",
         "zh-hant": "異獸提升"
       },
-      "effect": "每打倒一個敵人傷害+0.5%（最多+15%）。",
+      "effects": {
+        "es": "Cada enemigo derrotado le da +0,5 % de daño (hasta +15 %).",
+        "en": "Each enemy defeated gives +0.5% damage (up to +15%).",
+        "it": "Ogni nemico sconfitto dà +0,5% di danni (fino a +15%).",
+        "zh-hant": "每打倒一個敵人傷害+0.5%（最多+15%）。"
+      },
+      "effect": "Each enemy defeated gives +0.5% damage (up to +15%).",
       "effectType": "specialized"
     },
     {
@@ -32050,6 +32148,12 @@
         "en": "Berserk",
         "it": "Furore",
         "zh-hant": "怒火沖天"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32062,7 +32166,13 @@
         "it": "Pettinfuori",
         "zh-hant": "健壯胸肌"
       },
-      "effect": "受到的物理傷害-8%。",
+      "effects": {
+        "es": "Recibe un 8 % menos de daño físico.",
+        "en": "Takes 8% less physical damage.",
+        "it": "Subisce l’8% di danni fisici in meno.",
+        "zh-hant": "受到的物理傷害-8%。"
+      },
+      "effect": "Takes 8% less physical damage.",
       "effectType": "specialized"
     },
     {
@@ -32073,7 +32183,13 @@
         "it": "Aiutofuoco",
         "zh-hant": "猛火"
       },
-      "effect": "+35 % de daño de tipo Fuego con poca vida (menos de 1/3).",
+      "effects": {
+        "es": "+35 % de daño de tipo Fuego con poca vida (menos de 1/3).",
+        "en": "+35% Fire-type damage at low HP (under 1/3).",
+        "it": "+35% di danni di tipo Fuoco con pochi PS (meno di 1/3).",
+        "zh-hant": "體力較低時（不到1/3）火屬性傷害+35%。"
+      },
+      "effect": "+35% Fire-type damage at low HP (under 1/3).",
       "effectType": "specialized"
     },
     {
@@ -32084,7 +32200,13 @@
         "it": "Antiproiettile",
         "zh-hant": "防彈"
       },
-      "effect": "受到的特殊傷害-15%。",
+      "effects": {
+        "es": "Recibe un 15 % menos de daño especial.",
+        "en": "Takes 15% less special damage.",
+        "it": "Subisce il 15% di danni speciali in meno.",
+        "zh-hant": "受到的特殊傷害-15%。"
+      },
+      "effect": "Takes 15% less special damage.",
       "effectType": "specialized"
     },
     {
@@ -32094,6 +32216,12 @@
         "en": "Cheek Pouch",
         "it": "Guancegonfie",
         "zh-hant": "頰囊"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32106,7 +32234,13 @@
         "it": "Nitrito Bianco",
         "zh-hant": "蒼白嘶鳴"
       },
-      "effect": "每打倒一個敵人傷害+0.5%（最多+15%）。",
+      "effects": {
+        "es": "Cada enemigo derrotado le da +0,5 % de daño (hasta +15 %).",
+        "en": "Each enemy defeated gives +0.5% damage (up to +15%).",
+        "it": "Ogni nemico sconfitto dà +0,5% di danni (fino a +15%).",
+        "zh-hant": "每打倒一個敵人傷害+0.5%（最多+15%）。"
+      },
+      "effect": "Each enemy defeated gives +0.5% damage (up to +15%).",
       "effectType": "specialized"
     },
     {
@@ -32117,7 +32251,13 @@
         "it": "Clorofilla",
         "zh-hant": "葉綠素"
       },
-      "effect": "晴天時速度+50%。",
+      "effects": {
+        "es": "+50 % de velocidad con sol.",
+        "en": "+50% speed in sun.",
+        "it": "+50% di velocità con il sole.",
+        "zh-hant": "晴天時速度+50%。"
+      },
+      "effect": "+50% speed in sun.",
       "effectType": "specialized"
     },
     {
@@ -32128,7 +32268,13 @@
         "it": "Corpochiaro",
         "zh-hant": "恆淨之軀"
       },
-      "effect": "不會被黏性陷阱和地形減速。",
+      "effects": {
+        "es": "No le frenan las trampas pegajosas ni el terreno.",
+        "en": "Sticky traps and terrain do not slow it down.",
+        "it": "Le trappole appiccicose e il terreno non lo rallentano.",
+        "zh-hant": "不會被黏性陷阱和地形減速。"
+      },
+      "effect": "Sticky traps and terrain do not slow it down.",
       "effectType": "specialized"
     },
     {
@@ -32138,6 +32284,12 @@
         "en": "Cloud Nine",
         "it": "Antimeteo",
         "zh-hant": "無關天氣"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32150,6 +32302,12 @@
         "it": "Cambiacolore",
         "zh-hant": "變色"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -32160,6 +32318,12 @@
         "en": "Comatose",
         "it": "Sonno Assoluto",
         "zh-hant": "絕對睡眠"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32172,6 +32336,12 @@
         "it": "Torre di Comando",
         "zh-hant": "發號施令"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -32183,7 +32353,13 @@
         "it": "Tenacia",
         "zh-hant": "好勝"
       },
-      "effect": "被減速時會反擊：期間特殊傷害+20%。",
+      "effects": {
+        "es": "Si le frenan, se pica: +20 % de daño especial mientras dure.",
+        "en": "If it is slowed it fights back: +20% special damage while it lasts.",
+        "it": "Se viene rallentato si arrabbia: +20% di danni speciali finché dura.",
+        "zh-hant": "被減速時會反擊：期間特殊傷害+20%。"
+      },
+      "effect": "If it is slowed it fights back: +20% special damage while it lasts.",
       "effectType": "specialized"
     },
     {
@@ -32194,7 +32370,13 @@
         "it": "Insettocchi",
         "zh-hant": "複眼"
       },
-      "effect": "擊中要害機率+6%。",
+      "effects": {
+        "es": "+6 % de probabilidad de golpe crítico.",
+        "en": "+6% critical hit chance.",
+        "it": "+6% di probabilità di brutto colpo.",
+        "zh-hant": "擊中要害機率+6%。"
+      },
+      "effect": "+6% critical hit chance.",
       "effectType": "specialized"
     },
     {
@@ -32205,7 +32387,13 @@
         "it": "Inversione",
         "zh-hant": "唱反調"
       },
-      "effect": "反其道而行：被減速時反而變快。",
+      "effects": {
+        "es": "Al revés: frenado, va más rápido.",
+        "en": "The other way round: when slowed, it goes faster.",
+        "it": "Al contrario: quando è rallentato, va più veloce.",
+        "zh-hant": "反其道而行：被減速時反而變快。"
+      },
+      "effect": "The other way round: when slowed, it goes faster.",
       "effectType": "specialized"
     },
     {
@@ -32215,6 +32403,12 @@
         "en": "Corrosion",
         "it": "Corrosione",
         "zh-hant": "腐蝕"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32227,6 +32421,12 @@
         "it": "Lanugine",
         "zh-hant": "棉絮"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -32237,6 +32437,12 @@
         "en": "Cud Chew",
         "it": "Ruminante",
         "zh-hant": "反芻"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32249,7 +32455,13 @@
         "it": "Corpofunesto",
         "zh-hant": "詛咒之軀"
       },
-      "effect": "有時會讓近身攻擊牠的敵人減速。",
+      "effects": {
+        "es": "A veces frena a quien le golpea cuerpo a cuerpo.",
+        "en": "Sometimes slows whoever hits it in melee.",
+        "it": "A volte rallenta chi lo colpisce corpo a corpo.",
+        "zh-hant": "有時會讓近身攻擊牠的敵人減速。"
+      },
+      "effect": "Sometimes slows whoever hits it in melee.",
       "effectType": "specialized"
     },
     {
@@ -32260,7 +32472,13 @@
         "it": "Incantevole",
         "zh-hant": "迷人之軀"
       },
-      "effect": "近身攻擊牠的敵人會著迷（減速）。",
+      "effects": {
+        "es": "Quien le golpea cuerpo a cuerpo se queda embobado (frenado).",
+        "en": "Whoever hits it in melee is smitten (slowed).",
+        "it": "Chi lo colpisce corpo a corpo resta infatuato (rallentato).",
+        "zh-hant": "近身攻擊牠的敵人會著迷（減速）。"
+      },
+      "effect": "Whoever hits it in melee is smitten (slowed).",
       "effectType": "specialized"
     },
     {
@@ -32271,7 +32489,13 @@
         "it": "Umidità",
         "zh-hant": "濕氣"
       },
-      "effect": "不會受到自爆寶可夢的爆炸傷害。",
+      "effects": {
+        "es": "Las explosiones de los Pokémon kamikaze no le dañan.",
+        "en": "Explosions from kamikaze Pokémon do not hurt it.",
+        "it": "Le esplosioni dei Pokémon kamikaze non lo feriscono.",
+        "zh-hant": "不會受到自爆寶可夢的爆炸傷害。"
+      },
+      "effect": "Explosions from kamikaze Pokémon do not hurt it.",
       "effectType": "specialized"
     },
     {
@@ -32281,6 +32505,12 @@
         "en": "Dancer",
         "it": "Sincrodanza",
         "zh-hant": "舞者"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32293,6 +32523,12 @@
         "it": "Auratetra",
         "zh-hant": "暗黑氣場"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -32303,6 +32539,12 @@
         "en": "Dauntless Shield",
         "it": "Scudo Saldo",
         "zh-hant": "不屈之盾"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32315,6 +32557,12 @@
         "it": "Corposgargiante",
         "zh-hant": "鮮艷之軀"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -32326,7 +32574,13 @@
         "it": "Sconforto",
         "zh-hant": "軟弱"
       },
-      "effect": "玻璃大砲：體力高於一半時傷害+15%；低於一半時−25%。",
+      "effects": {
+        "es": "Cañón de cristal: +15 % de daño con más de la mitad de vida; con menos, −25 %.",
+        "en": "Glass cannon: +15% damage above half HP; below it, −25%.",
+        "it": "Cannone di vetro: +15% di danni sopra metà PS; sotto, −25%.",
+        "zh-hant": "玻璃大砲：體力高於一半時傷害+15%；低於一半時−25%。"
+      },
+      "effect": "Glass cannon: +15% damage above half HP; below it, −25%.",
       "effectType": "specialized"
     },
     {
@@ -32337,7 +32591,13 @@
         "it": "Agonismo",
         "zh-hant": "不服輸"
       },
-      "effect": "被減速時會反擊：期間物理傷害+20%。",
+      "effects": {
+        "es": "Si le frenan, se pica: +20 % de daño físico mientras dure.",
+        "en": "If it is slowed it fights back: +20% physical damage while it lasts.",
+        "it": "Se viene rallentato si arrabbia: +20% di danni fisici finché dura.",
+        "zh-hant": "被減速時會反擊：期間物理傷害+20%。"
+      },
+      "effect": "If it is slowed it fights back: +20% physical damage while it lasts.",
       "effectType": "specialized"
     },
     {
@@ -32347,6 +32607,12 @@
         "en": "Disguise",
         "it": "Fantasmanto",
         "zh-hant": "畫皮"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32359,6 +32625,12 @@
         "it": "Download",
         "zh-hant": "下載"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -32370,7 +32642,13 @@
         "it": "Dragomascelle",
         "zh-hant": "龍顎"
       },
-      "effect": "+20 % de daño con movimientos de tipo Dragón.",
+      "effects": {
+        "es": "+20 % de daño con movimientos de tipo Dragón.",
+        "en": "+20% damage with Dragon-type moves.",
+        "it": "+20% di danni con le mosse di tipo Drago.",
+        "zh-hant": "龍屬性招式傷害+20%。"
+      },
+      "effect": "+20% damage with Dragon-type moves.",
       "effectType": "specialized"
     },
     {
@@ -32381,7 +32659,13 @@
         "it": "Piovischio",
         "zh-hant": "降雨"
       },
-      "effect": "開局時和每3分鐘讓天氣變為下雨。",
+      "effects": {
+        "es": "Pone lluvia al empezar la partida y cada 3 minutos.",
+        "en": "Brings rain at the start of the run and every 3 minutes.",
+        "it": "Porta la pioggia all’inizio della partita e ogni 3 minuti.",
+        "zh-hant": "開局時和每3分鐘讓天氣變為下雨。"
+      },
+      "effect": "Brings rain at the start of the run and every 3 minutes.",
       "effectType": "specialized"
     },
     {
@@ -32392,7 +32676,13 @@
         "it": "Siccità",
         "zh-hant": "日照"
       },
-      "effect": "開局時和每3分鐘讓天氣變為晴天。",
+      "effects": {
+        "es": "Pone sol al empezar la partida y cada 3 minutos.",
+        "en": "Brings sun at the start of the run and every 3 minutes.",
+        "it": "Porta il sole all’inizio della partita e ogni 3 minuti.",
+        "zh-hant": "開局時和每3分鐘讓天氣變為晴天。"
+      },
+      "effect": "Brings sun at the start of the run and every 3 minutes.",
       "effectType": "specialized"
     },
     {
@@ -32403,7 +32693,13 @@
         "it": "Pellearsa",
         "zh-hant": "乾燥皮膚"
       },
-      "effect": "水屬性招式會為牠回復，下雨時回復體力，但受到的火屬性傷害+25%。",
+      "effects": {
+        "es": "El Agua le cura y con lluvia recupera vida, pero el Fuego le hace un 25 % más.",
+        "en": "Water heals it and rain restores HP, but Fire deals 25% more.",
+        "it": "L’Acqua lo cura e la pioggia gli fa recuperare PS, ma il Fuoco gli fa il 25% in più.",
+        "zh-hant": "水屬性招式會為牠回復，下雨時回復體力，但受到的火屬性傷害+25%。"
+      },
+      "effect": "Water heals it and rain restores HP, but Fire deals 25% more.",
       "effectType": "specialized"
     },
     {
@@ -32414,7 +32710,13 @@
         "it": "Sveglialampo",
         "zh-hant": "早起"
       },
-      "effect": "不會被黏性陷阱和地形減速。",
+      "effects": {
+        "es": "No le frenan las trampas pegajosas ni el terreno.",
+        "en": "Sticky traps and terrain do not slow it down.",
+        "it": "Le trappole appiccicose e il terreno non lo rallentano.",
+        "zh-hant": "不會被黏性陷阱和地形減速。"
+      },
+      "effect": "Sticky traps and terrain do not slow it down.",
       "effectType": "specialized"
     },
     {
@@ -32425,7 +32727,13 @@
         "it": "Mangiaterra",
         "zh-hant": "食土"
       },
-      "effect": "Los ataques de tipo Tierra no le hacen daño: le curan un poco.",
+      "effects": {
+        "es": "Los ataques de tipo Tierra no le hacen daño: le curan un poco.",
+        "en": "Ground-type attacks deal no damage: they heal it a little.",
+        "it": "Gli attacchi di tipo Terra non gli fanno danni: lo curano un po’.",
+        "zh-hant": "地面屬性攻擊不會造成傷害，反而回復少許體力。"
+      },
+      "effect": "Ground-type attacks deal no damage: they heal it a little.",
       "effectType": "specialized"
     },
     {
@@ -32436,7 +32744,13 @@
         "it": "Spargispora",
         "zh-hant": "孢子"
       },
-      "effect": "近身攻擊牠的敵人會被減速或中毒。",
+      "effects": {
+        "es": "Quien le golpea cuerpo a cuerpo se frena o se envenena.",
+        "en": "Whoever hits it in melee is slowed or poisoned.",
+        "it": "Chi lo colpisce corpo a corpo viene rallentato o avvelenato.",
+        "zh-hant": "近身攻擊牠的敵人會被減速或中毒。"
+      },
+      "effect": "Whoever hits it in melee is slowed or poisoned.",
       "effectType": "specialized"
     },
     {
@@ -32446,6 +32760,12 @@
         "en": "Electric Surge",
         "it": "Elettrogenesi",
         "zh-hant": "電氣製造者"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32458,6 +32778,12 @@
         "it": "Convertivolt",
         "zh-hant": "電力轉換"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -32468,6 +32794,12 @@
         "en": "Emergency Exit",
         "it": "Passoindietro",
         "zh-hant": "危險迴避"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32480,6 +32812,12 @@
         "it": "Aurafolletto",
         "zh-hant": "妖精氣場"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -32491,7 +32829,13 @@
         "it": "Filtro",
         "zh-hant": "過濾"
       },
-      "effect": "效果絕佳的攻擊對牠傷害-25%。",
+      "effects": {
+        "es": "Los ataques muy eficaces le hacen un 25 % menos.",
+        "en": "Super effective attacks deal 25% less.",
+        "it": "Gli attacchi superefficaci gli fanno il 25% in meno.",
+        "zh-hant": "效果絕佳的攻擊對牠傷害-25%。"
+      },
+      "effect": "Super effective attacks deal 25% less.",
       "effectType": "specialized"
     },
     {
@@ -32502,7 +32846,13 @@
         "it": "Corpodifuoco",
         "zh-hant": "火焰之軀"
       },
-      "effect": "近身攻擊牠的敵人會被灼傷。",
+      "effects": {
+        "es": "Quien le golpea cuerpo a cuerpo se quema.",
+        "en": "Whoever hits it in melee gets burned.",
+        "it": "Chi lo colpisce corpo a corpo si scotta.",
+        "zh-hant": "近身攻擊牠的敵人會被灼傷。"
+      },
+      "effect": "Whoever hits it in melee gets burned.",
       "effectType": "specialized"
     },
     {
@@ -32512,6 +32862,12 @@
         "en": "Flare Boost",
         "it": "Bruciaimpeto",
         "zh-hant": "受熱激升"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32524,7 +32880,13 @@
         "it": "Fuocardore",
         "zh-hant": "引火"
       },
-      "effect": "Los ataques de tipo Fuego no le hacen daño: le curan un poco.",
+      "effects": {
+        "es": "Los ataques de tipo Fuego no le hacen daño: le curan un poco.",
+        "en": "Fire-type attacks deal no damage: they heal it a little.",
+        "it": "Gli attacchi di tipo Fuoco non gli fanno danni: lo curano un po’.",
+        "zh-hant": "火屬性攻擊不會造成傷害，反而回復少許體力。"
+      },
+      "effect": "Fire-type attacks deal no damage: they heal it a little.",
       "effectType": "specialized"
     },
     {
@@ -32534,6 +32896,12 @@
         "en": "Flower Gift",
         "it": "Regalfiore",
         "zh-hant": "花之禮"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32546,6 +32914,12 @@
         "it": "Fiorvelo",
         "zh-hant": "花幕"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -32557,7 +32931,13 @@
         "it": "Morbidone",
         "zh-hant": "毛茸茸"
       },
-      "effect": "受到的物理傷害-30%。",
+      "effects": {
+        "es": "Recibe un 30 % menos de daño físico.",
+        "en": "Takes 30% less physical damage.",
+        "it": "Subisce il 30% di danni fisici in meno.",
+        "zh-hant": "受到的物理傷害-30%。"
+      },
+      "effect": "Takes 30% less physical damage.",
       "effectType": "specialized"
     },
     {
@@ -32567,6 +32947,12 @@
         "en": "Forecast",
         "it": "Previsioni",
         "zh-hant": "陰晴不定"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32579,7 +32965,13 @@
         "it": "Premonizione",
         "zh-hant": "預知夢"
       },
-      "effect": "察覺危險：能閃避6%的攻擊。",
+      "effects": {
+        "es": "Presiente el peligro: esquiva el 6 % de los golpes.",
+        "en": "Senses danger: dodges 6% of hits.",
+        "it": "Percepisce il pericolo: schiva il 6% dei colpi.",
+        "zh-hant": "察覺危險：能閃避6%的攻擊。"
+      },
+      "effect": "Senses danger: dodges 6% of hits.",
       "effectType": "specialized"
     },
     {
@@ -32590,7 +32982,13 @@
         "it": "Amicoscudo",
         "zh-hant": "友情防守"
       },
-      "effect": "受到的傷害-6%。",
+      "effects": {
+        "es": "Recibe un 6 % menos de daño.",
+        "en": "Takes 6% less damage.",
+        "it": "Subisce il 6% di danni in meno.",
+        "zh-hant": "受到的傷害-6%。"
+      },
+      "effect": "Takes 6% less damage.",
       "effectType": "specialized"
     },
     {
@@ -32601,7 +32999,13 @@
         "it": "Indagine",
         "zh-hant": "察覺"
       },
-      "effect": "能從更遠處吸取物品（磁力+20%）。",
+      "effects": {
+        "es": "Atrae los objetos desde más lejos (+20 % de imán).",
+        "en": "Pulls items from farther away (+20% magnet).",
+        "it": "Attira gli oggetti da più lontano (+20% di calamita).",
+        "zh-hant": "能從更遠處吸取物品（磁力+20%）。"
+      },
+      "effect": "Pulls items from farther away (+20% magnet).",
       "effectType": "specialized"
     },
     {
@@ -32612,7 +33016,13 @@
         "it": "Metalprotezione",
         "zh-hant": "金屬防護"
       },
-      "effect": "不會被黏性陷阱和地形減速。",
+      "effects": {
+        "es": "No le frenan las trampas pegajosas ni el terreno.",
+        "en": "Sticky traps and terrain do not slow it down.",
+        "it": "Le trappole appiccicose e il terreno non lo rallentano.",
+        "zh-hant": "不會被黏性陷阱和地形減速。"
+      },
+      "effect": "Sticky traps and terrain do not slow it down.",
       "effectType": "specialized"
     },
     {
@@ -32623,7 +33033,13 @@
         "it": "Foltopelo",
         "zh-hant": "毛皮大衣"
       },
-      "effect": "受到的物理傷害-40%。",
+      "effects": {
+        "es": "Recibe un 40 % menos de daño físico.",
+        "en": "Takes 40% less physical damage.",
+        "it": "Subisce il 40% di danni fisici in meno.",
+        "zh-hant": "受到的物理傷害-40%。"
+      },
+      "effect": "Takes 40% less physical damage.",
       "effectType": "specialized"
     },
     {
@@ -32633,6 +33049,12 @@
         "en": "Gale Wings",
         "it": "Aliraffica",
         "zh-hant": "疾風之翼"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32645,7 +33067,13 @@
         "it": "Voracità",
         "zh-hant": "貪吃鬼"
       },
-      "effect": "回復效果+40%。",
+      "effects": {
+        "es": "Las curas le curan un 40 % más.",
+        "en": "Healing heals it 40% more.",
+        "it": "Le cure lo curano il 40% in più.",
+        "zh-hant": "回復效果+40%。"
+      },
+      "effect": "Healing heals it 40% more.",
       "effectType": "specialized"
     },
     {
@@ -32655,6 +33083,12 @@
         "en": "Good as Gold",
         "it": "Corpo Aureo",
         "zh-hant": "黃金之軀"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32667,6 +33101,12 @@
         "it": "Viscosità",
         "zh-hant": "黏滑"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -32677,6 +33117,12 @@
         "en": "Grass Pelt",
         "it": "Peloderba",
         "zh-hant": "草之毛皮"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32689,6 +33135,12 @@
         "it": "Erbogenesi",
         "zh-hant": "青草製造者"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -32700,7 +33152,13 @@
         "it": "Nitrito Nero",
         "zh-hant": "漆黑嘶鳴"
       },
-      "effect": "每打倒一個敵人傷害+0.5%（最多+15%）。",
+      "effects": {
+        "es": "Cada enemigo derrotado le da +0,5 % de daño (hasta +15 %).",
+        "en": "Each enemy defeated gives +0.5% damage (up to +15%).",
+        "it": "Ogni nemico sconfitto dà +0,5% di danni (fino a +15%).",
+        "zh-hant": "每打倒一個敵人傷害+0.5%（最多+15%）。"
+      },
+      "effect": "Each enemy defeated gives +0.5% damage (up to +15%).",
       "effectType": "specialized"
     },
     {
@@ -32710,6 +33168,12 @@
         "en": "Gulp Missile",
         "it": "Inghiottimissile",
         "zh-hant": "一口飛彈"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32722,7 +33186,13 @@
         "it": "Dentistretti",
         "zh-hant": "毅力"
       },
-      "effect": "體力低於一半時物理傷害+30%。",
+      "effects": {
+        "es": "+30 % de daño físico con menos de la mitad de vida.",
+        "en": "+30% physical damage under half HP.",
+        "it": "+30% di danni fisici sotto metà PS.",
+        "zh-hant": "體力低於一半時物理傷害+30%。"
+      },
+      "effect": "+30% physical damage under half HP.",
       "effectType": "specialized"
     },
     {
@@ -32733,7 +33203,13 @@
         "it": "Coglibacche",
         "zh-hant": "收穫"
       },
-      "effect": "回復效果+30%。",
+      "effects": {
+        "es": "Las curas le curan un 30 % más.",
+        "en": "Healing heals it 30% more.",
+        "it": "Le cure lo curano il 30% in più.",
+        "zh-hant": "回復效果+30%。"
+      },
+      "effect": "Healing heals it 30% more.",
       "effectType": "specialized"
     },
     {
@@ -32744,7 +33220,13 @@
         "it": "Curacuore",
         "zh-hant": "治癒之心"
       },
-      "effect": "每秒回復0.3%體力。",
+      "effects": {
+        "es": "Recupera un 0,3 % de su vida por segundo.",
+        "en": "Recovers 0.3% of its HP per second.",
+        "it": "Recupera lo 0,3% dei PS al secondo.",
+        "zh-hant": "每秒回復0.3%體力。"
+      },
+      "effect": "Recovers 0.3% of its HP per second.",
       "effectType": "specialized"
     },
     {
@@ -32755,7 +33237,13 @@
         "it": "Antifuoco",
         "zh-hant": "耐熱"
       },
-      "effect": "受到的火屬性傷害減半。",
+      "effects": {
+        "es": "Recibe la mitad de daño de Fuego.",
+        "en": "Takes half damage from Fire.",
+        "it": "Subisce metà danni dal Fuoco.",
+        "zh-hant": "受到的火屬性傷害減半。"
+      },
+      "effect": "Takes half damage from Fire.",
       "effectType": "specialized"
     },
     {
@@ -32765,6 +33253,12 @@
         "en": "Heavy Metal",
         "it": "Metalpesante",
         "zh-hant": "重金屬"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32777,7 +33271,13 @@
         "it": "Mielincetta",
         "zh-hant": "採蜜"
       },
-      "effect": "對局中獲得的寶可幣+15%。",
+      "effects": {
+        "es": "+15 % de Pokémonedas en la partida.",
+        "en": "+15% PokéCoins in the run.",
+        "it": "+15% di Pokémonete nella partita.",
+        "zh-hant": "對局中獲得的寶可幣+15%。"
+      },
+      "effect": "+15% PokéCoins in the run.",
       "effectType": "specialized"
     },
     {
@@ -32787,6 +33287,12 @@
         "en": "Hospitality",
         "it": "Ospitalità",
         "zh-hant": "款待"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32799,7 +33305,13 @@
         "it": "Macroforza",
         "zh-hant": "大力士"
       },
-      "effect": "物理招式傷害+50%。",
+      "effects": {
+        "es": "+50 % de daño con movimientos físicos.",
+        "en": "+50% damage with physical moves.",
+        "it": "+50% di danni con le mosse fisiche.",
+        "zh-hant": "物理招式傷害+50%。"
+      },
+      "effect": "+50% damage with physical moves.",
       "effectType": "specialized"
     },
     {
@@ -32809,6 +33321,12 @@
         "en": "Hunger Switch",
         "it": "Pancialterna",
         "zh-hant": "飽了又餓"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32821,7 +33339,13 @@
         "it": "Tuttafretta",
         "zh-hant": "活力"
       },
-      "effect": "物理招式傷害+25%，但每6次物理攻擊有1次威力很弱。",
+      "effects": {
+        "es": "+25 % de daño con movimientos físicos, pero 1 de cada 6 golpes físicos sale flojo.",
+        "en": "+25% damage with physical moves, but 1 in 6 physical hits comes out weak.",
+        "it": "+25% di danni con le mosse fisiche, ma 1 colpo fisico su 6 è debole.",
+        "zh-hant": "物理招式傷害+25%，但每6次物理攻擊有1次威力很弱。"
+      },
+      "effect": "+25% damage with physical moves, but 1 in 6 physical hits comes out weak.",
       "effectType": "specialized"
     },
     {
@@ -32832,7 +33356,13 @@
         "it": "Idratazione",
         "zh-hant": "濕潤之軀"
       },
-      "effect": "下雨時每秒回復1%體力，且不會被減速。",
+      "effects": {
+        "es": "Con lluvia recupera un 1 % de vida por segundo y nada le frena.",
+        "en": "In rain it recovers 1% HP per second and nothing slows it.",
+        "it": "Con la pioggia recupera l’1% dei PS al secondo e niente lo rallenta.",
+        "zh-hant": "下雨時每秒回復1%體力，且不會被減速。"
+      },
+      "effect": "In rain it recovers 1% HP per second and nothing slows it.",
       "effectType": "specialized"
     },
     {
@@ -32843,7 +33373,13 @@
         "it": "Ipertaglio",
         "zh-hant": "怪力鉗"
       },
-      "effect": "物理招式傷害+6%。",
+      "effects": {
+        "es": "+6 % de daño con movimientos físicos.",
+        "en": "+6% damage with physical moves.",
+        "it": "+6% di danni con le mosse fisiche.",
+        "zh-hant": "物理招式傷害+6%。"
+      },
+      "effect": "+6% damage with physical moves.",
       "effectType": "specialized"
     },
     {
@@ -32854,7 +33390,13 @@
         "it": "Corpogelo",
         "zh-hant": "冰凍之軀"
       },
-      "effect": "下雪時每秒回復1.5%體力。",
+      "effects": {
+        "es": "Con nieve recupera un 1,5 % de vida por segundo.",
+        "en": "Recovers 1.5% HP per second in snow.",
+        "it": "Con la neve recupera l’1,5% dei PS al secondo.",
+        "zh-hant": "下雪時每秒回復1.5%體力。"
+      },
+      "effect": "Recovers 1.5% HP per second in snow.",
       "effectType": "specialized"
     },
     {
@@ -32864,6 +33406,12 @@
         "en": "Ice Face",
         "it": "Gelofaccia",
         "zh-hant": "結凍頭"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32876,7 +33424,13 @@
         "it": "Geloscaglie",
         "zh-hant": "冰鱗粉"
       },
-      "effect": "受到的特殊傷害-40%。",
+      "effects": {
+        "es": "Recibe un 40 % menos de daño especial.",
+        "en": "Takes 40% less special damage.",
+        "it": "Subisce il 40% di danni speciali in meno.",
+        "zh-hant": "受到的特殊傷害-40%。"
+      },
+      "effect": "Takes 40% less special damage.",
       "effectType": "specialized"
     },
     {
@@ -32887,7 +33441,13 @@
         "it": "Risplendi",
         "zh-hant": "發光"
       },
-      "effect": "能從更遠處吸取物品（磁力+10%）。",
+      "effects": {
+        "es": "Atrae los objetos desde más lejos (+10 % de imán).",
+        "en": "Pulls items from farther away (+10% magnet).",
+        "it": "Attira gli oggetti da più lontano (+10% di calamita).",
+        "zh-hant": "能從更遠處吸取物品（磁力+10%）。"
+      },
+      "effect": "Pulls items from farther away (+10% magnet).",
       "effectType": "specialized"
     },
     {
@@ -32897,6 +33457,12 @@
         "en": "Illusion",
         "it": "Illusione",
         "zh-hant": "幻覺"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32909,6 +33475,12 @@
         "it": "Immunità",
         "zh-hant": "免疫"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -32920,7 +33492,13 @@
         "it": "Sosia",
         "zh-hant": "變身者"
       },
-      "effect": "變身：攻擊和耐久都像均衡的寶可夢。",
+      "effects": {
+        "es": "Se transforma: pega y aguanta como un Pokémon equilibrado.",
+        "en": "Transforms: hits and endures like a balanced Pokémon.",
+        "it": "Si trasforma: colpisce e resiste come un Pokémon equilibrato.",
+        "zh-hant": "變身：攻擊和耐久都像均衡的寶可夢。"
+      },
+      "effect": "Transforms: hits and endures like a balanced Pokémon.",
       "effectType": "specialized"
     },
     {
@@ -32931,7 +33509,13 @@
         "it": "Intrapasso",
         "zh-hant": "穿透"
       },
-      "effect": "攻擊能擊破敵人的護盾。",
+      "effects": {
+        "es": "Sus golpes rompen los escudos de los enemigos.",
+        "en": "Its hits break enemy shields.",
+        "it": "I suoi colpi rompono gli scudi dei nemici.",
+        "zh-hant": "攻擊能擊破敵人的護盾。"
+      },
+      "effect": "Its hits break enemy shields.",
       "effectType": "specialized"
     },
     {
@@ -32941,6 +33525,12 @@
         "en": "Innards Out",
         "it": "Espellinterno",
         "zh-hant": "飛出的內在物"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32953,7 +33543,13 @@
         "it": "Forza Interiore",
         "zh-hant": "精神力"
       },
-      "effect": "不會被黏性陷阱和地形減速。",
+      "effects": {
+        "es": "No le frenan las trampas pegajosas ni el terreno.",
+        "en": "Sticky traps and terrain do not slow it down.",
+        "it": "Le trappole appiccicose e il terreno non lo rallentano.",
+        "zh-hant": "不會被黏性陷阱和地形減速。"
+      },
+      "effect": "Sticky traps and terrain do not slow it down.",
       "effectType": "specialized"
     },
     {
@@ -32964,7 +33560,13 @@
         "it": "Insonnia",
         "zh-hant": "不眠"
       },
-      "effect": "不會被黏性陷阱和地形減速。",
+      "effects": {
+        "es": "No le frenan las trampas pegajosas ni el terreno.",
+        "en": "Sticky traps and terrain do not slow it down.",
+        "it": "Le trappole appiccicose e il terreno non lo rallentano.",
+        "zh-hant": "不會被黏性陷阱和地形減速。"
+      },
+      "effect": "Sticky traps and terrain do not slow it down.",
       "effectType": "specialized"
     },
     {
@@ -32975,7 +33577,13 @@
         "it": "Prepotenza",
         "zh-hant": "威嚇"
       },
-      "effect": "敵人對牠造成的物理傷害-12%。",
+      "effects": {
+        "es": "Los enemigos le hacen un 12 % menos de daño físico.",
+        "en": "Enemies deal 12% less physical damage to it.",
+        "it": "I nemici gli infliggono il 12% di danni fisici in meno.",
+        "zh-hant": "敵人對牠造成的物理傷害-12%。"
+      },
+      "effect": "Enemies deal 12% less physical damage to it.",
       "effectType": "specialized"
     },
     {
@@ -32985,6 +33593,12 @@
         "en": "Intrepid Sword",
         "it": "Spada Indomita",
         "zh-hant": "不撓之劍"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -32997,7 +33611,13 @@
         "it": "Spineferrate",
         "zh-hant": "鐵刺"
       },
-      "effect": "近身攻擊牠的敵人會受到傷害。",
+      "effects": {
+        "es": "Quien le golpea cuerpo a cuerpo recibe daño.",
+        "en": "Whoever hits it in melee takes damage.",
+        "it": "Chi lo colpisce corpo a corpo subisce danni.",
+        "zh-hant": "近身攻擊牠的敵人會受到傷害。"
+      },
+      "effect": "Whoever hits it in melee takes damage.",
       "effectType": "specialized"
     },
     {
@@ -33008,7 +33628,13 @@
         "it": "Ferropugno",
         "zh-hant": "鐵拳"
       },
-      "effect": "拳類招式傷害+25%。",
+      "effects": {
+        "es": "+25 % de daño con los puñetazos.",
+        "en": "+25% damage with punches.",
+        "it": "+25% di danni con i pugni.",
+        "zh-hant": "拳類招式傷害+25%。"
+      },
+      "effect": "+25% damage with punches.",
       "effectType": "specialized"
     },
     {
@@ -33019,7 +33645,13 @@
         "it": "Giustizia",
         "zh-hant": "正義之心"
       },
-      "effect": "+15 % de daño a los Pokémon de tipo Siniestro.",
+      "effects": {
+        "es": "+15 % de daño a los Pokémon de tipo Siniestro.",
+        "en": "+15% damage to Dark-type Pokémon.",
+        "it": "+15% di danni ai Pokémon di tipo Buio.",
+        "zh-hant": "對惡屬性寶可夢的傷害+15%。"
+      },
+      "effect": "+15% damage to Dark-type Pokémon.",
       "effectType": "specialized"
     },
     {
@@ -33030,7 +33662,13 @@
         "it": "Sguardofermo",
         "zh-hant": "銳利目光"
       },
-      "effect": "擊中要害機率+5%。",
+      "effects": {
+        "es": "+5 % de probabilidad de golpe crítico.",
+        "en": "+5% critical hit chance.",
+        "it": "+5% di probabilità di brutto colpo.",
+        "zh-hant": "擊中要害機率+5%。"
+      },
+      "effect": "+5% critical hit chance.",
       "effectType": "specialized"
     },
     {
@@ -33041,7 +33679,13 @@
         "it": "Impaccio",
         "zh-hant": "笨拙"
       },
-      "effect": "沒有攜帶道具時傷害+12%。",
+      "effects": {
+        "es": "Sin objeto, +12 % de daño.",
+        "en": "Without an item, +12% damage.",
+        "it": "Senza strumento, +12% di danni.",
+        "zh-hant": "沒有攜帶道具時傷害+12%。"
+      },
+      "effect": "Without an item, +12% damage.",
       "effectType": "specialized"
     },
     {
@@ -33052,7 +33696,13 @@
         "it": "Fogliamanto",
         "zh-hant": "葉子防守"
       },
-      "effect": "晴天時不會被減速，受到的傷害-15%。",
+      "effects": {
+        "es": "Con sol no le frena nada y recibe un 15 % menos de daño.",
+        "en": "In sun nothing slows it and it takes 15% less damage.",
+        "it": "Con il sole niente lo rallenta e subisce il 15% di danni in meno.",
+        "zh-hant": "晴天時不會被減速，受到的傷害-15%。"
+      },
+      "effect": "In sun nothing slows it and it takes 15% less damage.",
       "effectType": "specialized"
     },
     {
@@ -33063,7 +33713,13 @@
         "it": "Levitazione",
         "zh-hant": "飄浮"
       },
-      "effect": "漂浮：不受水、熔岩和陷阱影響，地面屬性對牠傷害很低。",
+      "effects": {
+        "es": "Flota: no le afectan el agua, la lava ni las trampas, y la Tierra le hace muy poco.",
+        "en": "Floats: unaffected by water, lava and traps, and Ground barely hurts it.",
+        "it": "Fluttua: acqua, lava e trappole non lo toccano, e la Terra gli fa pochissimo.",
+        "zh-hant": "漂浮：不受水、熔岩和陷阱影響，地面屬性對牠傷害很低。"
+      },
+      "effect": "Floats: unaffected by water, lava and traps, and Ground barely hurts it.",
       "effectType": "specialized"
     },
     {
@@ -33074,7 +33730,13 @@
         "it": "Libero",
         "zh-hant": "自由者"
       },
-      "effect": "所有招式傷害+12%。",
+      "effects": {
+        "es": "+12 % de daño con todos sus movimientos.",
+        "en": "+12% damage with all its moves.",
+        "it": "+12% di danni con tutte le sue mosse.",
+        "zh-hant": "所有招式傷害+12%。"
+      },
+      "effect": "+12% damage with all its moves.",
       "effectType": "specialized"
     },
     {
@@ -33084,6 +33746,12 @@
         "en": "Light Metal",
         "it": "Metalleggero",
         "zh-hant": "輕金屬"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33096,7 +33764,13 @@
         "it": "Parafulmine",
         "zh-hant": "避雷針"
       },
-      "effect": "Los ataques de tipo Eléctrico no le hacen daño: le curan un poco.",
+      "effects": {
+        "es": "Los ataques de tipo Eléctrico no le hacen daño: le curan un poco.",
+        "en": "Electric-type attacks deal no damage: they heal it a little.",
+        "it": "Gli attacchi di tipo Elettro non gli fanno danni: lo curano un po’.",
+        "zh-hant": "電屬性攻擊不會造成傷害，反而回復少許體力。"
+      },
+      "effect": "Electric-type attacks deal no damage: they heal it a little.",
       "effectType": "specialized"
     },
     {
@@ -33107,7 +33781,13 @@
         "it": "Scioltezza",
         "zh-hant": "柔軟"
       },
-      "effect": "不會被黏性陷阱和地形減速。",
+      "effects": {
+        "es": "No le frenan las trampas pegajosas ni el terreno.",
+        "en": "Sticky traps and terrain do not slow it down.",
+        "it": "Le trappole appiccicose e il terreno non lo rallentano.",
+        "zh-hant": "不會被黏性陷阱和地形減速。"
+      },
+      "effect": "Sticky traps and terrain do not slow it down.",
       "effectType": "specialized"
     },
     {
@@ -33117,6 +33797,12 @@
         "en": "Lingering Aroma",
         "it": "Odore Tenace",
         "zh-hant": "甩不掉的氣味"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33129,6 +33815,12 @@
         "it": "Melma",
         "zh-hant": "污泥漿"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -33139,6 +33831,12 @@
         "en": "Liquid Voice",
         "it": "Idrovoce",
         "zh-hant": "濕潤之聲"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33151,6 +33849,12 @@
         "it": "Distacco",
         "zh-hant": "遠隔"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -33162,7 +33866,13 @@
         "it": "Magispecchio",
         "zh-hant": "魔法鏡"
       },
-      "effect": "受到的特殊傷害-15%，並能閃避10%的特殊攻擊。",
+      "effects": {
+        "es": "Recibe un 15 % menos de daño especial y esquiva el 10 % de esos golpes.",
+        "en": "Takes 15% less special damage and dodges 10% of those hits.",
+        "it": "Subisce il 15% di danni speciali in meno e schiva il 10% di quei colpi.",
+        "zh-hant": "受到的特殊傷害-15%，並能閃避10%的特殊攻擊。"
+      },
+      "effect": "Takes 15% less special damage and dodges 10% of those hits.",
       "effectType": "specialized"
     },
     {
@@ -33173,7 +33883,13 @@
         "it": "Magicscudo",
         "zh-hant": "魔法防守"
       },
-      "effect": "只會受到攻擊造成的傷害：熔岩和陷阱都無效。",
+      "effects": {
+        "es": "Sólo le hacen daño los ataques: ni la lava ni las trampas.",
+        "en": "Only attacks hurt it: not lava or traps.",
+        "it": "Solo gli attacchi lo feriscono: né lava né trappole.",
+        "zh-hant": "只會受到攻擊造成的傷害：熔岩和陷阱都無效。"
+      },
+      "effect": "Only attacks hurt it: not lava or traps.",
       "effectType": "specialized"
     },
     {
@@ -33183,6 +33899,12 @@
         "en": "Magician",
         "it": "Prestigiatore",
         "zh-hant": "魔術師"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33195,6 +33917,12 @@
         "it": "Magmascudo",
         "zh-hant": "熔岩鎧甲"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -33206,7 +33934,13 @@
         "it": "Magnetismo",
         "zh-hant": "磁力"
       },
-      "effect": "能從更遠處吸取物品（磁力+20%）。",
+      "effects": {
+        "es": "Atrae los objetos desde más lejos (+20 % de imán).",
+        "en": "Pulls items from farther away (+20% magnet).",
+        "it": "Attira gli oggetti da più lontano (+20% di calamita).",
+        "zh-hant": "能從更遠處吸取物品（磁力+20%）。"
+      },
+      "effect": "Pulls items from farther away (+20% magnet).",
       "effectType": "specialized"
     },
     {
@@ -33216,6 +33950,12 @@
         "en": "Marvel Scale",
         "it": "Pelledura",
         "zh-hant": "神奇鱗片"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33228,7 +33968,13 @@
         "it": "Megalancio",
         "zh-hant": "超級發射器"
       },
-      "effect": "波動和球類招式傷害+30%。",
+      "effects": {
+        "es": "+30 % de daño con los pulsos y esferas.",
+        "en": "+30% damage with pulses and spheres.",
+        "it": "+30% di danni con onde e sfere.",
+        "zh-hant": "波動和球類招式傷害+30%。"
+      },
+      "effect": "+30% damage with pulses and spheres.",
       "effectType": "specialized"
     },
     {
@@ -33238,6 +33984,12 @@
         "en": "Merciless",
         "it": "Spietatezza",
         "zh-hant": "不仁不義"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33250,7 +34002,13 @@
         "it": "Meno",
         "zh-hant": "負電"
       },
-      "effect": "特殊招式傷害+10%。",
+      "effects": {
+        "es": "+10 % de daño con movimientos especiales.",
+        "en": "+10% damage with special moves.",
+        "it": "+10% di danni con le mosse speciali.",
+        "zh-hant": "特殊招式傷害+10%。"
+      },
+      "effect": "+10% damage with special moves.",
       "effectType": "specialized"
     },
     {
@@ -33260,6 +34018,12 @@
         "en": "Mirror Armor",
         "it": "Blindospecchio",
         "zh-hant": "鏡甲"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33272,6 +34036,12 @@
         "it": "Nebbiogenesi",
         "zh-hant": "薄霧製造者"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -33283,7 +34053,13 @@
         "it": "Rompiforma",
         "zh-hant": "破格"
       },
-      "effect": "對首領的傷害+12%。",
+      "effects": {
+        "es": "+12 % de daño a los jefes.",
+        "en": "+12% damage to bosses.",
+        "it": "+12% di danni ai boss.",
+        "zh-hant": "對首領的傷害+12%。"
+      },
+      "effect": "+12% damage to bosses.",
       "effectType": "specialized"
     },
     {
@@ -33294,7 +34070,13 @@
         "it": "Altalena",
         "zh-hant": "心情不定"
       },
-      "effect": "每10秒隨機提升一項10%：攻擊、特攻、速度或防禦。",
+      "effects": {
+        "es": "Cada 10 s, +10 % a algo al azar: ataque, ataque especial, velocidad o defensa.",
+        "en": "Every 10 s, +10% to something at random: attack, special attack, speed or defense.",
+        "it": "Ogni 10 s, +10% a qualcosa a caso: attacco, attacco speciale, velocità o difesa.",
+        "zh-hant": "每10秒隨機提升一項10%：攻擊、特攻、速度或防禦。"
+      },
+      "effect": "Every 10 s, +10% to something at random: attack, special attack, speed or defense.",
       "effectType": "specialized"
     },
     {
@@ -33305,7 +34087,13 @@
         "it": "Elettrorapid",
         "zh-hant": "電氣引擎"
       },
-      "effect": "Los ataques de tipo Eléctrico no le hacen daño: le curan un poco.",
+      "effects": {
+        "es": "Los ataques de tipo Eléctrico no le hacen daño: le curan un poco.",
+        "en": "Electric-type attacks deal no damage: they heal it a little.",
+        "it": "Gli attacchi di tipo Elettro non gli fanno danni: lo curano un po’.",
+        "zh-hant": "電屬性攻擊不會造成傷害，反而回復少許體力。"
+      },
+      "effect": "Electric-type attacks deal no damage: they heal it a little.",
       "effectType": "specialized"
     },
     {
@@ -33316,7 +34104,13 @@
         "it": "Arroganza",
         "zh-hant": "自信過度"
       },
-      "effect": "每打倒一個敵人傷害+0.5%（最多+15%）。",
+      "effects": {
+        "es": "Cada enemigo derrotado le da +0,5 % de daño (hasta +15 %).",
+        "en": "Each enemy defeated gives +0.5% damage (up to +15%).",
+        "it": "Ogni nemico sconfitto dà +0,5% di danni (fino a +15%).",
+        "zh-hant": "每打倒一個敵人傷害+0.5%（最多+15%）。"
+      },
+      "effect": "Each enemy defeated gives +0.5% damage (up to +15%).",
       "effectType": "specialized"
     },
     {
@@ -33327,7 +34121,13 @@
         "it": "Multisquame",
         "zh-hant": "多重鱗片"
       },
-      "effect": "體力幾乎全滿時受到的傷害減半。",
+      "effects": {
+        "es": "Con la vida casi llena recibe la mitad de daño.",
+        "en": "Takes half damage while at (nearly) full HP.",
+        "it": "Subisce metà danni con i PS (quasi) al massimo.",
+        "zh-hant": "體力幾乎全滿時受到的傷害減半。"
+      },
+      "effect": "Takes half damage while at (nearly) full HP.",
       "effectType": "specialized"
     },
     {
@@ -33337,6 +34137,12 @@
         "en": "Multitype",
         "it": "Multitipo",
         "zh-hant": "多屬性"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33349,6 +34155,12 @@
         "it": "Mummia",
         "zh-hant": "木乃伊"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -33360,7 +34172,13 @@
         "it": "Alternacura",
         "zh-hant": "自然回復"
       },
-      "effect": "每秒回復0.3%體力。",
+      "effects": {
+        "es": "Recupera un 0,3 % de su vida por segundo.",
+        "en": "Recovers 0.3% of its HP per second.",
+        "it": "Recupera lo 0,3% dei PS al secondo.",
+        "zh-hant": "每秒回復0.3%體力。"
+      },
+      "effect": "Recovers 0.3% of its HP per second.",
       "effectType": "specialized"
     },
     {
@@ -33370,6 +34188,12 @@
         "en": "Neutralizing Gas",
         "it": "Gas Reagente",
         "zh-hant": "化學變化氣體"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33382,7 +34206,13 @@
         "it": "Nullodifesa",
         "zh-hant": "無防守"
       },
-      "effect": "攻擊必中：造成的傷害+15%，但受到的傷害+10%。",
+      "effects": {
+        "es": "Todo acierta: +15 % de daño hecho, pero recibe un 10 % más.",
+        "en": "Everything hits: +15% damage dealt, but takes 10% more.",
+        "it": "Tutto va a segno: +15% di danni inflitti, ma ne subisce il 10% in più.",
+        "zh-hant": "攻擊必中：造成的傷害+15%，但受到的傷害+10%。"
+      },
+      "effect": "Everything hits: +15% damage dealt, but takes 10% more.",
       "effectType": "specialized"
     },
     {
@@ -33392,6 +34222,12 @@
         "en": "Normalize",
         "it": "Normalità",
         "zh-hant": "一般皮膚"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33404,7 +34240,13 @@
         "it": "Indifferenza",
         "zh-hant": "遲鈍"
       },
-      "effect": "不會被黏性陷阱和地形減速。",
+      "effects": {
+        "es": "No le frenan las trampas pegajosas ni el terreno.",
+        "en": "Sticky traps and terrain do not slow it down.",
+        "it": "Le trappole appiccicose e il terreno non lo rallentano.",
+        "zh-hant": "不會被黏性陷阱和地形減速。"
+      },
+      "effect": "Sticky traps and terrain do not slow it down.",
       "effectType": "specialized"
     },
     {
@@ -33415,7 +34257,13 @@
         "it": "Ritmo d’Oricalco",
         "zh-hant": "緋紅脈動"
       },
-      "effect": "開局時和每3分鐘讓天氣變為晴天。",
+      "effects": {
+        "es": "Pone sol al empezar la partida y cada 3 minutos.",
+        "en": "Brings sun at the start of the run and every 3 minutes.",
+        "it": "Porta il sole all’inizio della partita e ogni 3 minuti.",
+        "zh-hant": "開局時和每3分鐘讓天氣變為晴天。"
+      },
+      "effect": "Brings sun at the start of the run and every 3 minutes.",
       "effectType": "specialized"
     },
     {
@@ -33426,7 +34274,13 @@
         "it": "Copricapo",
         "zh-hant": "防塵"
       },
-      "effect": "受到的特殊傷害-5%。",
+      "effects": {
+        "es": "Recibe un 5 % menos de daño especial.",
+        "en": "Takes 5% less special damage.",
+        "it": "Subisce il 5% di danni speciali in meno.",
+        "zh-hant": "受到的特殊傷害-5%。"
+      },
+      "effect": "Takes 5% less special damage.",
       "effectType": "specialized"
     },
     {
@@ -33437,7 +34291,13 @@
         "it": "Erbaiuto",
         "zh-hant": "茂盛"
       },
-      "effect": "+35 % de daño de tipo Planta con poca vida (menos de 1/3).",
+      "effects": {
+        "es": "+35 % de daño de tipo Planta con poca vida (menos de 1/3).",
+        "en": "+35% Grass-type damage at low HP (under 1/3).",
+        "it": "+35% di danni di tipo Erba con pochi PS (meno di 1/3).",
+        "zh-hant": "體力較低時（不到1/3）草屬性傷害+35%。"
+      },
+      "effect": "+35% Grass-type damage at low HP (under 1/3).",
       "effectType": "specialized"
     },
     {
@@ -33448,7 +34308,13 @@
         "it": "Mente Locale",
         "zh-hant": "我行我素"
       },
-      "effect": "不會被黏性陷阱和地形減速。",
+      "effects": {
+        "es": "No le frenan las trampas pegajosas ni el terreno.",
+        "en": "Sticky traps and terrain do not slow it down.",
+        "it": "Le trappole appiccicose e il terreno non lo rallentano.",
+        "zh-hant": "不會被黏性陷阱和地形減速。"
+      },
+      "effect": "Sticky traps and terrain do not slow it down.",
       "effectType": "specialized"
     },
     {
@@ -33458,6 +34324,12 @@
         "en": "Perish Body",
         "it": "Ultimotocco",
         "zh-hant": "滅亡之軀"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33470,7 +34342,13 @@
         "it": "Arraffalesto",
         "zh-hant": "順手牽羊"
       },
-      "effect": "受到攻擊時有時會順走一枚硬幣。",
+      "effects": {
+        "es": "Al recibir golpes, a veces les quita una moneda.",
+        "en": "When hit, it sometimes snatches a coin.",
+        "it": "Quando viene colpito, a volte ruba una moneta.",
+        "zh-hant": "受到攻擊時有時會順走一枚硬幣。"
+      },
+      "effect": "When hit, it sometimes snatches a coin.",
       "effectType": "specialized"
     },
     {
@@ -33481,7 +34359,13 @@
         "it": "Raccolta",
         "zh-hant": "撿拾"
       },
-      "effect": "對局中獲得的寶可幣+15%。",
+      "effects": {
+        "es": "+15 % de Pokémonedas en la partida.",
+        "en": "+15% PokéCoins in the run.",
+        "it": "+15% di Pokémonete nella partita.",
+        "zh-hant": "對局中獲得的寶可幣+15%。"
+      },
+      "effect": "+15% PokéCoins in the run.",
       "effectType": "specialized"
     },
     {
@@ -33491,6 +34375,12 @@
         "en": "Pixilate",
         "it": "Pellefolletto",
         "zh-hant": "妖精皮膚"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33503,7 +34393,13 @@
         "it": "Più",
         "zh-hant": "正電"
       },
-      "effect": "特殊招式傷害+10%。",
+      "effects": {
+        "es": "+10 % de daño con movimientos especiales.",
+        "en": "+10% damage with special moves.",
+        "it": "+10% di danni con le mosse speciali.",
+        "zh-hant": "特殊招式傷害+10%。"
+      },
+      "effect": "+10% damage with special moves.",
       "effectType": "specialized"
     },
     {
@@ -33513,6 +34409,12 @@
         "en": "Poison Heal",
         "it": "Velencura",
         "zh-hant": "毒療"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33525,7 +34427,13 @@
         "it": "Velenopunto",
         "zh-hant": "毒刺"
       },
-      "effect": "近身攻擊牠的敵人會中毒。",
+      "effects": {
+        "es": "Quien le golpea cuerpo a cuerpo se envenena.",
+        "en": "Whoever hits it in melee gets poisoned.",
+        "it": "Chi lo colpisce corpo a corpo viene avvelenato.",
+        "zh-hant": "近身攻擊牠的敵人會中毒。"
+      },
+      "effect": "Whoever hits it in melee gets poisoned.",
       "effectType": "specialized"
     },
     {
@@ -33536,7 +34444,13 @@
         "it": "Velentocco",
         "zh-hant": "毒手"
       },
-      "effect": "近身攻擊和衝撞會讓敵人中毒。",
+      "effects": {
+        "es": "Sus ataques cuerpo a cuerpo y embestidas envenenan.",
+        "en": "Its melee attacks and dashes poison.",
+        "it": "I suoi attacchi corpo a corpo e le cariche avvelenano.",
+        "zh-hant": "近身攻擊和衝撞會讓敵人中毒。"
+      },
+      "effect": "Its melee attacks and dashes poison.",
       "effectType": "specialized"
     },
     {
@@ -33546,6 +34460,12 @@
         "en": "Power Spot",
         "it": "Fonte Energetica",
         "zh-hant": "能量點"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33558,7 +34478,13 @@
         "it": "Burla",
         "zh-hant": "惡作劇之心"
       },
-      "effect": "強化類招式冷卻時間−30%。",
+      "effects": {
+        "es": "Sus potenciadores se recargan un 30 % antes.",
+        "en": "Its boosting moves recharge 30% faster.",
+        "it": "Le sue mosse di potenziamento si ricaricano il 30% prima.",
+        "zh-hant": "強化類招式冷卻時間−30%。"
+      },
+      "effect": "Its boosting moves recharge 30% faster.",
       "effectType": "specialized"
     },
     {
@@ -33569,7 +34495,13 @@
         "it": "Pressione",
         "zh-hant": "壓迫感"
       },
-      "effect": "受到的傷害-8%。",
+      "effects": {
+        "es": "Recibe un 8 % menos de daño.",
+        "en": "Takes 8% less damage.",
+        "it": "Subisce l’8% di danni in meno.",
+        "zh-hant": "受到的傷害-8%。"
+      },
+      "effect": "Takes 8% less damage.",
       "effectType": "specialized"
     },
     {
@@ -33580,7 +34512,13 @@
         "it": "Scudoprisma",
         "zh-hant": "稜鏡裝甲"
       },
-      "effect": "效果絕佳的攻擊對牠傷害-25%。",
+      "effects": {
+        "es": "Los ataques muy eficaces le hacen un 25 % menos.",
+        "en": "Super effective attacks deal 25% less.",
+        "it": "Gli attacchi superefficaci gli fanno il 25% in meno.",
+        "zh-hant": "效果絕佳的攻擊對牠傷害-25%。"
+      },
+      "effect": "Super effective attacks deal 25% less.",
       "effectType": "specialized"
     },
     {
@@ -33590,6 +34528,12 @@
         "en": "Propeller Tail",
         "it": "Elicopinna",
         "zh-hant": "螺旋尾鰭"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33602,7 +34546,13 @@
         "it": "Mutatipo",
         "zh-hant": "變幻自如"
       },
-      "effect": "所有招式傷害+12%。",
+      "effects": {
+        "es": "+12 % de daño con todos sus movimientos.",
+        "en": "+12% damage with all its moves.",
+        "it": "+12% di danni con tutte le sue mosse.",
+        "zh-hant": "所有招式傷害+12%。"
+      },
+      "effect": "+12% damage with all its moves.",
       "effectType": "specialized"
     },
     {
@@ -33613,7 +34563,13 @@
         "it": "Paleoattivazione",
         "zh-hant": "古代活性"
       },
-      "effect": "晴天時傷害+20%。",
+      "effects": {
+        "es": "Con sol, +20 % de daño.",
+        "en": "In sun, +20% damage.",
+        "it": "Con il sole, +20% di danni.",
+        "zh-hant": "晴天時傷害+20%。"
+      },
+      "effect": "In sun, +20% damage.",
       "effectType": "specialized"
     },
     {
@@ -33623,6 +34579,12 @@
         "en": "Psychic Surge",
         "it": "Psicogenesi",
         "zh-hant": "精神製造者"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33635,7 +34597,13 @@
         "it": "Punk Rock",
         "zh-hant": "龐克搖滾"
       },
-      "effect": "聲音類招式傷害+30%。",
+      "effects": {
+        "es": "+30 % de daño con los sonidos.",
+        "en": "+30% damage with sound moves.",
+        "it": "+30% di danni con le mosse sonore.",
+        "zh-hant": "聲音類招式傷害+30%。"
+      },
+      "effect": "+30% damage with sound moves.",
       "effectType": "specialized"
     },
     {
@@ -33646,7 +34614,13 @@
         "it": "Forzapura",
         "zh-hant": "瑜伽之力"
       },
-      "effect": "物理招式傷害+50%。",
+      "effects": {
+        "es": "+50 % de daño con movimientos físicos.",
+        "en": "+50% damage with physical moves.",
+        "it": "+50% di danni con le mosse fisiche.",
+        "zh-hant": "物理招式傷害+50%。"
+      },
+      "effect": "+50% damage with physical moves.",
       "effectType": "specialized"
     },
     {
@@ -33656,6 +34630,12 @@
         "en": "Purifying Salt",
         "it": "Sale Purificante",
         "zh-hant": "潔淨之鹽"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33668,6 +34648,12 @@
         "it": "Carica Quark",
         "zh-hant": "夸克充能"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -33678,6 +34664,12 @@
         "en": "Queenly Majesty",
         "it": "Regalità",
         "zh-hant": "女王的威嚴"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33690,7 +34682,13 @@
         "it": "Piedisvelti",
         "zh-hant": "飛毛腿"
       },
-      "effect": "被減速時反而變快（而不是變慢）。",
+      "effects": {
+        "es": "Frenado, va más rápido (en vez de más lento).",
+        "en": "When slowed, it goes faster (instead of slower).",
+        "it": "Quando è rallentato va più veloce (invece che più piano).",
+        "zh-hant": "被減速時反而變快（而不是變慢）。"
+      },
+      "effect": "When slowed, it goes faster (instead of slower).",
       "effectType": "specialized"
     },
     {
@@ -33701,7 +34699,13 @@
         "it": "Copripioggia",
         "zh-hant": "雨盤"
       },
-      "effect": "下雨時每秒回復1.5%體力。",
+      "effects": {
+        "es": "Con lluvia recupera un 1,5 % de vida por segundo.",
+        "en": "Recovers 1.5% HP per second in rain.",
+        "it": "Con la pioggia recupera l’1,5% dei PS al secondo.",
+        "zh-hant": "下雨時每秒回復1.5%體力。"
+      },
+      "effect": "Recovers 1.5% HP per second in rain.",
       "effectType": "specialized"
     },
     {
@@ -33712,7 +34716,13 @@
         "it": "Paura",
         "zh-hant": "膽怯"
       },
-      "effect": "受到蟲、幽靈或惡屬性攻擊會受驚：短時間內速度+25%。",
+      "effects": {
+        "es": "Los golpes de Bicho, Fantasma o Siniestro le asustan: +25 % de velocidad un momento.",
+        "en": "Bug, Ghost or Dark hits scare it: +25% speed for a moment.",
+        "it": "I colpi Coleottero, Spettro o Buio lo spaventano: +25% di velocità per un momento.",
+        "zh-hant": "受到蟲、幽靈或惡屬性攻擊會受驚：短時間內速度+25%。"
+      },
+      "effect": "Bug, Ghost or Dark hits scare it: +25% speed for a moment.",
       "effectType": "specialized"
     },
     {
@@ -33722,6 +34732,12 @@
         "en": "Receiver",
         "it": "Ricezione",
         "zh-hant": "接球手"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33734,7 +34750,13 @@
         "it": "Temerarietà",
         "zh-hant": "捨身"
       },
-      "effect": "衝撞傷害+25%。",
+      "effects": {
+        "es": "+25 % de daño con las embestidas.",
+        "en": "+25% damage with dashes.",
+        "it": "+25% di danni con le cariche.",
+        "zh-hant": "衝撞傷害+25%。"
+      },
+      "effect": "+25% damage with dashes.",
       "effectType": "specialized"
     },
     {
@@ -33744,6 +34766,12 @@
         "en": "Refrigerate",
         "it": "Pellegelo",
         "zh-hant": "冰凍皮膚"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33756,7 +34784,13 @@
         "it": "Rigenergia",
         "zh-hant": "再生力"
       },
-      "effect": "每秒回復0.6%體力。",
+      "effects": {
+        "es": "Recupera un 0,6 % de su vida por segundo.",
+        "en": "Recovers 0.6% of its HP per second.",
+        "it": "Recupera lo 0,6% dei PS al secondo.",
+        "zh-hant": "每秒回復0.6%體力。"
+      },
+      "effect": "Recovers 0.6% of its HP per second.",
       "effectType": "specialized"
     },
     {
@@ -33766,6 +34800,12 @@
         "en": "Ripen",
         "it": "Maturazione",
         "zh-hant": "熟成"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33778,7 +34818,13 @@
         "it": "Antagonismo",
         "zh-hant": "鬥爭心"
       },
-      "effect": "對與自己有相同屬性的敵人傷害+15%。",
+      "effects": {
+        "es": "+15 % de daño a los enemigos que comparten un tipo con él.",
+        "en": "+15% damage to enemies that share a type with it.",
+        "it": "+15% di danni ai nemici che condividono un tipo con lui.",
+        "zh-hant": "對與自己有相同屬性的敵人傷害+15%。"
+      },
+      "effect": "+15% damage to enemies that share a type with it.",
       "effectType": "specialized"
     },
     {
@@ -33788,6 +34834,12 @@
         "en": "RKS System",
         "it": "Sistema Primevo",
         "zh-hant": "ＡＲ系統"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33800,6 +34852,12 @@
         "it": "Testadura",
         "zh-hant": "堅硬腦袋"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -33811,7 +34869,13 @@
         "it": "Cartavetro",
         "zh-hant": "粗糙皮膚"
       },
-      "effect": "近身攻擊牠的敵人會受到傷害。",
+      "effects": {
+        "es": "Quien le golpea cuerpo a cuerpo recibe daño.",
+        "en": "Whoever hits it in melee takes damage.",
+        "it": "Chi lo colpisce corpo a corpo subisce danni.",
+        "zh-hant": "近身攻擊牠的敵人會受到傷害。"
+      },
+      "effect": "Whoever hits it in melee takes damage.",
       "effectType": "specialized"
     },
     {
@@ -33822,7 +34886,13 @@
         "it": "Fugafacile",
         "zh-hant": "逃跑"
       },
-      "effect": "速度+8%。",
+      "effects": {
+        "es": "+8 % de velocidad.",
+        "en": "+8% speed.",
+        "it": "+8% di velocità.",
+        "zh-hant": "速度+8%。"
+      },
+      "effect": "+8% speed.",
       "effectType": "specialized"
     },
     {
@@ -33833,7 +34903,13 @@
         "it": "Silicoforza",
         "zh-hant": "沙之力"
       },
-      "effect": "沙暴時岩石、地面和鋼屬性傷害+30%。",
+      "effects": {
+        "es": "+30 % de daño Roca, Tierra y Acero con tormenta de arena.",
+        "en": "+30% Rock, Ground and Steel damage in a sandstorm.",
+        "it": "+30% di danni Roccia, Terra e Acciaio durante una tempesta di sabbia.",
+        "zh-hant": "沙暴時岩石、地面和鋼屬性傷害+30%。"
+      },
+      "effect": "+30% Rock, Ground and Steel damage in a sandstorm.",
       "effectType": "specialized"
     },
     {
@@ -33844,7 +34920,13 @@
         "it": "Remasabbia",
         "zh-hant": "撥沙"
       },
-      "effect": "沙暴時速度+50%。",
+      "effects": {
+        "es": "+50 % de velocidad con tormenta de arena.",
+        "en": "+50% speed in a sandstorm.",
+        "it": "+50% di velocità durante una tempesta di sabbia.",
+        "zh-hant": "沙暴時速度+50%。"
+      },
+      "effect": "+50% speed in a sandstorm.",
       "effectType": "specialized"
     },
     {
@@ -33854,6 +34936,12 @@
         "en": "Sand Spit",
         "it": "Sputasabbia",
         "zh-hant": "吐沙"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33866,7 +34954,13 @@
         "it": "Sabbiafiume",
         "zh-hant": "揚沙"
       },
-      "effect": "開局時和每3分鐘掀起沙暴。",
+      "effects": {
+        "es": "Pone una tormenta de arena al empezar la partida y cada 3 minutos.",
+        "en": "Brings a sandstorm at the start of the run and every 3 minutes.",
+        "it": "Scatena una tempesta di sabbia all’inizio della partita e ogni 3 minuti.",
+        "zh-hant": "開局時和每3分鐘掀起沙暴。"
+      },
+      "effect": "Brings a sandstorm at the start of the run and every 3 minutes.",
       "effectType": "specialized"
     },
     {
@@ -33877,7 +34971,13 @@
         "it": "Sabbiavelo",
         "zh-hant": "沙隱"
       },
-      "effect": "沙暴時能閃避15%的攻擊。",
+      "effects": {
+        "es": "Con tormenta de arena esquiva el 15 % de los golpes.",
+        "en": "In a sandstorm it dodges 15% of hits.",
+        "it": "Durante una tempesta di sabbia schiva il 15% dei colpi.",
+        "zh-hant": "沙暴時能閃避15%的攻擊。"
+      },
+      "effect": "In a sandstorm it dodges 15% of hits.",
       "effectType": "specialized"
     },
     {
@@ -33888,7 +34988,13 @@
         "it": "Mangiaerba",
         "zh-hant": "食草"
       },
-      "effect": "Los ataques de tipo Planta no le hacen daño: le curan un poco.",
+      "effects": {
+        "es": "Los ataques de tipo Planta no le hacen daño: le curan un poco.",
+        "en": "Grass-type attacks deal no damage: they heal it a little.",
+        "it": "Gli attacchi di tipo Erba non gli fanno danni: lo curano un po’.",
+        "zh-hant": "草屬性攻擊不會造成傷害，反而回復少許體力。"
+      },
+      "effect": "Grass-type attacks deal no damage: they heal it a little.",
       "effectType": "specialized"
     },
     {
@@ -33899,7 +35005,13 @@
         "it": "Banco",
         "zh-hant": "魚群"
       },
-      "effect": "魚群形態：體力+25%，體力高於1/4時傷害+50%。",
+      "effects": {
+        "es": "Forma banco: +25 % de vida y, con más de 1/4 de vida, +50 % de daño.",
+        "en": "School form: +25% HP and, above 1/4 HP, +50% damage.",
+        "it": "Forma Banco: +25% di PS e, sopra 1/4 dei PS, +50% di danni.",
+        "zh-hant": "魚群形態：體力+25%，體力高於1/4時傷害+50%。"
+      },
+      "effect": "School form: +25% HP and, above 1/4 HP, +50% damage.",
       "effectType": "specialized"
     },
     {
@@ -33910,7 +35022,13 @@
         "it": "Nervisaldi",
         "zh-hant": "膽量"
       },
-      "effect": "一般和格鬥屬性招式能完全擊中幽靈屬性。",
+      "effects": {
+        "es": "Sus movimientos Normal y Lucha dañan del todo a los Fantasma.",
+        "en": "Its Normal and Fighting moves fully hit Ghost types.",
+        "it": "Le sue mosse Normale e Lotta colpiscono in pieno i tipi Spettro.",
+        "zh-hant": "一般和格鬥屬性招式能完全擊中幽靈屬性。"
+      },
+      "effect": "Its Normal and Fighting moves fully hit Ghost types.",
       "effectType": "specialized"
     },
     {
@@ -33920,6 +35038,12 @@
         "en": "Seed Sower",
         "it": "Spargisemi",
         "zh-hant": "掉出種子"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33932,7 +35056,13 @@
         "it": "Leggiadro",
         "zh-hant": "天恩"
       },
-      "effect": "招式造成的灼傷、中毒和減速效果加倍。",
+      "effects": {
+        "es": "Las quemaduras, venenos y frenazos de sus movimientos son el doble de fuertes.",
+        "en": "Burns, poisons and slows from its moves are twice as strong.",
+        "it": "Scottature, veleni e rallentamenti delle sue mosse sono due volte più forti.",
+        "zh-hant": "招式造成的灼傷、中毒和減速效果加倍。"
+      },
+      "effect": "Burns, poisons and slows from its moves are twice as strong.",
       "effectType": "specialized"
     },
     {
@@ -33943,7 +35073,13 @@
         "it": "Spettroguardia",
         "zh-hant": "幻影防守"
       },
-      "effect": "體力幾乎全滿時受到的傷害減半。",
+      "effects": {
+        "es": "Con la vida casi llena recibe la mitad de daño.",
+        "en": "Takes half damage while at (nearly) full HP.",
+        "it": "Subisce metà danni con i PS (quasi) al massimo.",
+        "zh-hant": "體力幾乎全滿時受到的傷害減半。"
+      },
+      "effect": "Takes half damage while at (nearly) full HP.",
       "effectType": "specialized"
     },
     {
@@ -33953,6 +35089,12 @@
         "en": "Shadow Tag",
         "it": "Pedinombra",
         "zh-hant": "踩影"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -33965,7 +35107,13 @@
         "it": "Affilama",
         "zh-hant": "鋒銳"
       },
-      "effect": "切割類招式傷害+30%。",
+      "effects": {
+        "es": "+30 % de daño con los cortes.",
+        "en": "+30% damage with slicing moves.",
+        "it": "+30% di danni con le mosse taglienti.",
+        "zh-hant": "切割類招式傷害+30%。"
+      },
+      "effect": "+30% damage with slicing moves.",
       "effectType": "specialized"
     },
     {
@@ -33976,7 +35124,13 @@
         "it": "Muta",
         "zh-hant": "蛻皮"
       },
-      "effect": "每5秒蛻皮：解除減速並回復2%體力。",
+      "effects": {
+        "es": "Cada 5 s muda: se quita los frenazos y recupera un 2 % de vida.",
+        "en": "Every 5 s it sheds: removes slows and recovers 2% HP.",
+        "it": "Ogni 5 s fa la muta: si toglie i rallentamenti e recupera il 2% dei PS.",
+        "zh-hant": "每5秒蛻皮：解除減速並回復2%體力。"
+      },
+      "effect": "Every 5 s it sheds: removes slows and recovers 2% HP.",
       "effectType": "specialized"
     },
     {
@@ -33987,7 +35141,13 @@
         "it": "Forzabruta",
         "zh-hant": "強行"
       },
-      "effect": "會灼傷、中毒、減速或擊退的招式傷害+25%，但失去這些效果。",
+      "effects": {
+        "es": "+25 % de daño con movimientos que queman, envenenan, frenan o empujan, pero pierden ese efecto.",
+        "en": "+25% damage with moves that burn, poison, slow or push, but they lose that effect.",
+        "it": "+25% di danni con le mosse che scottano, avvelenano, rallentano o spingono, ma perdono quell’effetto.",
+        "zh-hant": "會灼傷、中毒、減速或擊退的招式傷害+25%，但失去這些效果。"
+      },
+      "effect": "+25% damage with moves that burn, poison, slow or push, but they lose that effect.",
       "effectType": "specialized"
     },
     {
@@ -33998,7 +35158,13 @@
         "it": "Guscioscudo",
         "zh-hant": "硬殼盔甲"
       },
-      "effect": "受到的傷害-8%。",
+      "effects": {
+        "es": "Recibe un 8 % menos de daño.",
+        "en": "Takes 8% less damage.",
+        "it": "Subisce l’8% di danni in meno.",
+        "zh-hant": "受到的傷害-8%。"
+      },
+      "effect": "Takes 8% less damage.",
       "effectType": "specialized"
     },
     {
@@ -34009,7 +35175,13 @@
         "it": "Polvoscudo",
         "zh-hant": "鱗粉"
       },
-      "effect": "不會被黏性陷阱和地形減速。",
+      "effects": {
+        "es": "No le frenan las trampas pegajosas ni el terreno.",
+        "en": "Sticky traps and terrain do not slow it down.",
+        "it": "Le trappole appiccicose e il terreno non lo rallentano.",
+        "zh-hant": "不會被黏性陷阱和地形減速。"
+      },
+      "effect": "Sticky traps and terrain do not slow it down.",
       "effectType": "specialized"
     },
     {
@@ -34019,6 +35191,12 @@
         "en": "Shields Down",
         "it": "Scudosoglia",
         "zh-hant": "界限盾殼"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34031,6 +35209,12 @@
         "it": "Disinvoltura",
         "zh-hant": "單純"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -34042,7 +35226,13 @@
         "it": "Abillegame",
         "zh-hant": "連續攻擊"
       },
-      "effect": "連續攻擊類招式傷害+25%。",
+      "effects": {
+        "es": "+25 % de daño con los movimientos de varios golpes.",
+        "en": "+25% damage with multi-hit moves.",
+        "it": "+25% di danni con le mosse a colpi multipli.",
+        "zh-hant": "連續攻擊類招式傷害+25%。"
+      },
+      "effect": "+25% damage with multi-hit moves.",
       "effectType": "specialized"
     },
     {
@@ -34053,7 +35243,13 @@
         "it": "Lentoinizio",
         "zh-hant": "慢啟動"
       },
-      "effect": "起步較慢：第一分鐘傷害−40%且移動較慢，之後全力發揮。",
+      "effects": {
+        "es": "Arranca lento: el primer minuto hace −40 % de daño y va más despacio; después, a plena potencia.",
+        "en": "Slow start: for the first minute it deals −40% damage and moves slower; after that, full power.",
+        "it": "Partenza lenta: nel primo minuto fa −40% di danni e va più piano; poi, a piena potenza.",
+        "zh-hant": "起步較慢：第一分鐘傷害−40%且移動較慢，之後全力發揮。"
+      },
+      "effect": "Slow start: for the first minute it deals −40% damage and moves slower; after that, full power.",
       "effectType": "specialized"
     },
     {
@@ -34064,7 +35260,13 @@
         "it": "Spalaneve",
         "zh-hant": "撥雪"
       },
-      "effect": "下雪時速度+50%。",
+      "effects": {
+        "es": "+50 % de velocidad con nieve.",
+        "en": "+50% speed in snow.",
+        "it": "+50% di velocità con la neve.",
+        "zh-hant": "下雪時速度+50%。"
+      },
+      "effect": "+50% speed in snow.",
       "effectType": "specialized"
     },
     {
@@ -34075,7 +35277,13 @@
         "it": "Cecchino",
         "zh-hant": "狙擊手"
       },
-      "effect": "擊中要害時傷害×2（而不是×1.5）。",
+      "effects": {
+        "es": "Sus golpes críticos hacen ×2 de daño (en vez de ×1,5).",
+        "en": "Its critical hits deal ×2 damage (instead of ×1.5).",
+        "it": "I suoi brutti colpi infliggono ×2 di danni (invece di ×1,5).",
+        "zh-hant": "擊中要害時傷害×2（而不是×1.5）。"
+      },
+      "effect": "Its critical hits deal ×2 damage (instead of ×1.5).",
       "effectType": "specialized"
     },
     {
@@ -34086,7 +35294,13 @@
         "it": "Mantelneve",
         "zh-hant": "雪隱"
       },
-      "effect": "下雪時能閃避15%的攻擊。",
+      "effects": {
+        "es": "Con nieve esquiva el 15 % de los golpes.",
+        "en": "In snow it dodges 15% of hits.",
+        "it": "Con la neve schiva il 15% dei colpi.",
+        "zh-hant": "下雪時能閃避15%的攻擊。"
+      },
+      "effect": "In snow it dodges 15% of hits.",
       "effectType": "specialized"
     },
     {
@@ -34097,7 +35311,13 @@
         "it": "Scendineve",
         "zh-hant": "降雪"
       },
-      "effect": "開局時和每3分鐘讓天氣變為下雪。",
+      "effects": {
+        "es": "Pone nieve al empezar la partida y cada 3 minutos.",
+        "en": "Brings snow at the start of the run and every 3 minutes.",
+        "it": "Porta la neve all’inizio della partita e ogni 3 minuti.",
+        "zh-hant": "開局時和每3分鐘讓天氣變為下雪。"
+      },
+      "effect": "Brings snow at the start of the run and every 3 minutes.",
       "effectType": "specialized"
     },
     {
@@ -34108,7 +35328,13 @@
         "it": "Solarpotere",
         "zh-hant": "太陽之力"
       },
-      "effect": "晴天時特殊傷害+40%，但會被晴天消耗一些體力。",
+      "effects": {
+        "es": "+40 % de daño especial con sol, pero el sol le quita algo de vida.",
+        "en": "+40% special damage in sun, but the sun drains some HP.",
+        "it": "+40% di danni speciali con il sole, ma il sole gli toglie un po’ di PS.",
+        "zh-hant": "晴天時特殊傷害+40%，但會被晴天消耗一些體力。"
+      },
+      "effect": "+40% special damage in sun, but the sun drains some HP.",
       "effectType": "specialized"
     },
     {
@@ -34119,7 +35345,13 @@
         "it": "Solidroccia",
         "zh-hant": "堅硬岩石"
       },
-      "effect": "效果絕佳的攻擊對牠傷害-25%。",
+      "effects": {
+        "es": "Los ataques muy eficaces le hacen un 25 % menos.",
+        "en": "Super effective attacks deal 25% less.",
+        "it": "Gli attacchi superefficaci gli fanno il 25% in meno.",
+        "zh-hant": "效果絕佳的攻擊對牠傷害-25%。"
+      },
+      "effect": "Super effective attacks deal 25% less.",
       "effectType": "specialized"
     },
     {
@@ -34129,6 +35361,12 @@
         "en": "Soul-Heart",
         "it": "Cuoreanima",
         "zh-hant": "魂心"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34141,7 +35379,13 @@
         "it": "Antisuono",
         "zh-hant": "隔音"
       },
-      "effect": "受到的特殊傷害-10%。",
+      "effects": {
+        "es": "Recibe un 10 % menos de daño especial.",
+        "en": "Takes 10% less special damage.",
+        "it": "Subisce il 10% di danni speciali in meno.",
+        "zh-hant": "受到的特殊傷害-10%。"
+      },
+      "effect": "Takes 10% less special damage.",
       "effectType": "specialized"
     },
     {
@@ -34152,7 +35396,13 @@
         "it": "Acceleratore",
         "zh-hant": "加速"
       },
-      "effect": "每10秒速度+1.5%（最多+30%）。",
+      "effects": {
+        "es": "Cada 10 segundos va un 1,5 % más rápido (hasta +30 %).",
+        "en": "Every 10 seconds it gets 1.5% faster (up to +30%).",
+        "it": "Ogni 10 secondi diventa più veloce dell’1,5% (fino a +30%).",
+        "zh-hant": "每10秒速度+1.5%（最多+30%）。"
+      },
+      "effect": "Every 10 seconds it gets 1.5% faster (up to +30%).",
       "effectType": "specialized"
     },
     {
@@ -34162,6 +35412,12 @@
         "en": "Stakeout",
         "it": "Sorveglianza",
         "zh-hant": "監視"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34174,6 +35430,12 @@
         "it": "Rallentatore",
         "zh-hant": "慢出"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -34184,6 +35446,12 @@
         "en": "Stalwart",
         "it": "Volontà di Ferro",
         "zh-hant": "堅毅"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34196,7 +35464,13 @@
         "it": "Sopportazione",
         "zh-hant": "持久力"
       },
-      "effect": "每受到一次近身攻擊，防禦會提高一點。",
+      "effects": {
+        "es": "Cada golpe cuerpo a cuerpo que recibe le sube un poco la defensa.",
+        "en": "Each melee hit it takes raises its defense a little.",
+        "it": "Ogni colpo corpo a corpo ricevuto alza un po’ la sua difesa.",
+        "zh-hant": "每受到一次近身攻擊，防禦會提高一點。"
+      },
+      "effect": "Each melee hit it takes raises its defense a little.",
       "effectType": "specialized"
     },
     {
@@ -34207,7 +35481,13 @@
         "it": "Accendilotta",
         "zh-hant": "戰鬥切換"
       },
-      "effect": "每8秒在刀劍形態（傷害+20%）和盾牌形態（受到傷害−20%）之間切換。",
+      "effects": {
+        "es": "Alterna cada 8 s entre filo (+20 % de daño) y escudo (−20 % de daño recibido).",
+        "en": "Switches every 8 s between blade (+20% damage) and shield (−20% damage taken).",
+        "it": "Alterna ogni 8 s tra spada (+20% di danni) e scudo (−20% di danni subiti).",
+        "zh-hant": "每8秒在刀劍形態（傷害+20%）和盾牌形態（受到傷害−20%）之間切換。"
+      },
+      "effect": "Switches every 8 s between blade (+20% damage) and shield (−20% damage taken).",
       "effectType": "specialized"
     },
     {
@@ -34218,7 +35498,13 @@
         "it": "Statico",
         "zh-hant": "靜電"
       },
-      "effect": "近身攻擊牠的敵人會被減速（麻痺）。",
+      "effects": {
+        "es": "Quien le golpea cuerpo a cuerpo se queda frenado (paralizado).",
+        "en": "Whoever hits it in melee is slowed (paralyzed).",
+        "it": "Chi lo colpisce corpo a corpo viene rallentato (paralizzato).",
+        "zh-hant": "近身攻擊牠的敵人會被減速（麻痺）。"
+      },
+      "effect": "Whoever hits it in melee is slowed (paralyzed).",
       "effectType": "specialized"
     },
     {
@@ -34229,7 +35515,13 @@
         "it": "Cuordeciso",
         "zh-hant": "不屈之心"
       },
-      "effect": "受到攻擊時短時間內速度+10%（可疊加）。",
+      "effects": {
+        "es": "Al recibir un golpe, +10 % de velocidad un momento (se acumula).",
+        "en": "When hit, +10% speed for a moment (stacks).",
+        "it": "Quando viene colpito, +10% di velocità per un momento (si accumula).",
+        "zh-hant": "受到攻擊時短時間內速度+10%（可疊加）。"
+      },
+      "effect": "When hit, +10% speed for a moment (stacks).",
       "effectType": "specialized"
     },
     {
@@ -34240,7 +35532,13 @@
         "it": "Tempracciaio",
         "zh-hant": "鋼能力者"
       },
-      "effect": "+20 % de daño con movimientos de tipo Acero.",
+      "effects": {
+        "es": "+20 % de daño con movimientos de tipo Acero.",
+        "en": "+20% damage with Steel-type moves.",
+        "it": "+20% di danni con le mosse di tipo Acciaio.",
+        "zh-hant": "鋼屬性招式傷害+20%。"
+      },
+      "effect": "+20% damage with Steel-type moves.",
       "effectType": "specialized"
     },
     {
@@ -34251,7 +35549,13 @@
         "it": "Spiritoferreo",
         "zh-hant": "鋼之意志"
       },
-      "effect": "+20 % de daño con movimientos de tipo Acero.",
+      "effects": {
+        "es": "+20 % de daño con movimientos de tipo Acero.",
+        "en": "+20% damage with Steel-type moves.",
+        "it": "+20% di danni con le mosse di tipo Acciaio.",
+        "zh-hant": "鋼屬性招式傷害+20%。"
+      },
+      "effect": "+20% damage with Steel-type moves.",
       "effectType": "specialized"
     },
     {
@@ -34262,7 +35566,13 @@
         "it": "Tanfo",
         "zh-hant": "惡臭"
       },
-      "effect": "攻擊有時會讓敵人減速（十分之一機率）。",
+      "effects": {
+        "es": "Sus golpes a veces frenan (1 de cada 10).",
+        "en": "Its hits sometimes slow (1 in 10).",
+        "it": "I suoi colpi a volte rallentano (1 su 10).",
+        "zh-hant": "攻擊有時會讓敵人減速（十分之一機率）。"
+      },
+      "effect": "Its hits sometimes slow (1 in 10).",
       "effectType": "specialized"
     },
     {
@@ -34273,7 +35583,13 @@
         "it": "Antifurto",
         "zh-hant": "黏著"
       },
-      "effect": "能從更遠處吸取物品（磁力+20%）。",
+      "effects": {
+        "es": "Atrae los objetos desde más lejos (+20 % de imán).",
+        "en": "Pulls items from farther away (+20% magnet).",
+        "it": "Attira gli oggetti da più lontano (+20% di calamita).",
+        "zh-hant": "能從更遠處吸取物品（磁力+20%）。"
+      },
+      "effect": "Pulls items from farther away (+20% magnet).",
       "effectType": "specialized"
     },
     {
@@ -34284,7 +35600,13 @@
         "it": "Acquascolo",
         "zh-hant": "引水"
       },
-      "effect": "Los ataques de tipo Agua no le hacen daño: le curan un poco.",
+      "effects": {
+        "es": "Los ataques de tipo Agua no le hacen daño: le curan un poco.",
+        "en": "Water-type attacks deal no damage: they heal it a little.",
+        "it": "Gli attacchi di tipo Acqua non gli fanno danni: lo curano un po’.",
+        "zh-hant": "水屬性攻擊不會造成傷害，反而回復少許體力。"
+      },
+      "effect": "Water-type attacks deal no damage: they heal it a little.",
       "effectType": "specialized"
     },
     {
@@ -34295,7 +35617,13 @@
         "it": "Ferromascella",
         "zh-hant": "強壯之顎"
       },
-      "effect": "啃咬類招式傷害+30%。",
+      "effects": {
+        "es": "+30 % de daño con los mordiscos.",
+        "en": "+30% damage with bites.",
+        "it": "+30% di danni con i morsi.",
+        "zh-hant": "啃咬類招式傷害+30%。"
+      },
+      "effect": "+30% damage with bites.",
       "effectType": "specialized"
     },
     {
@@ -34306,7 +35634,13 @@
         "it": "Vigore",
         "zh-hant": "結實"
       },
-      "effect": "受到會被打倒的攻擊時會剩下1點體力（每90秒一次）。",
+      "effects": {
+        "es": "Un golpe que le dejaría KO le deja con 1 de vida (cada 90 s).",
+        "en": "A hit that would KO it leaves it with 1 HP (every 90 s).",
+        "it": "Un colpo che lo manderebbe KO gli lascia 1 PS (ogni 90 s).",
+        "zh-hant": "受到會被打倒的攻擊時會剩下1點體力（每90秒一次）。"
+      },
+      "effect": "A hit that would KO it leaves it with 1 HP (every 90 s).",
       "effectType": "specialized"
     },
     {
@@ -34316,6 +35650,12 @@
         "en": "Suction Cups",
         "it": "Ventose",
         "zh-hant": "吸盤"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34328,7 +35668,13 @@
         "it": "Supersorte",
         "zh-hant": "超幸運"
       },
-      "effect": "擊中要害機率+10%。",
+      "effects": {
+        "es": "+10 % de probabilidad de golpe crítico.",
+        "en": "+10% critical hit chance.",
+        "it": "+10% di probabilità di brutto colpo.",
+        "zh-hant": "擊中要害機率+10%。"
+      },
+      "effect": "+10% critical hit chance.",
       "effectType": "specialized"
     },
     {
@@ -34338,6 +35684,12 @@
         "en": "Supersweet Syrup",
         "it": "Sciroppo Sublime",
         "zh-hant": "甘露之蜜"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34350,6 +35702,12 @@
         "it": "Generale Supremo",
         "zh-hant": "大將"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -34361,7 +35719,13 @@
         "it": "Aiutinsetto",
         "zh-hant": "蟲之預感"
       },
-      "effect": "+35 % de daño de tipo Bicho con poca vida (menos de 1/3).",
+      "effects": {
+        "es": "+35 % de daño de tipo Bicho con poca vida (menos de 1/3).",
+        "en": "+35% Bug-type damage at low HP (under 1/3).",
+        "it": "+35% di danni di tipo Coleottero con pochi PS (meno di 1/3).",
+        "zh-hant": "體力較低時（不到1/3）蟲屬性傷害+35%。"
+      },
+      "effect": "+35% Bug-type damage at low HP (under 1/3).",
       "effectType": "specialized"
     },
     {
@@ -34372,7 +35736,13 @@
         "it": "Dolcevelo",
         "zh-hant": "甜幕"
       },
-      "effect": "不會被黏性陷阱和地形減速。",
+      "effects": {
+        "es": "No le frenan las trampas pegajosas ni el terreno.",
+        "en": "Sticky traps and terrain do not slow it down.",
+        "it": "Le trappole appiccicose e il terreno non lo rallentano.",
+        "zh-hant": "不會被黏性陷阱和地形減速。"
+      },
+      "effect": "Sticky traps and terrain do not slow it down.",
       "effectType": "specialized"
     },
     {
@@ -34383,7 +35753,13 @@
         "it": "Nuotovelox",
         "zh-hant": "悠游自如"
       },
-      "effect": "下雨時速度+50%。",
+      "effects": {
+        "es": "+50 % de velocidad con lluvia.",
+        "en": "+50% speed in rain.",
+        "it": "+50% di velocità con la pioggia.",
+        "zh-hant": "下雨時速度+50%。"
+      },
+      "effect": "+50% speed in rain.",
       "effectType": "specialized"
     },
     {
@@ -34393,6 +35769,12 @@
         "en": "Symbiosis",
         "it": "Simbiosi",
         "zh-hant": "共生"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34405,7 +35787,13 @@
         "it": "Sincronismo",
         "zh-hant": "同步"
       },
-      "effect": "近身攻擊牠的敵人會受到部分反彈傷害。",
+      "effects": {
+        "es": "Quien le golpea cuerpo a cuerpo recibe parte del golpe.",
+        "en": "Whoever hits it in melee takes part of the hit back.",
+        "it": "Chi lo colpisce corpo a corpo subisce parte del colpo.",
+        "zh-hant": "近身攻擊牠的敵人會受到部分反彈傷害。"
+      },
+      "effect": "Whoever hits it in melee takes part of the hit back.",
       "effectType": "specialized"
     },
     {
@@ -34416,7 +35804,13 @@
         "it": "Intricopiedi",
         "zh-hant": "蹣跚"
       },
-      "effect": "被減速時能閃避20%的攻擊。",
+      "effects": {
+        "es": "Frenado, esquiva el 20 % de los golpes.",
+        "en": "When slowed, it dodges 20% of hits.",
+        "it": "Quando è rallentato schiva il 20% dei colpi.",
+        "zh-hant": "被減速時能閃避20%的攻擊。"
+      },
+      "effect": "When slowed, it dodges 20% of hits.",
       "effectType": "specialized"
     },
     {
@@ -34427,7 +35821,13 @@
         "it": "Tecnico",
         "zh-hant": "技術高手"
       },
-      "effect": "低威力招式傷害+35%。",
+      "effects": {
+        "es": "+35 % de daño con los ataques de golpes flojos.",
+        "en": "+35% damage with weak-hitting moves.",
+        "it": "+35% di danni con le mosse dai colpi deboli.",
+        "zh-hant": "低威力招式傷害+35%。"
+      },
+      "effect": "+35% damage with weak-hitting moves.",
       "effectType": "specialized"
     },
     {
@@ -34438,7 +35838,13 @@
         "it": "Telepatia",
         "zh-hant": "心靈感應"
       },
-      "effect": "看穿意圖：能閃避8%的攻擊。",
+      "effects": {
+        "es": "Lee las intenciones: esquiva el 8 % de los golpes.",
+        "en": "Reads intentions: dodges 8% of hits.",
+        "it": "Legge le intenzioni: schiva l’8% dei colpi.",
+        "zh-hant": "看穿意圖：能閃避8%的攻擊。"
+      },
+      "effect": "Reads intentions: dodges 8% of hits.",
       "effectType": "specialized"
     },
     {
@@ -34448,6 +35854,12 @@
         "en": "Tera Shift",
         "it": "Teramorfosi",
         "zh-hant": "太晶變形"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34460,6 +35872,12 @@
         "it": "Teravolt",
         "zh-hant": "兆級電壓"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -34470,6 +35888,12 @@
         "en": "Thermal Exchange",
         "it": "Termoscambio",
         "zh-hant": "熱交換"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34482,7 +35906,13 @@
         "it": "Grassospesso",
         "zh-hant": "厚脂肪"
       },
-      "effect": "受到的火和冰屬性傷害-40%。",
+      "effects": {
+        "es": "Recibe un 40 % menos de daño de Fuego y Hielo.",
+        "en": "Takes 40% less damage from Fire and Ice.",
+        "it": "Subisce il 40% di danni in meno da Fuoco e Ghiaccio.",
+        "zh-hant": "受到的火和冰屬性傷害-40%。"
+      },
+      "effect": "Takes 40% less damage from Fire and Ice.",
       "effectType": "specialized"
     },
     {
@@ -34493,7 +35923,13 @@
         "it": "Lentifumé",
         "zh-hant": "有色眼鏡"
       },
-      "effect": "效果不好的招式也能造成正常傷害。",
+      "effects": {
+        "es": "Sus movimientos poco eficaces hacen daño normal.",
+        "en": "Its not very effective moves deal normal damage.",
+        "it": "Le sue mosse poco efficaci infliggono danni normali.",
+        "zh-hant": "效果不好的招式也能造成正常傷害。"
+      },
+      "effect": "Its not very effective moves deal normal damage.",
       "effectType": "specialized"
     },
     {
@@ -34504,7 +35940,13 @@
         "it": "Acquaiuto",
         "zh-hant": "激流"
       },
-      "effect": "+35 % de daño de tipo Agua con poca vida (menos de 1/3).",
+      "effects": {
+        "es": "+35 % de daño de tipo Agua con poca vida (menos de 1/3).",
+        "en": "+35% Water-type damage at low HP (under 1/3).",
+        "it": "+35% di danni di tipo Acqua con pochi PS (meno di 1/3).",
+        "zh-hant": "體力較低時（不到1/3）水屬性傷害+35%。"
+      },
+      "effect": "+35% Water-type damage at low HP (under 1/3).",
       "effectType": "specialized"
     },
     {
@@ -34515,7 +35957,13 @@
         "it": "Unghiedure",
         "zh-hant": "硬爪"
       },
-      "effect": "近身攻擊和衝撞傷害+25%。",
+      "effects": {
+        "es": "+25 % de daño con ataques cuerpo a cuerpo y embestidas.",
+        "en": "+25% damage with melee attacks and dashes.",
+        "it": "+25% di danni con gli attacchi corpo a corpo e le cariche.",
+        "zh-hant": "近身攻擊和衝撞傷害+25%。"
+      },
+      "effect": "+25% damage with melee attacks and dashes.",
       "effectType": "specialized"
     },
     {
@@ -34525,6 +35973,12 @@
         "en": "Toxic Boost",
         "it": "Velenimpeto",
         "zh-hant": "中毒激升"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34537,6 +35991,12 @@
         "it": "Catena Tossica",
         "zh-hant": "毒鎖鏈"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -34547,6 +36007,12 @@
         "en": "Toxic Debris",
         "it": "Mantossina",
         "zh-hant": "毒滿地"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34559,6 +36025,12 @@
         "it": "Traccia",
         "zh-hant": "複製"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -34570,7 +36042,13 @@
         "it": "Transistor",
         "zh-hant": "電晶體"
       },
-      "effect": "+20 % de daño con movimientos de tipo Eléctrico.",
+      "effects": {
+        "es": "+20 % de daño con movimientos de tipo Eléctrico.",
+        "en": "+20% damage with Electric-type moves.",
+        "it": "+20% di danni con le mosse di tipo Elettro.",
+        "zh-hant": "電屬性招式傷害+20%。"
+      },
+      "effect": "+20% damage with Electric-type moves.",
       "effectType": "specialized"
     },
     {
@@ -34580,6 +36058,12 @@
         "en": "Triage",
         "it": "Primacura",
         "zh-hant": "先行治療"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34592,7 +36076,13 @@
         "it": "Pigrone",
         "zh-hant": "懶惰"
       },
-      "effect": "又慢又重：招式冷卻時間+60%，但每次攻擊傷害+35%。",
+      "effects": {
+        "es": "Golpes sueltos y fuertes: tarda un 60 % más en recargar, pero cada golpe hace +35 %.",
+        "en": "Slow but heavy: recharges take 60% longer, but each hit deals +35%.",
+        "it": "Lento ma potente: ricarica il 60% più lentamente, ma ogni colpo fa +35%.",
+        "zh-hant": "又慢又重：招式冷卻時間+60%，但每次攻擊傷害+35%。"
+      },
+      "effect": "Slow but heavy: recharges take 60% longer, but each hit deals +35%.",
       "effectType": "specialized"
     },
     {
@@ -34602,6 +36092,12 @@
         "en": "Turboblaze",
         "it": "Piroturbina",
         "zh-hant": "渦輪火焰"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34614,7 +36110,13 @@
         "it": "Imprudenza",
         "zh-hant": "純樸"
       },
-      "effect": "不為所動：受到的傷害-8%。",
+      "effects": {
+        "es": "No se deja impresionar: recibe un 8 % menos de daño.",
+        "en": "Unimpressed: takes 8% less damage.",
+        "it": "Imperturbabile: subisce l’8% di danni in meno.",
+        "zh-hant": "不為所動：受到的傷害-8%。"
+      },
+      "effect": "Unimpressed: takes 8% less damage.",
       "effectType": "specialized"
     },
     {
@@ -34625,7 +36127,13 @@
         "it": "Agiltecnica",
         "zh-hant": "輕裝"
       },
-      "effect": "沒有攜帶道具時速度+15%。",
+      "effects": {
+        "es": "Sin objeto va un 15 % más rápido.",
+        "en": "Without an item it is 15% faster.",
+        "it": "Senza strumento è il 15% più veloce.",
+        "zh-hant": "沒有攜帶道具時速度+15%。"
+      },
+      "effect": "Without an item it is 15% faster.",
       "effectType": "specialized"
     },
     {
@@ -34636,7 +36144,13 @@
         "it": "Agitazione",
         "zh-hant": "緊張感"
       },
-      "effect": "讓敵人緊張：敵人對牠的傷害-6%。",
+      "effects": {
+        "es": "Pone nerviosos a los enemigos: le hacen un 6 % menos de daño.",
+        "en": "Makes enemies nervous: they deal 6% less damage to it.",
+        "it": "Innervosisce i nemici: gli fanno il 6% di danni in meno.",
+        "zh-hant": "讓敵人緊張：敵人對牠的傷害-6%。"
+      },
+      "effect": "Makes enemies nervous: they deal 6% less damage to it.",
       "effectType": "specialized"
     },
     {
@@ -34646,6 +36160,12 @@
         "en": "Unseen Fist",
         "it": "Pugni Invisibili",
         "zh-hant": "無形拳"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34658,6 +36178,12 @@
         "it": "Vittorstella",
         "zh-hant": "勝利之星"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -34669,7 +36195,13 @@
         "it": "Spiritovivo",
         "zh-hant": "幹勁"
       },
-      "effect": "不會被黏性陷阱和地形減速。",
+      "effects": {
+        "es": "No le frenan las trampas pegajosas ni el terreno.",
+        "en": "Sticky traps and terrain do not slow it down.",
+        "it": "Le trappole appiccicose e il terreno non lo rallentano.",
+        "zh-hant": "不會被黏性陷阱和地形減速。"
+      },
+      "effect": "Sticky traps and terrain do not slow it down.",
       "effectType": "specialized"
     },
     {
@@ -34680,7 +36212,13 @@
         "it": "Assorbivolt",
         "zh-hant": "蓄電"
       },
-      "effect": "Los ataques de tipo Eléctrico no le hacen daño: le curan un poco.",
+      "effects": {
+        "es": "Los ataques de tipo Eléctrico no le hacen daño: le curan un poco.",
+        "en": "Electric-type attacks deal no damage: they heal it a little.",
+        "it": "Gli attacchi di tipo Elettro non gli fanno danni: lo curano un po’.",
+        "zh-hant": "電屬性攻擊不會造成傷害，反而回復少許體力。"
+      },
+      "effect": "Electric-type attacks deal no damage: they heal it a little.",
       "effectType": "specialized"
     },
     {
@@ -34690,6 +36228,12 @@
         "en": "Wandering Spirit",
         "it": "Anima Errante",
         "zh-hant": "遊魂"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34702,7 +36246,13 @@
         "it": "Assorbacqua",
         "zh-hant": "儲水"
       },
-      "effect": "Los ataques de tipo Agua no le hacen daño: le curan un poco.",
+      "effects": {
+        "es": "Los ataques de tipo Agua no le hacen daño: le curan un poco.",
+        "en": "Water-type attacks deal no damage: they heal it a little.",
+        "it": "Gli attacchi di tipo Acqua non gli fanno danni: lo curano un po’.",
+        "zh-hant": "水屬性攻擊不會造成傷害，反而回復少許體力。"
+      },
+      "effect": "Water-type attacks deal no damage: they heal it a little.",
       "effectType": "specialized"
     },
     {
@@ -34713,7 +36263,13 @@
         "it": "Bolladacqua",
         "zh-hant": "水泡"
       },
-      "effect": "+40 % de daño de tipo Agua y recibe la mitad de daño de Fuego.",
+      "effects": {
+        "es": "+40 % de daño de tipo Agua y recibe la mitad de daño de Fuego.",
+        "en": "+40% Water-type damage and takes half damage from Fire.",
+        "it": "+40% di danni di tipo Acqua e subisce metà danni dal Fuoco.",
+        "zh-hant": "水屬性傷害+40%，受到的火屬性傷害減半。"
+      },
+      "effect": "+40% Water-type damage and takes half damage from Fire.",
       "effectType": "specialized"
     },
     {
@@ -34723,6 +36279,12 @@
         "en": "Water Compaction",
         "it": "Idrorinforzo",
         "zh-hant": "遇水凝固"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34735,7 +36297,13 @@
         "it": "Idrovelo",
         "zh-hant": "水幕"
       },
-      "effect": "熔岩不會燙傷牠，受到的火屬性傷害減半。",
+      "effects": {
+        "es": "La lava no le quema y recibe la mitad de daño de Fuego.",
+        "en": "Lava does not burn it and it takes half damage from Fire.",
+        "it": "La lava non lo brucia e subisce metà danni dal Fuoco.",
+        "zh-hant": "熔岩不會燙傷牠，受到的火屬性傷害減半。"
+      },
+      "effect": "Lava does not burn it and it takes half damage from Fire.",
       "effectType": "specialized"
     },
     {
@@ -34746,7 +36314,13 @@
         "it": "Sottilguscio",
         "zh-hant": "碎裂鎧甲"
       },
-      "effect": "受到物理攻擊時變輕：短時間內速度+20%。",
+      "effects": {
+        "es": "Al recibir un golpe físico se aligera: +20 % de velocidad un momento.",
+        "en": "When hit physically it gets lighter: +20% speed for a moment.",
+        "it": "Quando riceve un colpo fisico si alleggerisce: +20% di velocità per un momento.",
+        "zh-hant": "受到物理攻擊時變輕：短時間內速度+20%。"
+      },
+      "effect": "When hit physically it gets lighter: +20% speed for a moment.",
       "effectType": "specialized"
     },
     {
@@ -34757,7 +36331,13 @@
         "it": "Bentostato",
         "zh-hant": "焦香之軀"
       },
-      "effect": "Los ataques de tipo Fuego no le hacen daño: le curan un poco.",
+      "effects": {
+        "es": "Los ataques de tipo Fuego no le hacen daño: le curan un poco.",
+        "en": "Fire-type attacks deal no damage: they heal it a little.",
+        "it": "Gli attacchi di tipo Fuoco non gli fanno danni: lo curano un po’.",
+        "zh-hant": "火屬性攻擊不會造成傷害，反而回復少許體力。"
+      },
+      "effect": "Fire-type attacks deal no damage: they heal it a little.",
       "effectType": "specialized"
     },
     {
@@ -34768,7 +36348,13 @@
         "it": "Fumochiaro",
         "zh-hant": "白色煙霧"
       },
-      "effect": "不會被黏性陷阱和地形減速。",
+      "effects": {
+        "es": "No le frenan las trampas pegajosas ni el terreno.",
+        "en": "Sticky traps and terrain do not slow it down.",
+        "it": "Le trappole appiccicose e il terreno non lo rallentano.",
+        "zh-hant": "不會被黏性陷阱和地形減速。"
+      },
+      "effect": "Sticky traps and terrain do not slow it down.",
       "effectType": "specialized"
     },
     {
@@ -34778,6 +36364,12 @@
         "en": "Wimp Out",
         "it": "Fuggifuggi",
         "zh-hant": "躍躍欲逃"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34790,6 +36382,12 @@
         "it": "Energia Eolica",
         "zh-hant": "風力發電"
       },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
+      },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
     },
@@ -34800,6 +36398,12 @@
         "en": "Wind Rider",
         "it": "Vento Propizio",
         "zh-hant": "乘風"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34812,7 +36416,13 @@
         "it": "Magidifesa",
         "zh-hant": "神奇守護"
       },
-      "effect": "效果不是絕佳的攻擊傷害很低（35%）；效果絕佳的攻擊傷害+50%。",
+      "effects": {
+        "es": "Lo que no es muy eficaz apenas le hace daño (35 %); lo muy eficaz, un 50 % más.",
+        "en": "Anything not super effective barely hurts it (35%); super effective hits deal 50% more.",
+        "it": "Ciò che non è superefficace gli fa pochissimo (35%); il superefficace, il 50% in più.",
+        "zh-hant": "效果不是絕佳的攻擊傷害很低（35%）；效果絕佳的攻擊傷害+50%。"
+      },
+      "effect": "Anything not super effective barely hurts it (35%); super effective hits deal 50% more.",
       "effectType": "specialized"
     },
     {
@@ -34822,6 +36432,12 @@
         "en": "Wonder Skin",
         "it": "Splendicute",
         "zh-hant": "奇跡皮膚"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -34834,7 +36450,13 @@
         "it": "Stato Zen",
         "zh-hant": "達摩模式"
       },
-      "effect": "體力低於一半時進入達摩模式：特殊傷害+30%。",
+      "effects": {
+        "es": "Con menos de la mitad de vida entra en Modo Daruma: +30 % de daño especial.",
+        "en": "Below half HP it enters Zen Mode: +30% special damage.",
+        "it": "Sotto metà PS entra in Stato Zen: +30% di danni speciali.",
+        "zh-hant": "體力低於一半時進入達摩模式：特殊傷害+30%。"
+      },
+      "effect": "Below half HP it enters Zen Mode: +30% special damage.",
       "effectType": "specialized"
     },
     {
@@ -34844,6 +36466,12 @@
         "en": "Zero to Hero",
         "it": "Supercambio",
         "zh-hant": "全能變身"
+      },
+      "effects": {
+        "es": "Efecto base: +8 % de daño con movimientos del tipo principal del compañero.",
+        "en": "Fallback: +8% damage with moves matching the partner’s primary type.",
+        "it": "Effetto base: +8% di danno con mosse del tipo principale del compagno.",
+        "zh-hant": "後備效果：與夥伴主要屬性相同的招式傷害增加 8%。"
       },
       "effect": "Fallback: +8% damage with moves matching the partner’s primary type.",
       "effectType": "fallback"
@@ -70040,17 +71668,17 @@
   "shop": {
     "items": {
       "mint": {
-        "name": "薄荷",
+        "name": "Mint",
         "price": 1500,
         "hidden": false
       },
       "cap": {
-        "name": "特性膠囊",
+        "name": "Ability Capsule",
         "price": 1500,
         "hidden": false
       },
       "caph": {
-        "name": "特性膏藥",
+        "name": "Hidden Ability Capsule",
         "price": 5000,
         "hidden": true
       }
@@ -70170,7 +71798,7 @@
     },
     {
       "id": "ban",
-      "name": "Exclusion",
+      "name": "Ban",
       "unit": "Ban 1 move: it never shows up in your cards",
       "max": 3,
       "base": 300,
@@ -70179,8 +71807,8 @@
     },
     {
       "id": "start",
-      "name": "初始招式",
-      "unit": "選擇開局時使用的招式",
+      "name": "Starting move",
+      "unit": "Choose which move you start the run with",
       "max": 1,
       "base": 400,
       "grow": 1,
@@ -70188,8 +71816,8 @@
     },
     {
       "id": "start2",
-      "name": "第二初始招式",
-      "unit": "選擇開局的第二個招式（需要招式庫）",
+      "name": "Second starting move",
+      "unit": "Choose the second move you start with (needs Repertoire)",
       "max": 1,
       "base": 400,
       "grow": 1,
@@ -70234,6 +71862,17 @@
     }
   },
   "changelog": [
+    {
+      "date": "2026-10-22",
+      "title": "Co-op without rooms closing on their own",
+      "new": [],
+      "changed": [],
+      "fixed": [
+        "Co-op: guests no longer get \"The room has been closed\" in the middle of a run (sometimes after a few minutes or when entering a rift) while the others kept playing. It happened when their connection to the rooms server dropped for a moment; now the run goes on and the room recovers on its own.",
+        "Co-op: if the connection with the host drops for a moment (a Wi-Fi or mobile data hiccup), the guest no longer loses the run: it pauses for up to 45 seconds while reconnecting and then keeps playing.",
+        "Co-op: if you drop out of a run while the others keep playing, you no longer get \"The room has been closed\": you wait in the room and, when they finish, you play together again."
+      ]
+    },
     {
       "date": "2026-10-21",
       "title": "The big update: Kecleon Shop",

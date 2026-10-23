@@ -134,7 +134,7 @@ if(planner){
       [...starting.options].forEach(option=>{option.hidden=!legal.has(option.value);option.disabled=!legal.has(option.value)||(!owned.checked&&option.value!==partner.baseStart);});
       const legalEnabled=[...starting.options].filter(o=>!o.disabled&&!o.hidden);
       starting.value=legalEnabled.some(o=>o.value===preferredStarting)?preferredStarting:partner.baseStart;
-      [...secondary.options].forEach(option=>{const move=byMove(option.value);option.hidden=!legal.has(option.value)||move?.kind==='buff';option.disabled=option.hidden||option.value===starting.value||!repertoire.checked||!secondOwned.checked;});
+      [...secondary.options].forEach(option=>{const move=byMove(option.value);option.hidden=!legal.has(option.value)||move?.kind==='buff';option.disabled=option.hidden||option.value===starting.value||!repertoire.checked;});
       const candidates=[...secondary.options].filter(o=>!o.hidden&&o.value!==starting.value);
       secondary.value=candidates.some(o=>o.value===preferredSecondary)?preferredSecondary:candidates[0]?.value||'';
       secondOwned.disabled=!repertoire.checked;if(secondOwned.disabled)secondOwned.checked=false;
@@ -153,9 +153,10 @@ if(planner){
         return `${m.name}: ${m.category}, ${value.toFixed(2)}×${mono?'; matching single-type damage factor 1.20×':''}${warning}`;
       };
       const first=owned.checked?wikiText('startingUnlocked','first selector unlocked'):wikiText('startingLocked','default first move');
-      const second=!repertoire.checked?wikiText('repertoireLocked','Repertoire not purchased'):secondOwned.checked?wikiText('secondSelected','second selector unlocked: {move}',{move:extra?.name||''}):wikiText('secondRandom','Repertoire gives a random legal second move');
+      const second=!repertoire.checked?wikiText('repertoireLocked','Repertoire not purchased'):secondOwned.checked?wikiText('secondSelected','second selector unlocked: {move}',{move:extra?.name||''}):wikiText('secondRandom','Repertoire gives a random legal second move; planner preview: {move}',{move:extra?.name||''});
+      const secondFit=repertoire.checked&&extra?` [${fit(extra)}]`:'';
       const cost=(owned.checked?400:0)+(repertoire.checked?1500:0)+(secondOwned.checked?400:0);
-      result.textContent=`${partner.name}. ${first}: ${evolution(primary)} [${fit(primary)}]. ${second}. Modelled unlock cost: ${cost.toLocaleString()} coins. The 20% factor applies only to damaging moves matching a single-type partner.`;
+      result.textContent=`${partner.name}. ${first}: ${evolution(primary)} [${fit(primary)}]. ${second}${secondFit}. Modelled unlock cost: ${cost.toLocaleString()} coins. The 20% factor applies only to damaging moves matching a single-type partner.`;
       const url=new URL(location.href);url.search='';url.searchParams.set('p',partner.dex);if(extra&&repertoire.checked)url.searchParams.set('m',extra.id);if(owned.checked){url.searchParams.set('u','1');url.searchParams.set('s',primary.id);}if(repertoire.checked)url.searchParams.set('r','1');if(secondOwned.checked)url.searchParams.set('u2','1');if(taught.value)url.searchParams.set('tm',taught.value);url.searchParams.set('v','8');share.dataset.url=url.href;
     }
     owned.checked=params.get('u')==='1';repertoire.checked=params.get('r')==='1'||params.has('m');secondOwned.checked=params.get('u2')==='1';refreshMoves(params.get('m'),params.get('s'),params.get('tm'));update();
@@ -191,7 +192,7 @@ if(natureCalculator){
 const abilityChecker=document.querySelector('[data-ability-checker]');
 if(abilityChecker){
   const partner=abilityChecker.querySelector('#ability-partner'),out=abilityChecker.querySelector('#ability-result');
-  gameData().then(data=>{function update(){const dex=Number(partner.value),p=data.dex.find(x=>x.dex===dex),slots=data.abilitySlots[String(dex)]||[],name=id=>data.abilities.find(a=>a.id===id),describe=(id,label)=>{const a=name(id);return a?`${label}: ${a.names[wikiLocale]||a.names.en} — ${a.effect}`:`${label}: none`;};out.textContent=`${p.name}. ${describe(slots[0],'Regular 1')} ${describe(slots[1],'Regular 2')} ${describe(slots[2],'Hidden')}`;}partner.addEventListener('change',update);update();}).catch(()=>out.textContent='Ability data could not load.');
+  gameData().then(data=>{function update(){const dex=Number(partner.value),p=data.dex.find(x=>x.dex===dex),slots=data.abilitySlots[String(dex)]||[],name=id=>data.abilities.find(a=>a.id===id),describe=(id,label)=>{const a=name(id);return a?`${label}: ${a.names[wikiLocale]||a.names.en} — ${(a.effects&&a.effects[wikiLocale])||a.effect}`:`${label}: ${wikiText('abilityNone','none')}`;};out.textContent=`${p.name}. ${describe(slots[0],wikiText('abilityRegular1','Regular 1'))} ${describe(slots[1],wikiText('abilityRegular2','Regular 2'))} ${describe(slots[2],wikiText('abilityHidden','Hidden'))}`;}partner.addEventListener('change',update);update();}).catch(()=>out.textContent=wikiText('abilityLoadFail','Ability data could not load.'));
 }
 const gacha=document.querySelector('[data-gacha]');
 if(gacha){

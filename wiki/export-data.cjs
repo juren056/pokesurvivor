@@ -5,7 +5,7 @@ const vm = require('node:vm');
 const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 const root = path.resolve(__dirname, '..');
-const SOURCE_COMMIT = 'ce5785313b0205af8b9477423f64b0a7b7039dcd';
+const SOURCE_COMMIT = '6f0f4409f68adcc5bc31a77cafaf8ba9a0318397';
 const files = ['js/core/util.js', 'js/core/locales.js', 'js/core/i18n.js', 'js/data/lang-en.js', 'js/data/lang-updates.js', 'js/data/pokedex.js', 'js/data/sprites-meta.js', 'js/data/moves.js', 'js/data/starters.js', 'js/data/types.js', 'js/data/upgrades.js', 'js/data/abilities.js', 'js/data/natures.js', 'js/data/tms.js', 'js/data/ability-fx.js', 'js/data/shop.js', 'js/systems/gacha.js', 'js/data/changelog.js'];
 const sandbox = {G: {}, console, CanvasRenderingContext2D:function(){}, location:{pathname:'/en/',protocol:'http:'}, navigator: {language:'en',languages:['en']}, localStorage:{getItem:()=> 'en',setItem:()=>{}}, document:{documentElement:{},currentScript:null,write:()=>{},addEventListener:()=>{}}, window:{}, performance:{now:()=>0}};
 sandbox.window = sandbox;
@@ -18,10 +18,29 @@ for (const file of files) {
   vm.runInContext(raw,sandbox,{filename:file,timeout:5000});
   if (file==='js/core/i18n.js') {
     const add = sandbox.G.I18n.add;
-    sandbox.G.I18n.add = d => {Object.assign(english,d);add(d);};
+    sandbox.G.I18n.add = (d, language='en', context='') => {
+      if (language === 'en' && !context) Object.assign(english,d);
+      add(d,language,context);
+    };
   }
 }
 const G = sandbox.G;
+const sourceAt = file => execFileSync('git',['show',`${SOURCE_COMMIT}:${file}`],{cwd:root,encoding:'utf8'});
+const makeTranslator = (locale, pathname, languageFile=null) => {
+  const s = {G:{},console,CanvasRenderingContext2D:function(){},location:{pathname,protocol:'http:'},navigator:{language:locale,languages:[locale]},localStorage:{getItem:()=>locale,setItem:()=>{}},document:{documentElement:{},currentScript:null,write:()=>{},addEventListener:()=>{}},window:{},performance:{now:()=>0}};
+  s.window=s; s.PS_LANG_Q=[]; vm.createContext(s);
+  for (const file of ['js/core/locales.js', ...(languageFile?[languageFile]:[]), 'js/core/i18n.js', 'js/data/lang-en.js', 'js/data/lang-updates.js']) {
+    const raw=sourceAt(file);
+    if (languageFile===file) hashes[file]=crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex');
+    vm.runInContext(raw,s,{filename:file,timeout:5000});
+  }
+  return text=>s.G.I18n.t(text);
+};
+const abilityTranslators = {
+  en: makeTranslator('en','/en/'),
+  it: makeTranslator('it','/it/','js/lang/it.js'),
+  'zh-hant': makeTranslator('zh-Hant','/zh-hant/','js/lang/zh-Hant.js')
+};
 const title = id => id.split('-').map(s=>s[0].toUpperCase()+s.slice(1)).join(' ');
 const en = text => english[text] || text;
 const need = {hp:'Vigor',atk:'Power',spd:'Sprint',cd:'Reflexes',def:'Armor',rgn:'Synthesis',mag:'Magnet',xp:'Learning'};
@@ -56,13 +75,26 @@ for (const p of dex) {
   slots.filter(Boolean).forEach(id=>usedAbilityIds.add(id));
 }
 const abilityNames = n => ({es:n[0],en:n[1],it:n[3],'zh-hant':n[5]});
+const fallbackEffects = {
+  es:'Efecto base: +8 % de daño con movimientos del tipo principal del compañero.',
+  en:'Fallback: +8% damage with moves matching the partner’s primary type.',
+  it:'Effetto base: +8% di danno con mosse del tipo principale del compagno.',
+  'zh-hant':'後備效果：與夥伴主要屬性相同的招式傷害增加 8%。'
+};
+const localizedAbilityEffects = description => ({
+  es: description,
+  en: abilityTranslators.en(description),
+  it: abilityTranslators.it(description),
+  'zh-hant': abilityTranslators['zh-hant'](description)
+});
 const abilities = [...usedAbilityIds].sort().map(id=>{
   const fx=G.AbilityFX.FX[id];
-  return {id,names:abilityNames(G.ABIL[id]),effect:fx?en(fx.d):'Fallback: +8% damage with moves matching the partner’s primary type.',effectType:fx?'specialized':'fallback'};
+  const effects=fx?localizedAbilityEffects(fx.d):fallbackEffects;
+  return {id,names:abilityNames(G.ABIL[id]),effects,effect:effects.en,effectType:fx?'specialized':'fallback'};
 });
 const tms = Object.keys(G.TM_MOVES).filter(id=>G.Moves.BY_ID[id]).sort().map(id=>({id,name:title(id),price:G.TM_PRICE[id]||400,compatibleDex:G.TM_MOVES[id].filter(d=>playableDex.has(d))}));
 const naturalMoves = Object.fromEntries(dex.map(p=>[p.dex,G.Moves.poolFor(p,true)]));
-const data={source:{repository:'https://github.com/JPTER78/pokesurvivor',commit,verified:'2026-10-22',files:hashes},dex,starters,moves,types,matrix,matchups,natures,abilities,abilitySlots,tms,naturalMoves,
+const data={source:{repository:'https://github.com/JPTER78/pokesurvivor',commit,verified:'2026-10-23',files:hashes},dex,starters,moves,types,matrix,matchups,natures,abilities,abilitySlots,tms,naturalMoves,
   shop:{items:Object.fromEntries(Object.entries(G.Shop.ITEMS).map(([id,x])=>[id,{name:en(x.name),price:x.price,hidden:!!x.hidden}])),dailyTmCount:8,timeZone:'Europe/Madrid',defaultTmPrice:400},
   upgrades:G.Upgrades.LIST.map(u=>({id:u.id,name:en(u.name),unit:en(u.unit),max:u.max,base:u.base,grow:u.grow,needs:u.needs||null})),
   rules:{startingMove:{upgradeId:'start',cost:400,max:1,excludesKind:'buff',defaultAlwaysAllowed:true},secondStartingMove:{upgradeId:'start2',cost:400,max:1,requires:'moves',cannotDuplicateFirst:true,usesStartChoices:true},repertoire:{upgradeId:'moves',cost:1500,startMoves:2},singleTypeDamage:{multiplier:1.2,requiresSingleType:true,requiresMatchingMoveType:true,damagingOnly:true},cloudSave:{automaticUploads:false,manualButton:true,beforeUpdate:true,beforeLogout:true,minUploadGapMs:65000,revisionConflictProtection:true,conflictAction:'read-merge-retry'}},
