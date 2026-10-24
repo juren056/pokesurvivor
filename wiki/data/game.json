@@ -1,17 +1,17 @@
 {
   "source": {
     "repository": "https://github.com/JPTER78/pokesurvivor",
-    "commit": "6f0f4409f68adcc5bc31a77cafaf8ba9a0318397",
-    "verified": "2026-10-23",
+    "commit": "d567c6da88e4ef66634ab54a01b5a3607501e03a",
+    "verified": "2026-10-24",
     "files": {
       "js/core/util.js": "cbe280d866fcbbe7a603d5c60c708eecd556f17b7ec0f1dd58c1d4548ab9ccc4",
       "js/core/locales.js": "42c7e152f59953eead02b3a46607d0efcf19677af5f1037e8f43babb3da62bb2",
-      "js/core/i18n.js": "1dc2985758785f45323c081b0e13da86128a379ea3792c87d6038b8a0b302aa8",
-      "js/data/lang-en.js": "72bfabea3bca752e7f65218258024e2fba928a0d69d05e19411ec60e0c80ba82",
-      "js/data/lang-updates.js": "2abd3b67653ba1c76e4db41805a1dfa1180c9736db0474ac6fe1ace5786b90e9",
+      "js/core/i18n.js": "3a7b9c15085979768408842847a93bd273a57ebe3faf4d7e1261910cc4ec0fa6",
+      "js/data/lang-en.js": "a9226a85ec60aab0cae3f5b48767a364b10ef225ba4bc450f3bc8412892c2b2c",
+      "js/data/lang-updates.js": "54dce4a6a6eb9c9cd3dfb0de3d5b090cb9f12b9a4bfc4451f7b8c8250fbbd0f3",
       "js/data/pokedex.js": "43ec37ef3ac48452f9a72c51851a188e2375ec93cde9394b335612ad1e107369",
       "js/data/sprites-meta.js": "c719091bb7ce284bce5b4fdc93eeb0b93a096f1302e8e3466142de05323b311a",
-      "js/data/moves.js": "ecd20a27cfc9cf4e41abd73a278eee5c22b3d4157c7145ae34a7377365341c13",
+      "js/data/moves.js": "9e0f1060ab8c423005ae1a387c54ba0d718813c4cf23bd551d1135dc125b0666",
       "js/data/starters.js": "772efc4bd11e271d50932ddb7ac97ba0bf135a52ed648a04d8415645d0984998",
       "js/data/types.js": "52910f46f49a2d5535ed1e2d7eced8ccef342ceebd46649c6d3059c3a9ca048f",
       "js/data/upgrades.js": "056802bbe00ed5dbd34f1eba6f7e40ea40bf10428f70c325ad2d25bdfd48c0a6",
@@ -20,29 +20,30 @@
       "js/data/tms.js": "f5045ba35d4d18df4313bbf13f941114aedf119b3700f7c5811764fd345ba4f9",
       "js/data/ability-fx.js": "a58bbb526ec3c562af20cb32928338b916246f29e914137374a0a5dd1ec240e9",
       "js/data/shop.js": "3c723bdf86983ca413e6d68ba815274c08b591c86307905e8aed696eafea915f",
-      "js/systems/gacha.js": "957b89be9521070c366e1ae21c6bdcf5f96899e5ea0c71cafd712289d11eea15",
-      "js/data/changelog.js": "865fecb1ab733b368afe42e539cd755125d842677288e9c5fa30f4c8d35079ed",
-      "js/lang/it.js": "5cb612891eacf1e8e9e44193e497b13280ffed57c3f118dcf091a6376acd3718",
-      "js/lang/zh-Hant.js": "745f1abe30ac47ab38570a205d035764315dfbac43bf688494275cf006308ac0",
+      "js/systems/gacha.js": "d9421de07e86b2e3e852f5245fc3be8dfdd50cf49ad2904a73e2c2721ea848c6",
+      "js/systems/orbs.js": "7ac8b9fba41f7a6183013b820519af3dec8698ab13858b6f0b7833dd4bfdd7fe",
+      "js/data/changelog.js": "62ba7a905c951e9e5e3c36f109a243964a8cf5be3e2972eedb6144b4d69292e1",
+      "js/lang/it.js": "020647eb6c8e45d28d59d0bdb7d28034350b14a9fea5475fc42d48e4b975cdc6",
+      "js/lang/zh-Hant.js": "e7bbecbad337efa60bddc6801788de683b7bb90defb314e4ae4970abab4ed59d",
       "README.md": "85bb64fba46cd439523cbf378c5154dfb45b87bc9c93966949f73f27137e190a",
       "js/systems/levelup.js": "b40e9d02b19c8f695818aea6f46417518d6d9e083aa210c02c2cb0ce9779dd63",
       "sw.js": "195a017cb8cfc56036b3ae34c08c269f8173621d264a3392651624cbeaabecd4",
       "js/core/settings.js": "c1c7e5283d7020deced463755e9efc50dde96e13a4a5ab19ac0e570afdd0581b",
-      "js/core/gamepad.js": "03fbd2de913fc43787347dc933c2c364216fbf32ab8d7381a118f80e6362b612",
+      "js/core/gamepad.js": "018ba76f92b79f33eee08294b1b0144655bce6bfe45961c17de843da01979140",
       "js/ui/settings-ui.js": "fd0ce5b78dbb96c7b8855d5f7922549b1169bfc52de760ec35ea1c671c331e6c",
-      "js/systems/combat.js": "d2d44707e40ba30b4f3de8358e3c8a8f31be8f322a51a8324c54a44ec1673635",
+      "js/systems/combat.js": "98e59fb480f3a922d7bc953c42dce36b006b703d3c3eb124e3bf8f49305088a2",
       "js/systems/stats.js": "158f2780859b367580c5f580edebd38ae40df4bea86d013bac53bad152198f65",
       "manifest.webmanifest": "bbbc24b15841a58106fad76dacd7796c66e445add59929c0edda7636d4cc8a38",
       "js/core/db.js": "3244c974dc3d3705f46799d7ce5b23ca1a222c8488dd758f2d446dd9ff9c77cc",
-      "dev.html": "455f85bdb2f2c522c80d1bcfe3a6c779e28d4d46f4522527d4e2d612b6f1dcb5",
-      "js/ui/menu.js": "7f141b3fa027ea647e10a858d9531ed809cc6c8f9fa88cd2c7c6ae27df7b5713",
+      "dev.html": "2555e9b1293b047d5285298095639d08be9a88c343fed7870e18259a75d10b67",
+      "js/ui/menu.js": "90c238b7d1c57c70242344a876317370202c2e8e98a433183ce980f1ef6f59d2",
       "LICENSE": "f99b80284d21e7fb84c90ffc44440668480f26fe4ac3f9d76a6796d84a186999",
       "CREDITS.md": "2b3832c56ada5f57ceb13cc61fb0bb2cab19d699b0a24fb5e80667cbca2cb8a7",
       "js/entities/player.js": "fff9f133389d4f5887732e52ae50bb7ebe68b44ead08ba879cbefe403d06c660",
       "js/systems/mons.js": "4732470f436b8c32cdc3e04ce13132c23a89a1cc43ff89ef366bc5d8dacc524e",
       "js/systems/rift.js": "2c27b749de34a0f7be0a53e5499e1591837dd1b5c9b1d54f440493b894c50f76",
-      "js/systems/spawner.js": "34a2dda00ad0c3f485b8c7a512b4924949a4fadb073df845418581e6d1128fd9",
-      "js/net/coop.js": "63956e7f55a1bc7cd203263968945d0b36f89d96133386daa3eb59f624c8579c"
+      "js/systems/spawner.js": "c5baee913e35fef7fcffa53e4cee96cef7c1dffd5dbc53770ea48740f759dc99",
+      "js/net/coop.js": "a37e87e3dc12fc2de4233f560b5cec789f3fc2a328008a19617f20ad9394c841"
     }
   },
   "dex": [
@@ -20177,9 +20178,10 @@
         }
       ],
       "evolution": {
-        "name": "Take Down",
+        "name": "Tackle +",
         "stat": "hp",
-        "requirement": "Vigor"
+        "requirement": "Vigor",
+        "historicalName": "Take Down"
       }
     },
     {
@@ -20224,9 +20226,10 @@
         }
       ],
       "evolution": {
-        "name": "Extreme Speed",
+        "name": "Quick Attack +",
         "stat": "spd",
-        "requirement": "Sprint"
+        "requirement": "Sprint",
+        "historicalName": "Extreme Speed"
       }
     },
     {
@@ -20445,9 +20448,10 @@
         }
       ],
       "evolution": {
-        "name": "Fire Blast",
+        "name": "Ember +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Fire Blast"
       }
     },
     {
@@ -20492,9 +20496,10 @@
         }
       ],
       "evolution": {
-        "name": "Overheat",
+        "name": "Flamethrower +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Overheat"
       }
     },
     {
@@ -20540,9 +20545,10 @@
         }
       ],
       "evolution": {
-        "name": "Sacred Fire",
+        "name": "Fire Spin +",
         "stat": "rgn",
-        "requirement": "Synthesis"
+        "requirement": "Synthesis",
+        "historicalName": "Sacred Fire"
       }
     },
     {
@@ -20587,9 +20593,10 @@
         }
       ],
       "evolution": {
-        "name": "Eruption",
+        "name": "Heat Wave +",
         "stat": "hp",
-        "requirement": "Vigor"
+        "requirement": "Vigor",
+        "historicalName": "Eruption"
       }
     },
     {
@@ -20636,9 +20643,10 @@
         }
       ],
       "evolution": {
-        "name": "Scald",
+        "name": "Water Gun +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Scald"
       }
     },
     {
@@ -20683,9 +20691,10 @@
         }
       ],
       "evolution": {
-        "name": "Surf",
+        "name": "Bubble +",
         "stat": "spd",
-        "requirement": "Sprint"
+        "requirement": "Sprint",
+        "historicalName": "Surf"
       }
     },
     {
@@ -20730,9 +20739,10 @@
         }
       ],
       "evolution": {
-        "name": "Hydro Cannon",
+        "name": "Hydro Pump +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Hydro Cannon"
       }
     },
     {
@@ -20820,9 +20830,10 @@
         }
       ],
       "evolution": {
-        "name": "Power Whip",
+        "name": "Vine Whip +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Power Whip"
       }
     },
     {
@@ -20867,9 +20878,10 @@
         }
       ],
       "evolution": {
-        "name": "Leaf Storm",
+        "name": "Razor Leaf +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Leaf Storm"
       }
     },
     {
@@ -20915,9 +20927,10 @@
         }
       ],
       "evolution": {
-        "name": "Petal Dance",
+        "name": "Leaf Storm +",
         "stat": "rgn",
-        "requirement": "Synthesis"
+        "requirement": "Synthesis",
+        "historicalName": "Petal Dance"
       }
     },
     {
@@ -20962,9 +20975,10 @@
         }
       ],
       "evolution": {
-        "name": "Frenzy Plant",
+        "name": "Giga Drain +",
         "stat": "hp",
-        "requirement": "Vigor"
+        "requirement": "Vigor",
+        "historicalName": "Frenzy Plant"
       }
     },
     {
@@ -21011,9 +21025,10 @@
         }
       ],
       "evolution": {
-        "name": "Thunder",
+        "name": "Thunder Shock +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Thunder"
       }
     },
     {
@@ -21058,9 +21073,10 @@
         }
       ],
       "evolution": {
-        "name": "Electric Terrain",
+        "name": "Discharge +",
         "stat": "def",
-        "requirement": "Armor"
+        "requirement": "Armor",
+        "historicalName": "Electric Terrain"
       }
     },
     {
@@ -21105,9 +21121,10 @@
         }
       ],
       "evolution": {
-        "name": "Zap Cannon",
+        "name": "Thunderbolt +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Zap Cannon"
       }
     },
     {
@@ -21154,9 +21171,10 @@
         }
       ],
       "evolution": {
-        "name": "Psyshock",
+        "name": "Confusion +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Psyshock"
       }
     },
     {
@@ -21201,9 +21219,10 @@
         }
       ],
       "evolution": {
-        "name": "Future Sight",
+        "name": "Psybeam +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Future Sight"
       }
     },
     {
@@ -21248,9 +21267,10 @@
         }
       ],
       "evolution": {
-        "name": "Expanding Force",
+        "name": "Psychic +",
         "stat": "mag",
-        "requirement": "Magnet"
+        "requirement": "Magnet",
+        "historicalName": "Expanding Force"
       }
     },
     {
@@ -21297,9 +21317,10 @@
         }
       ],
       "evolution": {
-        "name": "Sludge Bomb",
+        "name": "Sludge +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Sludge Bomb"
       }
     },
     {
@@ -21344,9 +21365,10 @@
         }
       ],
       "evolution": {
-        "name": "Earth Power",
+        "name": "Mud Shot +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Earth Power"
       }
     },
     {
@@ -21392,9 +21414,10 @@
         }
       ],
       "evolution": {
-        "name": "Hurricane",
+        "name": "Gust +",
         "stat": "spd",
-        "requirement": "Sprint"
+        "requirement": "Sprint",
+        "historicalName": "Hurricane"
       }
     },
     {
@@ -21439,9 +21462,10 @@
         }
       ],
       "evolution": {
-        "name": "Brave Bird",
+        "name": "Wing Attack +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Brave Bird"
       }
     },
     {
@@ -21486,9 +21510,10 @@
         }
       ],
       "evolution": {
-        "name": "Giga Impact",
+        "name": "Body Slam +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Giga Impact"
       }
     },
     {
@@ -21533,9 +21558,10 @@
         }
       ],
       "evolution": {
-        "name": "Uproar",
+        "name": "Hyper Voice +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Uproar"
       }
     },
     {
@@ -21582,9 +21608,10 @@
         }
       ],
       "evolution": {
-        "name": "Poison Jab",
+        "name": "Poison Sting +",
         "stat": "spd",
-        "requirement": "Sprint"
+        "requirement": "Sprint",
+        "historicalName": "Poison Jab"
       }
     },
     {
@@ -21629,9 +21656,10 @@
         }
       ],
       "evolution": {
-        "name": "Poison Gas",
+        "name": "Toxic +",
         "stat": "rgn",
-        "requirement": "Synthesis"
+        "requirement": "Synthesis",
+        "historicalName": "Poison Gas"
       }
     },
     {
@@ -21676,9 +21704,10 @@
         }
       ],
       "evolution": {
-        "name": "Earthquake",
+        "name": "Bulldoze +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Earthquake"
       }
     },
     {
@@ -21723,9 +21752,10 @@
         }
       ],
       "evolution": {
-        "name": "X-Scissor",
+        "name": "Bug Bite +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "X-Scissor"
       }
     },
     {
@@ -21770,9 +21800,10 @@
         }
       ],
       "evolution": {
-        "name": "Sticky Web",
+        "name": "String Shot +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Sticky Web"
       }
     },
     {
@@ -21817,9 +21848,10 @@
         }
       ],
       "evolution": {
-        "name": "Swarm",
+        "name": "Bug Buzz +",
         "stat": "rgn",
-        "requirement": "Synthesis"
+        "requirement": "Synthesis",
+        "historicalName": "Swarm"
       }
     },
     {
@@ -21866,9 +21898,10 @@
         }
       ],
       "evolution": {
-        "name": "Stone Edge",
+        "name": "Rock Throw +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Stone Edge"
       }
     },
     {
@@ -21913,9 +21946,10 @@
         }
       ],
       "evolution": {
-        "name": "Stealth Rock",
+        "name": "Rock Slide +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Stealth Rock"
       }
     },
     {
@@ -21960,9 +21994,10 @@
         }
       ],
       "evolution": {
-        "name": "Blizzard",
+        "name": "Ice Beam +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Blizzard"
       }
     },
     {
@@ -22007,9 +22042,10 @@
         }
       ],
       "evolution": {
-        "name": "Icy Wind",
+        "name": "Powder Snow +",
         "stat": "spd",
-        "requirement": "Sprint"
+        "requirement": "Sprint",
+        "historicalName": "Icy Wind"
       }
     },
     {
@@ -22054,9 +22090,10 @@
         }
       ],
       "evolution": {
-        "name": "Close Combat",
+        "name": "Karate Chop +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Close Combat"
       }
     },
     {
@@ -22103,9 +22140,10 @@
         }
       ],
       "evolution": {
-        "name": "Focus Blast",
+        "name": "Aura Sphere +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Focus Blast"
       }
     },
     {
@@ -22150,9 +22188,10 @@
         }
       ],
       "evolution": {
-        "name": "Shadow Punch",
+        "name": "Lick +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Shadow Punch"
       }
     },
     {
@@ -22199,9 +22238,10 @@
         }
       ],
       "evolution": {
-        "name": "Phantom Force",
+        "name": "Shadow Ball +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Phantom Force"
       }
     },
     {
@@ -22246,9 +22286,10 @@
         }
       ],
       "evolution": {
-        "name": "Draco Meteor",
+        "name": "Dragon Rage +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Draco Meteor"
       }
     },
     {
@@ -22336,9 +22377,10 @@
         }
       ],
       "evolution": {
-        "name": "Moonblast",
+        "name": "Fairy Wind +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Moonblast"
       }
     },
     {
@@ -22383,9 +22425,10 @@
         }
       ],
       "evolution": {
-        "name": "Misty Terrain",
+        "name": "Dazzling Gleam +",
         "stat": "rgn",
-        "requirement": "Synthesis"
+        "requirement": "Synthesis",
+        "historicalName": "Misty Terrain"
       }
     },
     {
@@ -22430,9 +22473,10 @@
         }
       ],
       "evolution": {
-        "name": "Iron Head",
+        "name": "Metal Claw +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Iron Head"
       }
     },
     {
@@ -22477,9 +22521,10 @@
         }
       ],
       "evolution": {
-        "name": "Steel Beam",
+        "name": "Flash Cannon +",
         "stat": "def",
-        "requirement": "Armor"
+        "requirement": "Armor",
+        "historicalName": "Steel Beam"
       }
     },
     {
@@ -22524,9 +22569,10 @@
         }
       ],
       "evolution": {
-        "name": "Crunch",
+        "name": "Bite +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Crunch"
       }
     },
     {
@@ -22571,9 +22617,10 @@
         }
       ],
       "evolution": {
-        "name": "Snarl",
+        "name": "Dark Pulse +",
         "stat": "spd",
-        "requirement": "Sprint"
+        "requirement": "Sprint",
+        "historicalName": "Snarl"
       }
     },
     {
@@ -22618,9 +22665,10 @@
         }
       ],
       "evolution": {
-        "name": "Nightmare",
+        "name": "Night Shade +",
         "stat": "rgn",
-        "requirement": "Synthesis"
+        "requirement": "Synthesis",
+        "historicalName": "Nightmare"
       }
     },
     {
@@ -22665,9 +22713,10 @@
         }
       ],
       "evolution": {
-        "name": "Bone Rush",
+        "name": "Bonemerang +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Bone Rush"
       }
     },
     {
@@ -22712,9 +22761,10 @@
         }
       ],
       "evolution": {
-        "name": "Psychic Fangs",
+        "name": "Psycho Cut +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Psychic Fangs"
       }
     },
     {
@@ -22759,9 +22809,10 @@
         }
       ],
       "evolution": {
-        "name": "Fissure",
+        "name": "Spikes +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Fissure"
       }
     },
     {
@@ -22806,9 +22857,10 @@
         }
       ],
       "evolution": {
-        "name": "Gunk Shot",
+        "name": "Toxic Spikes +",
         "stat": "rgn",
-        "requirement": "Synthesis"
+        "requirement": "Synthesis",
+        "historicalName": "Gunk Shot"
       }
     },
     {
@@ -22853,9 +22905,10 @@
         }
       ],
       "evolution": {
-        "name": "Avalanche",
+        "name": "Hail +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Avalanche"
       }
     },
     {
@@ -22867,10 +22920,10 @@
       "buffStat": null,
       "description": "Two steel meteors that crush where they land.",
       "maxLevel": 5,
-      "damage": 34,
+      "damage": 24,
       "cooldown": 1.4,
       "count": 2,
-      "radius": 54,
+      "radius": 48,
       "arc": null,
       "upgrades": [
         {
@@ -22900,9 +22953,10 @@
         }
       ],
       "evolution": {
-        "name": "Magnet Bomb",
+        "name": "Meteor Mash +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Magnet Bomb"
       }
     },
     {
@@ -22947,9 +23001,10 @@
         }
       ],
       "evolution": {
-        "name": "Inferno",
+        "name": "Will O Wisp +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Inferno"
       }
     },
     {
@@ -22994,9 +23049,10 @@
         }
       ],
       "evolution": {
-        "name": "Double Team",
+        "name": "Substitute +",
         "stat": "def",
-        "requirement": "Armor"
+        "requirement": "Armor",
+        "historicalName": "Double Team"
       }
     },
     {
@@ -23041,9 +23097,10 @@
         }
       ],
       "evolution": {
-        "name": "Acrobatics",
+        "name": "Aerial Ace +",
         "stat": "spd",
-        "requirement": "Sprint"
+        "requirement": "Sprint",
+        "historicalName": "Acrobatics"
       }
     },
     {
@@ -23088,9 +23145,10 @@
         }
       ],
       "evolution": {
-        "name": "Flare Blitz",
+        "name": "Flame Wheel +",
         "stat": "spd",
-        "requirement": "Sprint"
+        "requirement": "Sprint",
+        "historicalName": "Flare Blitz"
       }
     },
     {
@@ -23135,9 +23193,10 @@
         }
       ],
       "evolution": {
-        "name": "Aqua Tail",
+        "name": "Bubble Beam +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Aqua Tail"
       }
     },
     {
@@ -23182,9 +23241,10 @@
         }
       ],
       "evolution": {
-        "name": "Poltergeist",
+        "name": "Hex +",
         "stat": "mag",
-        "requirement": "Magnet"
+        "requirement": "Magnet",
+        "historicalName": "Poltergeist"
       }
     },
     {
@@ -23230,9 +23290,10 @@
         }
       ],
       "evolution": {
-        "name": "Prismatic Laser",
+        "name": "Hyper Beam +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Prismatic Laser"
       }
     },
     {
@@ -23277,9 +23338,10 @@
         }
       ],
       "evolution": {
-        "name": "Tri Attack",
+        "name": "Rapid Spin +",
         "stat": "spd",
-        "requirement": "Sprint"
+        "requirement": "Sprint",
+        "historicalName": "Tri Attack"
       }
     },
     {
@@ -23324,9 +23386,10 @@
         }
       ],
       "evolution": {
-        "name": "Heat Crash",
+        "name": "Flame Charge +",
         "stat": "spd",
-        "requirement": "Sprint"
+        "requirement": "Sprint",
+        "historicalName": "Heat Crash"
       }
     },
     {
@@ -23371,9 +23434,10 @@
         }
       ],
       "evolution": {
-        "name": "Brine",
+        "name": "Whirlpool +",
         "stat": "rgn",
-        "requirement": "Synthesis"
+        "requirement": "Synthesis",
+        "historicalName": "Brine"
       }
     },
     {
@@ -23419,9 +23483,10 @@
         }
       ],
       "evolution": {
-        "name": "Wood Hammer",
+        "name": "Seed Bomb +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Wood Hammer"
       }
     },
     {
@@ -23467,9 +23532,10 @@
         }
       ],
       "evolution": {
-        "name": "Giga Drain",
+        "name": "Energy Ball +",
         "stat": "rgn",
-        "requirement": "Synthesis"
+        "requirement": "Synthesis",
+        "historicalName": "Giga Drain"
       }
     },
     {
@@ -23515,9 +23581,10 @@
         }
       ],
       "evolution": {
-        "name": "Solar Blade",
+        "name": "Solar Beam +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Solar Blade"
       }
     },
     {
@@ -23562,9 +23629,10 @@
         }
       ],
       "evolution": {
-        "name": "Volt Tackle",
+        "name": "Thunder Wave +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Volt Tackle"
       }
     },
     {
@@ -23610,9 +23678,10 @@
         }
       ],
       "evolution": {
-        "name": "Spark",
+        "name": "Electro Ball +",
         "stat": "spd",
-        "requirement": "Sprint"
+        "requirement": "Sprint",
+        "historicalName": "Spark"
       }
     },
     {
@@ -23657,9 +23726,10 @@
         }
       ],
       "evolution": {
-        "name": "Psywave",
+        "name": "Extrasensory +",
         "stat": "def",
-        "requirement": "Armor"
+        "requirement": "Armor",
+        "historicalName": "Psywave"
       }
     },
     {
@@ -23705,9 +23775,10 @@
         }
       ],
       "evolution": {
-        "name": "Luster Purge",
+        "name": "Mist Ball +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Luster Purge"
       }
     },
     {
@@ -23753,9 +23824,10 @@
         }
       ],
       "evolution": {
-        "name": "Sludge Wave",
+        "name": "Acid Spray +",
         "stat": "rgn",
-        "requirement": "Synthesis"
+        "requirement": "Synthesis",
+        "historicalName": "Sludge Wave"
       }
     },
     {
@@ -23800,9 +23872,10 @@
         }
       ],
       "evolution": {
-        "name": "High Horsepower",
+        "name": "Sand Tomb +",
         "stat": "hp",
-        "requirement": "Vigor"
+        "requirement": "Vigor",
+        "historicalName": "High Horsepower"
       }
     },
     {
@@ -23847,9 +23920,10 @@
         }
       ],
       "evolution": {
-        "name": "Drill Run",
+        "name": "Magnitude +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Drill Run"
       }
     },
     {
@@ -23894,9 +23968,10 @@
         }
       ],
       "evolution": {
-        "name": "Hurricane",
+        "name": "Whirlwind +",
         "stat": "spd",
-        "requirement": "Sprint"
+        "requirement": "Sprint",
+        "historicalName": "Hurricane"
       }
     },
     {
@@ -23942,9 +24017,10 @@
         }
       ],
       "evolution": {
-        "name": "Sky Attack",
+        "name": "Air Slash +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Sky Attack"
       }
     },
     {
@@ -23990,9 +24066,10 @@
         }
       ],
       "evolution": {
-        "name": "Megahorn",
+        "name": "Signal Beam +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Megahorn"
       }
     },
     {
@@ -24037,9 +24114,10 @@
         }
       ],
       "evolution": {
-        "name": "Leech Life",
+        "name": "U Turn +",
         "stat": "rgn",
-        "requirement": "Synthesis"
+        "requirement": "Synthesis",
+        "historicalName": "Leech Life"
       }
     },
     {
@@ -24084,9 +24162,10 @@
         }
       ],
       "evolution": {
-        "name": "Head Smash",
+        "name": "Rock Tomb +",
         "stat": "hp",
-        "requirement": "Vigor"
+        "requirement": "Vigor",
+        "historicalName": "Head Smash"
       }
     },
     {
@@ -24132,9 +24211,10 @@
         }
       ],
       "evolution": {
-        "name": "Diamond Storm",
+        "name": "Ancient Power +",
         "stat": "def",
-        "requirement": "Armor"
+        "requirement": "Armor",
+        "historicalName": "Diamond Storm"
       }
     },
     {
@@ -24180,9 +24260,10 @@
         }
       ],
       "evolution": {
-        "name": "Meteor Beam",
+        "name": "Power Gem +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Meteor Beam"
       }
     },
     {
@@ -24228,9 +24309,10 @@
         }
       ],
       "evolution": {
-        "name": "Icicle Spear",
+        "name": "Ice Shard +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Icicle Spear"
       }
     },
     {
@@ -24275,9 +24357,10 @@
         }
       ],
       "evolution": {
-        "name": "Sheer Cold",
+        "name": "Freeze Dry +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Sheer Cold"
       }
     },
     {
@@ -24322,9 +24405,10 @@
         }
       ],
       "evolution": {
-        "name": "High Jump Kick",
+        "name": "Rolling Kick +",
         "stat": "spd",
-        "requirement": "Sprint"
+        "requirement": "Sprint",
+        "historicalName": "High Jump Kick"
       }
     },
     {
@@ -24369,9 +24453,10 @@
         }
       ],
       "evolution": {
-        "name": "Power-Up Punch",
+        "name": "Vacuum Wave +",
         "stat": "def",
-        "requirement": "Armor"
+        "requirement": "Armor",
+        "historicalName": "Power-Up Punch"
       }
     },
     {
@@ -24416,9 +24501,10 @@
         }
       ],
       "evolution": {
-        "name": "Mega Punch",
+        "name": "Dynamic Punch +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Mega Punch"
       }
     },
     {
@@ -24464,9 +24550,10 @@
         }
       ],
       "evolution": {
-        "name": "Shadow Claw",
+        "name": "Shadow Sneak +",
         "stat": "cd",
-        "requirement": "Reflexes"
+        "requirement": "Reflexes",
+        "historicalName": "Shadow Claw"
       }
     },
     {
@@ -24511,9 +24598,10 @@
         }
       ],
       "evolution": {
-        "name": "Shadow Force",
+        "name": "Ominous Wind +",
         "stat": "mag",
-        "requirement": "Magnet"
+        "requirement": "Magnet",
+        "historicalName": "Shadow Force"
       }
     },
     {
@@ -24558,9 +24646,10 @@
         }
       ],
       "evolution": {
-        "name": "Dragon Pulse",
+        "name": "Dragon Breath +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Dragon Pulse"
       }
     },
     {
@@ -24605,9 +24694,10 @@
         }
       ],
       "evolution": {
-        "name": "Dragon Rush",
+        "name": "Dragon Claw +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Dragon Rush"
       }
     },
     {
@@ -24652,9 +24742,10 @@
         }
       ],
       "evolution": {
-        "name": "Dragon Darts",
+        "name": "Outrage +",
         "stat": "hp",
-        "requirement": "Vigor"
+        "requirement": "Vigor",
+        "historicalName": "Dragon Darts"
       }
     },
     {
@@ -24700,9 +24791,10 @@
         }
       ],
       "evolution": {
-        "name": "Moonlight",
+        "name": "Draining Kiss +",
         "stat": "rgn",
-        "requirement": "Synthesis"
+        "requirement": "Synthesis",
+        "historicalName": "Moonlight"
       }
     },
     {
@@ -24747,9 +24839,10 @@
         }
       ],
       "evolution": {
-        "name": "Spirit Break",
+        "name": "Play Rough +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Spirit Break"
       }
     },
     {
@@ -24794,9 +24887,10 @@
         }
       ],
       "evolution": {
-        "name": "Charm",
+        "name": "Disarming Voice +",
         "stat": "def",
-        "requirement": "Armor"
+        "requirement": "Armor",
+        "historicalName": "Charm"
       }
     },
     {
@@ -24842,9 +24936,10 @@
         }
       ],
       "evolution": {
-        "name": "Steel Beam",
+        "name": "Mirror Shot +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Steel Beam"
       }
     },
     {
@@ -24889,9 +24984,10 @@
         }
       ],
       "evolution": {
-        "name": "Heavy Slam",
+        "name": "Gyro Ball +",
         "stat": "def",
-        "requirement": "Armor"
+        "requirement": "Armor",
+        "historicalName": "Heavy Slam"
       }
     },
     {
@@ -24937,9 +25033,10 @@
         }
       ],
       "evolution": {
-        "name": "Foul Play",
+        "name": "Sucker Punch +",
         "stat": "atk",
-        "requirement": "Power"
+        "requirement": "Power",
+        "historicalName": "Foul Play"
       }
     },
     {
@@ -24984,9 +25081,10 @@
         }
       ],
       "evolution": {
-        "name": "Darkest Lariat",
+        "name": "Night Slash +",
         "stat": "spd",
-        "requirement": "Sprint"
+        "requirement": "Sprint",
+        "historicalName": "Darkest Lariat"
       }
     }
   ],
@@ -71665,6 +71763,50 @@
       "rapid-spin"
     ]
   },
+  "orbs": {
+    "slots": 4,
+    "stack": 3,
+    "cooldownSeconds": 1,
+    "nearbyRadius": 384,
+    "items": [
+      {
+        "id": "slumber",
+        "name": "Soporesfera",
+        "duration": null,
+        "description": "Duerme a los enemigos de la pantalla 4 s (a los jefes, 1 s)."
+      },
+      {
+        "id": "slow",
+        "name": "Ralentosfera",
+        "duration": null,
+        "description": "Los enemigos de la pantalla van un 50 % más lentos durante 8 s (los jefes, un 20 %)."
+      },
+      {
+        "id": "blowback",
+        "name": "Rafagaesfera",
+        "duration": null,
+        "description": "Lanza lejos a los enemigos que tienes cerca (a los jefes, la mitad)."
+      },
+      {
+        "id": "focus",
+        "name": "Focosfera",
+        "duration": 15,
+        "description": "+25 % de crítico durante 15 s, para ti y los compañeros cercanos."
+      },
+      {
+        "id": "luminous",
+        "name": "Luminosfera",
+        "duration": 15,
+        "description": "Ves más campo (la cámara se aleja) durante 15 s, tú y los compañeros cercanos."
+      },
+      {
+        "id": "quick",
+        "name": "Rapidosfera",
+        "duration": 10,
+        "description": "+40 % de velocidad durante 10 s, para ti y los compañeros cercanos."
+      }
+    ]
+  },
   "shop": {
     "items": {
       "mint": {
@@ -71863,9 +72005,32 @@
   },
   "changelog": [
     {
+      "date": "2026-10-23",
+      "title": "Arceus damage ranking and Plates",
+      "new": [
+        "YouTube button at the top, next to What's new: it takes you to the game's channel and, when there is a live stream, it turns red with \"LIVE\" and takes you to watch it.",
+        "The ranking is now split in two: on the left, the damage you dealt to Arceus; on the right, the time survived, as always. Both halves load at once. Every board starts from zero.",
+        "Arceus's Judgment: you can now hit it. It is invincible and only takes a small part of the damage (less and less over time), and your attacks aim at it when no legendary is left.",
+        "Plates: in every run Arceus holds a random one, which gives it its type (you are told when you enter the arena). No move type is always the best anymore."
+      ],
+      "changed": [
+        "At minute 35, Arceus breaks everyone's item (Focus Sash included).",
+        "The Judgment legendaries are no longer twice as strong as the previous one: each one has 25% more HP and 15% more damage, so they can be taken down. There is no 45-minute limit in the ranking anymore.",
+        "Evolved moves no longer change their name: they keep it with a \"+\" (Meteor Mash becomes Meteor Mash +). They work just like before and still stand out with their golden border.",
+        "Meteor Mash hits softer: 24 damage instead of 34 and a slightly smaller area. Maxed and evolved it dealt almost twice as much as Rock Slide; now they are on par.",
+        "In Arceus's Judgment, poison and burns deal a small, fixed amount to the legendaries (poison used to take a % of their HP): poisoning them and running away no longer works, you have to hit them."
+      ],
+      "fixed": []
+    },
+    {
       "date": "2026-10-22",
-      "title": "Co-op without rooms closing on their own",
-      "new": [],
+      "title": "Mystery Dungeon orbs, Shiny Charms and ×100 gacha",
+      "new": [
+        "Mystery Dungeon orbs: single-use items you find during the run (chests, bosses and sometimes when you defeat a Pokémon). Slumber Orb, Slow Orb and Blowback Orb put enemies to sleep, slow them down or blow them away; Focus Orb, Luminous Orb and Quick Orb give critical hits, a wider view or speed to you and nearby teammates. You carry up to 4 different ones (3 of each) and use them with keys 5-8, by tapping their slot above your moves, or with X / Y on a controller. Bosses and legendaries are less affected.",
+        "Shiny Charms: one per region (Kanto, Johto, Hoenn, Sinnoh, Unova, Kalos, Alola, Galar and Paldea). Complete a region's Pokédex (legendaries included) to get its Shiny Charm, and shinies become twice as likely in its gacha banner: from 1% to 2%. You can find them in your Bag, along with how many you still need for each one. If you had already completed a region, its charm is already yours.",
+        "Gacha: new ×100 pull, with 100 normal tickets or with 10 ×10 tickets (ten ×10 pulls in a row, each with its guaranteed Epic). The slot machine spins 10 times showing the best of each ×10, and at the end you get a summary (new, shiny and PokéCoins) with the cards sorted from best to worst. To make room, the ×1 pull is gone: you pull 10 or 100 at a time.",
+        "Gacha: Skip button (or Esc) during the animation: the slot machine ends and all the cards show up at once."
+      ],
       "changed": [],
       "fixed": [
         "Co-op: guests no longer get \"The room has been closed\" in the middle of a run (sometimes after a few minutes or when entering a rift) while the others kept playing. It happened when their connection to the rooms server dropped for a moment; now the run goes on and the room recovers on its own.",

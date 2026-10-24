@@ -5,8 +5,8 @@ const vm = require('node:vm');
 const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 const root = path.resolve(__dirname, '..');
-const SOURCE_COMMIT = '6f0f4409f68adcc5bc31a77cafaf8ba9a0318397';
-const files = ['js/core/util.js', 'js/core/locales.js', 'js/core/i18n.js', 'js/data/lang-en.js', 'js/data/lang-updates.js', 'js/data/pokedex.js', 'js/data/sprites-meta.js', 'js/data/moves.js', 'js/data/starters.js', 'js/data/types.js', 'js/data/upgrades.js', 'js/data/abilities.js', 'js/data/natures.js', 'js/data/tms.js', 'js/data/ability-fx.js', 'js/data/shop.js', 'js/systems/gacha.js', 'js/data/changelog.js'];
+const SOURCE_COMMIT = 'd567c6da88e4ef66634ab54a01b5a3607501e03a';
+const files = ['js/core/util.js', 'js/core/locales.js', 'js/core/i18n.js', 'js/data/lang-en.js', 'js/data/lang-updates.js', 'js/data/pokedex.js', 'js/data/sprites-meta.js', 'js/data/moves.js', 'js/data/starters.js', 'js/data/types.js', 'js/data/upgrades.js', 'js/data/abilities.js', 'js/data/natures.js', 'js/data/tms.js', 'js/data/ability-fx.js', 'js/data/shop.js', 'js/systems/gacha.js', 'js/systems/orbs.js', 'js/data/changelog.js'];
 const sandbox = {G: {}, console, CanvasRenderingContext2D:function(){}, location:{pathname:'/en/',protocol:'http:'}, navigator: {language:'en',languages:['en']}, localStorage:{getItem:()=> 'en',setItem:()=>{}}, document:{documentElement:{},currentScript:null,write:()=>{},addEventListener:()=>{}}, window:{}, performance:{now:()=>0}};
 sandbox.window = sandbox;
 vm.createContext(sandbox);
@@ -41,6 +41,8 @@ const abilityTranslators = {
   it: makeTranslator('it','/it/','js/lang/it.js'),
   'zh-hant': makeTranslator('zh-Hant','/zh-hant/','js/lang/zh-Hant.js')
 };
+const legacySnapshot = JSON.parse(execFileSync('git',['show','8b306c24:wiki/data/game.json'],{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024}));
+const legacyEvolutionNames = Object.fromEntries(legacySnapshot.moves.filter(m=>m.evolution).map(m=>[m.id,m.evolution.name]));
 const title = id => id.split('-').map(s=>s[0].toUpperCase()+s.slice(1)).join(' ');
 const en = text => english[text] || text;
 const need = {hp:'Vigor',atk:'Power',spd:'Sprint',cd:'Reflexes',def:'Armor',rgn:'Synthesis',mag:'Magnet',xp:'Learning'};
@@ -49,7 +51,7 @@ const moves = Object.values(G.Moves.BY_ID).map(m=>{
   return {id:m.id,name:title(m.id),type:m.type,kind:m.kind,category:m.cat ?? null,buffStat:m.stat ?? null,
     description:en(m.desc || ''),maxLevel:m.maxLvl || 5,damage:m.dmg ?? null,cooldown:m.cd ?? null,count:m.count ?? null,
     radius:m.radius ?? null,arc:m.arc ?? null,upgrades:(m.ups || []).map(u=>({text:en(u.t),mods:u.m})),
-    evolution:evo?{name:en(evo[0]),stat:evo[1],requirement:en(G.Moves.NEED_NAME[evo[1]]) || need[evo[1]]}:null};
+    evolution:evo?{name:`${title(m.id)} +`,stat:evo,requirement:en(G.Moves.NEED_NAME[evo]) || need[evo],historicalName:legacyEvolutionNames[m.id]||null}:null};
 });
 const types = Object.keys(G.Types.CHART);
 const matrix = Object.fromEntries(types.map(a=>[a,Object.fromEntries(types.map(d=>[d,G.Types.mult(a,[d])]))]));
@@ -58,7 +60,7 @@ const starters = G.STARTERS.map(s=>({...s,...G.DEX_BY[s.dex],baseStart:G.baseSta
 const evidenceFiles = [...new Set([...files,...JSON.parse(fs.readFileSync(path.join(__dirname,'content.json'),'utf8')).pages.flatMap(p=>p.sources), 'js/core/db.js','js/entities/player.js','js/systems/combat.js','js/systems/levelup.js','js/systems/mons.js','js/systems/rift.js','js/systems/spawner.js','js/net/coop.js'])];
 for(const file of evidenceFiles)hashes[file]=crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex');
 // Refuse a mixed-version export: all factual game files must match the locked source commit.
-const lockedFiles = ['js/data/moves.js','js/data/starters.js','js/data/upgrades.js','js/data/changelog.js','js/data/abilities.js','js/data/natures.js','js/data/tms.js','js/data/ability-fx.js','js/data/shop.js','js/core/db.js','js/entities/player.js','js/systems/combat.js','js/systems/levelup.js','js/systems/mons.js','js/net/coop.js'];
+const lockedFiles = ['js/data/moves.js','js/data/starters.js','js/data/upgrades.js','js/data/changelog.js','js/data/abilities.js','js/data/natures.js','js/data/tms.js','js/data/ability-fx.js','js/data/shop.js','js/systems/gacha.js','js/systems/orbs.js','js/systems/judgment.js','js/core/db.js','js/entities/player.js','js/systems/combat.js','js/systems/levelup.js','js/systems/mons.js','js/net/coop.js'];
 execFileSync('git',['diff','--quiet',SOURCE_COMMIT,'--',...lockedFiles],{cwd:root});
 const commit=SOURCE_COMMIT;
 // Wiki copy and diagrams may be edited in the same release. Only the locked
@@ -94,7 +96,8 @@ const abilities = [...usedAbilityIds].sort().map(id=>{
 });
 const tms = Object.keys(G.TM_MOVES).filter(id=>G.Moves.BY_ID[id]).sort().map(id=>({id,name:title(id),price:G.TM_PRICE[id]||400,compatibleDex:G.TM_MOVES[id].filter(d=>playableDex.has(d))}));
 const naturalMoves = Object.fromEntries(dex.map(p=>[p.dex,G.Moves.poolFor(p,true)]));
-const data={source:{repository:'https://github.com/JPTER78/pokesurvivor',commit,verified:'2026-10-23',files:hashes},dex,starters,moves,types,matrix,matchups,natures,abilities,abilitySlots,tms,naturalMoves,
+const data={source:{repository:'https://github.com/JPTER78/pokesurvivor',commit,verified:'2026-10-24',files:hashes},dex,starters,moves,types,matrix,matchups,natures,abilities,abilitySlots,tms,naturalMoves,
+  orbs:{slots:G.Orbs.SLOTS,stack:G.Orbs.STACK,cooldownSeconds:1,nearbyRadius:384,items:G.Orbs.LIST.map(x=>({id:x.id,name:x.name,duration:x.dur||null,description:x.desc}))},
   shop:{items:Object.fromEntries(Object.entries(G.Shop.ITEMS).map(([id,x])=>[id,{name:en(x.name),price:x.price,hidden:!!x.hidden}])),dailyTmCount:8,timeZone:'Europe/Madrid',defaultTmPrice:400},
   upgrades:G.Upgrades.LIST.map(u=>({id:u.id,name:en(u.name),unit:en(u.unit),max:u.max,base:u.base,grow:u.grow,needs:u.needs||null})),
   rules:{startingMove:{upgradeId:'start',cost:400,max:1,excludesKind:'buff',defaultAlwaysAllowed:true},secondStartingMove:{upgradeId:'start2',cost:400,max:1,requires:'moves',cannotDuplicateFirst:true,usesStartChoices:true},repertoire:{upgradeId:'moves',cost:1500,startMoves:2},singleTypeDamage:{multiplier:1.2,requiresSingleType:true,requiresMatchingMoveType:true,damagingOnly:true},cloudSave:{automaticUploads:false,manualButton:true,beforeUpdate:true,beforeLogout:true,minUploadGapMs:65000,revisionConflictProtection:true,conflictAction:'read-merge-retry'}},

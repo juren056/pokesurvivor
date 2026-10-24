@@ -373,6 +373,8 @@ HOME_TEXT = {
 }
 
 HOME_TEXT.update({
+ 'Judgment Plates, Orbs & ×100 gacha':('Tablas del Juicio, Esferas y gacha ×100','Lastre del Giudizio, Sfere e gacha ×100','審判石板、寶珠與 ×100 扭蛋'),
+ 'The latest review adds the six-Orb reference, regional gacha state calculator and 17-Plate Judgment lookup from the October 22–23 official source.':('La revisión añade la referencia de seis Esferas, la calculadora del gacha regional y la consulta de 17 Tablas del Juicio según el código oficial del 22–23 de octubre.','La verifica aggiunge il riferimento delle sei Sfere, il calcolatore gacha regionale e il confronto delle 17 Lastre del Giudizio dal sorgente ufficiale del 22–23 ottobre.','本次核查依 10 月 22–23 日官方原始碼，新增六種寶珠參考、地區扭蛋狀態計算器與 17 種審判石板查詢。'),
  'Latest verified source review':('Última revisión de fuente','Ultima verifica della fonte','最新原始碼核對'),
  'Languages, co-op evidence & official-site access':('Idiomas, evidencias co-op y acceso oficial','Lingue, prove co-op e accesso ufficiale','語言、合作證據與官方入口'),
  'The October 19 release remains at 103 moves and 97 evolutions. The latest review adds the game-language path, separates connection reports from the boss-spawn fix, and records the official-site iframe rule.':('La versión del 19 de octubre mantiene 103 movimientos y 97 evoluciones. La revisión añade la ruta del idioma, separa los informes de conexión de la corrección del jefe y registra la regla de iframe.','La versione del 19 ottobre resta a 103 mosse e 97 evoluzioni. La verifica aggiunge il percorso della lingua, separa le segnalazioni di connessione dalla correzione del boss e registra la regola iframe.','10 月 19 日版本仍為 103 種招式與 97 條進化；最新核對補上遊戲語言路徑、區分連線回報與 Boss 生成修正，並記錄官方網站 iframe 規則。'),
@@ -385,6 +387,7 @@ HOME_TEXT.update({
   'The latest review adds a non-destructive cross-device coin diagnostic, separates co-op lag from reconnect failures, and rechecks the four-language source tools.':('La revisión añade un diagnóstico no destructivo de monedas entre dispositivos, separa el lag co-op de los fallos de reconexión y vuelve a probar las herramientas en cuatro idiomas.','La verifica aggiunge una diagnosi non distruttiva delle monete tra dispositivi, separa il lag coop dai problemi di riconnessione e ricontrolla gli strumenti nelle quattro lingue.','本次核查新增不破壞資料的跨裝置金幣診斷，分開合作卡頓與重連失敗，並重新驗證四語來源工具。'),
   'Compare physical and special offense, both defenses and speed across all 966 partners, then connect legal TMs, nature, ability and both opening moves.':('Compara el Ataque, Ataque Especial, ambas defensas y la velocidad de los 966 compañeros; después conecta MT legales, naturaleza, habilidad y los dos movimientos iniciales.','Confronta Attacco, Attacco Speciale, entrambe le difese e la velocità di tutti i 966 compagni, poi collega MT valide, natura, abilità e le due mosse iniziali.','比較 966 名夥伴的攻擊、特攻、雙防與速度，再搭配合法招式學習器、性格、特性與兩個起始招式。'),
  'Reference reviewed 2026-10-23. Source inspection is separate from gameplay testing.':('Referencia revisada el 23-10-2026. Revisar el código no equivale a probar cada situación.','Riferimento verificato il 23/10/2026. L’analisi del codice è distinta dalle prove di gioco.','資料於 2026-10-23 核對；檢查原始碼與實際遊玩測試分開記錄。')
+ ,'Reference reviewed 2026-10-24. Source inspection is separate from gameplay testing.':('Referencia revisada el 24-10-2026. Revisar el código no equivale a probar cada situación.','Riferimento verificato il 24/10/2026. L’analisi del codice è distinta dalle prove di gioco.','資料於 2026-10-24 核對；檢查原始碼與實際遊玩測試分開記錄。')
 })
 HOME_TEXT.update({
  'Save revisions & server relay':('Revisiones de guardado y retransmisión','Revisioni del salvataggio e relay','存檔版本與伺服器中繼'),
@@ -586,6 +589,19 @@ def localize_component(value: str, locale: str) -> str:
       '>Gacha<': {'es':'>Gacha<','it':'>Gacha<','zh-hant':'>扭蛋<'},
       'Current pity': {'es':'Pity actual','it':'Pity attuale','zh-hant':'目前保底進度'},
       'Gacha probability calculator': {'es':'Calculadora de probabilidad del gacha','it':'Calcolatore probabilità gacha','zh-hant':'扭蛋機率計算器'},
+      'Regional gacha state calculator': {'es':'Calculadora de estado del gacha regional','it':'Calcolatore dello stato gacha regionale','zh-hant':'地區扭蛋狀態計算器'},
+      'Batch': {'es':'Lote','it':'Blocco','zh-hant':'抽取批次'},
+      'Current banner pity': {'es':'Pity actual del banner','it':'Pity attuale del banner','zh-hant':'目前卡池保底進度'},
+      'Regional Shiny Charm': {'es':'Amuleto Iris regional','it':'Amuleto Cromatico regionale','zh-hant':'地區閃耀護符'},
+      'Payment': {'es':'Pago','it':'Pagamento','zh-hant':'票券支付'},
+      'Unknown': {'es':'Desconocido','it':'Sconosciuto','zh-hant':'未知'},
+      'Not owned': {'es':'No obtenido','it':'Non ottenuto','zh-hant':'未持有'},
+      'Owned': {'es':'Obtenido','it':'Ottenuto','zh-hant':'已持有'},
+      'Normal tickets': {'es':'Billetes normales','it':'Biglietti normali','zh-hant':'一般票券'},
+      '×10 tickets': {'es':'Billetes ×10','it':'Biglietti ×10','zh-hant':'×10 票券'},
+      'Arceus Plate matchup lookup': {'es':'Consulta de tipos de las Tablas de Arceus','it':'Confronto tipi delle Lastre di Arceus','zh-hant':'阿爾宙斯石板屬性查詢'},
+      'Arceus Plate': {'es':'Tabla de Arceus','it':'Lastra di Arceus','zh-hant':'阿爾宙斯石板'},
+      'Choose four Orb slots': {'es':'Elige cuatro ranuras de Esferas','it':'Scegli quattro slot Sfera','zh-hant':'選擇四個寶珠欄位'},
       'Enter future pulls and your current banner pity. Each regional banner tracks its own pity.': {'es':'Indica las tiradas previstas y el pity del banner. Cada región lleva su propio contador.','it':'Inserisci le estrazioni previste e il pity del banner. Ogni regione ha un contatore separato.','zh-hant':'輸入預計抽數與目前卡池保底；各地區卡池會分開計算。'},
       'Future pulls': {'es':'Tiradas previstas','it':'Estrazioni previste','zh-hant':'預計抽數'},
       'Base five-star rate is 1.5%, shiny chance is 1%, and pity guarantees a five-star at 70 pulls.': {'es':'La tasa base de rareza 5 es 1,5 %, la de shiny es 1 % y el pity garantiza rareza 5 en 70 tiradas.','it':'La probabilità base di rarità 5 è 1,5%, quella shiny è 1% e il pity garantisce rarità 5 a 70 estrazioni.','zh-hant':'五星基礎機率為 1.5%，異色機率為 1%，70 抽觸發五星硬保底。'},
@@ -689,6 +705,26 @@ LOCALIZED_DETAILS = {
  },
 }
 
+# V12: localized intent and full guidance for the October 22–23 systems.
+PAGES['es']['orbs']=('Esferas de PokéSurvivor: efectos, ranuras y controles','Compara las seis Esferas, sus duraciones, reducciones contra jefes y controles.','Las Esferas de Mundo Misterioso son objetos de una sola partida. Puedes llevar cuatro tipos distintos y hasta tres unidades de cada uno.','Elige una combinación que resuelva control de masas, movilidad o daño crítico; las bonificaciones se renuevan, no se acumulan.')
+PAGES['it']['orbs']=('Sfere di PokéSurvivor: effetti, slot e comandi','Confronta le sei Sfere, le durate, le riduzioni contro i boss e i comandi.','Le Sfere di Mystery Dungeon sono oggetti validi solo nella partita. Puoi portare quattro tipi diversi e fino a tre unità per tipo.','Scegli una combinazione per controllo, mobilità o critici; riutilizzare un bonus ne rinnova la durata senza sommarlo.')
+PAGES['zh-hant']['orbs']=('PokéSurvivor 寶珠攻略：效果、欄位與操作','比較六種不可思議迷宮寶珠的時間、頭目減免、操作及合作範圍。','寶珠是單局使用物品；可攜帶四種不同寶珠，每種最多三個，用完的欄位不會位移。','依控場、移動或暴擊需求安排四個欄位；重複使用增益只會刷新時間，不會疊加數值。')
+PAGES['es']['arceus-judgment']=('Juicio de Arceus: Tablas, daño y rotura a 35:00','Consulta las 17 Tablas y las reglas verificadas de daño, objetos y legendarios.','A los 30:00 Arceus recibe una Tabla aleatoria. Sigue siendo invencible, pero el daño infligido cuenta en una clasificación separada del tiempo de supervivencia.','Comprueba la Tabla anunciada, protege una ruta de movimiento y llega a 35:00 preparado para perder el objeto equipado.')
+PAGES['it']['arceus-judgment']=('Giudizio di Arceus: Lastre, danni e rottura a 35:00','Consulta le 17 Lastre e le regole verificate per danni, strumenti e leggendari.','A 30:00 Arceus riceve una Lastra casuale. Resta invincibile, ma i danni inflitti entrano in una classifica separata dal tempo di sopravvivenza.','Controlla la Lastra annunciata, mantieni libera una via e arriva a 35:00 pronto a perdere lo strumento equipaggiato.')
+PAGES['zh-hant']['arceus-judgment']=('阿爾宙斯審判：石板、傷害榜與 35:00 道具破壞','查詢 17 種石板，並掌握傷害計分、道具破壞與傳說增援規則。','30:00 進入審判後，阿爾宙斯會隨機持有一種非一般屬性石板。它仍無法擊敗，但造成的傷害會進入獨立排行榜。','先看石板公告再選有效屬性，保留移動路線，並在 35:00 前做好裝備道具被解除的準備。')
+PAGES['es']['gacha-calculator']=('Calculadora gacha ×10 y ×100: pity y Amuletos','Modela el pity 70, la protección Épica, los billetes y el ejemplo shiny del Amuleto regional.','Cada región conserva su propio pool, pity y Amuleto Iris. ×100 ejecuta diez grupos ×10 completos.','Selecciona el estado real que conoces; si el Amuleto es desconocido, interpreta el shiny como un intervalo del 1% al 2%, no como probabilidad de completar la colección.')
+PAGES['it']['gacha-calculator']=('Calcolatore gacha ×10 e ×100: pity e Amuleti','Modella pity a 70, protezione Epica, biglietti ed esempio shiny dell’Amuleto regionale.','Ogni regione mantiene pool, pity e Amuleto Cromatico separati. ×100 esegue dieci gruppi ×10 completi.','Seleziona solo lo stato noto; con Amuleto sconosciuto leggi lo shiny come intervallo 1–2%, non come probabilità di completare la collezione.')
+PAGES['zh-hant']['gacha-calculator']=('扭蛋 ×10／×100 計算器：保底與地區閃耀護符','模擬 70 抽保底、史詩保障、票券成本與地區護符的異色範例。','九個地區卡池各自保存卡池、保底與閃耀護符狀態；×100 會完整執行十組 ×10。','只選擇你確定的狀態；護符未知時，異色結果應讀成 1% 至 2% 範圍，而不是完成收藏的機率。')
+LOCALIZED_DETAILS['es']['orbs']='<section class="article-section"><h2>Reglas de uso</h2><p>Cuatro ranuras distintas, tres unidades por tipo y un segundo de recarga compartida. Teclas 5–8; en táctil, toca la ranura; con mando, X usa e Y cambia. Pausa y derrota no consumen una Esfera.</p></section>'
+LOCALIZED_DETAILS['it']['orbs']='<section class="article-section"><h2>Regole d’uso</h2><p>Quattro slot distinti, tre unità per tipo e un secondo di ricarica condivisa. Tasti 5–8; su touch tocca lo slot; con controller X usa e Y cambia. Pausa e KO non consumano una Sfera.</p></section>'
+LOCALIZED_DETAILS['zh-hant']['orbs']='<section class="article-section"><h2>使用規則</h2><p>四個不同欄位、每種最多三個，所有寶珠共用一秒冷卻。鍵盤按 5–8；觸控點招式上方欄位；手把 X 使用、Y 切換。暫停或倒下時不會消耗。</p></section>'
+LOCALIZED_DETAILS['es']['arceus-judgment']='<section class="article-section"><h2>Reglas del 23 de octubre</h2><p>Hay 17 Tablas no Normales. A 35:00 se desequipa el objeto, Banda Focus incluida. Cada legendario siguiente multiplica los PS por 1,25 y el daño por 1,15; veneno y quemadura hacen una cantidad pequeña y fija.</p></section>'
+LOCALIZED_DETAILS['it']['arceus-judgment']='<section class="article-section"><h2>Regole del 23 ottobre</h2><p>Esistono 17 Lastre non Normali. A 35:00 lo strumento viene rimosso, Focalnastro compreso. Ogni leggendario successivo moltiplica i PS per 1,25 e i danni per 1,15; veleno e scottatura infliggono una piccola quantità fissa.</p></section>'
+LOCALIZED_DETAILS['zh-hant']['arceus-judgment']='<section class="article-section"><h2>10 月 23 日規則</h2><p>共有 17 種非一般屬性石板。35:00 會解除目前道具，包含氣勢披帶。每一隻後續傳說寶可夢的 HP 乘 1.25、傷害乘 1.15；中毒與灼傷改為較小的固定傷害。</p></section>'
+LOCALIZED_DETAILS['es']['gacha-calculator']='<section class="article-section"><h2>Qué calcula y qué no</h2><p>El último puesto protegido reparte 6,5% y 1,5%, por lo que su cuota de cinco estrellas es 18,75%. El ejemplo shiny solo vale para resultados con sprite shiny; no es la probabilidad de obtener una entrada nueva.</p></section>'
+LOCALIZED_DETAILS['it']['gacha-calculator']='<section class="article-section"><h2>Cosa calcola</h2><p>L’ultimo slot protetto ripartisce 6,5% e 1,5%, quindi la quota cinque stelle è 18,75%. L’esempio shiny vale solo per risultati con sprite shiny e non misura una nuova voce della collezione.</p></section>'
+LOCALIZED_DETAILS['zh-hant']['gacha-calculator']='<section class="article-section"><h2>計算範圍</h2><p>保障尾格只在 6.5% 與 1.5% 間重配，因此五星占 18.75%。異色範例只適用於有異色圖像的結果，不能當成取得全新收藏項目的機率。</p></section>'
+
 
 def make_pages(base_pages: dict, locale: str) -> dict:
     pages = {}
@@ -704,7 +740,7 @@ def make_pages(base_pages: dict, locale: str) -> dict:
             heading = {'es':'Cómo usar esta guía','it':'Come usare questa guida','zh-hant':'本頁使用方式'}[locale]
             body += f'<section class="article-section" id="uso"><h2>{heading}</h2><p>{h(guidance)}</p></section>'
             body += LOCALIZED_DETAILS.get(locale,{}).get(slug,'')
-            tool = _component(source['body'], 'data-(?:evolution|matchup|gacha|build-planner|save-diagnostic|coop-diagnostic|shop-preview|tm-checker|nature-calculator|ability-checker)')
+            tool = _component(source['body'], 'data-(?:evolution|matchup|plate-matchup|gacha|orb-planner|build-planner|save-diagnostic|coop-diagnostic|shop-preview|tm-checker|nature-calculator|ability-checker)')
             tables = _all_tables(source['body'])
             if tool: body += localize_component(tool, locale)
             if slug == 'move-evolutions':

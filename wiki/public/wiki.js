@@ -196,16 +196,49 @@ if(abilityChecker){
 }
 const gacha=document.querySelector('[data-gacha]');
 if(gacha){
-  const pulls=gacha.querySelector('#gacha-pulls'),pity=gacha.querySelector('#gacha-pity'),out=gacha.querySelector('#gacha-result');
+  const pulls=gacha.querySelector('#gacha-pulls'),pity=gacha.querySelector('#gacha-pity'),charm=gacha.querySelector('#gacha-charm'),payment=gacha.querySelector('#gacha-payment'),out=gacha.querySelector('#gacha-result');
+  function noFiveProbability(n,startPity){
+    let states=new Map([[`${startPity}|0`,1]]);
+    for(let i=0;i<n;i++){
+      const pos=i%10,next=new Map();
+      for(const [key,prob] of states){
+        const [pityCount,epicFlag]=key.split('|').map(Number);
+        const forced=pityCount>=69,protectedSlot=pos===9&&!epicFlag;
+        if(forced)continue;
+        const pFive=protectedSlot?.1875:.015;
+        const pFour=protectedSlot?.8125:.065;
+        const low=1-pFive-pFour;
+        const add=(epic,value)=>{const k=`${pityCount+1}|${epic}`;next.set(k,(next.get(k)||0)+prob*value);};
+        add(1,pFour);if(low>0)add(epicFlag,low);
+      }
+      states=next;
+      if(pos===9){const reset=new Map();for(const [key,prob] of states){const p=key.split('|')[0];reset.set(`${p}|0`,(reset.get(`${p}|0`)||0)+prob);}states=reset;}
+    }
+    return [...states.values()].reduce((a,b)=>a+b,0);
+  }
   function updateGacha(){
     const n=Number(pulls.value),p=Number(pity.value);
-    if(!Number.isInteger(n)||n<1||n>1000||!Number.isInteger(p)||p<0||p>69){out.textContent=wikiText('gachaInvalid','Enter 1–1000 pulls and current pity from 0–69.');return;}
-    const five=(1-Math.pow(.985,n))*100,shiny=(1-Math.pow(.99,n))*100,hard=n>=70-p;
-    const base=wikiText('gachaSummary',`Base chance of at least one rarity 5: ${five.toFixed(2)}%. Base chance of at least one shiny-eligible roll: ${shiny.toFixed(2)}%.`,{five:five.toFixed(2),shiny:shiny.toFixed(2)});
-    const pityText=hard?wikiText('pityReach',`This window reaches the 70-pull hard pity after at most ${70-p} pulls.`,{pulls:String(70-p)}):wikiText('pityRemain',`Hard pity is not guaranteed within this window; ${70-p} pulls remain from the entered state.`,{pulls:String(70-p)});
-    out.textContent=base+' '+pityText;
+    if(![10,100].includes(n)||!Number.isInteger(p)||p<0||p>69){out.textContent=wikiText('gachaInvalid','Choose ×10 or ×100 and enter current pity from 0–69.');return;}
+    const five=(1-noFiveProbability(n,p))*100;
+    const shinyRate=charm.value==='yes'?.02:charm.value==='no'?.01:null;
+    const shiny=rate=>(1-Math.pow(1-rate,n))*100;
+    const shinyText=shinyRate?`${shiny(shinyRate).toFixed(2)}% at the fixed ${shinyRate*100}% example rate`:`${shiny(.01).toFixed(2)}%–${shiny(.02).toFixed(2)}% because charm state is unknown`;
+    const ticketCost=payment.value==='ten'?`${n/10} ×10 ticket${n===10?'':'s'}`:`${n} normal tickets`;
+    const hard=n>=70-p?`Hard pity is reached within at most ${70-p} pulls from this starting state.`:`${70-p} pulls remain to hard pity from this starting state.`;
+    out.textContent=`At least one rarity 5: ${five.toFixed(2)}%, including each ×10 Epic-protected final slot and 70-pull pity. Cost: ${ticketCost}. Fixed shiny-roll example: ${shinyText}; this is not a new-collection probability. ${hard}`;
   }
-  pulls.addEventListener('input',updateGacha);pity.addEventListener('input',updateGacha);updateGacha();
+  [pulls,pity,charm,payment].forEach(x=>x.addEventListener('input',updateGacha));updateGacha();
+}
+const plateTool=document.querySelector('[data-plate-matchup]');
+if(plateTool){
+  const plate=plateTool.querySelector('#plate-type'),attack=plateTool.querySelector('#plate-attack'),out=plateTool.querySelector('#plate-result');
+  gameData().then(data=>{function update(){const mult=data.matrix[attack.value][plate.value],label=mult>1?'super effective':mult<1?'resisted or ineffective':'neutral';out.textContent=`${attack.selectedOptions[0].textContent} → ${plate.selectedOptions[0].textContent} Arceus: ${mult}× (${label}).`;};plate.addEventListener('change',update);attack.addEventListener('change',update);update();}).catch(()=>out.textContent='Type data could not load.');
+}
+const orbPlanner=document.querySelector('[data-orb-planner]');
+if(orbPlanner){
+  const boxes=[...orbPlanner.querySelectorAll('input[type="checkbox"]')],out=orbPlanner.querySelector('#orb-result');
+  function update(){const selected=boxes.filter(x=>x.checked);if(selected.length>4){this.checked=false;return update.call(this);}out.textContent=selected.length?`${selected.length}/4 slots: ${selected.map(x=>x.parentElement.textContent.trim()).join(' · ')}. Up to three uses each; slots stay fixed when emptied.`:'0/4 slots selected. Choose distinct Orbs for this run.';}
+  boxes.forEach(x=>x.addEventListener('change',update));update();
 }
 const saveDiagnostic=document.querySelector('[data-save-diagnostic]');
 if(saveDiagnostic){

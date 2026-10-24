@@ -1,6 +1,6 @@
 {
   "sourceLocale": "en",
-  "reviewed": "2026-10-22",
+  "reviewed": "2026-10-24",
   "sourceFingerprint": "generated from the same build.py page inventory and data/game.json snapshot",
   "routePolicy": "Stable English technical slugs under /es/, /it/ and /zh-hant/",
   "scope": [
@@ -14,17 +14,17 @@
   ],
   "locales": {
     "es": {
-      "routes": 27,
+      "routes": 28,
       "status": "Codex semantic and structural review complete",
       "nativeExpertApproval": false
     },
     "it": {
-      "routes": 27,
+      "routes": 28,
       "status": "Codex semantic and structural review complete",
       "nativeExpertApproval": false
     },
     "zh-hant": {
-      "routes": 27,
+      "routes": 28,
       "status": "Codex semantic and structural review complete",
       "nativeExpertApproval": false
     }
