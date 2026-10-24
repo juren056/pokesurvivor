@@ -222,27 +222,27 @@ if(gacha){
     const five=(1-noFiveProbability(n,p))*100;
     const shinyRate=charm.value==='yes'?.02:charm.value==='no'?.01:null;
     const shiny=rate=>(1-Math.pow(1-rate,n))*100;
-    const shinyText=shinyRate?`${shiny(shinyRate).toFixed(2)}% at the fixed ${shinyRate*100}% example rate`:`${shiny(.01).toFixed(2)}%–${shiny(.02).toFixed(2)}% because charm state is unknown`;
-    const ticketCost=payment.value==='ten'?`${n/10} ×10 ticket${n===10?'':'s'}`:`${n} normal tickets`;
-    const hard=n>=70-p?`Hard pity is reached within at most ${70-p} pulls from this starting state.`:`${70-p} pulls remain to hard pity from this starting state.`;
-    out.textContent=`At least one rarity 5: ${five.toFixed(2)}%, including each ×10 Epic-protected final slot and 70-pull pity. Cost: ${ticketCost}. Fixed shiny-roll example: ${shinyText}; this is not a new-collection probability. ${hard}`;
+    const shinyText=shinyRate?wikiText('gachaShinyFixed','{chance}% at the fixed {rate}% example rate',{chance:shiny(shinyRate).toFixed(2),rate:String(shinyRate*100)}):wikiText('gachaShinyRange','{low}%–{high}% because charm state is unknown',{low:shiny(.01).toFixed(2),high:shiny(.02).toFixed(2)});
+    const ticketCost=payment.value==='ten'?wikiText('gachaTenTickets','{count} ×10 ticket(s)',{count:String(n/10)}):wikiText('gachaNormalTickets','{count} normal tickets',{count:String(n)});
+    const hard=n>=70-p?wikiText('gachaHardReached','Hard pity is reached within at most {pulls} pulls from this starting state.',{pulls:String(70-p)}):wikiText('gachaHardRemain','{pulls} pulls remain to hard pity from this starting state.',{pulls:String(70-p)});
+    out.textContent=wikiText('gachaV12Result','At least one rarity 5: {five}%, including each ×10 Epic-protected final slot and 70-pull pity. Cost: {cost}. Fixed shiny-roll example: {shiny}; this is not a new-collection probability. {hard}',{five:five.toFixed(2),cost:ticketCost,shiny:shinyText,hard});
   }
   [pulls,pity,charm,payment].forEach(x=>x.addEventListener('input',updateGacha));updateGacha();
 }
 const plateTool=document.querySelector('[data-plate-matchup]');
 if(plateTool){
   const plate=plateTool.querySelector('#plate-type'),attack=plateTool.querySelector('#plate-attack'),out=plateTool.querySelector('#plate-result');
-  gameData().then(data=>{function update(){const mult=data.matrix[attack.value][plate.value],label=mult>1?'super effective':mult<1?'resisted or ineffective':'neutral';out.textContent=`${attack.selectedOptions[0].textContent} → ${plate.selectedOptions[0].textContent} Arceus: ${mult}× (${label}).`;};plate.addEventListener('change',update);attack.addEventListener('change',update);update();}).catch(()=>out.textContent='Type data could not load.');
+  gameData().then(data=>{function update(){const mult=data.matrix[attack.value][plate.value],label=mult>1?wikiText('plateSuper','super effective'):mult<1?wikiText('plateResisted','resisted or ineffective'):wikiText('plateNeutral','neutral');out.textContent=wikiText('plateResult','{attack} → {plate} Arceus: {mult}× ({label}).',{attack:attack.selectedOptions[0].textContent,plate:plate.selectedOptions[0].textContent,mult:String(mult),label});};plate.addEventListener('change',update);attack.addEventListener('change',update);update();}).catch(()=>out.textContent=wikiText('plateLoadFail','Type data could not load.'));
 }
 const orbPlanner=document.querySelector('[data-orb-planner]');
 if(orbPlanner){
   const boxes=[...orbPlanner.querySelectorAll('input[type="checkbox"]')],out=orbPlanner.querySelector('#orb-result');
-  function update(){const selected=boxes.filter(x=>x.checked);if(selected.length>4){this.checked=false;return update.call(this);}out.textContent=selected.length?`${selected.length}/4 slots: ${selected.map(x=>x.parentElement.textContent.trim()).join(' · ')}. Up to three uses each; slots stay fixed when emptied.`:'0/4 slots selected. Choose distinct Orbs for this run.';}
+  function update(){const selected=boxes.filter(x=>x.checked);if(selected.length>4){this.checked=false;return update.call(this);}out.textContent=selected.length?wikiText('orbSelected','{count}/4 slots: {orbs}. Up to three uses each; slots stay fixed when emptied.',{count:String(selected.length),orbs:selected.map(x=>x.parentElement.textContent.trim()).join(' · ')}):wikiText('orbEmpty','0/4 slots selected. Choose distinct Orbs for this run.');}
   boxes.forEach(x=>x.addEventListener('change',update));update();
 }
 const saveDiagnostic=document.querySelector('[data-save-diagnostic]');
 if(saveDiagnostic){
-  const symptom=saveDiagnostic.querySelector('#save-symptom'),game=saveDiagnostic.querySelector('#save-game'),login=saveDiagnostic.querySelector('#save-login'),copy=saveDiagnostic.querySelector('#save-copy'),state=saveDiagnostic.querySelector('#save-state'),second=saveDiagnostic.querySelector('#save-second'),timing=saveDiagnostic.querySelector('#save-timing');
+  const symptom=saveDiagnostic.querySelector('#save-symptom'),game=saveDiagnostic.querySelector('#save-game'),sourceBrowser=saveDiagnostic.querySelector('#save-source-browser'),targetBrowser=saveDiagnostic.querySelector('#save-target-browser'),login=saveDiagnostic.querySelector('#save-login'),copy=saveDiagnostic.querySelector('#save-copy'),state=saveDiagnostic.querySelector('#save-state'),second=saveDiagnostic.querySelector('#save-second'),timing=saveDiagnostic.querySelector('#save-timing');
   const result=saveDiagnostic.querySelector('#save-result'),report=saveDiagnostic.querySelector('#save-report'),run=saveDiagnostic.querySelector('[data-diagnostic-run]'),copyButton=saveDiagnostic.querySelector('[data-report-copy]');
   const labels=select=>select.selectedOptions[0].textContent.trim();
   function diagnose(){
@@ -261,6 +261,8 @@ if(saveDiagnostic){
       wikiText('saveReportTitle','PokéSurvivor recovery report (no credentials or save data)'),
       `${wikiText('saveReportSymptom','Visible symptom')}: ${labels(symptom)}`,
       `${wikiText('saveReportHandoff','Device handoff')}: ${labels(game)}`,
+      `${wikiText('saveReportSourceBrowser','Source browser category')}: ${labels(sourceBrowser)}`,
+      `${wikiText('saveReportTargetBrowser','Target browser category')}: ${labels(targetBrowser)}`,
       `${wikiText('saveReportAccount','Account state')}: ${labels(login)}`,
       `${wikiText('saveReportCopy','Original device complete')}: ${labels(copy)}`,
       `${wikiText('saveReportState','Original save state')}: ${labels(state)}`,
