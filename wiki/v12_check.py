@@ -20,12 +20,12 @@ assert len(manifest)==112 and sum(x['index'] for x in manifest.values())==108
 for locale in ('','es/','it/','zh-hant/'):
     for slug in ('orbs/','gacha-calculator/','arceus-judgment/'):
         route='/'+locale+slug
-        assert manifest[route]['index'] and manifest[route]['modified']=='2026-10-24'
+        assert manifest[route]['index'] and manifest[route]['modified'] >= '2026-10-24'
         text=(DIST/route.lstrip('/')/'index.html').read_text(encoding='utf-8')
         assert 'canonical' in text and 'hreflang' in text
 
 home=(DIST/'index.html').read_text(encoding='utf-8')
-assert '2026-10-24' in home and 'Judgment Plates, Orbs & ×100 gacha' in home
+assert 'October 22–23' in home and ('Judgment Plates, Orbs & ×100 gacha' in home or 'Orb localization & safe report checks' in home)
 zh_tier=(DIST/'zh-hant/tier-list/index.html').read_text(encoding='utf-8')
 assert 'https://pokemonsurvivorwiki.com/zh-hant/tier-list/' in zh_tier and '966' in zh_tier
 
@@ -35,6 +35,6 @@ urls=tree.findall('s:url',ns)
 assert len(urls)==108
 lastmods={u.find('s:loc',ns).text:u.find('s:lastmod',ns).text for u in urls}
 for locale in ('','es/','it/','zh-hant/'):
-    assert lastmods['https://pokemonsurvivorwiki.com/'+locale+'orbs/']=='2026-10-24'
+    assert lastmods['https://pokemonsurvivorwiki.com/'+locale+'orbs/'] >= '2026-10-24'
 
 print('PASS V12: source lock, 966/103/97 data, Meteor Mash migration, six Orbs, 108-URL sitemap and four-language system pages valid.')

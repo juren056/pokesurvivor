@@ -340,7 +340,7 @@ def apply_v12():
     orb_effects={'slumber':'Sleep: 4 s normal enemies; 1 s bosses/legendaries','slow':'Slow: 50% for 8 s normal enemies; 20% for bosses/legendaries','blowback':'Push nearby enemies; bosses/legendaries receive half force','focus':'+0.25 critical-hit chance for 15 s to you and nearby teammates','luminous':'Zooms the camera out for 15 s for you and nearby teammates','quick':'1.4× movement speed for 10 s for you and nearby teammates'}
     orb_rows=[[orb_names[x['id']],orb_effects[x['id']]] for x in DATA['orbs']['items']]
     orb_checks=''.join(f'<label class="check"><input type="checkbox" value="{x["id"]}"> {orb_names[x["id"]]}</label>' for x in DATA['orbs']['items'])
-    orb_tool=f'''<div class="tool" data-orb-planner><h3>Choose four Orb slots</h3><p>Select up to four different Orb types. The planner does not read or change a run.</p><div class="tool-inputs">{orb_checks}</div><output id="orb-result" aria-live="polite"></output></div>'''
+    orb_tool=f'''<div class="tool" data-orb-planner><h3>Choose four Orb slots</h3><p>Select up to four different Orb types. The planner does not read or change a run.</p><div class="tool-inputs">{orb_checks}</div><output id="orb-result" aria-live="polite"></output><noscript><p>Use the complete Orb table below.</p></noscript></div>'''
     body='<p class="lead">Mystery Dungeon Orbs are single-run items found from chests, bosses and some defeated Pokémon. Carry four different types with up to three uses of each, then trigger a fixed slot without shifting the others.</p>'+orb_tool
     body+=table(['Orb','Verified effect'],orb_rows,kind='All six Mystery Dungeon Orbs')
     body+=section('Slots, controls and safety rules','<ul><li>Four distinct slots; up to three of each Orb. Empty slots remain empty instead of shifting.</li><li>Keyboard uses keys 5–8. Touch uses the slot above the moves. Controller uses X to activate and Y to cycle.</li><li>All Orb uses share a one-second cooldown.</li><li>An Orb is not consumed while paused or dead.</li><li>Focus, Luminous and Quick affect only nearby teammates (source radius 384). Reusing a buff refreshes its duration; it does not stack the bonus.</li><li>Orbs belong to the current run and are not cloud inventory.</li></ul>')
@@ -385,6 +385,45 @@ def apply_v13():
     PAGES['arceus-judgment']['related']=list(dict.fromkeys(PAGES['arceus-judgment']['related']+['types','builds','orbs']))
 
 
+def apply_v14():
+    """October 25 review: finish Orb localization and add scoped player-report help."""
+    source=DATA['source']['commit']
+    orb=PAGES['orbs']['body']
+    orb_replacements={
+        'Sleep: 4 s normal enemies; 1 s bosses/legendaries':'Sleep for 4 seconds on normal enemies; 1 second on bosses and legendary targets.',
+        'Slow: 50% for 8 s normal enemies; 20% for bosses/legendaries':'Slows normal enemies by 50% for 8 seconds; bosses and legendary targets by 20% for 8 seconds.',
+        'Push nearby enemies; bosses/legendaries receive half force':'Pushes nearby enemies away. Bosses and legendary targets receive half the normal push force.',
+        '+0.25 critical-hit chance for 15 s to you and nearby teammates':'Adds 25 percentage points to critical-hit chance for 15 seconds, for you and nearby teammates.',
+        'Zooms the camera out for 15 s for you and nearby teammates':'Widens the view for 15 seconds for you and nearby teammates.',
+        '1.4× movement speed for 10 s for you and nearby teammates':'Multiplies movement speed by 1.4 for 10 seconds for you and nearby teammates.'
+    }
+    for old,new in orb_replacements.items(): orb=orb.replace(old,new)
+    PAGES['orbs'].update(body=orb,modified='2026-10-25',source_commit=source)
+
+    PAGES['save-recovery']['body']+=section("Can't Log In? Preserve Your Local Progress First",'<p><a href="https://github.com/JPTER78/pokesurvivor/issues/331">Report #331</a> describes a previously working username/password login failing on Android Chrome without a linked Gmail account. It is one player report, not evidence that every account is unavailable.</p><p>If any browser still shows the correct progress, preserve that browser profile before troubleshooting. Do not clear cookies or site data, uninstall the PWA, create a replacement account with the same name, or repeatedly overwrite saves. Record only the sign-in method, device/browser category, approximate time, visible game version and error category. Never share a password, email address, token or save file with this Wiki.</p><p>Separate four states: cannot sign in; signed in but different progress appears; upload is pending or failed; or cloud Save succeeded but another browser loaded a different copy. The Wiki has no recovery backend and cannot guarantee restoration.</p>','login-preserve-progress')
+    PAGES['save-recovery'].update(modified='2026-10-25',source_commit=source,related=['co-op','mobile','updates'])
+
+    PAGES['co-op']['body']+=section('Friend Username Not Found? Check the Friendship Step First','<p><a href="https://github.com/JPTER78/pokesurvivor/issues/333">Report #333</a> says a friend username was not found while adding a player. That happens before a room connection exists, so it is not evidence of a TURN, WebRTC or regional blocking problem.</p><p>Check the current account-name instructions and confirm that both players are signed into the intended accounts. Do not guess that names are case-sensitive unless the official interface says so. Then identify the exact stage: friendship lookup; room invitation (roughly three minutes of validity); browser connection; or an already-running game with stutter, card-selection pause or disconnect. Do not publish credentials, room codes, IP addresses or private logs.</p>','friend-username-not-found')
+    PAGES['co-op'].update(modified='2026-10-25',source_commit=source,related=['save-recovery','mobile','updates','arceus-judgment'])
+
+    ticket_rows=[
+        ['Normal-ticket counter (t1)','40 normal tickets','Four ×10 batches when normal tickets are selected'],
+        ['Ten-pull-ticket counter (t10)','4 ×10 tickets','Four ×10 batches; the normal-ticket counter need not increase by 40'],
+        ['×100 paid with normal tickets','100 normal tickets','Ten consecutive ×10 groups'],
+        ['×100 paid with ×10 tickets','10 ×10 tickets','Ten consecutive ×10 groups']
+    ]
+    ticket_help='<p>A normal ticket and a ×10 ticket use different counters. Reward display, selected payment counter, pull count and animation-group count are separate values.</p>'+table(['Counter or choice','Example balance','What it funds'],ticket_rows,kind='Normal tickets and ten-pull tickets use different counters')+'<p><a href="https://github.com/JPTER78/pokesurvivor/issues/334">Report #334</a> asks why “4 ×10” and “4 received” looked inconsistent. Without before-and-after records from the same counter and the reward code path, that report does not prove a loss of 36 or 40 tickets. This calculator does not inspect an account or verify the report.</p>'
+    PAGES['gacha-calculator']['body']+=section('Why Does My ×10 Ticket Amount Look Wrong?',ticket_help,'ticket-units')
+    PAGES['gacha-calculator'].update(modified='2026-10-25',source_commit=source,related=['pokedex','updates','orbs'])
+
+    PAGES['arceus-judgment']['body']+=section('Run Missing From a Leaderboard? Check the Visible Board First','<p><a href="https://github.com/JPTER78/pokesurvivor/issues/332">Report #332</a> says a 33:37 Ho-oh result did not appear as expected. The report does not establish that the record was deleted or which filters and submission conditions were active.</p><p>First distinguish the damage board from survival time, then record the visible Pokémon/partner filter, date or version range and whether the run reached its normal result screen. Compare any reset notice with the date it actually covered. The Wiki cannot add a result, does not recommend editing a save or repeatedly farming submissions, and will update this note only if an official reply clarifies the rule.</p>','leaderboard-run-missing')
+    PAGES['arceus-judgment'].update(modified='2026-10-25',source_commit=source,related=['types','builds','orbs','updates'])
+
+    updates=PAGES['updates']['body'].replace('October 24, the date this Wiki verified the source and page output.','October 25, the date this Wiki reviewed the page output and the scoped player reports below.').replace('October 24 is a site-review date','October 25 is a site-review date')
+    updates+=section('October 25 player-report review','<p>The official changelog and reviewed source remain dated October 22–23 at revision <code>d567c6d</code>. On October 25, this Wiki added safe, scoped guidance for login report #331, leaderboard report #332, friend lookup report #333 and ticket-unit report #334. These are player reports, not a new official game release or proof of a shared root cause.</p>','player-report-review-2026-10-25')
+    PAGES['updates'].update(body=updates,title='PokéSurvivor October 25 Site Review: Reports, Plates & Orbs',description='October 25 Wiki review of four scoped player reports, alongside the official October 22–23 Orbs, gacha and Judgment source.',modified='2026-10-25',source_commit=source)
+
+
 def home():
     starters = [next(p for p in DATA['starters'] if p['dex']==n) for n in (4,1,7)]
     initial = starters[0]
@@ -407,10 +446,10 @@ def home():
 <div class="topic-strip"><a href="/pokedex/">Pokédex <span>{len(DATA['dex'])} partners</span></a><a href="/moves/">Moves <span>{len(DATA['moves'])} definitions</span></a><a href="/move-evolutions/">Evolutions <span>{sum(bool(m['evolution']) for m in DATA['moves'])} conditions</span></a><a href="https://pokesurvivor.com/" class="play-topic">Play the developer’s game {icon('arrow',18)}</a></div></section>
 <div class="home-content"><section class="home-section journey"><div class="section-heading"><h2>What’s stopping<br>your next run?</h2><p>Choose the problem. Find your next step.</p>{link('builds','Explore starter builds','text-link')}</div><div class="route-list">{routes}</div></section>
 <section class="reference-home"><div class="reference-intro"><div class="reference-symbol">{icon('dex',38)}</div><h2>Meet the partners.<br>Know the numbers.</h2><p>Actual partner stats and type rules from the recorded game snapshot. Find a name, compare an opening, or check a difficult matchup.</p><div class="reference-types"><a href="/pokedex/?type=grass">{icon('grass',18)}Grass</a><a href="/pokedex/?type=fire">{icon('fire',18)}Fire</a><a href="/pokedex/?type=water">{icon('water',18)}Water</a></div>{link('pokedex','Open the full Pokédex','button')}</div><div class="reference-preview">{sample}<div class="database-links">{link('moves','Move patterns & base values')}{link('types','Type chart & matchup calculator')}{link('legendaries','Legendary encounters & roster')}</div></div></section>
-<section class="home-section notebook"><div class="build-feature"><h2>A tier is a starting point.<br>Your build is the plan.</h2><p>Compare physical and special offense, both defenses and speed across all 966 partners, then connect legal TMs, nature, ability and both opening moves.</p><div class="actions">{link('tier-list','See all 966 ranked','button secondary')}{link('starter-tier-list','Compare starters','text-link')}{link('builds','Plan a build','text-link')}</div></div><aside class="latest"><h3>Latest verified source review</h3><p class="date">2026-10-24</p><h4>Judgment Plates, Orbs & ×100 gacha</h4><p>The latest review adds the six-Orb reference, regional gacha state calculator and 17-Plate Judgment lookup from the October 22–23 official source.</p>{link('updates','Read the verified changes','text-link')}</aside></section>
+<section class="home-section notebook"><div class="build-feature"><h2>A tier is a starting point.<br>Your build is the plan.</h2><p>Compare physical and special offense, both defenses and speed across all 966 partners, then connect legal TMs, nature, ability and both opening moves.</p><div class="actions">{link('tier-list','See all 966 ranked','button secondary')}{link('starter-tier-list','Compare starters','text-link')}{link('builds','Plan a build','text-link')}</div></div><aside class="latest"><h3>Latest site review</h3><p class="date">2026-10-25</p><h4>Orb localization & safe report checks</h4><p>The October 25 review completes the six-Orb effect localization and adds scoped help for login, friend lookup, ticket-unit and leaderboard reports. Official game-source dates remain October 22–23.</p>{link('updates','Read the reviewed changes','text-link')}</aside></section>
 <section class="trust-strip"><div>{icon('shield',25)}<p><strong>Checked against the source.</strong><span>Reference reviewed {REVIEWED}. Source inspection is separate from gameplay testing.</span></p></div>{link('about','Our sources & method','text-link')}</section>
 <section class="identity"><div><h2>Different game, similar name?</h2><p>Pokémon Survivor Burst is a separate project. Identify your game before using a build or download guide.</p></div>{link('survivor-vs-burst','Compare the games','text-link')}</section></div>'''
-    add('', 'PokéSurvivor Wiki (2026) – Tier List, Builds & Game Guides','Independent PokéSurvivor wiki reviewed October 24 with 966 Pokémon, 103 moves, 97 evolution recipes, Judgment Plates, Orbs and regional gacha tools.',body,'Home',modified='2026-10-24')
+    add('', 'PokéSurvivor Wiki (2026) – Tier List, Builds & Game Guides','Independent PokéSurvivor wiki reviewed October 25 with 966 Pokémon, 103 moves, 97 evolution recipes, localized Orbs and regional gacha tools.',body,'Home',modified='2026-10-25')
     add('search','Search the PokéSurvivor Wiki','Search guides, Pokémon and moves in the PokéSurvivor Wiki.', '<p class="lead">Find a guide, a partner or a move.</p><form action="/search/" class="search-page"><label for="search-query">Search the Wiki</label><div><input id="search-query" type="search" name="q" maxlength="100" placeholder="Try Ember, Pikachu or mobile"><button class="button" type="submit">Search</button></div></form><p id="search-status" role="status" aria-live="polite"></p><ul id="search-results" class="search-results"></ul><noscript><p>Search needs JavaScript. Use the guide and database navigation to browse every topic.</p></noscript>','Search',index=False)
 
 
@@ -494,6 +533,7 @@ def build():
     enhance_content_pages()
     apply_v12()
     apply_v13()
+    apply_v14()
     home()
     locale_pages={'en':PAGES}
     for locale in localization.LOCALE_ORDER[1:]:
