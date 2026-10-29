@@ -25,7 +25,7 @@ for locale in ('','es/','it/','zh-hant/'):
         assert 'canonical' in text and 'hreflang' in text
 
 home=(DIST/'index.html').read_text(encoding='utf-8')
-assert 'October 22–23' in home and ('Judgment Plates, Orbs & ×100 gacha' in home or 'Orb localization & safe report checks' in home)
+assert '2026-10-30' in home and 'Halloween, mobile aim & safer saves' in home
 zh_tier=(DIST/'zh-hant/tier-list/index.html').read_text(encoding='utf-8')
 assert 'https://pokemonsurvivorwiki.com/zh-hant/tier-list/' in zh_tier and '966' in zh_tier
 

@@ -12,7 +12,7 @@ def page(route: str) -> str:
 
 
 home = page("")
-assert "2026-10-2" in home
+assert "2026-10-30" in home
 
 shop = page("kecleon-shop")
 assert "Kecleon Shop or Daily Missions Not Resetting?" in shop

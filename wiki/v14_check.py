@@ -11,8 +11,8 @@ def page(route: str) -> str:
 
 
 home = page("")
-assert "2026-10-25" in home
-assert "Official game-source dates remain October 22–23" in home
+assert "2026-10-30" in home
+assert "Halloween, mobile aim & safer saves" in home
 
 english_orbs = page("orbs")
 assert english_orbs.count("<caption class=\"sr-only\">All six Mystery Dungeon Orbs</caption>") == 1
@@ -53,6 +53,6 @@ urls = sitemap.findall(f"{ns}url")
 assert len(urls) == 108
 loc_to_lastmod = {u.findtext(f"{ns}loc"): u.findtext(f"{ns}lastmod") for u in urls}
 for route in ("", "orbs/", "save-recovery/", "co-op/", "gacha-calculator/", "arceus-judgment/", "updates/"):
-    assert loc_to_lastmod[f"https://pokemonsurvivorwiki.com/{route}"] == "2026-10-25"
+    assert loc_to_lastmod[f"https://pokemonsurvivorwiki.com/{route}"] >= "2026-10-25"
 
 print("PASS V14: localized Orb effects, four scoped reports, October 25 dates and 108-URL sitemap valid.")

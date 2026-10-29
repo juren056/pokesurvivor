@@ -71998,9 +71998,11 @@
       "manualButton": true,
       "beforeUpdate": true,
       "beforeLogout": true,
-      "minUploadGapMs": 65000,
+      "minUploadGapMs": 25000,
+      "hiddenScheduledRuleGapMs": 21000,
       "revisionConflictProtection": true,
-      "conflictAction": "read-merge-retry"
+      "conflictAction": "read-merge-retry",
+      "sourceCommit": "d667c216ddc99ee7bbb16a0ca0528f25461f037e"
     }
   },
   "changelog": [

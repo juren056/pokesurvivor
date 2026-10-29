@@ -1,0 +1,35 @@
+{
+  "reviewed": "2026-10-30",
+  "policy": {
+    "networkDependencyDuringBuild": false,
+    "onMissingUpstream": "keep-last-validated-snapshot",
+    "rejectEmptyOrMalformedRefresh": true,
+    "note": "The production build reads committed, validated data. It never replaces the site with an empty upstream response."
+  },
+  "upstream": {
+    "repository": "https://github.com/JPTER78/pokesurvivor",
+    "currentObservedCommit": "110550a80f81eadd6924b6286807935a479e9b4f",
+    "currentObservedVersion": "59e2f8a67b",
+    "currentObservedAt": "2026-10-29T16:29:24.113Z",
+    "currentMainChangelogPath": {
+      "path": "js/data/changelog.js",
+      "status": "missing"
+    },
+    "lastValidatedIndependentChangelog": {
+      "commit": "d667c216ddc99ee7bbb16a0ca0528f25461f037e",
+      "path": "js/data/changelog.js"
+    },
+    "halloween": {
+      "commit": "d667c216ddc99ee7bbb16a0ca0528f25461f037e",
+      "path": "js/systems/halloween.js",
+      "startUtc": "2026-10-29T23:00:00Z",
+      "endUtcExclusive": "2026-11-02T23:00:00Z"
+    },
+    "cloudSave": {
+      "commit": "d667c216ddc99ee7bbb16a0ca0528f25461f037e",
+      "path": "js/core/db.js",
+      "normalMinimumGapMs": 25000,
+      "hiddenScheduledRuleGapMs": 21000
+    }
+  }
+}

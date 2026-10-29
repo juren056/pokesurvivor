@@ -1,5 +1,5 @@
 {
-  "reviewed": "2026-10-24",
+  "reviewed": "2026-10-30",
   "pages": [
     {
       "slug": "how-to-play",
@@ -104,7 +104,7 @@
       "title": "PokéSurvivor on Android & iPhone: Controls & Fixes",
       "description": "Play PokéSurvivor on Android, iPhone or iPad with touch or a supported controller; install the PWA, protect saves and diagnose current mobile reports.",
       "group": "Guides",
-      "intro": "PokéSurvivor runs in a mobile browser on Android, iPhone and iPad. Use the touch controls, or a supported controller where available, and customize the touch layout in Settings → Controls. Manual Aim is not available on mobile in the reviewed October 20 source.",
+      "intro": "PokéSurvivor runs in a mobile browser on Android, iPhone and iPad. Manual Aim is available again under Settings → Accessibility: move with the left side, aim with the right side, and release the right touch to return to automatic targeting.",
       "modified": "2026-10-21",
       "sourceCommit": "3c9641c9e782cf74afbde490f39cd60adf59e32b",
       "sections": [
@@ -120,8 +120,8 @@
         {
           "heading": "Controller and touch targeting",
           "paragraphs": [
-            "The October 18 build added broad controller support. The reviewed October 20 source then removed Manual Aim on mobile. Desktop or controller behavior and touch behavior must therefore be diagnosed separately.",
-            "On a phone or tablet, use the touch joystick and tap the move slot you want. Do not look for Settings → Accessibility → Manual Aim on mobile. A controller connected to a browser device does not make this a native console release."
+            "The October 25 source restored Manual Aim on mobile. Enable it under Settings → Accessibility, move with the left touch area, aim with the right touch area, and release the right touch to return to automatic targeting.",
+            "The October 27 source also added Anchored under Settings → Controls → Place the buttons. Anchored stays where the touch began; Floating follows the finger and remains the default. A controller connected to a browser device does not make this a native console release."
           ]
         },
         {
@@ -163,7 +163,7 @@
         {
           "heading": "Change controls and language safely",
           "paragraphs": [
-            "Use Settings → Controls for touch-button placement and controller mapping, and Settings → Graphics → Language for the game language. Manual Aim was removed on mobile in the reviewed October 20 source.",
+            "Use Settings → Controls for touch-button placement and controller mapping, Settings → Accessibility for Manual Aim, and Settings → Graphics → Language for the game language. Anchored is optional; Floating remains the default joystick mode.",
             "Issue #258 reports missing move or map graphics after a tab switch or screen lock. Save first if possible, then reload the current page. Record whether the problem returns; no cause is confirmed and clearing storage is not a safe diagnostic step."
           ]
         }
@@ -297,7 +297,7 @@
           "heading": "Saves, accounts and required updates",
           "paragraphs": [
             "The current source saves normal progress immediately in this browser. Cloud upload now happens when you press the Save button, plus the game’s before-update and before-logout paths. The older 10-minute and 30-minute automatic schedules are historical behavior and must not be used as current guidance.",
-            "Save can show local, pending, syncing, success or offline. Pending and the 65-second wait between successful uploads do not mean the cloud write completed. Before moving devices, press Save and wait for the visible success state on the first device.",
+            "Save can show local, pending, syncing, success or offline. A normal successful cloud upload cannot be followed by another for at least 25 seconds; waiting or pending is not confirmation. Before moving devices, press Save and wait for the visible success state on the first device.",
             "The official cloud features work on pokesurvivor.com. A guest copy is not guaranteed to be recoverable or portable, and this Wiki cannot merge competing device copies."
           ]
         },
@@ -598,7 +598,7 @@
           "heading": "Save now and confirm the result",
           "paragraphs": [
             "Normal progress is written to this browser first. In the reviewed October 21 source, cloud upload is manual: press Save. The game also attempts the same path before a required update and before logout. The old 10-minute and 30-minute schedules remain historical notes, not current promises.",
-            "Read the visible state literally: local means this browser has the copy; pending or waiting means upload is not confirmed; syncing means a request is in progress; success confirms the current upload; offline means the cloud request could not complete. Successful uploads are kept at least 65 seconds apart.",
+            "Read the visible state literally: local means this browser has the copy; pending or waiting means upload is not confirmed; syncing means a request is in progress; success confirms the current upload; offline means the cloud request could not complete. Normal successful uploads are kept at least 25 seconds apart; this is a minimum spacing rule, not an automatic-save schedule or a guarantee of success.",
             "For a device handoff, finish on device A, press Save, wait for success, then open device B. Do not make progress on both devices and assume every field will merge. Closing the tab, forcing logout or clearing storage is not a safe substitute for a confirmed Save."
           ]
         },
